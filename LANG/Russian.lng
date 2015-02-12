@@ -157,7 +157,7 @@ TEXT24=Квест = %d
 TEXT25=Критическая ошибка: Неправильный номер квеста (%d)
 TEXT26=Критическая ошибка: Квест с номером %d не найден.
 TEXT27=Предупреждение: Больше чем один QuestGiver (NPC/GO/ITEM дающий квест):
-TEXT28=Ошибка: QuestGiver %d имеет неправильный npcflag, (`npcflag` & 2) <> 2
+TEXT28=Ошибка: QuestGiver %d имеет неправильный NpcFlags, (`NpcFlags` & 2) <> 2
 TEXT29=Предупреждение: QuestGiver (id=%d) имеет несколько местоположений в таблице `creature`
 TEXT30=Ошибка: QuestGiver (id=%d) не имеет местоположения (не описан в таблице `creature`)
 TEXT31=Ошибка: QuestGiver - NPC с id=%d, но запись с entry = %0:d в `creature_template` не существует
@@ -165,7 +165,7 @@ TEXT32=Предупреждение: QuestGiver (id=%d) имеет несколько местоположений в табли
 TEXT33=Ошибка: QuestGiver (id=%d) не имеет местоположения (не описан в таблице `gameobject`)
 TEXT34=Предупреждение: QuestGiver - предмет (id=%d), но данный предмет не содержится в таблицах *_loot_template and npc_vendor (не падает и не продается). Это может быть не ошибка, например, предмет может быть получен с другого квеста.
 TEXT35=Предупреждение: Больше чем один QuestTaker (NPC/GO принимающий квест):
-TEXT36=Ошибка: Ошибка: QuestTaker %d имеет неправильный npcflag, (`npcflag` & 2) <> 2
+TEXT36=Ошибка: Ошибка: QuestTaker %d имеет неправильный NpcFlags, (`NpcFlags` & 2) <> 2
 TEXT37=Предупреждение: QuestTaker (id=%d) имеет несколько местоположений в таблице `creature`
 TEXT38=Ошибка: QuestTaker (id=%d) не имеет местоположения (не описан в таблице `creature`)
 TEXT39=Ошибка: QuestTaker - NPC с id=%d, но запись с entry = %0:d в `creature_template` не существует
@@ -598,65 +598,69 @@ tsEditCreature=Creature Template
 gbCreature=Creature I
 lbctEntry=Entry
 ^edctEntry=Номер моба. Номер является Primary Key в таблице, поэтому должен быть уникальным.
-edctmodelid_m=modelid_m
-^edctmodelid_m=Мужская графическая модель отображаемая клиентом.
-edctmodelid_f=modelid_f
-^edctmodelid_f=Женская графическая модель отображаемая клиентом.
-edctname=name
-^edctname=Имя моба.
-edctsubname=subname
-^edctsubname=Подпись к имени моба (Может отсутствовать).
-edctminlevel=minlevel
-^edctminlevel=Минимальный уровень моба. $B$BЗаспавненый моб имеет уровень в диапазоне от минимального до максимального уровня.
-edctmaxlevel=maxlevel
-^edctmaxlevel=Максимальный уровень моба. $B$BЗаспавненый моб имеет уровень в диапазоне от минимального до максимального уровня.
-edctminhealth=minhealth
-^edctminhealth=Минимальное количество жизней для моба. $B$BЗаспавненый моб имеет количество жизней прямопропорциональное к текущему уровню
-edctmaxhealth=maxhealth
-^edctmaxhealth=Максимальное количество жизней для моба. $B$BЗаспавненый моб имеет количество жизней прямопропорциональное к текущему уровню
-edctminmana=minmana
-^edctminmana=Минимальное количество маны для моба. $B$BЗаспавненый моб имеет количество маны прямопропорциональное к текущему уровню
-edctmaxmana=maxmana
-^edctmaxmana=Максимальное количество маны для моба. $B$BЗаспавненый моб имеет количество маны прямопропорциональное к текущему уровню
-edctmingold=mingold
-^edctmingold=Минимальное количество выпадающих денег
-edctmaxgold=maxgold
-^edctmaxgold=Максимальное количество выпадающих денег. 0 = с моба не падают деньги.
+edctModelId1=ModelId1
+^edctModelId1=Graphical model that client must apply on this creature.
+edctModelId3=ModelId3
+^edctModelId3=Graphical model that client must apply on this creature.
+edctName=name
+^edctName=Имя моба.
+edctSubName=subname
+^edctSubName=Подпись к имени моба (Может отсутствовать).
+edctMinLevel=minlevel
+^edctMinLevel=Минимальный уровень моба. $B$BЗаспавненый моб имеет уровень в диапазоне от минимального до максимального уровня.
+edctMaxLevel=maxlevel
+^edctMaxLevel=Максимальный уровень моба. $B$BЗаспавненый моб имеет уровень в диапазоне от минимального до максимального уровня.
+edctMinLevelHealth=minhealth
+^edctMinLevelHealth=Минимальное количество жизней для моба. $B$BЗаспавненый моб имеет количество жизней прямопропорциональное к текущему уровню
+edctMaxLevelHealth=maxhealth
+^edctMaxLevelHealth=Максимальное количество жизней для моба. $B$BЗаспавненый моб имеет количество жизней прямопропорциональное к текущему уровню
+edctMinLevelMana=minmana
+^edctMinLevelMana=Минимальное количество маны для моба. $B$BЗаспавненый моб имеет количество маны прямопропорциональное к текущему уровню
+edctMaxLevelMana=maxmana
+^edctMaxLevelMana=Максимальное количество маны для моба. $B$BЗаспавненый моб имеет количество маны прямопропорциональное к текущему уровню
+edctMinLootGold=mingold
+^edctMinLootGold=Минимальное количество выпадающих денег
+edctMaxLootGold=maxgold
+^edctMaxLootGold=Максимальное количество выпадающих денег. 0 = с моба не падают деньги.
+edctModelId4=ModelId4
+^edctModelId4=Graphical model that client must apply on this creature.
+edctModelId2=ModelId2
+^edctModelId2=Graphical model that client must apply on this creature.
 gbCreature2=Creature II
 lbctfaction=faction
 lbctnpcflag=npcflag
 lbctrank=rank
 lbctfamily=family
 lbcttype=type
-edctattackpower=attackpower
-^edctattackpower=Рукопашная сила атаки моба.
-edctbaseattacktime=baseattacktime
-^edctbaseattacktime=Время между каждой рукопашной атакой моба.
-edctrangeattacktime=rangeattacktime
-^edctrangeattacktime=Время между каждой дальней атакой моба.
+edctMeleeAttackPower=attackpower
+^edctMeleeAttackPower=Рукопашная сила атаки моба.
+edctMeleeBaseAttackTime=baseattacktime
+^edctMeleeBaseAttackTime=Время между каждой рукопашной атакой моба.
+edctRangedBaseAttackTime=rangeattacktime
+^edctRangedBaseAttackTime=Время между каждой дальней атакой моба.
 edctflags=flags
-edctdynamicflags=dynamicflags
+edctDynamicFlags=dynamicflags
 edctbounding_radius=bounding_radius
 ^edctbounding_radius=Радиус в котором игрок может быть атакован.
-edctrangedattackpower=rangedattackpower
-^edctrangedattackpower=Дальная сила атаки моба.
+edctRangedAttackPower=rangedattackpower
+^edctRangedAttackPower=Дальная сила атаки моба.
 edctcombat_reach=combat_reach
 ^edctcombat_reach=Расстояние в котором игрок может быть атакован.
 edctflag1=flag1
 edctcivilian=Сivilian
 ^edctcivilian=Данный моб мирный житель или нет.
 ^edctfaction=Creature's faction.
-^edctnpcflag=Это способ указания клиенту как отображать NPC при нажатии на нем правой кнопкой мыши.$B$BНапример, он может быть продавцом или тренером. Тут определяется какого типа данный NPC.$B$BБерется из npc_option.npcflag
-^edctrank=Ранг моба.
-^edctfamily=Пренадлежность моба к семейству.
-edctmindmg=mindmg
-^edctmindmg=Минимальный рукопашный урон моба.
-edctmaxdmg=maxdmg
-^edctmaxdmg=Максимальный рукопашный урон моба.
-edctminrangedmg=minrangedmg
-^edctminrangedmg=Минимальный дальний урон моба.
-edctmaxrangedmg=maxrangedmg
-^edctmaxrangedmg=Максимальный дальний урон моба.
+^edctNpcFlags=Это способ указания клиенту как отображать NPC при нажатии на нем правой кнопкой мыши.$B$BНапример, он может быть продавцом или тренером. Тут определяется какого типа данный NPC.$B$BБерется из npc_option.npcflag
+^edctRank=Ранг моба.
+^edctFamily=Пренадлежность моба к семейству.
+edctMinMeleeDmg=mindmg
+^edctMinMeleeDmg=Минимальный рукопашный урон моба.
+edctMaxMeleeDmg=maxdmg
+^edctMaxMeleeDmg=Максимальный рукопашный урон моба.
+edctMinRangedDmg=minrangedmg
+^edctMinRangedDmg=Минимальный дальний урон моба.
+edctMaxRangedDmg=maxrangedmg
+^edctMaxRangedDmg=Максимальный дальний урон моба.
 gbEquipment=Вооружение
 edctequipmodel1=equipmodel1
 ^edctequipmodel1=Модель первого предмета вооружения.
@@ -671,25 +675,25 @@ edctequipslot1=equipslot1
 edctequipslot2=equipslot2
 edctequipslot3=equipslot3
 gbLoot=Лут
-edctlootid=lootid
-^edctlootid=Указывает номер лута=creature_loot_template.entry.
-edctpickpocketloot=pickpocketloot
-^edctpickpocketloot=Указывает номер лута при обворовывании (Pickpocketing)=pickpocketing_loot_template.entry.
-edctskinloot=skinloot
-^edctskinloot=Указывает номер лута при снятии кожи (Skinning)=skinning_loot_template.entry.
+edctLootId=lootid
+^edctLootId=Указывает номер лута=creature_loot_template.entry.
+edctPickpocketLootId=pickpocketloot
+^edctPickpocketLootId=Указывает номер лута при обворовывании (Pickpocketing)=pickpocketing_loot_template.entry.
+edctSkinningLootId=skinloot
+^edctSkinningLootId=Указывает номер лута при снятии кожи (Skinning)=skinning_loot_template.entry.
 gbResistance=Устойчивость
-edctresistance1=resistance1
-^edctresistance1=Holy стойкость
-edctresistance2=resistance2
-^edctresistance2=Fire стойкость
-edctresistance3=resistance3
-^edctresistance3=Nature стойкость
-edctresistance4=resistance4
-^edctresistance4=Frost стойкость
-edctresistance5=resistance5
-^edctresistance5=Shadow стойкость
-edctresistance6=resistance6
-^edctresistance6=Arcane стойкость
+edctResistanceHoly=resistance1
+^edctResistanceHoly=Holy стойкость
+edctResistanceFire=resistance2
+^edctResistanceFire=Fire стойкость
+edctResistanceNature=resistance3
+^edctResistanceNature=Nature стойкость
+edctResistanceFrost=resistance4
+^edctResistanceFrost=Frost стойкость
+edctResistanceShadow=resistance5
+^edctResistanceShadow=Shadow стойкость
+edctResistanceArcane=resistance6
+^edctResistanceArcane=Arcane стойкость
 gbSpells=Спеллы
 lbctspell1=spell1
 lbctspell2=spell2
@@ -713,16 +717,18 @@ lbcttrainer_type=trainer_type
 lbcttrainer_spell=trainer_spell
 lbctclass=class
 lbctrace=race
-^edcttrainer_spell=Номер спелла. $B$BИспользуется если NPC - тренер, и его тип - TRADESKILL.$B$BИгрок должен знать спелл указанный здесь, для обучения у тренера.
-^edctclass=Класс тренера. $B$BИспользуется если NPC - тренер, и его тип - CLASS или PETS.$B$BИгрок должен быть соответствующего класса для обучения у тренера.
-^edctrace=Раса тренера. $B$BИспользуется если NPC - тренер, и его тип - MOUNTS.$B$BИгрок должен быть соответствующей расы для обучения у тренера.
-gbArmorSpeedSize=Armor-Speed-Size
-edctarmor=armor
-^edctarmor=Броня моба.
-edctspeed=speed
-^edctspeed=Скорость моба.
-edctsize=size
-^edctsize=Размер для модели моба. 1 = 100%
+^edctTrainerSpell=Номер спелла. $B$BИспользуется если NPC - тренер, и его тип - TRADESKILL.$B$BИгрок должен знать спелл указанный здесь, для обучения у тренера.
+^edctTrainerClass=Класс тренера. $B$BИспользуется если NPC - тренер, и его тип - CLASS или PETS.$B$BИгрок должен быть соответствующего класса для обучения у тренера.
+^edctTrainerRace=Раса тренера. $B$BИспользуется если NPC - тренер, и его тип - MOUNTS.$B$BИгрок должен быть соответствующей расы для обучения у тренера.
+gbArmorSpeedSize=Armor-Speed-Scale
+edctArmor=Armor
+^edctArmor=Броня моба.
+edctSpeedWalk=Walk
+^edctSpeedWalk=Скорость ходьбы
+edctSpeedRun=Run
+^edctSpeedRun=Скорость бега
+edctScale=Scale
+^edctScale=Размер для модели моба. 1 = 100%
 btScriptCreatureTemplate=Creature_Template Скрипт
 tsCreatureLocation=Местоположение моба
 lbclCreatureLocationHint=Номер моба должен равняться Creature Template -> entry

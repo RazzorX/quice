@@ -147,7 +147,7 @@ TEXT24=quest = %d
 TEXT25=Fatal Error: Špatnì zadaná hodnota quest id (%d)
 TEXT26=Fatal Error: Quest entry = %d nenalezeno
 TEXT27=Warning: Existuje více než jeden quest giver:
-TEXT28=Error: quest giver je creature s hodnotou entry = %d, ale (`npcflag` & 2) <> 2
+TEXT28=Error: quest giver je creature s hodnotou entry = %d, ale (`NpcFlags` & 2) <> 2
 TEXT29=Warning: Existuje více než jedna lokace pro quest giver (id=%d) v tabulce `creature`
 TEXT30=Error: Lokace pro quest giver (id=%d) nenalezena v tabulce `creature`
 TEXT31=Error: quest giver je creature s hodnotou entry = %d, ale neexistuje záznam v `creature_template` kde entry = %0:d
@@ -155,7 +155,7 @@ TEXT32=Warning: Existuje více než jedna lokace pro quest giver (id=%d) v tabulce
 TEXT33=Error: Lokace pro quest giver (id=%d) nebyla nalezena v `gameobject`
 TEXT34=Warning: quest giver je item (id=%d), ale není vytvoøen loot v tabulkách *_loot_template and npc_vendor. Možná se nejedná o error, jenje tøeba aby item byl alespoò odmìnou jiného questu.
 TEXT35=Warning: Existuje více než jeden quest taker:
-TEXT36=Error: quest taker je creature s hodnotou entry = %d, ale (`npcflag` & 2) <> 2
+TEXT36=Error: quest taker je creature s hodnotou entry = %d, ale (`NpcFlags` & 2) <> 2
 TEXT37=Warning: Existuje více než jedna lokace pro quest taker (id=%d) v tabulce `creature`
 TEXT38=Error: Lokace pro quest taker (id=%d) nebyla nalezena v tabulce `creature`
 TEXT39=Error: quest taker je creature s hodnotou entry = %d, ale neexistuje záznam v `creature_template` kde entry = %0:d
@@ -579,26 +579,26 @@ edctmodelid_A=modelid_A
 ^edctmodelid_A=Graphical model that client must apply on this creature.
 edctmodelid_H=modelid_H
 ^edctmodelid_H=Graphical model that client must apply on this creature.
-edctname=name
-^edctname=Base name of the creature.
-edctsubname=subname
-^edctsubname=Subname of the creature (if any).
-edctminlevel=minlevel
-^edctminlevel=Creature's minimum level. $B$BSpawned creature have level in range from minlevel to maxlevel
-edctmaxlevel=maxlevel
-^edctmaxlevel=Creature's maximum level. $B$BSpawned creature have level in range from minlevel to maxlevel
-edctminhealth=minhealth
-^edctminhealth=Maximum creature's health points for creature level equal minlevel. $B$BSpawned creature have health in linear proportion to level position in range minlevel .. maxlevel
-edctmaxhealth=maxhealth
-^edctmaxhealth=Maximum creature's health points for creature level equal maxlevel. $B$BSpawned creature have health in linear proportion to level position in range minlevel .. maxlevel
-edctminmana=minmana
-^edctminmana=Maximum creature's mana points for creature level equal minlevel. $B$BSpawned creature have mana in linear proportion to level position in range minlevel .. maxlevel
-edctmaxmana=maxmana
-^edctmaxmana=Maximum creature's mana points for creature level equal maxlevel. $B$BSpawned creature have mana in linear proportion to level position in range minlevel .. maxlevel
-edctmingold=mingold
-^edctmingold=Minimum gold drop
-edctmaxgold=maxgold
-^edctmaxgold=Maximum gold drop. 0 = creature don't drop any gold.
+edctName=name
+^edctName=Base name of the creature.
+edctSubName=subname
+^edctSubName=Subname of the creature (if any).
+edctMinLevel=minlevel
+^edctMinLevel=Creature's minimum level. $B$BSpawned creature have level in range from minlevel to maxlevel
+edctMaxLevel=maxlevel
+^edctMaxLevel=Creature's maximum level. $B$BSpawned creature have level in range from minlevel to maxlevel
+edctMinLevelHealth=minhealth
+^edctMinLevelHealth=Maximum creature's health points for creature level equal minlevel. $B$BSpawned creature have health in linear proportion to level position in range minlevel .. maxlevel
+edctMaxLevelHealth=maxhealth
+^edctMaxLevelHealth=Maximum creature's health points for creature level equal maxlevel. $B$BSpawned creature have health in linear proportion to level position in range minlevel .. maxlevel
+edctMinLevelMana=minmana
+^edctMinLevelMana=Maximum creature's mana points for creature level equal minlevel. $B$BSpawned creature have mana in linear proportion to level position in range minlevel .. maxlevel
+edctMaxLevelMana=maxmana
+^edctMaxLevelMana=Maximum creature's mana points for creature level equal maxlevel. $B$BSpawned creature have mana in linear proportion to level position in range minlevel .. maxlevel
+edctMinLootGold=mingold
+^edctMinLootGold=Minimum gold drop
+edctMaxLootGold=maxgold
+^edctMaxLootGold=Maximum gold drop. 0 = creature don't drop any gold.
 edctmodelid_H2=modelid_H2
 ^edctmodelid_H2=Graphical model that client must apply on this creature.
 edctmodelid_A2=modelid_A2
@@ -610,53 +610,53 @@ lbctrank=rank
 lbctfamily=family
 lbcttype=type
 lbctfaction_H=faction_H
-edctattackpower=attackpower
-^edctattackpower=Creature's melee attack power.
-edctbaseattacktime=baseattacktime
-^edctbaseattacktime=Time between each creature's melee attacks.
-edctrangeattacktime=rangeattacktime
-^edctrangeattacktime=Time between each creature's range attacks.
+edctMeleeAttackPower=attackpower
+^edctMeleeAttackPower=Creature's melee attack power.
+edctMeleeBaseAttackTime=baseattacktime
+^edctMeleeBaseAttackTime=Time between each creature's melee attacks.
+edctRangedBaseAttackTime=rangeattacktime
+^edctRangedBaseAttackTime=Time between each creature's range attacks.
 edctflags=flags
-edctdynamicflags=dynamicflags
-edctrangedattackpower=rangedattackpower
-^edctrangedattackpower=Creature's ranged attack power.
+edctDynamicFlags=dynamicflags
+edctRangedAttackPower=rangedattackpower
+^edctRangedAttackPower=Creature's ranged attack power.
 edctflag1=flag1
-^edctfaction_A=Creature's faction.
-^edctnpcflag=This is way to cliet know how info you see if you clic(RMB) on NPC $B$Bif is vendor if is auction in fact is menu how you see$B$BIs what type of NPC it is. Stored in npc_option.npcflag
-^edctrank=Creature's honor rank.
-^edctfamily=Creature's family.
-edctmindmg=mindmg
-^edctmindmg=Creature's minimum melee damage.
-edctmaxdmg=maxdmg
-^edctmaxdmg=Creature's maximum melee damage.
-edctminrangedmg=minrangedmg
-^edctminrangedmg=Minimum creature's range damage.
-edctmaxrangedmg=maxrangedmg
-^edctmaxrangedmg=Maximum creature's range damage.
-edctdmgschool=dmgschool
-^edctfaction_H=Creature's faction.
-edctRegenHealth=RegenHealth
-edctequipment_id=equipment_id
+^edctFactionAlliance=Creature's faction.
+^edctNpcFlags=This is way to cliet know how info you see if you clic(RMB) on NPC $B$Bif is vendor if is auction in fact is menu how you see$B$BIs what type of NPC it is. Stored in npc_option.npcflag
+^edctRank=Creature's honor rank.
+^edctFamily=Creature's family.
+edctMinMeleeDmg=mindmg
+^edctMinMeleeDmg=Creature's minimum melee damage.
+edctMaxMeleeDmg=maxdmg
+^edctMaxMeleeDmg=Creature's maximum melee damage.
+edctMinRangedDmg=minrangedmg
+^edctMinRangedDmg=Minimum creature's range damage.
+edctMaxRangedDmg=maxrangedmg
+^edctMaxRangedDmg=Maximum creature's range damage.
+edctDamageSchool=dmgschool
+^edctFactionHorde=Creature's faction.
+edctRegenerateStats=RegenHealth
+edctEquipmentTemplateId=equipment_id
 gbLoot=Loot
-edctlootid=lootid
-^edctlootid=Refered to field loot_template.entry$B$Blootid does not need to be same as creature entry$B$BUse other lootid if creature should have same loot as other creatures
-edctpickpocketloot=pickpocketloot
-^edctpickpocketloot=Refered to field pickpocket_loot_template.entry$B$Bpickpocketloot does not need to be same as creature entry$B$BUse other pickpocketloot if creature should have same loot as other creatures
-edctskinloot=skinloot
-^edctskinloot=Refered to field skinning_loot_template.entry$B$Bskinloot does not need to be same as creature entry$B$BUse other skinloot if creature should have same loot as other creatures
+edctLootId=lootid
+^edctLootId=Refered to field loot_template.entry$B$Blootid does not need to be same as creature entry$B$BUse other lootid if creature should have same loot as other creatures
+edctPickpocketLootId=pickpocketloot
+^edctPickpocketLootId=Refered to field pickpocket_loot_template.entry$B$Bpickpocketloot does not need to be same as creature entry$B$BUse other pickpocketloot if creature should have same loot as other creatures
+edctSkinningLootId=skinloot
+^edctSkinningLootId=Refered to field skinning_loot_template.entry$B$Bskinloot does not need to be same as creature entry$B$BUse other skinloot if creature should have same loot as other creatures
 gbResistance=Resistance
-edctresistance1=resistance1
-^edctresistance1=holy resitance
-edctresistance2=resistance2
-^edctresistance2=fire resistance
-edctresistance3=resistance3
-^edctresistance3=nature resistance
-edctresistance4=resistance4
-^edctresistance4=frost resistance
-edctresistance5=resistance5
-^edctresistance5=shadow resistance
-edctresistance6=resistance6
-^edctresistance6=arcane resistance
+edctResistanceHoly=resistance1
+^edctResistanceHoly=holy resitance
+edctResistanceFire=resistance2
+^edctResistanceFire=fire resistance
+edctResistanceNature=resistance3
+^edctResistanceNature=nature resistance
+edctResistanceFrost=resistance4
+^edctResistanceFrost=frost resistance
+edctResistanceShadow=resistance5
+^edctResistanceShadow=shadow resistance
+edctResistanceArcane=resistance6
+^edctResistanceArcane=arcane resistance
 gbSpells=Spells
 lbctspell1=spell1
 lbctspell2=spell2
@@ -680,14 +680,18 @@ lbcttrainer_type=trainer_type
 lbcttrainer_spell=trainer_spell
 lbctclass=class
 lbctrace=race
-^edcttrainer_spell=Spell ID. $B$BUsed for check in case npcflag include trainer flag (16) and $B$Btrainer_type == TRAINER_TYPE_TRADESKILLS. $B$BPlayer must known trainer_spell to start training
+^edctTrainerSpell=Spell ID. $B$BUsed for check in case npcflag include trainer flag (16) and $B$Btrainer_type == TRAINER_TYPE_TRADESKILLS. $B$BPlayer must known trainer_spell to start training
 ^edctclass=Creature's class, like 'character.class' field. $B$BUsed for check in case npcflag include trainer flag (16) $B$Band trainer_type == TRAINER_TYPE_CLASS or TRAINER_TYPE_PETS
 ^edctrace=Creature's race, like 'character.race' field. $B$BUsed for check in case npcflag include trainer flag (16) $B$Band trainer_type == TRAINER_TYPE_MOUNTS 
 gbArmorSpeed=Armor-Speed
-edctarmor=armor
-^edctarmor=Creature's armor.
-edctspeed=speed
-^edctspeed=Creature's speed.
+edctArmor=armor
+^edctArmor=Creature's armor.
+edctSpeedWalk=speed_walk
+^edctSpeedWalk=Creature's walk speed
+edctScale=scale
+^edctScale=Creature's custom scale
+edctSpeedRun=speed_run
+^edctSpeedRun=Creature's run speed
 btScriptCreatureTemplate=Ukázat Creature Template Script
 edctworldloot=worldloot
 cbctRacialLeader=RacialLeader

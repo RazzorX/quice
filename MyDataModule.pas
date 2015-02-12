@@ -248,7 +248,7 @@ begin
   Text[25]:='Fatal Error: Wrong quest id (%d)';
   Text[26]:='Fatal Error: Quest with entry = %d not found';
   Text[27]:='Warning: There more than one quest giver:';
-  Text[28]:='Error: quest giver is creature with entry = %d, but (`npcflag` & 2) <> 2';
+  Text[28]:='Error: quest giver is creature with entry = %d, but (`NpcFlags` & 2) <> 2';
   Text[29]:='Warning: There more than one location for quest giver (id=%d) in table `creature`';
   Text[30]:='Error: Location for quest giver (id=%d) not found in table `creature`';
   Text[31]:='Error: quest giver is creature with entry = %d, but there is no one record in `creature_template` with entry = %0:d';
@@ -256,7 +256,7 @@ begin
   Text[33]:='Error: Location for quest giver (id=%d) not found in table `gameobject`';
   Text[34]:='Warning: quest giver is item (id=%d), but there is no one loot in tables *_loot_template and npc_vendor. May be it is not error, just item need to be rewarded or gived from other quest.';
   Text[35]:='Warning: There more than one quest taker:';
-  Text[36]:='Error: quest taker is creature with entry = %d, but (`npcflag` & 2) <> 2';
+  Text[36]:='Error: quest taker is creature with entry = %d, but (`NpcFlags` & 2) <> 2';
   Text[37]:='Warning: There more than one location for quest taker (id=%d) in table `creature`';
   Text[38]:='Error: Location for quest taker (id=%d) not found in table `creature`';
   Text[39]:='Error: quest taker is creature with entry = %d, but there is no one record in `creature_template` with entry = %0:d';

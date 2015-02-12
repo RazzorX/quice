@@ -148,7 +148,7 @@ TEXT24=quest = %d
 TEXT25=Schwerer Fehler: Falsche Quest ID (%d)
 TEXT26=Schwerer Fehler: Quest mit ID (entry) = %d nicht gefunden
 TEXT27=Warnung: Es gibt mehr als 1 QuestGeber
-TEXT28=Fehler: QuestGeber ist NPC mit entry = %d, aber (`npcflag` & 2) <> 2
+TEXT28=Fehler: QuestGeber ist NPC mit entry = %d, aber (`NpcFlags` & 2) <> 2
 TEXT29=Warnung: Es gibt mehr als einen Standort für den Questgeber (id=%d) in der Tabelle `creature`
 TEXT30=Fehler: Der Standort für den QuestGeber (id=%d) wurde nicht in der Tabelle `creature` gefunden
 TEXT31=Fehler: Der QuestGeber ist die Kreatur mit der ID (entry) = %d, aber es gibt keinen Eintrag in der `creature_template` mit der ID (entry) = %0:d
@@ -156,7 +156,7 @@ TEXT32=Warnung: Es gibt mehr als 1 Standort für den QuestGeber (id=%d) in der Ta
 TEXT33=Fehler: Standort für den QuestGeber (id=%d) wurde in der Tabelle `gameobject` nicht gefunden
 TEXT34=Warnung: QuestGeber ist Gegenstand (id=%d), aber es gibt keine Beute in der Tabelle *_loot_template and npc_vendor. May be it is not Fehler, just item need to be rewarded or gived from other quest.
 TEXT35=Warnung: Es gibt mehr als 1 QuestAbnehmer:
-TEXT36=Fehler: QuestAbnehmer ist die Kreatur mit der ID (entry) = %d, aber (`npcflag` & 2) <> 2
+TEXT36=Fehler: QuestAbnehmer ist die Kreatur mit der ID (entry) = %d, aber (`NpcFlags` & 2) <> 2
 TEXT37=Warnung: Es gibt mehr als einen Standort für den QuestAbnehmer (id=%d) in der Tabelle `creature`
 TEXT38=Fehler: Standort für den QuestAbgeber (id=%d) wurde in der Tabelle `creature` nicht gefunden
 TEXT39=Fehler: QuestAbnehmer ist die Kreatur mit der ID (entry) = %d, aber es gibt keinen Eintrag in `creature_template` mit der ID (entry) = %0:d
@@ -530,65 +530,69 @@ tsEditCreature=Kreatur Vorlage
 gbCreature=Kreatur I
 lbctEntry=ID (entry)
 ^edctEntry=Die ID der Kreatur
-edctmodelid_m=Model ID (m)
-^edctmodelid_m=Welches Model soll für die Kreatur benutzt werden? (männlich)
-edctmodelid_f=Model ID (f)
-^edctmodelid_f=Welches Model soll für die Kreatur benutzt werden? (weiblich)
-edctname=Name
-^edctname=Name der Kreatur.
-edctsubname=Sub Name
-^edctsubname=SubName der Kreatur (falls vorhanden).
-edctminlevel=Level min
-^edctminlevel=Das MIN Level der Kreatur. $B$BDer Levelbereicht bestimmt sich durch den MINIMUM und MAXIMUM Wert.
-edctmaxlevel=Level max
-^edctmaxlevel=Das MAX Level der Kreatur. $B$BDer Levelbereicht bestimmt sich durch den MINIMUM und MAXIMUM Wert.
-edctminhealth=Gesundheit min
-^edctminhealth=Maximum creature's health points for creature level equal minlevel. $B$BSpawned creature have health in linear proportion to level position in range minlevel .. maxlevel
-edctmaxhealth=Gesundheit max
-^edctmaxhealth=Maximum creature's health points for creature level equal maxlevel. $B$BSpawned creature have health in linear proportion to level position in range minlevel .. maxlevel
-edctminmana=Mana min
-^edctminmana=Maximum creature's mana points for creature level equal minlevel. $B$BSpawned creature have mana in linear proportion to level position in range minlevel .. maxlevel
-edctmaxmana=Mana max
-^edctmaxmana=Maximum creature's mana points for creature level equal maxlevel. $B$BSpawned creature have mana in linear proportion to level position in range minlevel .. maxlevel
-edctmingold=Gold min
-^edctmingold=Minimum Gold drop
-edctmaxgold=Gold max
-^edctmaxgold=Maximum Gold drop. 0 = Kreatur hinterläßt kein Gold
+edctModelId1=ModelId1
+^edctModelId1=Graphical model that client must apply on this creature.
+edctModelId3=ModelId3
+^edctModelId3=Graphical model that client must apply on this creature.
+edctName=Name
+^edctName=Name der Kreatur.
+edctSubName=Sub Name
+^edctSubName=SubName der Kreatur (falls vorhanden).
+edctMinLevel=Level min
+^edctMinLevel=Das MIN Level der Kreatur. $B$BDer Levelbereicht bestimmt sich durch den MINIMUM und MAXIMUM Wert.
+edctMaxLevel=Level max
+^edctMaxLevel=Das MAX Level der Kreatur. $B$BDer Levelbereicht bestimmt sich durch den MINIMUM und MAXIMUM Wert.
+edctMinLevelHealth=Gesundheit min
+^edctMinLevelHealth=Maximum creature's health points for creature level equal minlevel. $B$BSpawned creature have health in linear proportion to level position in range minlevel .. maxlevel
+edctMaxLevelHealth=Gesundheit max
+^edctMaxLevelHealth=Maximum creature's health points for creature level equal maxlevel. $B$BSpawned creature have health in linear proportion to level position in range minlevel .. maxlevel
+edctMinLevelMana=Mana min
+^edctMinLevelMana=Maximum creature's mana points for creature level equal minlevel. $B$BSpawned creature have mana in linear proportion to level position in range minlevel .. maxlevel
+edctMaxLevelMana=Mana max
+^edctMaxLevelMana=Maximum creature's mana points for creature level equal maxlevel. $B$BSpawned creature have mana in linear proportion to level position in range minlevel .. maxlevel
+edctMinLootGold=Gold min
+^edctMinLootGold=Minimum Gold drop
+edctMaxLootGold=Gold max
+^edctMaxLootGold=Maximum Gold drop. 0 = Kreatur hinterläßt kein Gold
+edctModelId4=ModelId4
+^edctModelId4=Graphical model that client must apply on this creature.
+edctModelId2=ModelId2
+^edctModelId2=Graphical model that client must apply on this creature.
 gbCreature2=Eigenschaften
 lbctfaction=Fraktion
 lbctnpcflag=NPC Flag
 lbctrank=Rang
 lbctfamily=Familie
 lbcttype=Typ
-edctattackpower=Basisangriffskraft
-^edctattackpower=Basisangriffskraft der Kreatur.
-edctbaseattacktime=Zeit (Basis)
-^edctbaseattacktime=Zeit (in Millisekunden) zwischen den Basisangriffen.
-edctrangeattacktime=Zeit (Distanz)
-^edctrangeattacktime=Zeit (in Millisekunden) zwischen den Distanzangriffen.
+edctMeleeAttackPower=Basisangriffskraft
+^edctMeleeAttackPower=Basisangriffskraft der Kreatur.
+edctMeleeBaseAttackTime=Zeit (Basis)
+^edctMeleeBaseAttackTime=Zeit (in Millisekunden) zwischen den Basisangriffen.
+edctRangedBaseAttackTime=Zeit (Distanz)
+^edctRangedBaseAttackTime=Zeit (in Millisekunden) zwischen den Distanzangriffen.
 edctflags=Flags
-edctdynamicflags=dynamicflags
+edctDynamicFlags=dynamicflags
 edctbounding_radius=Angriffradius
 ^edctbounding_radius=Die Distanz aus welcher der Spieler von der Kreatur angegriffen werden kann.
-edctrangedattackpower=Distanzangriffskraft
-^edctrangedattackpower=Distanzangriffskraft der Kreatur.
+edctRangedAttackPower=Distanzangriffskraft
+^edctRangedAttackPower=Distanzangriffskraft der Kreatur.
 edctcombat_reach=Kampfreichweite
 ^edctcombat_reach=Die Distanz aus welcher die Kreatur den Spieler treffen kann.
 edctflag1=Flag 1
 edctcivilian=Zivilist
 ^edctcivilian=Handelt es sich bei dieser Kreatur um einen Zilist = 1 oder nicht = 0 ?
 ^edctfaction=Die Fraktion der Kreatur
-^edctnpcflag=This is way to cliet know how info you see if you clic(RMB) on NPC $B$Bif is vendor if is auction in fact is menu how you see$B$BIs what type of NPC it is. Stored in npc_option.npcflag
-^edctrank=Normal, Elite, Rare, Rare Elite, Worldboss
-^edctfamily=Welcher Familie gehört die Kreatur an?
-edctmindmg=MinDmg
-^edctmindmg=Der Minimum.BASIS.Schaden der Kreatur.
-edctmaxdmg=MaxDmg
-^edctmaxdmg=Der Maximum.BASIS.Schaden der Kreatur.
-edctminrangedmg=MinDistDmg
-^edctminrangedmg=Der Minimum.DISTANZ.Schaden der Kreatur.
-edctmaxrangedmg=MaxDistDmg
-^edctmaxrangedmg=Der Minimum.DISTANZ.Schaden der Kreatur.
+^edctNpcFlags=This is way to cliet know how info you see if you clic(RMB) on NPC $B$Bif is vendor if is auction in fact is menu how you see$B$BIs what type of NPC it is. Stored in npc_option.npcflag
+^edctRank=Normal, Elite, Rare, Rare Elite, Worldboss
+^edctFamily=Welcher Familie gehört die Kreatur an?
+edctMinMeleeDmg=MinDmg
+^edctMinMeleeDmg=Der Minimum.BASIS.Schaden der Kreatur.
+edctMaxMeleeDmg=MaxDmg
+^edctMaxMeleeDmg=Der Maximum.BASIS.Schaden der Kreatur.
+edctMinRangedDmg=MinDistDmg
+^edctMinRangedDmg=Der Minimum.DISTANZ.Schaden der Kreatur.
+edctMaxRangedDmg=MaxDistDmg
+^edctMaxRangedDmg=Der Minimum.DISTANZ.Schaden der Kreatur.
 gbEquipment=Ausrüstung
 edctequipmodel1=Model 1
 ^edctequipmodel1=Hier wird das GrafikModel des Gegenstandes angegeben$B$Bwelches die Kreatur tragen soll.
@@ -603,24 +607,24 @@ edctequipslot1=equipslot1
 edctequipslot2=equipslot2
 edctequipslot3=equipslot3
 gbLoot=Beute
-edctlootid=Allgemein
-^edctlootid=Welche Beute (ID) soll die Kreatur bei Tot hinterlassen (siehe loot_template.entry)?
-edctpickpocketloot=Taschendiebstahl
-edctskinloot=Haut
-^edctskinloot=Welche Haut.Beute (ID) soll die Kreatur beim Häuten hinterlassen?
+edctLootId=Allgemein
+^edctLootId=Welche Beute (ID) soll die Kreatur bei Tot hinterlassen (siehe loot_template.entry)?
+edctPickpocketLootId=Taschendiebstahl
+edctSkinningLootId=Haut
+^edctSkinningLootId=Welche Haut.Beute (ID) soll die Kreatur beim Häuten hinterlassen?
 gbResistance=Resistenz
-edctresistance1=Heilig
-^edctresistance1=Heilig Resistenz
-edctresistance2=Feuer
-^edctresistance2=Feuer Resistenz
-edctresistance3=Natur
-^edctresistance3=Natur Resistenz
-edctresistance4=Frost
-^edctresistance4=Frost Resistenz
-edctresistance5=Schatten
-^edctresistance5=Schatten Resistenz
-edctresistance6=Arkan
-^edctresistance6=Arkane Resistenz
+edctResistanceHoly=Heilig
+^edctResistanceHoly=Heilig Resistenz
+edctResistanceFire=Feuer
+^edctResistanceFire=Feuer Resistenz
+edctResistanceNature=Natur
+^edctResistanceNature=Natur Resistenz
+edctResistanceFrost=Frost
+^edctResistanceFrost=Frost Resistenz
+edctResistanceShadow=Schatten
+^edctResistanceShadow=Schatten Resistenz
+edctResistanceArcane=Arkan
+^edctResistanceArcane=Arkane Resistenz
 gbSpells=Zauber
 lbctspell1=Spell 1
 lbctspell2=Spell 2
@@ -644,16 +648,18 @@ lbcttrainer_type=Typ
 lbcttrainer_spell=Spell
 lbctclass=Klasse
 lbctrace=Rasse
-^edcttrainer_spell=Spell ID.$B$BWird zur Überprüfung benutzt falls der NPCFlag auf Trainer (=16)$B$Bgesetzt wurde und der Trainer TYP = TRADESKILLS ist.$B$BDer Spieler muss den SPELL erlernt haben um das Training zu beginnen.
-^edctclass=Creature's class, like 'character.class' field. $B$BUsed for check in case npcflag include trainer flag (16) $B$Band trainer_type == TRAINER_TYPE_CLASS or TRAINER_TYPE_PETS
-^edctrace=Creature's race, like 'character.race' field. $B$BUsed for check in case npcflag include trainer flag (16) $B$Band trainer_type == TRAINER_TYPE_MOUNTS 
+^edctTrainerSpell=Spell ID.$B$BWird zur Überprüfung benutzt falls der NPCFlag auf Trainer (=16)$B$Bgesetzt wurde und der Trainer TYP = TRADESKILLS ist.$B$BDer Spieler muss den SPELL erlernt haben um das Training zu beginnen.
+^edctTrainerClass=Creature's class, like 'character.class' field. $B$BUsed for check in case npcflag include trainer flag (16) $B$Band trainer_type == TRAINER_TYPE_CLASS or TRAINER_TYPE_PETS
+^edctTrainerRace=Creature's race, like 'character.race' field. $B$BUsed for check in case npcflag include trainer flag (16) $B$Band trainer_type == TRAINER_TYPE_MOUNTS 
 gbArmorSpeedSize=Sonstiges
-edctarmor=Rüstung
-^edctarmor=Rüstungswert der Kreatur.
-edctspeed=Geschwindigkeit
-^edctspeed=Bewegungsgeschwindigkeit der Kreatur.
-edctsize=Größe
-^edctsize=Größe des 3D Models.$B$B1 = 100%$B$B0.5= 50% usw.
+edctArmor=Rüstung
+^edctArmor=Rüstungswert der Kreatur.
+edctSpeedWalk=Geschwindigkeit
+^edctSpeedWalk=Bewegungsgeschwindigkeit der Kreatur.
+edctSpeedRun=speed_run
+^edctSpeedRun=Creature's run speed
+edctScale=Größe
+^edctScale=Größe des 3D Models.$B$B1 = 100%$B$B0.5= 50% usw.
 btScriptCreatureTemplate=Zeige SQL Script (Kreatur)
 tsCreatureLocation=Standort
 edclguid=GUID

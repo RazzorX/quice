@@ -166,8 +166,8 @@ begin
       MyQuery.Open;
       if not MyQuery.Eof then
       begin
-        if (MyQuery.FieldByName('npcflag').AsInteger and 2) <> 2 then
-          Add(1, dmMain.Text[28], [cid]); //'Error: quest giver is creature with entry = %d, but (`npcflag` & 2) <> 2 '
+        if (MyQuery.FieldByName('NpcFlags').AsInteger and 2) <> 2 then
+          Add(1, dmMain.Text[28], [cid]); //'Error: quest giver is creature with entry = %d, but (`NpcFlags` & 2) <> 2 '
         MyQuery.Close;
         MyQuery.SQL.Text:=Format('SELECT * FROM `creature` WHERE `id`=%d',[cid]);
         MyQuery.Open;
@@ -353,9 +353,9 @@ begin
       MyQuery.Open;
       if not MyQuery.Eof then
       begin
-        if (MyQuery.FieldByName('npcflag').AsInteger and 2) <> 2 then
+        if (MyQuery.FieldByName('NpcFlags').AsInteger and 2) <> 2 then
         begin
-          Add(1, dmMain.Text[36], [cid]); //'Error: quest taker is creature with entry = %d, but (`npcflag` & 2) <> 2 '
+          Add(1, dmMain.Text[36], [cid]); //'Error: quest taker is creature with entry = %d, but (`NpcFlags` & 2) <> 2 '
         end;
         MyQuery.Close;
         MyQuery.SQL.Text:=Format('SELECT * FROM `creature` WHERE `id`=%d',[cid]);
