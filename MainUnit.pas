@@ -66,6 +66,7 @@ const
   PFX_CREATURE = 'cl';
   PFX_CREATURE_ADDON = 'ca';
   PFX_CREATURE_TEMPLATE_ADDON = 'cd';
+  PFX_CREATURE_TEMPLATE_SPELLS = 'cu';
   PFX_CREATURE_EQUIP_TEMPLATE = 'ce';
   PFX_CREATURE_MODEL_INFO = 'ci';
   PFX_CREATURE_MOVEMENT = 'cm';
@@ -405,15 +406,6 @@ type
     edctResistanceFrost: TLabeledEdit;
     edctResistanceShadow: TLabeledEdit;
     edctResistanceArcane: TLabeledEdit;
-    gbSpells: TGroupBox;
-    lbctspell1: TLabel;
-    lbctspell2: TLabel;
-    lbctspell3: TLabel;
-    lbctspell4: TLabel;
-    edctspell1: TJvComboEdit;
-    edctspell2: TJvComboEdit;
-    edctspell4: TJvComboEdit;
-    edctspell3: TJvComboEdit;
     gbctbehaviour: TGroupBox;
     edctAIName: TLabeledEdit;
     edctScriptName: TLabeledEdit;
@@ -1122,6 +1114,7 @@ type
     tsCreatureTemplateAddon: TTabSheet;
     edcdentry: TLabeledEdit;
     btScriptCreatureTemplateAddon: TButton;
+    btScriptCreatureTemplateSpells: TButton;
     edcdauras: TLabeledEdit;
     edcdbytes1: TLabeledEdit;
     edcdmount: TLabeledEdit;
@@ -1765,6 +1758,17 @@ type
     edctScale: TLabeledEdit;
     edctArmorMultiplier: TLabeledEdit;
     edctDamageVariance: TLabeledEdit;
+    tsCreatureTemplateSpells: TTabSheet;
+    lbcuCreatureTemplateSpells: TLabel;
+    edcuentry: TLabeledEdit;
+    edcuspell1: TLabeledEdit;
+    edcuspell2: TLabeledEdit;
+    edcuspell3: TLabeledEdit;
+    edcuspell4: TLabeledEdit;
+    edcuspell5: TLabeledEdit;
+    edcuspell6: TLabeledEdit;
+    edcuspell7: TLabeledEdit;
+    edcuspell8: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2043,6 +2047,7 @@ type
     procedure tsEnchantmentShow(Sender: TObject);
     procedure editFoodTypeButtonClick(Sender: TObject);
     procedure tsCreatureTemplateAddonShow(Sender: TObject);
+    procedure tsCreatureTemplateSpellsShow(Sender: TObject);
     procedure editGemPropertiesButtonClick(Sender: TObject);
     procedure editsocketBonusButtonClick(Sender: TObject);
     procedure lvgbButtonScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
@@ -2192,6 +2197,7 @@ type
 
     procedure LoadCreature(entry: Integer);
     procedure LoadCreatureTemplateAddon(entry: Integer);
+    procedure LoadCreatureTemplateSpells(entry: Integer);
     procedure LoadCreatureAddon(GUID: Integer);
     procedure LoadCreatureEquip(entry: Integer);
     procedure LoadCreatureMovement(GUID: Integer);
@@ -2213,6 +2219,7 @@ type
     procedure CompleteNPCVendorScript;
     procedure CompleteNPCVendorTemplateScript;
     procedure CompleteCreatureTemplateAddonScript;
+    procedure CompleteCreatureTemplateSpellsScript;
     procedure CompleteCreatureEventAIScript;
     procedure CompleteCreatureAddonScript;
     procedure CompleteCreatureMovementScript;
@@ -2626,9 +2633,6 @@ begin
 
   edqtSoundAccept.Visible := IsVisible;
   edqtSoundTurnIn.Visible := IsVisible;
-
-  //creature
-  gbSpells.Visible := IsVisible;
 
   // go
   edgtdata24.Visible := IsVisible;
@@ -4686,6 +4690,7 @@ begin
 
     tsNPCTrainer.TabVisible := istrainer;
     LoadCreatureTemplateAddon(entry);
+    LoadCreatureTemplateSpells(entry);
     edclid.Text := IntToStr(entry);
     edcoentry.Text := edctLootId.Text;
     edcpentry.Text := edctPickpocketLootId.Text;
@@ -4731,6 +4736,19 @@ begin
   SetFieldsAndValues(Fields, Values, 'creature_template_addon', PFX_CREATURE_TEMPLATE_ADDON, mectLog);
   mectScript.Text := Format('DELETE FROM `creature_template_addon` WHERE (`entry`=%s);'#13#10 +
     'INSERT INTO `creature_template_addon` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+end;
+
+procedure TMainForm.CompleteCreatureTemplateSpellsScript;
+var
+  entry, Fields, Values: string;
+begin
+  mectLog.Clear;
+  entry := edcuentry.Text;
+  if entry = '' then
+    Exit;
+  SetFieldsAndValues(Fields, Values, 'creature_template_spells', PFX_CREATURE_TEMPLATE_SPELLS, mectLog);
+  mectScript.Text := Format('DELETE FROM `creature_template_spells` WHERE (`entry`=%s);'#13#10 +
+    'INSERT INTO `creature_template_spells` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
 end;
 
 procedure TMainForm.GetCreatureDynamicFlags(Sender: TObject);
@@ -4927,6 +4945,8 @@ begin
       CompleteNPCVendorTemplateScript;
     TAB_NO_NPC_GOSSIP_MENU:
       CompleteGossipMenuScript;
+    23:
+      CompleteCreatureTemplateSpellsScript;
   end;
 end;
 
@@ -4953,6 +4973,28 @@ begin
     edcdmoveflags.Text := '0';
   if (edcdauras.Text = '') then
     edcdauras.Text := '';
+end;
+
+procedure TMainForm.tsCreatureTemplateSpellsShow(Sender: TObject);
+begin
+  if (edcuentry.Text = '') then
+    edcuentry.Text := edctEntry.Text;
+  if (edcuspell1.Text = '') then
+    edcuspell1.Text := '0';
+  if (edcuspell2.Text = '') then
+    edcuspell2.Text := '0';
+  if (edcuspell3.Text = '') then
+    edcuspell3.Text := '0';
+  if (edcuspell4.Text = '') then
+    edcuspell4.Text := '0';
+  if (edcuspell5.Text = '') then
+    edcuspell5.Text := '0';
+  if (edcuspell6.Text = '') then
+    edcuspell6.Text := '0';
+  if (edcuspell7.Text = '') then
+    edcuspell7.Text := '0';
+  if (edcuspell8.Text = '') then
+    edcuspell8.Text := '0';
 end;
 
 procedure TMainForm.tsCreatureUsedShow(Sender: TObject);
@@ -6523,6 +6565,21 @@ begin
   except
     on E: Exception do
       raise Exception.Create(dmMain.Text[149] + #10#13 + E.Message);
+  end;
+end;
+
+procedure TMainForm.LoadCreatureTemplateSpells(entry: Integer);
+begin
+  if entry < 1 then
+    Exit;
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_template_spells` WHERE (`entry`=%d)', [entry]);
+  MyQuery.Open;
+  try
+    FillFields(MyQuery, PFX_CREATURE_TEMPLATE_SPELLS);
+    MyQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(dmMain.Text[159] + #10#13 + E.Message);
   end;
 end;
 
@@ -10289,10 +10346,14 @@ begin
     'SELECT `ReqSpellCast2` FROM `quest_template` WHERE `ReqSpellCast2`<>0 ' + 'UNION ' +
     'SELECT `ReqSpellCast3` FROM `quest_template` WHERE `ReqSpellCast3`<>0 ' + 'UNION ' +
     'SELECT `ReqSpellCast4` FROM `quest_template` WHERE `ReqSpellCast4`<>0 ' + 'UNION ' +
-    {'SELECT `spell1` FROM `creature_template_spells` WHERE `spell1`<>0 ' + 'UNION ' +
+    'SELECT `spell1` FROM `creature_template_spells` WHERE `spell1`<>0 ' + 'UNION ' +
     'SELECT `spell2` FROM `creature_template_spells` WHERE `spell2`<>0 ' + 'UNION ' +
     'SELECT `spell3` FROM `creature_template_spells` WHERE `spell3`<>0 ' + 'UNION ' +
-    'SELECT `spell4` FROM `creature_template_spells` WHERE `spell4`<>0 ' + 'UNION ' +}
+    'SELECT `spell4` FROM `creature_template_spells` WHERE `spell4`<>0 ' + 'UNION ' +
+    'SELECT `spell5` FROM `creature_template_spells` WHERE `spell5`<>0 ' + 'UNION ' +
+    'SELECT `spell6` FROM `creature_template_spells` WHERE `spell6`<>0 ' + 'UNION ' +
+    'SELECT `spell7` FROM `creature_template_spells` WHERE `spell7`<>0 ' + 'UNION ' +
+    'SELECT `spell8` FROM `creature_template_spells` WHERE `spell8`<>0 ' + 'UNION ' +
     'SELECT `TrainerSpell` FROM `creature_template` WHERE `TrainerSpell`<>0 ' + 'UNION ' +
     'SELECT `spell` FROM `npc_trainer` WHERE `spell`<>0 ' + 'UNION ' +
     'SELECT `requiredspell` FROM `item_template` WHERE `requiredspell`<>0 ' + 'UNION ' +

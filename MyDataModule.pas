@@ -379,6 +379,7 @@ begin
   Text[156]:='LootCondition';
   Text[157]:='The error has accured while loading Creature EventAI:';
   Text[158]:='Option Icon';
+  Text[159]:='The error has accured while loading Creature Template Spells:';
 end;
 
 procedure TdmMain.SetLanguage(const Value: string);
