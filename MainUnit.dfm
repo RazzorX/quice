@@ -11416,7 +11416,6 @@ object MainForm: TMainForm
               EditLabel.Caption = 'Entry'
               ParentCtl3D = False
               TabOrder = 0
-              OnChange = edSearchCreatureChange
             end
             object edceequipentry1: TJvComboEdit
               Left = 95
@@ -13246,6 +13245,16 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
             OnButtonClick = edcvExtendedCostButtonClick
+          end
+          object edcvcondition_id: TLabeledEdit
+            Left = 472
+            Top = 491
+            Width = 80
+            Height = 21
+            EditLabel.Width = 57
+            EditLabel.Height = 13
+            EditLabel.Caption = 'condition_id'
+            TabOrder = 8
           end
         end
         object tsNPCTrainer: TTabSheet
@@ -16014,6 +16023,16 @@ object MainForm: TMainForm
               end
               item
               end>
+          end
+          object edcvtcondition_id: TLabeledEdit
+            Left = 472
+            Top = 491
+            Width = 80
+            Height = 21
+            EditLabel.Width = 57
+            EditLabel.Height = 13
+            EditLabel.Caption = 'condition_id'
+            TabOrder = 8
           end
         end
         object tsNPCTrainerTemplate: TTabSheet

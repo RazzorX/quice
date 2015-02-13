@@ -13,7 +13,7 @@ uses
 
 const
 {$IFDEF CMANGOS}
-  REV = '12349';
+  REV = '12363';
   VERSION_1 = '1';
   VERSION_2 = '2';
   VERSION_3 = '63';
@@ -1795,6 +1795,8 @@ type
     edcdsx: TLabeledEdit;
     edcdsy: TLabeledEdit;
     edcdsz: TLabeledEdit;
+    edcvcondition_id: TLabeledEdit;
+    edcvtcondition_id: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -4679,12 +4681,12 @@ begin
 
     if isvendor then
     begin
-      LoadQueryToListView(Format('SELECT v.*, i.`name` FROM `npc_vendor` v' +
+      LoadQueryToListView(Format('SELECT v.* FROM `npc_vendor` v' +
         ' LEFT OUTER JOIN `item_template` i ON i.`entry` = v.`item` WHERE (v.`entry`=%d)', [entry]), lvcvNPCVendor);
     end;
     tsNPCVendor.TabVisible := isvendor;
 
-    LoadQueryToListView(Format('SELECT vt.*, i.`name` FROM `npc_vendor_template` vt' +
+    LoadQueryToListView(Format('SELECT vt.* FROM `npc_vendor_template` vt' +
       ' LEFT OUTER JOIN `item_template` i ON i.`entry` = vt.`item` WHERE (vt.`entry`=%d)',
       [StrToIntDef(edctVendorTemplateId.Text, 0)]), lvcvtNPCVendor);
 
@@ -4899,7 +4901,6 @@ begin
   if equipentry <> 0 then
   begin
     edceentry.Text := IntToStr(equipentry);
-
   end;
 end;
 
@@ -8179,11 +8180,8 @@ begin
     QueryResult_AddToList;
 
     // load npc_vendor
-    MyQuery.SQL.Text := Format('SELECT `entry`, `item`,  '''' as `ChanceOrQuestChance`, ' +
-      ''''' as `groupid`, '''' as `mincountOrRef`, `maxcount`, ' +
-{$IFNDEF CMANGOS}''''' as `lootcondition`, '''' as `condition_value1`, ' + ''''' as `condition_value2`, '+{$ENDIF}
-      ''''' as `condition_id`, ''npc_vendor'' as `table` '
-      + 'FROM `npc_vendor` WHERE (`item`=%s)', [Key]);
+    MyQuery.SQL.Text := Format('SELECT *,  ' +
+      '''npc_vendor'' as `table` ' + 'FROM `npc_vendor` WHERE (`item`=%s)', [Key]);
     QueryResult_AddToList;
   finally
     lvList.Items.EndUpdate;
@@ -8352,6 +8350,7 @@ begin
       edcvmaxcount.Text := SubItems[1];
       edcvincrtime.Text := SubItems[2];
       edcvExtendedCost.Text := SubItems[3];
+      edcvcondition_id.Text := SubItems[4];
     end;
   end;
 end;
@@ -8373,6 +8372,7 @@ begin
       edcvtmaxcount.Text := SubItems[1];
       edcvtincrtime.Text := SubItems[2];
       edcvtExtendedCost.Text := SubItems[3];
+      edcvtcondition_id.Text := SubItems[4];
     end;
   end;
 end;
@@ -8892,16 +8892,14 @@ begin
   begin
     for i := 0 to lvList.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s),'#13#10,
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s),'#13#10,
         [lvList.Items[i].Caption, lvList.Items[i].SubItems[0], lvList.Items[i].SubItems[1], lvList.Items[i].SubItems[2],
-        lvList.Items[i].SubItems[3], lvList.Items[i].SubItems[4], lvList.Items[i].SubItems[5],
-        lvList.Items[i].SubItems[6], lvList.Items[i].SubItems[7], lvList.Items[i].SubItems[8]]);
+        lvList.Items[i].SubItems[3], lvList.Items[i].SubItems[4], lvList.Items[i].SubItems[5]]);
     end;
     i := lvList.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s);',
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s);',
       [lvList.Items[i].Caption, lvList.Items[i].SubItems[0], lvList.Items[i].SubItems[1], lvList.Items[i].SubItems[2],
-      lvList.Items[i].SubItems[3], lvList.Items[i].SubItems[4], lvList.Items[i].SubItems[5],
-      lvList.Items[i].SubItems[6], lvList.Items[i].SubItems[7], lvList.Items[i].SubItems[8]]);
+      lvList.Items[i].SubItems[3], lvList.Items[i].SubItems[4], lvList.Items[i].SubItems[5]]);
   end;
   if Values <> '' then
   begin
@@ -9078,6 +9076,7 @@ begin
     SubItems.Add(edcvmaxcount.Text);
     SubItems.Add(edcvincrtime.Text);
     SubItems.Add(edcvExtendedCost.Text);
+    SubItems.Add(edcvcondition_id.Text);
   end;
 end;
 
@@ -9092,6 +9091,7 @@ begin
       SubItems[1] := edcvmaxcount.Text;
       SubItems[2] := edcvincrtime.Text;
       SubItems[3] := edcvExtendedCost.Text;
+      SubItems[4] := edcvcondition_id.Text;
     end;
   end;
 end;
@@ -9196,6 +9196,7 @@ begin
     SubItems.Add(edcvtmaxcount.Text);
     SubItems.Add(edcvtincrtime.Text);
     SubItems.Add(edcvtExtendedCost.Text);
+    SubItems.Add(edcvtcondition_id.Text);
   end;
 end;
 
@@ -9216,6 +9217,7 @@ begin
       SubItems[1] := edcvtmaxcount.Text;
       SubItems[2] := edcvtincrtime.Text;
       SubItems[3] := edcvtExtendedCost.Text;
+      SubItems[4] := edcvtcondition_id.Text;
     end;
   end;
 end;
@@ -9233,19 +9235,19 @@ begin
   begin
     for i := 0 to lvcvNPCVendor.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s),'#13#10, [lvcvNPCVendor.Items[i].Caption,
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s),'#13#10, [lvcvNPCVendor.Items[i].Caption,
         lvcvNPCVendor.Items[i].SubItems[0], lvcvNPCVendor.Items[i].SubItems[1], lvcvNPCVendor.Items[i].SubItems[2],
-        lvcvNPCVendor.Items[i].SubItems[3]]);
+        lvcvNPCVendor.Items[i].SubItems[3], lvcvNPCVendor.Items[i].SubItems[4]]);
     end;
     i := lvcvNPCVendor.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s);', [lvcvNPCVendor.Items[i].Caption,
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s);', [lvcvNPCVendor.Items[i].Caption,
       lvcvNPCVendor.Items[i].SubItems[0], lvcvNPCVendor.Items[i].SubItems[1], lvcvNPCVendor.Items[i].SubItems[2],
-      lvcvNPCVendor.Items[i].SubItems[3]]);
+      lvcvNPCVendor.Items[i].SubItems[3], lvcvNPCVendor.Items[i].SubItems[4]]);
   end;
   if Values <> '' then
   begin
     mectScript.Text := Format('DELETE FROM `npc_vendor` WHERE (`entry`=%s);'#13#10 +
-      'INSERT INTO `npc_vendor` (entry, item, maxcount, incrtime, ExtendedCost) VALUES '#13#10'%s', [entry, Values])
+      'INSERT INTO `npc_vendor` (entry, item, maxcount, incrtime, ExtendedCost, condition_id) VALUES '#13#10'%s', [entry, Values])
   end
   else
     mectScript.Text := Format('DELETE FROM `npc_vendor` WHERE (`entry`=%s);', [entry]);
@@ -9264,19 +9266,19 @@ begin
   begin
     for i := 0 to lvcvtNPCVendor.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s),'#13#10, [lvcvtNPCVendor.Items[i].Caption,
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s),'#13#10, [lvcvtNPCVendor.Items[i].Caption,
         lvcvtNPCVendor.Items[i].SubItems[0], lvcvtNPCVendor.Items[i].SubItems[1], lvcvtNPCVendor.Items[i].SubItems[2],
-        lvcvtNPCVendor.Items[i].SubItems[3]]);
+        lvcvtNPCVendor.Items[i].SubItems[3], lvcvtNPCVendor.Items[i].SubItems[4]]);
     end;
     i := lvcvtNPCVendor.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s);', [lvcvtNPCVendor.Items[i].Caption,
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s);', [lvcvtNPCVendor.Items[i].Caption,
       lvcvtNPCVendor.Items[i].SubItems[0], lvcvtNPCVendor.Items[i].SubItems[1], lvcvtNPCVendor.Items[i].SubItems[2],
-      lvcvtNPCVendor.Items[i].SubItems[3]]);
+      lvcvtNPCVendor.Items[i].SubItems[3], lvcvtNPCVendor.Items[i].SubItems[4]]);
   end;
   if Values <> '' then
   begin
     mectScript.Text := Format('DELETE FROM `npc_vendor_template` WHERE (`entry`=%s);'#13#10 +
-      'INSERT INTO `npc_vendor_template` (entry, item, maxcount, incrtime, ExtendedCost) VALUES '#13#10'%s',
+      'INSERT INTO `npc_vendor_template` (entry, item, maxcount, incrtime, ExtendedCost, condition_id) VALUES '#13#10'%s',
       [entry, Values])
   end
   else
