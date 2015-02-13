@@ -13,7 +13,7 @@ uses
 
 const
 {$IFDEF CMANGOS}
-  REV = '12279';
+  REV = '12349';
   VERSION_1 = '1';
   VERSION_2 = '2';
   VERSION_3 = '63';
@@ -71,6 +71,7 @@ const
   PFX_CREATURE_MODEL_INFO = 'ci';
   PFX_CREATURE_MOVEMENT = 'cm';
   PFX_CREATURE_MOVEMENT_SCRIPTS = 'cms';
+  PFX_CREATURE_ON_DEATH_SCRIPTS = 'cds';
   PFX_CREATURE_LOOT_TEMPLATE = 'co';
   PFX_CREATURE_EVENTAI = 'cn';
   PFX_CREATURE_GOSSIP_MENU = 'cgm';
@@ -1769,6 +1770,31 @@ type
     edcuspell6: TLabeledEdit;
     edcuspell7: TLabeledEdit;
     edcuspell8: TLabeledEdit;
+    tsCreatureOnDeathScript: TTabSheet;
+    lbcds: TLabel;
+    lvcdsCreatureOnDeathScript: TJvListView;
+    edcdscommand: TJvComboEdit;
+    lbcdscommand: TLabel;
+    edcdsid: TLabeledEdit;
+    edcdsdelay: TLabeledEdit;
+    btcdsAdd: TSpeedButton;
+    btcdsDel: TSpeedButton;
+    btcdsShowFullScript: TButton;
+    btcdsUpd: TSpeedButton;
+    edcdsbuddy_entry: TLabeledEdit;
+    edcdscomments: TLabeledEdit;
+    edcdsdata_flags: TLabeledEdit;
+    edcdsdataint: TLabeledEdit;
+    edcdsdataint2: TLabeledEdit;
+    edcdsdataint3: TLabeledEdit;
+    edcdsdataint4: TLabeledEdit;
+    edcdsdatalong: TLabeledEdit;
+    edcdsdatalong2: TLabeledEdit;
+    edcdso: TLabeledEdit;
+    edcdssearch_radius: TLabeledEdit;
+    edcdsx: TLabeledEdit;
+    edcdsy: TLabeledEdit;
+    edcdsz: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2124,9 +2150,15 @@ type
     procedure btcmsAddClick(Sender: TObject);
     procedure btcmsUpdClick(Sender: TObject);
     procedure btcmsDelClick(Sender: TObject);
+    procedure btcdsAddClick(Sender: TObject);
+    procedure btcdsUpdClick(Sender: TObject);
+    procedure btcdsDelClick(Sender: TObject);
     procedure lvcmsCreatureMovementScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvcmsCreatureMovementScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvcdsCreatureOnDeathScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvcdsCreatureOnDeathScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btcmsShowFullScriptClick(Sender: TObject);
+    procedure btcdsShowFullScriptClick(Sender: TObject);
     procedure lvcvtNPCVendorSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btVendorTemplateAddClick(Sender: TObject);
     procedure btVendorTemplateUpdClick(Sender: TObject);
@@ -2210,6 +2242,7 @@ type
 
     procedure CompleteCreatureScript;
     procedure CompleteCreatureLocationScript;
+    procedure CompleteCreatureOnDeathScript;
     procedure CompleteCreatureLootScript;
     procedure CompleteCreatureEquipTemplateScript;
     procedure CompleteCreatureModelInfoScript;
@@ -4629,6 +4662,9 @@ begin
     LoadQueryToListView(Format('SELECT `guid`, `id`, `map`, `position_x`,' +
       ' `position_y`,`position_z`,`orientation` FROM `creature` WHERE (`id`=%d)', [entry]), lvclCreatureLocation);
 
+    LoadQueryToListView(Format('SELECT * FROM `dbscripts_on_creature_death` WHERE (`id`=%d)',
+      [entry]), lvcdsCreatureOnDeathScript);
+
     LoadQueryToListView(Format('SELECT clt.*, i.`name` FROM `creature_loot_template`' +
       ' clt LEFT OUTER JOIN `item_template` i ON i.`entry` = clt.`item`' + ' WHERE (clt.`entry`=%d)',
       [StrToIntDef(edctLootId.Text, 0)]), lvcoCreatureLoot);
@@ -4947,6 +4983,8 @@ begin
       CompleteGossipMenuScript;
     23:
       CompleteCreatureTemplateSpellsScript;
+    24:
+      CompleteCreatureOnDeathScript;
   end;
 end;
 
@@ -6459,6 +6497,18 @@ begin
     SetScriptEditFields('edcms', lvcmsCreatureMovementScript);
 end;
 
+procedure TMainForm.lvcdsCreatureOnDeathScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btcdsUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btcdsDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvcdsCreatureOnDeathScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetScriptEditFields('edcds', lvcdsCreatureOnDeathScript);
+end;
+
 procedure TMainForm.lvcnEventAIChange(Sender: TObject; Item: TListItem; Change: TItemChange);
 begin
   btEventAIUpd.Enabled := Assigned(TJvListView(Sender).Selected);
@@ -6820,6 +6870,26 @@ begin
       mectScript.Text := Format('REPLACE INTO `creature` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
       mectScript.Text := MakeUpdate('creature', PFX_CREATURE, 'guid', clguid);
+  end;
+end;
+
+procedure TMainForm.CompleteCreatureOnDeathScript;
+var
+  entry, Fields, Values: string;
+begin
+  mectLog.Clear;
+  entry := edcdsid.Text;
+  if entry = '' then
+    Exit;
+  SetFieldsAndValues(Fields, Values, 'dbscripts_on_creature_death', PFX_CREATURE_ON_DEATH_SCRIPTS, mectLog);
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `dbscripts_on_creature_death` WHERE (`id`=%s);'#13#10 +
+        'INSERT INTO `dbscripts_on_creature_death` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `dbscripts_on_creature_death` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate('dbscripts_on_creature_death', PFX_CREATURE_ON_DEATH_SCRIPTS, 'id', entry);
   end;
 end;
 
@@ -9416,10 +9486,21 @@ begin
   ScriptAdd('edcms', lvcmsCreatureMovementScript);
 end;
 
+procedure TMainForm.btcdsAddClick(Sender: TObject);
+begin
+  ScriptAdd('edcds', lvcdsCreatureOnDeathScript);
+end;
+
 procedure TMainForm.btcmsShowFullScriptClick(Sender: TObject);
 begin
   PageControl3.ActivePageIndex := SCRIPT_TAB_NO_CREATURE;
   mectScript.Text := ScriptSQLScript(lvcmsCreatureMovementScript, SCRIPT_TABLE_CREATURE_MOVEMENT, edcmsid.Text);
+end;
+
+procedure TMainForm.btcdsShowFullScriptClick(Sender: TObject);
+begin
+  PageControl3.ActivePageIndex := SCRIPT_TAB_NO_CREATURE;
+  mectScript.Text := ScriptSQLScript(lvcdsCreatureOnDeathScript, 'dbscripts_on_creature_death', edcdsid.Text);
 end;
 
 procedure TMainForm.btcmsDelClick(Sender: TObject);
@@ -9427,9 +9508,19 @@ begin
   ScriptDel(lvcmsCreatureMovementScript);
 end;
 
+procedure TMainForm.btcdsDelClick(Sender: TObject);
+begin
+  ScriptDel(lvcdsCreatureOnDeathScript);
+end;
+
 procedure TMainForm.btcmsUpdClick(Sender: TObject);
 begin
   ScriptUpd('edcms', lvcmsCreatureMovementScript);
+end;
+
+procedure TMainForm.btcdsUpdClick(Sender: TObject);
+begin
+  ScriptUpd('edcds', lvcdsCreatureOnDeathScript);
 end;
 
 procedure TMainForm.lvSearchItemChange(Sender: TObject; Item: TListItem; Change: TItemChange);

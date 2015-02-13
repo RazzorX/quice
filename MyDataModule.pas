@@ -380,6 +380,7 @@ begin
   Text[157]:='The error has accured while loading Creature EventAI:';
   Text[158]:='Option Icon';
   Text[159]:='The error has accured while loading Creature Template Spells:';
+  Text[160]:='The error has accured while loading DBScripts On Creature Death:';
 end;
 
 procedure TdmMain.SetLanguage(const Value: string);
