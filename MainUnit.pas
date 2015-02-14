@@ -1128,6 +1128,7 @@ type
     lbitsocketBonus: TLabel;
     tsButtonScript: TTabSheet;
     lvgbButtonScript: TJvListView;
+    lvgtbGOTemplateScript: TJvListView;
     edgbo: TLabeledEdit;
     edgbz: TLabeledEdit;
     edgby: TLabeledEdit;
@@ -1144,6 +1145,7 @@ type
     btgbUpd: TSpeedButton;
     btgbAdd: TSpeedButton;
     btgbShowFullScript: TButton;
+    btgtbShowFullScript: TButton;
     btBrowseQuestPopup: TBitBtn;
     btBrowseCreaturePopup: TBitBtn;
     btBrowseGOPopup: TBitBtn;
@@ -1797,6 +1799,29 @@ type
     edcdsz: TLabeledEdit;
     edcvcondition_id: TLabeledEdit;
     edcvtcondition_id: TLabeledEdit;
+    tsGOTemplateScript: TTabSheet;
+    edgtbo: TLabeledEdit;
+    edgtbz: TLabeledEdit;
+    edgtby: TLabeledEdit;
+    edgtbx: TLabeledEdit;
+    edgtbdataint: TLabeledEdit;
+    edgtbdataint2: TLabeledEdit;
+    edgtbdataint3: TLabeledEdit;
+    edgtbdataint4: TLabeledEdit;
+    edgtbdatalong2: TLabeledEdit;
+    edgtbdatalong: TLabeledEdit;
+    edgtbdelay: TLabeledEdit;
+    edgtbid: TLabeledEdit;
+    edgtbbuddy_entry: TLabeledEdit;
+    edgtbsearch_radius: TLabeledEdit;
+    edgtbcomments: TLabeledEdit;
+    edgtbdata_flags: TLabeledEdit;
+    edgtbcommand: TJvComboEdit;
+    lbhintGOTemplateScript: TLabel;
+    lbgtbcommand: TLabel;
+    btgtbDel: TSpeedButton;
+    btgtbUpd: TSpeedButton;
+    btgtbAdd: TSpeedButton;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2079,10 +2104,15 @@ type
     procedure editGemPropertiesButtonClick(Sender: TObject);
     procedure editsocketBonusButtonClick(Sender: TObject);
     procedure lvgbButtonScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvgtbGOTemplateScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvgbButtonScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvgtbGOTemplateScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btgbAddClick(Sender: TObject);
     procedure btgbUpdClick(Sender: TObject);
     procedure btgbDelClick(Sender: TObject);
+    procedure btgtbAddClick(Sender: TObject);
+    procedure btgtbUpdClick(Sender: TObject);
+    procedure btgtbDelClick(Sender: TObject);
     procedure tsButtonScriptShow(Sender: TObject);
     procedure btBrowsePopupClick(Sender: TObject);
     procedure edcvExtendedCostButtonClick(Sender: TObject);
@@ -2271,6 +2301,7 @@ type
     procedure CompleteGOLootScript;
     procedure CompleteGOScript;
     procedure CompleteButtonScriptScript;
+    procedure CompleteGOTemplateScriptScript;
 
     { items }
     procedure SearchItem;
@@ -6708,6 +6739,11 @@ begin
   megoScript.Text := ScriptSQLScript(lvgbButtonScript, SCRIPT_TABLE_GO, edgtentry.Text);
 end;
 
+procedure TMainForm.CompleteGOTemplateScriptScript;
+begin
+  megoScript.Text := ScriptSQLScript(lvgtbGOTemplateScript, SCRIPT_TABLE_GO_TEMPLATE, edgtentry.Text);
+end;
+
 procedure TMainForm.CompleteCharacterInventoryScript;
 var
   GUID, Fields, Values: string;
@@ -7557,6 +7593,7 @@ begin
 
     LoadQueryToListView(Format('SELECT `guid`, `id`, `map`, `position_x`,' +
       '`position_y`,`position_z`,`orientation` FROM `gameobject` WHERE (`id`=%d)', [entry]), lvglGOLocation);
+    LoadQueryToListView(Format('SELECT * FROM `dbscripts_on_go_template_use` WHERE (`id`=%d)', [entry]), lvgtbGOTemplateScript);
     LoadQueryToListView(Format('SELECT glt.*, i.name FROM `gameobject_loot_template` glt ' +
       'LEFT OUTER JOIN `item_template` i ON i.`entry` = glt.`item`  WHERE (glt.`entry`=%d)',
       [StrToIntDef(edgtdata1.Text, 0)]), lvgoGOLoot);
@@ -7679,6 +7716,8 @@ begin
       CompleteGOLootScript;
     4:
       CompleteButtonScriptScript;
+    5:
+      CompleteGOTemplateScriptScript;
   end;
 end;
 
@@ -7696,10 +7735,22 @@ begin
   btgbDel.Enabled := Assigned(TJvListView(Sender).Selected);
 end;
 
+procedure TMainForm.lvgtbGOTemplateScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btgtbUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btgtbDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
 procedure TMainForm.lvgbButtonScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 begin
   if Selected then
     SetScriptEditFields('edgb', lvgbButtonScript);
+end;
+
+procedure TMainForm.lvgtbGOTemplateScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetScriptEditFields('edgtb', lvgtbGOTemplateScript);
 end;
 
 procedure TMainForm.lvglGOLocationSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
@@ -10616,6 +10667,21 @@ end;
 procedure TMainForm.btgbUpdClick(Sender: TObject);
 begin
   ScriptUpd('edgb', lvgbButtonScript);
+end;
+
+procedure TMainForm.btgtbAddClick(Sender: TObject);
+begin
+  ScriptAdd('edgtb', lvgtbGOTemplateScript);
+end;
+
+procedure TMainForm.btgtbDelClick(Sender: TObject);
+begin
+  ScriptDel(lvgtbGOTemplateScript);
+end;
+
+procedure TMainForm.btgtbUpdClick(Sender: TObject);
+begin
+  ScriptUpd('edgtb', lvgtbGOTemplateScript);
 end;
 
 procedure TMainForm.btgeCreatureGuidAddClick(Sender: TObject);
