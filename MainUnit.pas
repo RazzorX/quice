@@ -3097,7 +3097,7 @@ begin
 
   s1 := Format('DELETE FROM `creature_questrelation` WHERE `quest` = %0:s;'#13#10 +
     'DELETE FROM `gameobject_questrelation` WHERE `quest` = %0:s;'#13#10 +
-    'UPDATE `item_template` SET `StartQuest`=0 WHERE `StartQuest` = %0:s;'#13#10, [quest]);
+    'UPDATE `item_template` SET `startquest`=0 WHERE `startquest` = %0:s;'#13#10, [quest]);
   s2 := Format('DELETE FROM `creature_involvedrelation` WHERE `quest` = %0:s;'#13#10 +
     'DELETE FROM `gameobject_involvedrelation` WHERE `quest` = %0:s;'#13#10, [quest]);
 
@@ -3129,7 +3129,7 @@ begin
 
       if who = 'creature' then
         s2 := Format('%0:sINSERT INTO `creature_involvedrelation` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10 +
-          'UPDATE `creature_template` SET `NpcFlags`=`NpcFlags`|2 WHERE `entry`=%1:s;'#13#10, [s2, id, quest])
+          'UPDATE `creature_template` SET `NpcFlags`=`NpcFlags`|2 WHERE `entry` = %1:s;'#13#10, [s2, id, quest])
       else if who = 'gameobject' then
         s2 := Format('%0:sINSERT INTO `gameobject_involvedrelation` (`id`, `quest`) VALUES (%1:s, %2:s);'#13#10,
           [s2, id, quest])
@@ -3512,13 +3512,19 @@ var
   SQLText: string;
 begin
   if objtype = 'creature' then
+  begin
     SQLText :=
       Format('SELECT `guid`, `id`, `map`, `position_x`,`position_y`,`position_z`,`orientation`,''creature'' as `table` FROM `creature` WHERE (`id`=%s)',
-      [entry])
+      [entry]);
+    lbQuestTakerLocation.Caption := dmMain.Text[17]; // 'Creature location'
+  end
   else if objtype = 'gameobject' then
+  begin
     SQLText :=
       Format('SELECT `guid`, `id`, `map`, `position_x`,`position_y`,`position_z`,`orientation`,''gameobject'' as `table` FROM `gameobject` WHERE (`id`=%s)',
-      [entry])
+      [entry]);
+    lbQuestTakerLocation.Caption := dmMain.Text[18]; // 'Gameobject location'
+  end
   else
   begin
     lvqtTakerLocation.Clear;

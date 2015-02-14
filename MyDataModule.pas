@@ -7,7 +7,7 @@ uses
   DB, ZAbstractRODataset, ZAbstractDataset, ZDataset, JvExComCtrls, JvListView;
 
 const
-  DefaultLanguage = 'Default';
+  DefaultLanguage = 'English';
   SoftwareCompany = 'Indomit Software';
   ProgramName = 'Quice';
 
