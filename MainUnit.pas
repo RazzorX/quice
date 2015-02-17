@@ -86,6 +86,7 @@ const
   PFX_GAME_EVENT = 'ge';
   PFX_GAMEOBJECT = 'gl';
   PFX_GAMEOBJECT_LOOT_TEMPLATE = 'go';
+  PFX_MAIL_LOOT_TEMPLATE = 'ml';
   PFX_ITEM_TEMPLATE = 'it';
   PFX_ITEM_LOOT_TEMPLATE = 'il';
   PFX_ITEM_ENCHANTMENT_TEMPLATE = 'ie';
@@ -580,13 +581,24 @@ type
     btGOLootAdd: TSpeedButton;
     btGOLootUpd: TSpeedButton;
     btGOLootDel: TSpeedButton;
+    btMailLootAdd: TSpeedButton;
+    btMailLootUpd: TSpeedButton;
+    btMailLootDel: TSpeedButton;
     lvgoGOLoot: TJvListView;
+    lvmlMailLoot: TJvListView;
     edgoentry: TLabeledEdit;
     edgoChanceOrQuestChance: TLabeledEdit;
     edgogroupid: TLabeledEdit;
     edgomincountOrRef: TLabeledEdit;
     edgomaxcount: TLabeledEdit;
     edgoitem: TJvComboEdit;
+    edmlentry: TLabeledEdit;
+    edmlChanceOrQuestChance: TLabeledEdit;
+    edmlgroupid: TLabeledEdit;
+    edmlmincountOrRef: TLabeledEdit;
+    edmlmaxcount: TLabeledEdit;
+    edmlitem: TJvComboEdit;
+    edmlcondition_id: TLabeledEdit;
     btScriptGOLoot: TButton;
     btFullScriptGOLoot: TButton;
     tsGOScript: TTabSheet;
@@ -1899,6 +1911,7 @@ type
     procedure GetSpell(Sender: TObject);
     procedure btLoadQuest(Sender: TObject);
     procedure lvgoGOLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvmlMailLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvglGOLocationSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvcoPickpocketLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvcoSkinLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
@@ -1923,7 +1936,11 @@ type
     procedure btGOLootAddClick(Sender: TObject);
     procedure btGOLootUpdClick(Sender: TObject);
     procedure btGOLootDelClick(Sender: TObject);
+    procedure btMailLootAddClick(Sender: TObject);
+    procedure btMailLootUpdClick(Sender: TObject);
+    procedure btMailLootDelClick(Sender: TObject);
     procedure btFullScriptGOLootClick(Sender: TObject);
+    procedure btFullScriptMailLootClick(Sender: TObject);
     procedure btVendorAddClick(Sender: TObject);
     procedure btVendorUpdClick(Sender: TObject);
     procedure btVendorDelClick(Sender: TObject);
@@ -1933,6 +1950,7 @@ type
     procedure lvcoPickpocketLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvcoCreatureLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvgoGOLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvmlMailLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure btTrainerAddClick(Sender: TObject);
     procedure btTrainerUpdClick(Sender: TObject);
     procedure btTrainerDelClick(Sender: TObject);
@@ -2238,10 +2256,12 @@ type
     procedure ChangeNamesOfComponents;
     procedure CompleteScript;
     procedure CompleteLocalesQuest;
+    procedure CompleteMailLootScript;
     procedure ExecuteScript(script: string; memo: TMemo); overload;
     procedure LoadQuestGivers(QuestID: Integer);
     procedure LoadQuestTakers(QuestID: Integer);
     procedure LoadQuestLocales(QuestID: Integer);
+    procedure LoadQuestMailLoot(edqtRewMailTemplateId: Integer);
     procedure LoadQuestGiverInfo(objtype: string; entry: string);
     procedure LoadQuestTakerInfo(objtype: string; entry: string);
     procedure LoadQuestStartScript(id: Integer);
@@ -2986,6 +3006,7 @@ begin
     LoadQuestGivers(QuestID);
     LoadQuestTakers(QuestID);
     LoadQuestLocales(QuestID);
+    LoadQuestMailLoot(StrToInt(edqtRewMailTemplateId.Text));
   except
     on E: Exception do
       raise Exception.Create(dmMain.Text[3] + #10#13 + E.Message);
@@ -3242,6 +3263,14 @@ begin
   CompleteLocalesQuest;
 end;
 
+procedure TMainForm.btFullScriptMailLootClick(Sender: TObject);
+begin
+  PageControl2.ActivePageIndex := SCRIPT_TAB_NO_QUEST;
+  meqtScript.Clear;
+  CompleteMailLootScript;
+  ShowFullLootScript('mail_loot_template', lvmlMailLoot, meqtScript, edqtRewMailTemplateId.Text);
+end;
+
 procedure TMainForm.btMillingLootAddClick(Sender: TObject);
 begin
   LootAdd('edim', lvitMillingLoot);
@@ -3418,6 +3447,35 @@ begin
     LoadLoot(lvqtGiverLocation, entry)
   else
     LoadQueryToListView(SQLText, lvqtGiverLocation);
+end;
+
+procedure TMainForm.LoadQuestMailLoot(edqtRewMailTemplateId: Integer);
+begin
+  MyQuery.SQL.Text := Format('SELECT ml.* FROM `mail_loot_template` ml ' +
+    'INNER JOIN `item_template` t ON t.entry = ml.item ' + 'WHERE ml.entry = %d', [edqtRewMailTemplateId]);
+  MyQuery.Open;
+  while not MyQuery.Eof do
+  begin
+    with lvmlMailLoot.Items.Add do
+    begin
+      lvmlMailLoot.Columns[0].Caption := 'entry';
+      Caption := MyQuery.Fields[0].AsString;
+      lvmlMailLoot.Columns[1].Caption := 'item';
+      SubItems.Add(MyQuery.Fields[1].AsString);
+      lvmlMailLoot.Columns[2].Caption := 'ChanceOrQuestChance';
+      SubItems.Add(MyQuery.Fields[2].AsString);
+      lvmlMailLoot.Columns[3].Caption := 'groupid';
+      SubItems.Add(MyQuery.Fields[3].AsString);
+      lvmlMailLoot.Columns[4].Caption := 'mincountOrRef';
+      SubItems.Add(MyQuery.Fields[4].AsString);
+      lvmlMailLoot.Columns[5].Caption := 'maxcount';
+      SubItems.Add(MyQuery.Fields[5].AsString);
+      lvmlMailLoot.Columns[6].Caption := 'condition_id';
+      SubItems.Add(MyQuery.Fields[6].AsString);
+    end;
+    MyQuery.Next;
+  end;
+  MyQuery.Close;
 end;
 
 procedure TMainForm.LoadQuestLocales(QuestID: Integer);
@@ -7873,10 +7931,30 @@ begin
     'INSERT INTO `gameobject_loot_template` (%s) VALUES (%s);'#13#10, [goentry, goitem, Fields, Values])
 end;
 
+procedure TMainForm.CompleteMailLootScript;
+var
+  mlentry, mlitem, Fields, Values: string;
+begin
+  meqtLog.Clear;
+  mlentry := edmlentry.Text;
+  mlitem := edmlitem.Text;
+  if (mlentry = '') or (mlitem = '') then
+    Exit;
+  SetFieldsAndValues(Fields, Values, 'mail_loot_template', PFX_MAIL_LOOT_TEMPLATE, meqtLog);
+  meqtScript.Text := Format('DELETE FROM `mail_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+    'INSERT INTO `mail_loot_template` (%s) VALUES (%s);'#13#10, [mlentry, mlitem, Fields, Values])
+end;
+
 procedure TMainForm.lvgoGOLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 begin
   if Selected then
     SetLootEditFields('edgo', lvgoGOLoot);
+end;
+
+procedure TMainForm.lvmlMailLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetLootEditFields('edml', lvmlMailLoot);
 end;
 
 procedure TMainForm.edgttypeButtonClick(Sender: TObject);
@@ -8236,9 +8314,16 @@ begin
       '''reference_loot_template'' as `table` ' + 'FROM `reference_loot_template` WHERE (`item`=%s)', [Key]);
     QueryResult_AddToList;
 
-    // load npc_vendor
+    // load mail loot
     MyQuery.SQL.Text := Format('SELECT *,  ' +
-      '''npc_vendor'' as `table` ' + 'FROM `npc_vendor` WHERE (`item`=%s)', [Key]);
+      '''mail_loot_template'' as `table` ' + 'FROM `mail_loot_template` WHERE (`item`=%s)', [Key]);
+    QueryResult_AddToList;
+
+    // load npc_vendor
+    MyQuery.SQL.Text := Format('SELECT `entry`, `item`,  '''' as `ChanceOrQuestChance`, ' +
+      ''''' as `groupid`, '''' as `mincountOrRef`, `maxcount`, ' +
+      '`condition_id`, ''npc_vendor'' as `table` '
+      + 'FROM `npc_vendor` WHERE (`item`=%s)', [Key]);
     QueryResult_AddToList;
   finally
     lvList.Items.EndUpdate;
@@ -8268,6 +8353,8 @@ begin
       MyQuery.SQL.Text := Format('SELECT `name` FROM `creature_template` WHERE `Entry` = %s', [id]);
     if table = 'gameobject_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `name` FROM `gameobject_template` WHERE `data1` = %s', [id]);
+    if table = 'mail_loot_template' then
+      MyQuery.SQL.Text := Format('SELECT `Title` FROM `quest_template` WHERE `RewMailTemplateId` = %s', [id]);
     if table = 'pickpocketing_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `name` FROM `creature_template` WHERE `PickpocketLootId` = %s', [id]);
     if table = 'skinning_loot_template' then
@@ -9062,6 +9149,16 @@ begin
   LootUpd('edgo', lvgoGOLoot);
 end;
 
+procedure TMainForm.btMailLootAddClick(Sender: TObject);
+begin
+  LootAdd('edml', lvmlMailLoot);
+end;
+
+procedure TMainForm.btMailLootUpdClick(Sender: TObject);
+begin
+  LootUpd('edml', lvmlMailLoot);
+end;
+
 procedure TMainForm.btGossipMenuOptionAddClick(Sender: TObject);
 var
   i: integer;
@@ -9116,6 +9213,11 @@ end;
 procedure TMainForm.btGOLootDelClick(Sender: TObject);
 begin
   LootDel(lvgoGOLoot);
+end;
+
+procedure TMainForm.btMailLootDelClick(Sender: TObject);
+begin
+  LootDel(lvmlMailLoot);
 end;
 
 procedure TMainForm.btFullScriptGOLootClick(Sender: TObject);
@@ -9377,6 +9479,12 @@ procedure TMainForm.lvgoGOLootChange(Sender: TObject; Item: TListItem; Change: T
 begin
   btGOLootUpd.Enabled := Assigned(TJvListView(Sender).Selected);
   btGOLootDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvmlMailLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btMailLootUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btMailLootDel.Enabled := Assigned(TJvListView(Sender).Selected);
 end;
 
 procedure TMainForm.btTrainerAddClick(Sender: TObject);
@@ -9839,6 +9947,10 @@ begin
       ' mlt LEFT OUTER JOIN `item_template` i ON i.`entry` = mlt.`item`' + ' WHERE (mlt.`entry`=%d)',
       [StrToIntDef(editentry.Text, 0)]), lvitMillingLoot);
 
+    LoadQueryToListView(Format('SELECT mlt.*, i.`name` FROM `mail_loot_template`' +
+      ' mlt LEFT OUTER JOIN `item_template` i ON i.`entry` = mlt.`item`' + ' WHERE (mlt.`entry`=%d)',
+      [StrToIntDef(edmlentry.Text, 0)]), lvmlMailLoot);
+
     LoadQueryToListView(Format('SELECT rlt.*, i.`name` FROM `reference_loot_template`' +
       ' rlt LEFT OUTER JOIN `item_template` i ON i.`entry` = rlt.`entry`' + ' WHERE (rlt.`item`=%d)',
       [StrToIntDef(editentry.Text, 0)]), lvitReferenceLoot);
@@ -10083,6 +10195,12 @@ begin
     QueryStr := Format('SELECT * FROM `gameobject_template` WHERE `data1` = %s', [id]);
     lvList := lvSearchGO;
     PageControl1.ActivePageIndex := 2;
+  end;
+  if table = 'mail_loot_template' then
+  begin
+    QueryStr := Format('SELECT * FROM `quest_template` WHERE `RewMailTemplateId` = %s', [id]);
+    lvList := lvQuest;
+    PageControl1.ActivePageIndex := 0;
   end;
 
   if (QueryStr <> '') and Assigned(lvList) then
