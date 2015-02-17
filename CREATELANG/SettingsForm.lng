@@ -11,6 +11,7 @@ Label2=At this page you can change the site. It will be used for browse items, N
 rgSite=Site
 tsLanguage=Language
 lbLanguage=Language
+lbLocales=Locales
 Label3=At this page you can choose the Language File
 tsInternet=Internet
 cbAutomaticCheckForUpdates=Automatic Check For Updates
