@@ -8331,6 +8331,8 @@ begin
 
   LastColumn := {$IFDEF CMANGOS}8{$ELSE}11{$ENDIF};
 
+  if lvList.Items.Count = 0 then
+    Exit;
   lvList.Columns[LastColumn].Caption := 'name';
   lvList.Columns[LastColumn].Width := 150;
   lvList.Columns[LastColumn-1].Width := 150;
