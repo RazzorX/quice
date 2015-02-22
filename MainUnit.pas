@@ -49,7 +49,7 @@ const
   SCRIPT_TAB_NO_QUEST = 8;
   SCRIPT_TAB_NO_CREATURE = 22;
   SCRIPT_TAB_NO_GAMEOBJECT = 6;
-  SCRIPT_TAB_NO_ITEM = 10;
+  SCRIPT_TAB_NO_ITEM = 11;
   SCRIPT_TAB_NO_OTHER = 3;
   SCRIPT_TAB_NO_CHARACTER = 3;
 
@@ -94,6 +94,7 @@ const
   PFX_PROSPECTING_LOOT_TEMPLATE = 'ip';
   PFX_MILLING_LOOT_TEMPLATE = 'im';
   PFX_REFERENCE_LOOT_TEMPLATE = 'ir';
+  PFX_SPELL_LOOT_TEMPLATE = 'sl';
   PFX_PAGE_TEXT = 'pt';
   PFX_FISHING_LOOT_TEMPLATE = 'ot';
   PFX_CHARACTER = 'ht';
@@ -1096,7 +1097,6 @@ type
     tsCreatureModelInfo: TTabSheet;
     tsCreatureEquipTemplate: TTabSheet;
     Panel23: TPanel;
-    edceentry: TLabeledEdit;
     btShowCreatureEquipmentScript: TButton;
     lvCreatureModelSearch: TJvListView;
     Panel24: TPanel;
@@ -1411,12 +1411,11 @@ type
     btMillingLootDel: TSpeedButton;
     btFullScriptMillingLoot: TButton;
     btScriptMillingLoot: TButton;
-    edceequipentry1: TJvComboEdit;
-    edceequipentry2: TJvComboEdit;
-    edceequipentry3: TJvComboEdit;
-    lbceequipentry1: TLabel;
-    lbceequipentry2: TLabel;
-    lbceequipentry3: TLabel;
+    edceentry: TJvComboEdit;
+    lbceentry: TLabel;
+    edceequipentry1: TLabeledEdit;
+    edceequipentry2: TLabeledEdit;
+    edceequipentry3: TLabeledEdit;
     edclphaseMask: TLabeledEdit;
     edglphaseMask: TLabeledEdit;
     tsLocalesNPCText: TTabSheet;
@@ -1775,7 +1774,8 @@ type
     edctDamageVariance: TLabeledEdit;
     tsCreatureTemplateSpells: TTabSheet;
     lbcuCreatureTemplateSpells: TLabel;
-    edcuentry: TLabeledEdit;
+    edcuentry: TJvComboEdit;
+    lbcuentry: TLabel;
     edcuspell1: TLabeledEdit;
     edcuspell2: TLabeledEdit;
     edcuspell3: TLabeledEdit;
@@ -1834,6 +1834,21 @@ type
     btgtbDel: TSpeedButton;
     btgtbUpd: TSpeedButton;
     btgtbAdd: TSpeedButton;
+    tsSpellLoot: TTabSheet;
+    lvslSpellLoot: TJvListView;
+    edslChanceOrQuestChance: TLabeledEdit;
+    btScriptSpellLoot: TButton;
+    edslitem: TJvComboEdit;
+    edslgroupid: TLabeledEdit;
+    btSpellLootAdd: TSpeedButton;
+    btSpellLootUpd: TSpeedButton;
+    btSpellLootDel: TSpeedButton;
+    edslmincountOrRef: TLabeledEdit;
+    edslmaxcount: TLabeledEdit;
+    edslcondition_id: TLabeledEdit;
+    btFullScriptSpellLoot: TButton;
+    edslentry: TLabeledEdit;
+    lbslitem: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2186,6 +2201,7 @@ type
     procedure btMillingLootUpdClick(Sender: TObject);
     procedure btMillingLootDelClick(Sender: TObject);
     procedure tsMillingLootShow(Sender: TObject);
+    procedure tsSpellLootShow(Sender: TObject);
     procedure btFullScriptMillingLootClick(Sender: TObject);
     procedure edctEquipmentTemplateIdDblClick(Sender: TObject);
     procedure edflagsChange(Sender: TObject);
@@ -2195,6 +2211,12 @@ type
     procedure lvitReferenceLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvitReferenceLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btFullScriptReferenceLootClick(Sender: TObject);
+    procedure btSpellLootAddClick(Sender: TObject);
+    procedure btSpellLootUpdClick(Sender: TObject);
+    procedure btSpellLootDelClick(Sender: TObject);
+    procedure lvslSpellLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvslSpellLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure btFullScriptSpellLootClick(Sender: TObject);
     procedure edirentryButtonClick(Sender: TObject);
     procedure GetSpawnMask(Sender: TObject);
     procedure btcmsAddClick(Sender: TObject);
@@ -2331,6 +2353,7 @@ type
     procedure CompleteProsLootScript;
     procedure CompleteMillingLootScript;
     procedure CompleteReferenceLootScript;
+    procedure CompleteSpellLootScript;
     procedure CompleteItemScript;
     procedure CompleteItemEnchScript;
 
@@ -3951,6 +3974,21 @@ begin
   LootUpd('edir', lvitReferenceLoot);
 end;
 
+procedure TMainForm.btSpellLootAddClick(Sender: TObject);
+begin
+  LootAdd('edsl', lvslSpellLoot);
+end;
+
+procedure TMainForm.btSpellLootDelClick(Sender: TObject);
+begin
+  LootDel(lvslSpellLoot);
+end;
+
+procedure TMainForm.btSpellLootUpdClick(Sender: TObject);
+begin
+  LootUpd('edsl', lvslSpellLoot);
+end;
+
 procedure TMainForm.nSettingsClick(Sender: TObject);
 begin
   ShowSettings(TMenuItem(Sender).Tag - 1);
@@ -4310,7 +4348,7 @@ begin
       Free;
     end;
   S := S + 'uninstall.bat';
-  WinExec(PAnsiChar(S), SW_HIDE);
+  WinExec(PAnsiChar(AnsiString(S)), SW_HIDE);
   Close;
 end;
 
@@ -8319,6 +8357,11 @@ begin
       '''mail_loot_template'' as `table` ' + 'FROM `mail_loot_template` WHERE (`item`=%s)', [Key]);
     QueryResult_AddToList;
 
+    // load spell loot
+    MyQuery.SQL.Text := Format('SELECT *,  ' +
+      '''spell_loot_template'' as `table` ' + 'FROM `spell_loot_template` WHERE (`item`=%s)', [Key]);
+    QueryResult_AddToList;
+
     // load npc_vendor
     MyQuery.SQL.Text := Format('SELECT `entry`, `item`,  '''' as `ChanceOrQuestChance`, ' +
       ''''' as `groupid`, '''' as `mincountOrRef`, `maxcount`, ' +
@@ -8351,6 +8394,8 @@ begin
       MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s', [id]);
     if table = 'disenchant_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `DisenchantID` = %s', [id]);
+    if table = 'spell_loot_template' then
+      MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s', [id]);
     if table = 'npc_vendor' then
       MyQuery.SQL.Text := Format('SELECT `name` FROM `creature_template` WHERE `Entry` = %s', [id]);
     if table = 'gameobject_loot_template' then
@@ -9269,6 +9314,12 @@ begin
   ShowFullLootScript('reference_loot_template', lvitReferenceLoot, meitScript, edirentry.Text);
 end;
 
+procedure TMainForm.btFullScriptSpellLootClick(Sender: TObject);
+begin
+  PageControl5.ActivePageIndex := SCRIPT_TAB_NO_ITEM;
+  ShowFullLootScript('spell_loot_template', lvslSpellLoot, meitScript, edslentry.Text);
+end;
+
 procedure TMainForm.btShowCharacterScriptClick(Sender: TObject);
 begin
   PageControl8.ActivePageIndex := SCRIPT_TAB_NO_CHARACTER;
@@ -9894,6 +9945,20 @@ begin
     'INSERT INTO `reference_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values])
 end;
 
+procedure TMainForm.CompleteSpellLootScript;
+var
+  entry, Item, Fields, Values: string;
+begin
+  meitLog.Clear;
+  entry := edslentry.Text;
+  Item := edslitem.Text;
+  if (entry = '') or (Item = '') then
+    Exit;
+  SetFieldsAndValues(Fields, Values, 'spell_loot_template', PFX_SPELL_LOOT_TEMPLATE, meitLog);
+  meitScript.Text := Format('DELETE FROM `spell_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+    'INSERT INTO `spell_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values])
+end;
+
 procedure TMainForm.CompleteItemScript;
 var
   entry, Fields, Values: string;
@@ -9948,6 +10013,10 @@ begin
     LoadQueryToListView(Format('SELECT mlt.*, i.`name` FROM `milling_loot_template`' +
       ' mlt LEFT OUTER JOIN `item_template` i ON i.`entry` = mlt.`item`' + ' WHERE (mlt.`entry`=%d)',
       [StrToIntDef(editentry.Text, 0)]), lvitMillingLoot);
+
+    LoadQueryToListView(Format('SELECT slt.*, i.`name` FROM `spell_loot_template`' +
+      ' slt LEFT OUTER JOIN `item_template` i ON i.`entry` = slt.`item`' + ' WHERE (slt.`item`=%d)',
+      [StrToIntDef(editentry.Text, 0)]), lvslSpellLoot);
 
     LoadQueryToListView(Format('SELECT mlt.*, i.`name` FROM `mail_loot_template`' +
       ' mlt LEFT OUTER JOIN `item_template` i ON i.`entry` = mlt.`item`' + ' WHERE (mlt.`entry`=%d)',
@@ -10382,6 +10451,8 @@ begin
     6:
       CompleteReferenceLootScript;
     7:
+      CompleteSpellLootScript;
+    10:
       CompleteItemEnchScript;
   end;
 end;
@@ -10390,6 +10461,12 @@ procedure TMainForm.tsMillingLootShow(Sender: TObject);
 begin
   if (edipentry.Text = '') then
     edipentry.Text := editentry.Text;
+end;
+
+procedure TMainForm.tsSpellLootShow(Sender: TObject);
+begin
+  if (edslitem.Text = '') then
+    edslitem.Text := editentry.Text;
 end;
 
 procedure TMainForm.tsNPCgossipShow(Sender: TObject);
@@ -11385,6 +11462,18 @@ procedure TMainForm.lvitReferenceLootSelectItem(Sender: TObject; Item: TListItem
 begin
   if Selected then
     SetLootEditFields('edir', lvitReferenceLoot);
+end;
+
+procedure TMainForm.lvslSpellLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btSpellLootUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btSpellLootDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvslSpellLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetLootEditFields('edsl', lvslSpellLoot);
 end;
 
 procedure TMainForm.lvQuickListClick(Sender: TObject);
