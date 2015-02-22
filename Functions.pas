@@ -17,7 +17,7 @@ procedure LoadListFromFile(List: TListView; Fname: string); forward; overload;
 procedure LoadListFromFile(List: TListView; Fname: string; id1: string); forward; overload;
 
 function LoadListFromDBCFile(List: TListView; Name: string ): boolean; forward; overload;
-function LoadListFromDBCFile(List: TListView; FName: string ; idx_str: Cardinal ): boolean; forward; overload;
+function LoadListFromDBCFile(List: TListView; Fname: string ; idx_str: Cardinal ): boolean; forward; overload;
 
 procedure SetList(List: TListView; Name: string; Sorted: boolean = false ); forward; overload;
 procedure SetList(List: TListView; Name: string; id1: string ; Sorted: boolean = false); forward; overload;
@@ -54,14 +54,14 @@ const
   I_CreatureType         =  1;
   I_Languages            =  1;
   I_SpellItemEnchantment = 14;
-  I_ItemClass            =  5;  //3
+  I_ItemClass            =  3;
   I_ItemSet              =  1;
-  I_Map                  =  4;
+  I_Map                  =  5;
   I_ItemPetFood          =  1;
   I_AreaTable            = 11;
   I_CurrencyTypes        = 2;
-  I_SpellName            = 21;
-  I_SpellRank            = 22;
+  I_SpellName            = 136;
+  I_SpellRank            = 153;
 
   MAX_ITEM_LENGTH        = 1000;
 
@@ -156,7 +156,7 @@ begin
       for i := 0 to Dbc.recordCount - 1 do
       begin
         Dbc.setRecord(i);
-        List.Add(Format('%d=%s',[Dbc.getUInt(0),Dbc.getString(idx_str)]));
+        List.Add(Format('%d=%s',[Dbc.getUInt(0),Dbc.getString(idx_str, true)]));
       end;
     finally
       List.EndUpdate;
@@ -234,10 +234,14 @@ begin
             I_AREA_TABLE:
             begin
               s1 := SL.Values[IntToStr(Dbc.getUInt(1))];
-              if s1 <> '' then s1 := s1 + ' - ';
               s2 := SL2.Values[IntToStr(Dbc.getUInt(2))];
-              if s2 <> '' then s2 := s2 + ' - ';
-              s := Format('%s%s%s',[s1, s2, Dbc.getString(11)]);
+              if (s1 <> '') and (s2 <> '') then
+                s := '(' + s1 + ' - ' + s2 + ' )'
+              else if s1 <> '' then
+                s := '(' + s1 + ' )'
+              else if s2 <> '' then
+                s := '(' + s2 + ' )';
+              s := Format('%s%s',[Dbc.getString(11, true), s]);
             end;
             I_FACTION_TEMPLATE:
             begin
@@ -249,22 +253,23 @@ begin
               s := SL.Values[IntToStr(Dbc.getUInt(1))];
               if s = '' then s := Format('< unknown SpellItemEnchantment %d>',[Dbc.getUInt(1)]);
             end;
-            I_QUEST_SORT: s := Dbc.getString(1);
-            I_CLASS: s := Dbc.getString(I_ChrClasses);
+            I_QUEST_SORT: s := Dbc.getString(1, true);
+            I_CLASS: s := Dbc.getString(I_ChrClasses, true);
             I_SPELL:
             begin
               if MainForm.IsSpellInBase(dbc.getUInt(0)) then
-                s := Format('%s %s', [dbc.getString(I_SpellName), Dbc.getString(I_SpellRank)])
+              begin
+                if Dbc.getString(I_SpellRank, true) <> '' then
+                  s := Format('%s <%s>', [dbc.getString(I_SpellName, true), Dbc.getString(I_SpellRank, true)])
+                else
+                  s := Format('%s', [dbc.getString(I_SpellName, true)]);
+              end
               else
                 s := '';
             end;
-            I_EMOTES, I_PAGE_TEXT_MATERIAL:
-            begin
-              dbc.IsLocalized := false;
-              s := dbc.getString(1);
-            end
+            I_EMOTES, I_PAGE_TEXT_MATERIAL: s := dbc.getString(1)
             else
-              s := Dbc.getString(idx_str);
+              s := Dbc.getString(idx_str, true);
           end;
           if s <> '' then
           begin
@@ -333,8 +338,8 @@ var
 begin
   L := TStringList.Create;
   try
-    if FileExists(FName) then
-      L.LoadFromFile(FName);
+    if FileExists(Fname) then
+      L.LoadFromFile(Fname);
     List.Items.BeginUpdate;
     for i:=0 to L.Count - 1 do
     begin
@@ -371,7 +376,7 @@ begin
           with List.Items.Add do
           begin
             Caption := IntToStr(Dbc.getUInt(1));
-            SubItems.Add(Dbc.getString(10));
+            SubItems.Add(Dbc.getString(10, true));
           end;
         end;
       end;

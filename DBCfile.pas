@@ -32,7 +32,6 @@ type
     data:         PAnsiChar;
     stringTable:  PAnsiChar;
     offset:       PAnsiChar;
-    IsLocalized:  boolean;
 
     constructor Create;
     destructor Destroy; override;
@@ -48,8 +47,8 @@ type
     function getFloat(field: Cardinal): Single;
     function getUInt(field: Cardinal): Cardinal;
     function getUInt8(field: Cardinal): Byte;
-    function getPChar(field: Cardinal): pansichar;
-    function getString(field: Cardinal): string;
+    function getPChar(field: Cardinal; Localize : boolean = false): pansichar;
+    function getString(field: Cardinal; Localize : boolean = false): string;
   end;
 
 implementation
@@ -67,7 +66,6 @@ constructor TDBCFile.Create;
 begin
   data := NIL;
   fieldsOffset := NIL;
-  IsLocalized := false; // new dbc always only localized, no need offsets
 end;
 
 destructor TDBCFile.Destroy;
@@ -133,7 +131,7 @@ begin
   FileRead(F, stringSize, 4);
   SetLength(fieldsOffset, fieldCount);
   fieldsOffset[0] := 0;
-  for I := 1 to fieldCount - 1 do
+  for i := 1 to fieldCount - 1 do
   begin
     fieldsOffset[i] := fieldsOffset[i-1];
     inc(fieldsOffset[i],4);
@@ -153,7 +151,7 @@ begin
   CopyMemory(@Result, offset + GetOffset(field), SizeOf(Result));
 end;
 
-function TDBCFile.getPChar(field: Cardinal): PansiChar;
+function TDBCFile.getPChar(field: Cardinal; Localize : boolean = false): PansiChar;
 var
   stringOffset : Cardinal;
   fieldid: Cardinal;
@@ -161,7 +159,7 @@ var
 begin
   if dmMain.DBCLocale < 16 then
   begin
-    if IsLocalized then
+    if Localize then
       fieldid := field + dmMain.DBCLocale
     else
       fieldid := field;
@@ -189,11 +187,11 @@ begin
   end;
 end;
 
-function TDBCFile.getString(field: Cardinal): string;
+function TDBCFile.getString(field: Cardinal; Localize : boolean = false): string;
 var
   s: PansiChar;
 begin
-  s := getPChar(field);
+  s := getPChar(field, Localize);
   Result := UTF8ToString(s);
 end;
 

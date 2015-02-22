@@ -4,7 +4,7 @@ object AreaTableForm: TAreaTableForm
   BorderStyle = bsDialog
   Caption = 'AreaTable'
   ClientHeight = 453
-  ClientWidth = 392
+  ClientWidth = 480
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -19,25 +19,28 @@ object AreaTableForm: TAreaTableForm
   object PageControl1: TPageControl
     Left = 0
     Top = 0
-    Width = 392
+    Width = 480
     Height = 412
     ActivePage = tsSearch
     Align = alClient
     TabOrder = 0
+    ExplicitWidth = 392
     object tsSearch: TTabSheet
       Caption = 'Search'
+      ExplicitWidth = 384
       object pnSearch: TPanel
         Left = 0
         Top = 0
-        Width = 384
+        Width = 472
         Height = 41
         Align = alTop
         BevelOuter = bvNone
         TabOrder = 0
+        ExplicitWidth = 384
         object edSearchMask: TLabeledEdit
           Left = 0
           Top = 14
-          Width = 377
+          Width = 465
           Height = 21
           EditLabel.Width = 62
           EditLabel.Height = 13
@@ -49,7 +52,7 @@ object AreaTableForm: TAreaTableForm
       object lvList: TListView
         Left = 0
         Top = 41
-        Width = 384
+        Width = 472
         Height = 343
         Align = alClient
         BorderStyle = bsNone
@@ -60,7 +63,7 @@ object AreaTableForm: TAreaTableForm
           end
           item
             Caption = 'Value'
-            Width = 290
+            Width = 380
           end>
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -77,22 +80,24 @@ object AreaTableForm: TAreaTableForm
         OnChange = lvListChange
         OnColumnClick = lvListColumnClick
         OnDblClick = lvListDblClick
+        ExplicitWidth = 384
       end
     end
   end
   object Panel1: TPanel
     Left = 0
     Top = 412
-    Width = 392
+    Width = 480
     Height = 41
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitWidth = 392
     DesignSize = (
-      392
+      480
       41)
     object btOK: TButton
-      Left = 229
+      Left = 317
       Top = 8
       Width = 75
       Height = 25
@@ -101,9 +106,10 @@ object AreaTableForm: TAreaTableForm
       Enabled = False
       ModalResult = 1
       TabOrder = 0
+      ExplicitLeft = 229
     end
     object btCancel: TButton
-      Left = 312
+      Left = 400
       Top = 8
       Width = 75
       Height = 25
@@ -112,6 +118,7 @@ object AreaTableForm: TAreaTableForm
       Caption = 'Cancel'
       ModalResult = 2
       TabOrder = 1
+      ExplicitLeft = 312
     end
   end
 end
