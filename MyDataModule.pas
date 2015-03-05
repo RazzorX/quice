@@ -381,6 +381,8 @@ begin
   Text[158]:='Option Icon';
   Text[159]:='The error has occurred while loading Creature Template Spells:';
   Text[160]:='The error has occurred while loading DBScripts On Creature Death:';
+  Text[161]:='Error: Condition (condition_entry = %d) not found';
+  Text[162]:='The error has occurred while loading Conditions:';
 end;
 
 procedure TdmMain.SetLanguage(const Value: string);

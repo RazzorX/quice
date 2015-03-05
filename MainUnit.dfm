@@ -26,7 +26,7 @@ object MainForm: TMainForm
     Top = 0
     Width = 1008
     Height = 705
-    ActivePage = tsCreature
+    ActivePage = tsOther
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -52,7 +52,7 @@ object MainForm: TMainForm
         Top = 25
         Width = 1000
         Height = 652
-        ActivePage = tsQuestPart1
+        ActivePage = tsMailLoot
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -438,7 +438,6 @@ object MainForm: TMainForm
                 Width = 300
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -3389,6 +3388,13 @@ object MainForm: TMainForm
               Height = 13
               Caption = 'RewCurrencyId1-4'
             end
+            object lbqtRewMailTemplateId: TLabel
+              Left = 401
+              Top = 255
+              Width = 94
+              Height = 13
+              Caption = 'RewMailTemplateId'
+            end
             object edqtRewChoiceItemCount1: TLabeledEdit
               Left = 118
               Top = 32
@@ -4260,25 +4266,15 @@ object MainForm: TMainForm
               TabOrder = 33
               OnButtonClick = GetSpell
             end
-            object edqtRewMailTemplateId: TLabeledEdit
-              Left = 401
-              Top = 272
-              Width = 99
-              Height = 21
-              EditLabel.Width = 94
-              EditLabel.Height = 13
-              EditLabel.Caption = 'RewMailTemplateId'
-              TabOrder = 34
-            end
             object edqtRewMailDelaySecs: TLabeledEdit
               Left = 401
-              Top = 311
+              Top = 309
               Width = 98
               Height = 21
               EditLabel.Width = 92
               EditLabel.Height = 13
               EditLabel.Caption = 'RewMailDelaySecs'
-              TabOrder = 35
+              TabOrder = 34
             end
             object edqtRewHonorAddition: TLabeledEdit
               Left = 401
@@ -4294,7 +4290,7 @@ object MainForm: TMainForm
               EditLabel.Width = 89
               EditLabel.Height = 13
               EditLabel.Caption = 'RewHonorAddition'
-              TabOrder = 36
+              TabOrder = 35
             end
             object edqtRewHonorMultiplier: TLabeledEdit
               Left = 401
@@ -4305,7 +4301,7 @@ object MainForm: TMainForm
               EditLabel.Width = 92
               EditLabel.Height = 13
               EditLabel.Caption = 'RewHonorMultiplier'
-              TabOrder = 37
+              TabOrder = 36
             end
             object edqtRewRepValueId1: TLabeledEdit
               Left = 303
@@ -4315,7 +4311,7 @@ object MainForm: TMainForm
               EditLabel.Width = 93
               EditLabel.Height = 13
               EditLabel.Caption = 'RewRepValueId1-5'
-              TabOrder = 38
+              TabOrder = 37
             end
             object edqtRewRepValueId2: TLabeledEdit
               Left = 303
@@ -4325,7 +4321,7 @@ object MainForm: TMainForm
               EditLabel.Width = 3
               EditLabel.Height = 13
               EditLabel.Caption = ' '
-              TabOrder = 39
+              TabOrder = 38
             end
             object edqtRewRepValueId3: TLabeledEdit
               Left = 303
@@ -4335,7 +4331,7 @@ object MainForm: TMainForm
               EditLabel.Width = 3
               EditLabel.Height = 13
               EditLabel.Caption = ' '
-              TabOrder = 40
+              TabOrder = 39
             end
             object edqtRewRepValueId4: TLabeledEdit
               Left = 303
@@ -4345,7 +4341,7 @@ object MainForm: TMainForm
               EditLabel.Width = 3
               EditLabel.Height = 13
               EditLabel.Caption = ' '
-              TabOrder = 41
+              TabOrder = 40
             end
             object edqtRewRepValueId5: TLabeledEdit
               Left = 303
@@ -4355,7 +4351,7 @@ object MainForm: TMainForm
               EditLabel.Width = 3
               EditLabel.Height = 13
               EditLabel.Caption = ' '
-              TabOrder = 42
+              TabOrder = 41
             end
             object edqtRewSkill: TJvComboEdit
               Left = 174
@@ -4391,7 +4387,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 43
+              TabOrder = 42
               OnButtonClick = GetSkill
             end
             object edqtRewSkillValue: TLabeledEdit
@@ -4402,7 +4398,7 @@ object MainForm: TMainForm
               EditLabel.Width = 68
               EditLabel.Height = 13
               EditLabel.Caption = 'RewSkillValue'
-              TabOrder = 44
+              TabOrder = 43
             end
             object edqtRewCurrencyCount1: TLabeledEdit
               Left = 310
@@ -4413,7 +4409,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'X'
               LabelPosition = lpLeft
-              TabOrder = 45
+              TabOrder = 44
             end
             object edqtRewCurrencyCount2: TLabeledEdit
               Left = 310
@@ -4424,7 +4420,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'X'
               LabelPosition = lpLeft
-              TabOrder = 46
+              TabOrder = 45
             end
             object edqtRewCurrencyCount3: TLabeledEdit
               Left = 310
@@ -4435,7 +4431,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'X'
               LabelPosition = lpLeft
-              TabOrder = 47
+              TabOrder = 46
             end
             object edqtRewCurrencyCount4: TLabeledEdit
               Left = 310
@@ -4446,7 +4442,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'X'
               LabelPosition = lpLeft
-              TabOrder = 48
+              TabOrder = 47
             end
             object edqtRewCurrencyId1: TJvComboEdit
               Left = 200
@@ -4482,7 +4478,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 49
+              TabOrder = 48
               OnButtonClick = GetCurrency
             end
             object edqtRewCurrencyId2: TJvComboEdit
@@ -4519,7 +4515,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 50
+              TabOrder = 49
               OnButtonClick = GetCurrency
             end
             object edqtRewCurrencyId3: TJvComboEdit
@@ -4556,7 +4552,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 51
+              TabOrder = 50
               OnButtonClick = GetCurrency
             end
             object edqtRewCurrencyId4: TJvComboEdit
@@ -4593,8 +4589,61 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 52
+              TabOrder = 51
               OnButtonClick = GetCurrency
+            end
+            object edqtRewMailTemplateId: TJvComboEdit
+              Left = 401
+              Top = 271
+              Width = 98
+              Height = 21
+              ButtonWidth = 22
+              ClickKey = 13
+              Glyph.Data = {
+                36050000424D3605000000000000360400002800000010000000100000000100
+                080000000000000100000000000000000000000100000000000000000000FFFF
+                FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+                3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+                3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+                0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+                2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+                2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+                2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+                0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+                0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+                0100C0C0C0000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+                4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+                433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+                1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+                450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+                4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+                072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+                1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+                0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
+              TabOrder = 52
+              OnButtonClick = edqtRewMailTemplateIdButtonClick
             end
           end
           object gbOther: TGroupBox
@@ -5542,7 +5591,6 @@ object MainForm: TMainForm
                 Width = 80
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -5605,7 +5653,6 @@ object MainForm: TMainForm
                 Width = 70
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -5803,7 +5850,6 @@ object MainForm: TMainForm
                 Width = 180
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -5854,7 +5900,6 @@ object MainForm: TMainForm
                 Width = 160
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -6123,7 +6168,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -6649,7 +6693,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -6932,10 +6975,6 @@ object MainForm: TMainForm
         object tsLocalesQuest: TTabSheet
           Caption = 'Locales Quest'
           ImageIndex = 9
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object gbLocalesQuest: TGroupBox
             Left = 3
             Top = 3
@@ -7394,6 +7433,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'item'
           end
+          object lbmlcondition_id: TLabel
+            Left = 434
+            Top = 532
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
+          end
           object btFullScriptMailLoot: TButton
             Left = 662
             Top = 577
@@ -7403,16 +7449,6 @@ object MainForm: TMainForm
             TabOrder = 0
             OnClick = btFullScriptMailLootClick
           end
-          object edmlcondition_id: TLabeledEdit
-            Left = 431
-            Top = 550
-            Width = 98
-            Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
-            TabOrder = 1
-          end
           object edmlmaxcount: TLabeledEdit
             Left = 345
             Top = 550
@@ -7421,7 +7457,7 @@ object MainForm: TMainForm
             EditLabel.Width = 46
             EditLabel.Height = 13
             EditLabel.Caption = 'maxcount'
-            TabOrder = 2
+            TabOrder = 1
           end
           object edmlmincountOrRef: TLabeledEdit
             Left = 257
@@ -7431,7 +7467,7 @@ object MainForm: TMainForm
             EditLabel.Width = 71
             EditLabel.Height = 13
             EditLabel.Caption = 'mincountOrRef'
-            TabOrder = 3
+            TabOrder = 2
           end
           object edmlgroupid: TLabeledEdit
             Left = 140
@@ -7441,7 +7477,7 @@ object MainForm: TMainForm
             EditLabel.Width = 35
             EditLabel.Height = 13
             EditLabel.Caption = 'groupid'
-            TabOrder = 4
+            TabOrder = 3
           end
           object edmlitem: TJvComboEdit
             Left = 97
@@ -7477,7 +7513,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-            TabOrder = 5
+            TabOrder = 4
             OnButtonClick = GetItem
           end
           object edmlChanceOrQuestChance: TLabeledEdit
@@ -7488,7 +7524,7 @@ object MainForm: TMainForm
             EditLabel.Width = 113
             EditLabel.Height = 13
             EditLabel.Caption = 'ChanceOrQuestChance'
-            TabOrder = 6
+            TabOrder = 5
           end
           object edmlentry: TLabeledEdit
             Left = 9
@@ -7498,7 +7534,7 @@ object MainForm: TMainForm
             EditLabel.Width = 23
             EditLabel.Height = 13
             EditLabel.Caption = 'entry'
-            TabOrder = 7
+            TabOrder = 6
           end
           object lvmlMailLoot: TJvListView
             Left = 8
@@ -7542,7 +7578,7 @@ object MainForm: TMainForm
             HideSelection = False
             ReadOnly = True
             RowSelect = True
-            TabOrder = 8
+            TabOrder = 7
             ViewStyle = vsReport
             OnChange = lvmlMailLootChange
             OnSelectItem = lvmlMailLootSelectItem
@@ -7571,6 +7607,59 @@ object MainForm: TMainForm
               item
               end>
           end
+          object edmlcondition_id: TJvComboEdit
+            Left = 434
+            Top = 548
+            Width = 94
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
+            TabOrder = 8
+            OnButtonClick = edconentryButtonClick
+          end
         end
       end
     end
@@ -7583,7 +7672,7 @@ object MainForm: TMainForm
         Top = 25
         Width = 1000
         Height = 652
-        ActivePage = tsEditCreature
+        ActivePage = tsGossipMenu
         Align = alClient
         MultiLine = True
         TabOrder = 0
@@ -8738,6 +8827,13 @@ object MainForm: TMainForm
               Height = 13
               Caption = 'ExtraFlags'
             end
+            object lbctEquipTemplateId: TLabel
+              Left = 295
+              Top = 90
+              Width = 80
+              Height = 13
+              Caption = 'EquipTemplateId'
+            end
             object edctMeleeAttackPower: TLabeledEdit
               Left = 390
               Top = 32
@@ -9076,17 +9172,6 @@ object MainForm: TMainForm
               EditLabel.Caption = 'RegenStats'
               TabOrder = 8
             end
-            object edctEquipmentTemplateId: TLabeledEdit
-              Left = 295
-              Top = 106
-              Width = 89
-              Height = 21
-              EditLabel.Width = 80
-              EditLabel.Height = 13
-              EditLabel.Caption = 'EquipTemplateId'
-              TabOrder = 19
-              OnDblClick = edctEquipmentTemplateIdDblClick
-            end
             object edctUnitFlags: TJvComboEdit
               Left = 200
               Top = 183
@@ -9206,7 +9291,7 @@ object MainForm: TMainForm
               EditLabel.Width = 44
               EditLabel.Height = 13
               EditLabel.Caption = 'UnitClass'
-              TabOrder = 20
+              TabOrder = 19
             end
             object edctVendorTemplateId: TJvComboEdit
               Left = 8
@@ -9258,7 +9343,7 @@ object MainForm: TMainForm
                 072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-              TabOrder = 21
+              TabOrder = 20
               OnButtonClick = edctVendorTemplateIdButtonClick
             end
             object edctTrainerTemplateId: TJvComboEdit
@@ -9311,7 +9396,7 @@ object MainForm: TMainForm
                 072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-              TabOrder = 22
+              TabOrder = 21
               OnButtonClick = edctTrainerTemplateIdButtonClick
             end
             object edctVehicleTemplateId: TLabeledEdit
@@ -9322,7 +9407,7 @@ object MainForm: TMainForm
               EditLabel.Width = 88
               EditLabel.Height = 13
               EditLabel.Caption = 'VehicleTemplateId'
-              TabOrder = 23
+              TabOrder = 22
             end
             object edctExtraFlags: TJvComboEdit
               Left = 295
@@ -9358,8 +9443,61 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 24
+              TabOrder = 23
               OnButtonClick = GetFlagsExtra
+            end
+            object edctEquipmentTemplateId: TJvComboEdit
+              Left = 295
+              Top = 106
+              Width = 89
+              Height = 21
+              ButtonWidth = 22
+              ClickKey = 13
+              Glyph.Data = {
+                36050000424D3605000000000000360400002800000010000000100000000100
+                080000000000000100000000000000000000000100000000000000000000FFFF
+                FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+                3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+                3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+                0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+                2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+                2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+                2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+                0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+                0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+                0100C0C0C0000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+                4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+                433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+                1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+                450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+                4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+                072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+                1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+                0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
+              TabOrder = 24
+              OnButtonClick = edctEquipTemplateIdButtonClick
             end
           end
           object gbLoot: TGroupBox
@@ -11812,10 +11950,10 @@ object MainForm: TMainForm
             TabOrder = 0
             object lbceentry: TLabel
               Left = 9
-              Top = 4
-              Width = 24
+              Top = 8
+              Width = 23
               Height = 13
-              Caption = 'Entry'
+              Caption = 'entry'
             end
             object edceequipentry1: TLabeledEdit
               Left = 130
@@ -11829,43 +11967,6 @@ object MainForm: TMainForm
               ParentCtl3D = False
               TabOrder = 0
             end
-            object edceentry: TJvComboEdit
-              Left = 9
-              Top = 23
-              Width = 97
-              Height = 21
-              ButtonWidth = 22
-              ClickKey = 13
-              Glyph.Data = {
-                36030000424D3603000000000000360000002800000010000000100000000100
-                18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
-                DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
-                FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
-                B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
-                D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
-                52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
-                8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 1
-              OnButtonClick = GetItem
-            end
             object edceequipentry2: TLabeledEdit
               Left = 217
               Top = 23
@@ -11876,7 +11977,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'equipentry2'
               ParentCtl3D = False
-              TabOrder = 2
+              TabOrder = 1
             end
             object edceequipentry3: TLabeledEdit
               Left = 304
@@ -11888,7 +11989,60 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'equipentry3'
               ParentCtl3D = False
+              TabOrder = 2
+            end
+            object edceentry: TJvComboEdit
+              Left = 9
+              Top = 23
+              Width = 89
+              Height = 21
+              ButtonWidth = 22
+              ClickKey = 13
+              Glyph.Data = {
+                36050000424D3605000000000000360400002800000010000000100000000100
+                080000000000000100000000000000000000000100000000000000000000FFFF
+                FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+                3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+                3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+                0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+                2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+                2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+                2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+                0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+                0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+                0100C0C0C0000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+                4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+                433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+                1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+                450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+                4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+                072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+                1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+                0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 3
+              OnButtonClick = edctEquipTemplateIdButtonClick
             end
           end
           object btShowCreatureEquipmentScript: TButton
@@ -12102,6 +12256,13 @@ object MainForm: TMainForm
             Width = 60
             Height = 13
             Caption = 'lootcondition'
+          end
+          object lbcocondition_id: TLabel
+            Left = 430
+            Top = 524
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
           end
           object lvcoCreatureLoot: TJvListView
             Left = 8
@@ -12335,17 +12496,60 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
-          object edcocondition_id: TLabeledEdit
+          object edcocondition_id: TJvComboEdit
             Left = 430
             Top = 540
-            Width = 98
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsPickpocketLoot: TTabSheet
@@ -12549,6 +12753,13 @@ object MainForm: TMainForm
             Width = 60
             Height = 13
             Caption = 'lootcondition'
+          end
+          object lbcpcondition_id: TLabel
+            Left = 430
+            Top = 519
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
           end
           object lvcoPickpocketLoot: TJvListView
             Left = 8
@@ -12781,17 +12992,60 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
-          object edcpcondition_id: TLabeledEdit
+          object edcpcondition_id: TJvComboEdit
             Left = 430
             Top = 535
-            Width = 98
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsSkinLoot: TTabSheet
@@ -12995,6 +13249,13 @@ object MainForm: TMainForm
             Width = 60
             Height = 13
             Caption = 'lootcondition'
+          end
+          object lbcscondition_id: TLabel
+            Left = 430
+            Top = 520
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
           end
           object lvcoSkinLoot: TJvListView
             Left = 3
@@ -13227,17 +13488,60 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
-          object edcscondition_id: TLabeledEdit
+          object edcscondition_id: TJvComboEdit
             Left = 430
             Top = 536
-            Width = 98
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsNPCVendor: TTabSheet
@@ -13439,6 +13743,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'ExtendedCost'
           end
+          object lbcvcondition_id: TLabel
+            Left = 464
+            Top = 476
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
+          end
           object lvcvNPCVendor: TJvListView
             Left = 14
             Top = 34
@@ -13608,15 +13919,58 @@ object MainForm: TMainForm
             TabOrder = 7
             OnButtonClick = edcvExtendedCostButtonClick
           end
-          object edcvcondition_id: TLabeledEdit
-            Left = 472
-            Top = 491
-            Width = 80
+          object edcvcondition_id: TJvComboEdit
+            Left = 464
+            Top = 492
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 8
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsNPCTrainer: TTabSheet
@@ -16217,6 +16571,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'ExtendedCost'
           end
+          object lbcvtcondition_id: TLabel
+            Left = 474
+            Top = 476
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
+          end
           object btFullScriptVendorTemplate: TButton
             Left = 640
             Top = 531
@@ -16386,15 +16747,58 @@ object MainForm: TMainForm
               item
               end>
           end
-          object edcvtcondition_id: TLabeledEdit
-            Left = 472
+          object edcvtcondition_id: TJvComboEdit
+            Left = 474
             Top = 491
-            Width = 80
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 8
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsNPCTrainerTemplate: TTabSheet
@@ -17016,19 +17420,19 @@ object MainForm: TMainForm
               Height = 13
               Caption = 'Entry'
             end
-            object lbcgmcondition_id: TLabel
-              Left = 316
-              Top = 26
-              Width = 57
-              Height = 13
-              Caption = 'condition_id'
-            end
             object lbGossipMenuInfo: TLabel
               Left = 10
               Top = 8
               Width = 211
               Height = 13
               Caption = 'creature_template.GossipMenuId links to this'
+            end
+            object lbcgcondition_id: TLabel
+              Left = 316
+              Top = 26
+              Width = 57
+              Height = 13
+              Caption = 'condition_id'
             end
             object edcgmtext_id: TJvComboEdit
               Left = 97
@@ -17119,42 +17523,6 @@ object MainForm: TMainForm
               ShowButton = False
               TabOrder = 1
             end
-            object edcgmcondition_id: TJvComboEdit
-              Left = 316
-              Top = 42
-              Width = 97
-              Height = 21
-              ClickKey = 13
-              Glyph.Data = {
-                36030000424D3603000000000000360000002800000010000000100000000100
-                18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
-                DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
-                FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
-                B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
-                D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
-                52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
-                8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              ShowButton = False
-              TabOrder = 2
-            end
             object edcgmcond_1: TLabeledEdit
               Left = 419
               Top = 42
@@ -17165,7 +17533,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'cond_1'
               ParentCtl3D = False
-              TabOrder = 3
+              TabOrder = 2
             end
             object edcgmcond_1_val_1: TLabeledEdit
               Left = 498
@@ -17177,7 +17545,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'cond_1_val_1'
               ParentCtl3D = False
-              TabOrder = 4
+              TabOrder = 3
             end
             object edcgmcond_1_val_2: TLabeledEdit
               Left = 577
@@ -17189,7 +17557,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'cond_1_val_2'
               ParentCtl3D = False
-              TabOrder = 5
+              TabOrder = 4
             end
             object edcgmcond_2: TLabeledEdit
               Left = 656
@@ -17201,7 +17569,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'cond_2'
               ParentCtl3D = False
-              TabOrder = 6
+              TabOrder = 5
             end
             object edcgmcond_2_val_1: TLabeledEdit
               Left = 735
@@ -17213,7 +17581,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'cond_2_val_1'
               ParentCtl3D = False
-              TabOrder = 7
+              TabOrder = 6
             end
             object edcgmcond_2_val_2: TLabeledEdit
               Left = 814
@@ -17225,7 +17593,7 @@ object MainForm: TMainForm
               EditLabel.Height = 13
               EditLabel.Caption = 'cond_2_val_2'
               ParentCtl3D = False
-              TabOrder = 8
+              TabOrder = 7
             end
             object edcgmentry: TJvComboEdit
               Left = 10
@@ -17277,8 +17645,61 @@ object MainForm: TMainForm
                 072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-              TabOrder = 9
+              TabOrder = 8
               OnButtonClick = edcgmentryButtonClick
+            end
+            object edcgcondition_id: TJvComboEdit
+              Left = 316
+              Top = 42
+              Width = 94
+              Height = 21
+              ButtonWidth = 22
+              ClickKey = 13
+              Glyph.Data = {
+                36050000424D3605000000000000360400002800000010000000100000000100
+                080000000000000100000000000000000000000100000000000000000000FFFF
+                FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+                3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+                3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+                0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+                2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+                2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+                2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+                0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+                0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+                0100C0C0C0000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+                4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+                433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+                1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+                450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+                4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+                072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+                1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+                0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
+              TabOrder = 9
+              OnButtonClick = edconentryButtonClick
             end
           end
           object btShowGossipMenuScript: TButton
@@ -17613,49 +18034,13 @@ object MainForm: TMainForm
             ParentCtl3D = False
             TabOrder = 21
           end
-          object edcgmocondition_id: TJvComboEdit
-            Left = 508
-            Top = 491
-            Width = 97
-            Height = 21
-            ClickKey = 13
-            Glyph.Data = {
-              36030000424D3603000000000000360000002800000010000000100000000100
-              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
-              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
-              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
-              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
-              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
-              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
-              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-            ShowButton = False
-            TabOrder = 22
-          end
           object btShowGossipMenuOptionsScript: TButton
             Left = 795
             Top = 565
             Width = 182
             Height = 25
             Caption = 'Show Gossip Menu Options Script'
-            TabOrder = 23
+            TabOrder = 22
             OnClick = btShowGossipMenuOptionsScriptClick
           end
           object edcgmooption_icon: TJvComboEdit
@@ -17692,7 +18077,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-            TabOrder = 24
+            TabOrder = 23
             OnButtonClick = GetOptionIcon
           end
           object edcgmoaction_menu_id: TJvComboEdit
@@ -17745,8 +18130,61 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 25
+            TabOrder = 24
             OnButtonClick = edcgmoaction_menu_idButtonClick
+          end
+          object edcgmcondition_id: TJvComboEdit
+            Left = 508
+            Top = 491
+            Width = 94
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
+            TabOrder = 25
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsCreatureScript: TTabSheet
@@ -18513,7 +18951,7 @@ object MainForm: TMainForm
         Top = 25
         Width = 1000
         Height = 652
-        ActivePage = tsButtonScript
+        ActivePage = tsGOLoot
         Align = alClient
         TabOrder = 0
         object tsSearchGO: TTabSheet
@@ -20347,6 +20785,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'lootcondition'
           end
+          object lbgocondition_id: TLabel
+            Left = 435
+            Top = 534
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
+          end
           object lvgoGOLoot: TJvListView
             Left = 8
             Top = 32
@@ -20578,17 +21023,60 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
-          object edgocondition_id: TLabeledEdit
-            Left = 431
+          object edgocondition_id: TJvComboEdit
+            Left = 435
             Top = 550
-            Width = 98
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsButtonScript: TTabSheet
@@ -21923,7 +22411,7 @@ object MainForm: TMainForm
         Top = 25
         Width = 1000
         Height = 652
-        ActivePage = tsItemLootedFrom
+        ActivePage = tsEnchantment
         Align = alClient
         TabOrder = 1
         object tsSearchItem: TTabSheet
@@ -26335,6 +26823,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'lootcondition'
           end
+          object lbilcondition_id: TLabel
+            Left = 434
+            Top = 532
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
+          end
           object lvitItemLoot: TJvListView
             Left = 8
             Top = 32
@@ -26566,17 +27061,60 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
-          object edilcondition_id: TLabeledEdit
-            Left = 430
+          object edilcondition_id: TJvComboEdit
+            Left = 434
             Top = 548
-            Width = 98
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsDisenchantLoot: TTabSheet
@@ -26787,6 +27325,13 @@ object MainForm: TMainForm
             Width = 60
             Height = 13
             Caption = 'lootcondition'
+          end
+          object lbidcondition_id: TLabel
+            Left = 434
+            Top = 532
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
           end
           object lvitDisLoot: TJvListView
             Left = 8
@@ -27019,17 +27564,60 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
-          object edidcondition_id: TLabeledEdit
-            Left = 430
+          object edidcondition_id: TJvComboEdit
+            Left = 434
             Top = 548
-            Width = 98
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsProspectingLoot: TTabSheet
@@ -27240,6 +27828,13 @@ object MainForm: TMainForm
             Width = 60
             Height = 13
             Caption = 'lootcondition'
+          end
+          object lbipcondition_id: TLabel
+            Left = 434
+            Top = 532
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
           end
           object lvitProsLoot: TJvListView
             Left = 8
@@ -27472,17 +28067,60 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
-          object edipcondition_id: TLabeledEdit
-            Left = 430
+          object edipcondition_id: TJvComboEdit
+            Left = 434
             Top = 548
-            Width = 98
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsMillingLoot: TTabSheet
@@ -27685,6 +28323,13 @@ object MainForm: TMainForm
             NumGlyphs = 2
             OnClick = btMillingLootDelClick
           end
+          object lbcondition_id: TLabel
+            Left = 434
+            Top = 532
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
+          end
           object lvitMillingLoot: TJvListView
             Left = 8
             Top = 32
@@ -27878,7 +28523,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
           object edimcondition_value1: TLabeledEdit
             Left = 621
@@ -27918,15 +28563,58 @@ object MainForm: TMainForm
             TabOrder = 11
             OnClick = btScriptItemLootClick
           end
-          object edimcondition_id: TLabeledEdit
-            Left = 430
-            Top = 548
-            Width = 98
+          object edimcondition_id: TJvComboEdit
+            Left = 434
+            Top = 551
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsReferenceLoot: TTabSheet
@@ -28135,6 +28823,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'entry'
           end
+          object lbircondition_id: TLabel
+            Left = 434
+            Top = 532
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
+          end
           object lvitReferenceLoot: TJvListView
             Left = 8
             Top = 32
@@ -28318,7 +29013,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 6
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
           object edircondition_value1: TLabeledEdit
             Left = 621
@@ -28411,15 +29106,58 @@ object MainForm: TMainForm
             TabOrder = 11
             OnButtonClick = edirentryButtonClick
           end
-          object edircondition_id: TLabeledEdit
-            Left = 430
+          object edircondition_id: TJvComboEdit
+            Left = 434
             Top = 548
-            Width = 98
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsSpellLoot: TTabSheet
@@ -28615,6 +29353,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'item'
           end
+          object lbslcondition_id: TLabel
+            Left = 434
+            Top = 532
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
+          end
           object lvslSpellLoot: TJvListView
             Left = 8
             Top = 32
@@ -28772,23 +29517,13 @@ object MainForm: TMainForm
             EditLabel.Caption = 'maxcount'
             TabOrder = 6
           end
-          object edslcondition_id: TLabeledEdit
-            Left = 430
-            Top = 548
-            Width = 98
-            Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
-            TabOrder = 7
-          end
           object btFullScriptSpellLoot: TButton
             Left = 661
             Top = 588
             Width = 185
             Height = 25
             Caption = 'Show FULL Spell Loot Script'
-            TabOrder = 8
+            TabOrder = 7
             OnClick = btFullScriptSpellLootClick
           end
           object edslentry: TLabeledEdit
@@ -28799,7 +29534,60 @@ object MainForm: TMainForm
             EditLabel.Width = 23
             EditLabel.Height = 13
             EditLabel.Caption = 'entry'
+            TabOrder = 8
+          end
+          object edslcondition_id: TJvComboEdit
+            Left = 434
+            Top = 548
+            Width = 94
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 9
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsItemLootedFrom: TTabSheet
@@ -29523,7 +30311,7 @@ object MainForm: TMainForm
         Top = 25
         Width = 1000
         Height = 652
-        ActivePage = tsFishingLoot
+        ActivePage = Conditions
         Align = alClient
         TabOrder = 1
         object tsFishingLoot: TTabSheet
@@ -29738,6 +30526,13 @@ object MainForm: TMainForm
             Width = 60
             Height = 13
             Caption = 'lootcondition'
+          end
+          object lbotcondition_id: TLabel
+            Left = 425
+            Top = 546
+            Width = 57
+            Height = 13
+            Caption = 'condition_id'
           end
           object lvotFishingLoot: TJvListView
             Left = 8
@@ -30043,17 +30838,60 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 9
-            OnButtonClick = GetLootCondition
+            OnButtonClick = GetConditions
           end
-          object edotcondition_id: TLabeledEdit
-            Left = 421
+          object edotcondition_id: TJvComboEdit
+            Left = 425
             Top = 562
-            Width = 98
+            Width = 94
             Height = 21
-            EditLabel.Width = 57
-            EditLabel.Height = 13
-            EditLabel.Caption = 'condition_id'
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            OnButtonClick = edconentryButtonClick
           end
         end
         object tsPageText: TTabSheet
@@ -31356,6 +32194,147 @@ object MainForm: TMainForm
             end
           end
         end
+        object Conditions: TTabSheet
+          Caption = 'Conditions'
+          ImageIndex = 4
+          DesignSize = (
+            992
+            624)
+          object lbcontype: TLabel
+            Left = 125
+            Top = 18
+            Width = 20
+            Height = 13
+            Caption = 'type'
+          end
+          object lbconentry: TLabel
+            Left = 19
+            Top = 18
+            Width = 72
+            Height = 13
+            Caption = 'condition_entry'
+          end
+          object edconvalue2: TLabeledEdit
+            Left = 339
+            Top = 34
+            Width = 121
+            Height = 21
+            EditLabel.Width = 32
+            EditLabel.Height = 13
+            EditLabel.Caption = 'value2'
+            TabOrder = 0
+          end
+          object edconvalue1: TLabeledEdit
+            Left = 212
+            Top = 34
+            Width = 121
+            Height = 21
+            EditLabel.Width = 32
+            EditLabel.Height = 13
+            EditLabel.Caption = 'value1'
+            TabOrder = 1
+          end
+          object edcontype: TJvComboEdit
+            Left = 125
+            Top = 34
+            Width = 80
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            TabOrder = 2
+            OnButtonClick = GetConditions
+          end
+          object btScriptConditions: TButton
+            Left = 496
+            Top = 32
+            Width = 75
+            Height = 25
+            Anchors = [akLeft, akBottom]
+            Caption = 'Script'
+            TabOrder = 3
+            OnClick = btScriptConditionsClick
+          end
+          object edconcondition_entry: TJvComboEdit
+            Left = 19
+            Top = 34
+            Width = 94
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
+            TabOrder = 4
+            OnButtonClick = edconentryButtonClick
+          end
+        end
         object tsOtherScript: TTabSheet
           Caption = 'Script'
           ImageIndex = 3
@@ -31430,7 +32409,7 @@ object MainForm: TMainForm
         Top = 25
         Width = 1000
         Height = 652
-        ActivePage = tsCharSearch
+        ActivePage = tsCharacter
         Align = alClient
         TabOrder = 1
         object tsCharSearch: TTabSheet

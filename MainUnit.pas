@@ -50,9 +50,11 @@ const
   SCRIPT_TAB_NO_CREATURE = 22;
   SCRIPT_TAB_NO_GAMEOBJECT = 6;
   SCRIPT_TAB_NO_ITEM = 11;
-  SCRIPT_TAB_NO_OTHER = 3;
+  SCRIPT_TAB_NO_OTHER = 4;
   SCRIPT_TAB_NO_CHARACTER = 3;
+  SCRIPT_TAB_NO_MAIL_LOOT = 9;
 
+  TAB_NO_NPC_EQUIP_TEMPLATE = 6;
   TAB_NO_NPC_GOSSIP = 14;
   TAB_NO_NPC_VENDOR_TEMPLATE = 19;
   TAB_NO_NPC_TRAINER_TEMPLATE = 20;
@@ -104,6 +106,7 @@ const
   PFX_LOCALES_NPC_TEXT = 'lx';
   PFX_NPC_VENDOR_TEMPLATE = 'cvt';
   PFX_NPC_TRAINER_TEMPLATE = 'crt';
+  PFX_CONDITIONS = 'con';
 
 type
   TSyntaxStyle = (ssInsertDelete, ssReplace, ssUpdate);
@@ -599,7 +602,6 @@ type
     edmlmincountOrRef: TLabeledEdit;
     edmlmaxcount: TLabeledEdit;
     edmlitem: TJvComboEdit;
-    edmlcondition_id: TLabeledEdit;
     btScriptGOLoot: TButton;
     btFullScriptGOLoot: TButton;
     tsGOScript: TTabSheet;
@@ -832,6 +834,7 @@ type
     edptnext_page: TJvComboEdit;
     edpttext: TMemo;
     btScriptPageText: TButton;
+    btScriptConditions: TButton;
     tsOtherScript: TTabSheet;
     meotScript: TMemo;
     meotLog: TMemo;
@@ -1093,7 +1096,6 @@ type
     edctFactionHorde: TJvComboEdit;
     lbctfaction_H: TLabel;
     edctRegenerateStats: TLabeledEdit;
-    edctEquipmentTemplateId: TLabeledEdit;
     tsCreatureModelInfo: TTabSheet;
     tsCreatureEquipTemplate: TTabSheet;
     Panel23: TPanel;
@@ -1356,7 +1358,6 @@ type
     edqtZoneOrSort: TJvComboEdit;
     rbqtQuestSort: TRadioButton;
     rbqtZoneID: TRadioButton;
-    edqtRewMailTemplateId: TLabeledEdit;
     edqtRewMailDelaySecs: TLabeledEdit;
     edctDifficultyEntry1: TJvComboEdit;
     lbctdifficulty_entry_1: TLabel;
@@ -1411,8 +1412,6 @@ type
     btMillingLootDel: TSpeedButton;
     btFullScriptMillingLoot: TButton;
     btScriptMillingLoot: TButton;
-    edceentry: TJvComboEdit;
-    lbceentry: TLabel;
     edceequipentry1: TLabeledEdit;
     edceequipentry2: TLabeledEdit;
     edceequipentry3: TLabeledEdit;
@@ -1602,16 +1601,6 @@ type
     edctTrainerTemplateId: TJvComboEdit;
     lbcttrainer_id: TLabel;
     edctVehicleTemplateId: TLabeledEdit;
-    edilcondition_id: TLabeledEdit;
-    edidcondition_id: TLabeledEdit;
-    edipcondition_id: TLabeledEdit;
-    edircondition_id: TLabeledEdit;
-    edcocondition_id: TLabeledEdit;
-    edgocondition_id: TLabeledEdit;
-    edcpcondition_id: TLabeledEdit;
-    edotcondition_id: TLabeledEdit;
-    edcscondition_id: TLabeledEdit;
-    edimcondition_id: TLabeledEdit;
     edqtReqSpellLearned: TJvComboEdit;
     lbReqSpellLearned: TLabel;
     edqtPortraitGiverName: TLabeledEdit;
@@ -1703,7 +1692,6 @@ type
     lbedcgmtext_id: TLabel;
     edcgmtext_id: TJvComboEdit;
     edcgmscript_id: TJvComboEdit;
-    edcgmcondition_id: TJvComboEdit;
     btShowGossipMenuScript: TButton;
     edcgmcond_1: TLabeledEdit;
     edcgmcond_1_val_1: TLabeledEdit;
@@ -1719,7 +1707,6 @@ type
     btGossipMenuOptionDel: TSpeedButton;
     edcgmomenu_id: TLabeledEdit;
     lbcgmocondition_id: TLabel;
-    lbcgmcondition_id: TLabel;
     edcgmoid: TLabeledEdit;
     edcgmooption_text: TLabeledEdit;
     edcgmooption_id: TLabeledEdit;
@@ -1738,7 +1725,6 @@ type
     edcgmocond_3: TLabeledEdit;
     edcgmocond_3_val_1: TLabeledEdit;
     edcgmocond_3_val_2: TLabeledEdit;
-    edcgmocondition_id: TJvComboEdit;
     btShowGossipMenuOptionsScript: TButton;
     lbGossipMenuOption: TLabel;
     edcgmooption_icon: TJvComboEdit;
@@ -1809,8 +1795,6 @@ type
     edcdsx: TLabeledEdit;
     edcdsy: TLabeledEdit;
     edcdsz: TLabeledEdit;
-    edcvcondition_id: TLabeledEdit;
-    edcvtcondition_id: TLabeledEdit;
     tsGOTemplateScript: TTabSheet;
     edgtbo: TLabeledEdit;
     edgtbz: TLabeledEdit;
@@ -1845,10 +1829,53 @@ type
     btSpellLootDel: TSpeedButton;
     edslmincountOrRef: TLabeledEdit;
     edslmaxcount: TLabeledEdit;
-    edslcondition_id: TLabeledEdit;
     btFullScriptSpellLoot: TButton;
     edslentry: TLabeledEdit;
     lbslitem: TLabel;
+    Conditions: TTabSheet;
+    edconvalue2: TLabeledEdit;
+    edconvalue1: TLabeledEdit;
+    lbcontype: TLabel;
+    edcontype: TJvComboEdit;
+    lbconentry: TLabel;
+    edconcondition_entry: TJvComboEdit;
+    lbctEquipTemplateId: TLabel;
+    edctEquipmentTemplateId: TJvComboEdit;
+    edotcondition_id: TJvComboEdit;
+    lbotcondition_id: TLabel;
+    edgocondition_id: TJvComboEdit;
+    lbgocondition_id: TLabel;
+    edceentry: TJvComboEdit;
+    lbceentry: TLabel;
+    edilcondition_id: TJvComboEdit;
+    lbilcondition_id: TLabel;
+    edidcondition_id: TJvComboEdit;
+    lbidcondition_id: TLabel;
+    edipcondition_id: TJvComboEdit;
+    lbipcondition_id: TLabel;
+    edimcondition_id: TJvComboEdit;
+    lbcondition_id: TLabel;
+    edircondition_id: TJvComboEdit;
+    lbircondition_id: TLabel;
+    edslcondition_id: TJvComboEdit;
+    lbslcondition_id: TLabel;
+    edmlcondition_id: TJvComboEdit;
+    lbmlcondition_id: TLabel;
+    edqtRewMailTemplateId: TJvComboEdit;
+    lbqtRewMailTemplateId: TLabel;
+    edcgcondition_id: TJvComboEdit;
+    lbcgcondition_id: TLabel;
+    edcvtcondition_id: TJvComboEdit;
+    lbcvtcondition_id: TLabel;
+    edcocondition_id: TJvComboEdit;
+    lbcocondition_id: TLabel;
+    edcpcondition_id: TJvComboEdit;
+    lbcpcondition_id: TLabel;
+    edcscondition_id: TJvComboEdit;
+    lbcscondition_id: TLabel;
+    edcvcondition_id: TJvComboEdit;
+    lbcvcondition_id: TLabel;
+    edcgmcondition_id: TJvComboEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2036,6 +2063,8 @@ type
     procedure lvSearchPageTextSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btScriptPageTextClick(Sender: TObject);
     procedure LoadPageText(Sender: TObject);
+    procedure btScriptConditionsClick(Sender: TObject);
+    procedure LoadConditions(Sender: TObject);
     procedure btSQLOpenClick(Sender: TObject);
     procedure btScriptCreatureLocationCustomToAllClick(Sender: TObject);
     procedure btFullScriptProsLootClick(Sender: TObject);
@@ -2153,6 +2182,7 @@ type
     procedure btShowCharacterScriptClick(Sender: TObject);
     procedure tsCharacterScriptShow(Sender: TObject);
     procedure edhtguidButtonClick(Sender: TObject);
+    procedure edconentryButtonClick(Sender: TObject);
     procedure btCopyToClipboardCharClick(Sender: TObject);
     procedure btExecuteScriptCharClick(Sender: TObject);
     procedure edhtdataButtonClick(Sender: TObject);
@@ -2163,7 +2193,7 @@ type
     procedure btCharInvAddClick(Sender: TObject);
     procedure btCharInvUpdClick(Sender: TObject);
     procedure btCharInvDelClick(Sender: TObject);
-    procedure GetLootCondition(Sender: TObject);
+    procedure GetConditions(Sender: TObject);
     procedure GetSpecialFlags(Sender: TObject);
     procedure GetArea(Sender: TObject);
     procedure JvHttpUrlGrabberError(Sender: TObject; ErrorMsg: string);
@@ -2242,6 +2272,8 @@ type
     procedure lvcrtNPCTrainerChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvcrtNPCTrainerSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure edctTrainerTemplateIdButtonClick(Sender: TObject);
+    procedure edctEquipTemplateIdButtonClick(Sender: TObject);
+    procedure edqtRewMailTemplateIdButtonClick(Sender: TObject);
     procedure btTrainerTemplateAddClick(Sender: TObject);
     procedure btTrainerTemplateUpdClick(Sender: TObject);
     procedure btTrainerTemplateDelClick(Sender: TObject);
@@ -2401,6 +2433,7 @@ type
     procedure SearchPageText;
     procedure SearchGameEvent;
     procedure CompletePageTextScript;
+    procedure CompleteConditionsScript;
     procedure CompleteGameEventScript;
 
     procedure EditThis(objtype: string; entry: string);
@@ -3477,6 +3510,7 @@ begin
   MyQuery.SQL.Text := Format('SELECT ml.* FROM `mail_loot_template` ml ' +
     'INNER JOIN `item_template` t ON t.entry = ml.item ' + 'WHERE ml.entry = %d', [edqtRewMailTemplateId]);
   MyQuery.Open;
+  lvmlMailLoot.Items.Clear;
   while not MyQuery.Eof do
   begin
     with lvmlMailLoot.Items.Add do
@@ -4310,7 +4344,7 @@ begin
   DeleteFile(S + 'CSV\ItemStatType.csv');
   DeleteFile(S + 'CSV\ItemSubClass.csv');
   DeleteFile(S + 'CSV\Language.csv');
-  DeleteFile(S + 'CSV\LootCondition.csv');
+  DeleteFile(S + 'CSV\Conditions.csv');
   DeleteFile(S + 'CSV\Map.csv');
   DeleteFile(S + 'CSV\Mechanic.csv');
   DeleteFile(S + 'CSV\NPCFlags.csv');
@@ -5813,6 +5847,17 @@ begin
   PageControl3.ActivePageIndex := 1;
 end;
 
+procedure TMainForm.edctEquipTemplateIdButtonClick(Sender: TObject);
+begin
+  PageControl3.ActivePageIndex := TAB_NO_NPC_EQUIP_TEMPLATE;
+  LoadCreatureEquip(StrToIntDef(TCustomEdit(Sender).Text, 0));
+end;
+
+procedure TMainForm.edqtRewMailTemplateIdButtonClick(Sender: TObject);
+begin
+  PageControl2.ActivePageIndex := SCRIPT_TAB_NO_MAIL_LOOT;
+end;
+
 procedure TMainForm.edctTrainerTemplateIdButtonClick(Sender: TObject);
 begin
   PageControl3.ActivePageIndex := TAB_NO_NPC_TRAINER_TEMPLATE;
@@ -6825,9 +6870,9 @@ begin
   PageControl3.ActivePageIndex := SCRIPT_TAB_NO_CREATURE;
 end;
 
-procedure TMainForm.GetLootCondition(Sender: TObject);
+procedure TMainForm.GetConditions(Sender: TObject);
 begin
-  GetValueFromSimpleList(Sender, 156, 'LootCondition', false);
+  GetValueFromSimpleList(Sender, 156, 'Conditions', false);
 end;
 
 procedure TMainForm.CompleteButtonScriptScript;
@@ -10760,7 +10805,61 @@ begin
       CompletePageTextScript;
     2:
       CompleteGameEventScript;
+    3:
+      CompleteConditionsScript;
   end;
+end;
+
+procedure TMainForm.btScriptConditionsClick(Sender: TObject);
+begin
+  PageControl6.ActivePageIndex := SCRIPT_TAB_NO_OTHER;
+end;
+
+procedure TMainForm.CompleteConditionsScript;
+var
+  entry, Fields, Values: string;
+begin
+  meotLog.Clear;
+  entry := edconcondition_entry.Text;
+  if (entry = '') then
+    Exit;
+  SetFieldsAndValues(Fields, Values, 'conditions', PFX_CONDITIONS, meotLog);
+  case SyntaxStyle of
+    ssInsertDelete:
+      meotScript.Text := Format('DELETE FROM `conditions` WHERE (`condition_entry`=%s);'#13#10 +
+        'INSERT INTO `conditions` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+    ssReplace:
+      meotScript.Text := Format('REPLACE INTO `conditions` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meotScript.Text := MakeUpdate('conditions', PFX_CONDITIONS, 'condition_entry', entry);
+  end;
+end;
+
+procedure TMainForm.LoadConditions(Sender: TObject);
+var
+  entry: string;
+begin
+  if TCustomEdit(Sender).Text = '' then
+    Exit;
+  entry := TCustomEdit(Sender).Text;
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `conditions` WHERE `condition_entry`=%s', [entry]);
+  MyTempQuery.Open;
+  try
+    if MyTempQuery.Eof then
+      raise Exception.Create(Format(dmMain.Text[161], [StrToInt(entry)])); // 'Error: Condition (condition_entry = %d) not found'
+    FillFields(MyTempQuery, PFX_CONDITIONS);
+    MyTempQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(dmMain.Text[162] + #10#13 + E.Message);
+  end;
+end;
+
+procedure TMainForm.edconentryButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 4;
+  PageControl6.ActivePageIndex := 3;
+  LoadConditions(TCustomEdit(Sender));
 end;
 
 procedure TMainForm.tsProspectingLootShow(Sender: TObject);
