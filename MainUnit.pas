@@ -52,6 +52,7 @@ const
   SCRIPT_TAB_NO_ITEM = 11;
   SCRIPT_TAB_NO_OTHER = 4;
   SCRIPT_TAB_NO_CHARACTER = 3;
+  SCRIPT_TAB_NO_DBSCRIPTS_ON = 1;
   SCRIPT_TAB_NO_MAIL_LOOT = 9;
 
   TAB_NO_NPC_EQUIP_TEMPLATE = 6;
@@ -107,6 +108,7 @@ const
   PFX_NPC_VENDOR_TEMPLATE = 'cvt';
   PFX_NPC_TRAINER_TEMPLATE = 'crt';
   PFX_CONDITIONS = 'con';
+  PFX_DB_SCRIPT_STRING = 'dbs';
 
 type
   TSyntaxStyle = (ssInsertDelete, ssReplace, ssUpdate);
@@ -1876,6 +1878,46 @@ type
     edcvcondition_id: TJvComboEdit;
     lbcvcondition_id: TLabel;
     edcgmcondition_id: TJvComboEdit;
+    tsDBScript: TTabSheet;
+    Panel26: TPanel;
+    DBScriptString: TPageControl;
+    tsString: TTabSheet;
+    lbdbstype: TLabel;
+    lbdbsentry: TLabel;
+    eddbstype: TJvComboEdit;
+    btDBScript: TButton;
+    eddbsentry: TJvComboEdit;
+    tsDBScriptsOn: TTabSheet;
+    medbScript: TMemo;
+    medbLog: TMemo;
+    btCopyToClipDBScriptsOn: TButton;
+    btExecuteDBScriptsOn: TButton;
+    eddbsemote: TJvComboEdit;
+    lbdbsemote: TLabel;
+    lbdbslanguage: TLabel;
+    eddbslanguage: TJvComboEdit;
+    eddbssound: TJvComboEdit;
+    lbdbssound: TLabel;
+    eddbscontent_default: TMemo;
+    lbdbscontent_default: TLabel;
+    lbdbscontent_loc2: TLabel;
+    eddbscontent_loc2: TMemo;
+    eddbscontent_loc3: TMemo;
+    lbdbscontent_loc3: TLabel;
+    eddbscontent_loc1: TMemo;
+    lbdbscontent_loc1: TLabel;
+    lbdbscontent_loc8: TLabel;
+    lbdbscomment: TLabel;
+    lbdbscontent_loc7: TLabel;
+    lbdbscontent_loc6: TLabel;
+    lbdbscontent_loc5: TLabel;
+    lbdbscontent_loc4: TLabel;
+    eddbscomment: TMemo;
+    eddbscontent_loc4: TMemo;
+    eddbscontent_loc5: TMemo;
+    eddbscontent_loc6: TMemo;
+    eddbscontent_loc7: TMemo;
+    eddbscontent_loc8: TMemo;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2047,8 +2089,11 @@ type
     procedure btScriptFishingLootClick(Sender: TObject);
     procedure btFullScriptFishLootClick(Sender: TObject);
     procedure tsOtherScriptShow(Sender: TObject);
+    procedure tsDBScriptsOnShow(Sender: TObject);
     procedure btCopyToClipboardOtherClick(Sender: TObject);
     procedure btExecuteOtherScriptClick(Sender: TObject);
+    procedure btCopyToClipDBScriptsOnClick(Sender: TObject);
+    procedure btExecuteDBScriptsOnClick(Sender: TObject);
     procedure lvotFishingLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvotFishingLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure btGetLootForZoneClick(Sender: TObject);
@@ -2064,7 +2109,9 @@ type
     procedure btScriptPageTextClick(Sender: TObject);
     procedure LoadPageText(Sender: TObject);
     procedure btScriptConditionsClick(Sender: TObject);
+    procedure btDBScriptsOnClick(Sender: TObject);
     procedure LoadConditions(Sender: TObject);
+    procedure LoadDBScriptString(Sender: TObject);
     procedure btSQLOpenClick(Sender: TObject);
     procedure btScriptCreatureLocationCustomToAllClick(Sender: TObject);
     procedure btFullScriptProsLootClick(Sender: TObject);
@@ -2183,6 +2230,7 @@ type
     procedure tsCharacterScriptShow(Sender: TObject);
     procedure edhtguidButtonClick(Sender: TObject);
     procedure edconentryButtonClick(Sender: TObject);
+    procedure eddbsentryButtonClick(Sender: TObject);
     procedure btCopyToClipboardCharClick(Sender: TObject);
     procedure btExecuteScriptCharClick(Sender: TObject);
     procedure edhtdataButtonClick(Sender: TObject);
@@ -2194,8 +2242,10 @@ type
     procedure btCharInvUpdClick(Sender: TObject);
     procedure btCharInvDelClick(Sender: TObject);
     procedure GetConditions(Sender: TObject);
+    procedure GetTextType(Sender: TObject);
     procedure GetSpecialFlags(Sender: TObject);
     procedure GetArea(Sender: TObject);
+    procedure GetSoundEntries(Sender: TObject);
     procedure JvHttpUrlGrabberError(Sender: TObject; ErrorMsg: string);
     procedure JvHttpUrlGrabberDoneStream(Sender: TObject; Stream: TStream; StreamSize: Integer; Url: string);
     procedure GetSpellTrigger(Sender: TObject);
@@ -2434,6 +2484,7 @@ type
     procedure SearchGameEvent;
     procedure CompletePageTextScript;
     procedure CompleteConditionsScript;
+    procedure CompleteDbScriptStringScript;
     procedure CompleteGameEventScript;
 
     procedure EditThis(objtype: string; entry: string);
@@ -2516,7 +2567,7 @@ implementation
 
 uses StrUtils, Functions, WhoUnit, ItemUnit, CreatureOrGOUnit, ListUnit, CheckUnit, SpellsUnit, SettingsUnit,
   ItemPageUnit, GUIDUnit, CharacterDataUnit, TaxiMaskFormUnit, MeConnectForm, AreaTableUnit,
-  UnitFlagsUnit;
+  UnitFlagsUnit, SoundEntriesUnit;
 
 {$R *.dfm}
 
@@ -4319,6 +4370,7 @@ begin
   DeleteFile(S + 'CSV\CreatureMovementType.csv');
   DeleteFile(S + 'CSV\CreatureTypeFlags.csv');
   DeleteFile(S + 'CSV\CreatureType.csv');
+  DeleteFile(S + 'CSV\Conditions.csv');
   DeleteFile(S + 'CSV\Emotes.csv');
   DeleteFile(S + 'CSV\EventType.csv');
   DeleteFile(S + 'CSV\Faction.csv');
@@ -4344,7 +4396,6 @@ begin
   DeleteFile(S + 'CSV\ItemStatType.csv');
   DeleteFile(S + 'CSV\ItemSubClass.csv');
   DeleteFile(S + 'CSV\Language.csv');
-  DeleteFile(S + 'CSV\Conditions.csv');
   DeleteFile(S + 'CSV\Map.csv');
   DeleteFile(S + 'CSV\Mechanic.csv');
   DeleteFile(S + 'CSV\NPCFlags.csv');
@@ -4361,6 +4412,7 @@ begin
   DeleteFile(S + 'CSV\Spell.csv');
   DeleteFile(S + 'CSV\SpellTrigger.csv');
   DeleteFile(S + 'CSV\SpellItemEnchantment.csv');
+  DeleteFile(S + 'CSV\TextType.csv');
   DeleteFile(S + 'CSV\trainer_type.csv');
   DeleteFile(S + 'CSV\useSpells.csv');
   RemoveDir(S + 'CSV');
@@ -5774,7 +5826,7 @@ begin
   try
     SetList(f.lvList, Name, Sort);
     i := f.lvList.Items.Count;
-    if (i > 0) and (i <= 15) then
+    if (i > 0) and (i <= 0) then // scroll is broken
     begin
       if not Assigned(lvQuickList) then
       begin
@@ -6556,6 +6608,15 @@ begin
     TJvComboEdit(Sender).Text := AreaTableForm.lvList.Selected.Caption;
 end;
 
+procedure TMainForm.GetSoundEntries(Sender: TObject);
+begin
+  if not(Sender is TJvComboEdit) then
+    Exit;
+  SoundEntriesForm.Prepare(TJvComboEdit(Sender).Text);
+  if SoundEntriesForm.ShowModal = mrOk then
+    TJvComboEdit(Sender).Text := SoundEntriesForm.lvList.Selected.Caption;
+end;
+
 procedure TMainForm.GetClass(Sender: TObject);
 begin
   GetValueFromSimpleList(Sender, 143, 'ChrClasses', false);
@@ -6873,6 +6934,11 @@ end;
 procedure TMainForm.GetConditions(Sender: TObject);
 begin
   GetValueFromSimpleList(Sender, 156, 'Conditions', false);
+end;
+
+procedure TMainForm.GetTextType(Sender: TObject);
+begin
+  GetValueFromSimpleList(Sender, 163, 'TextType', false);
 end;
 
 procedure TMainForm.CompleteButtonScriptScript;
@@ -10860,6 +10926,81 @@ begin
   PageControl1.ActivePageIndex := 4;
   PageControl6.ActivePageIndex := 3;
   LoadConditions(TCustomEdit(Sender));
+end;
+
+procedure TMainForm.tsDBScriptsOnShow(Sender: TObject);
+begin
+  case DBScriptString.ActivePageIndex of
+    0:
+      CompleteDbScriptStringScript;
+  end;
+end;
+
+procedure TMainForm.btDBScriptsOnClick(Sender: TObject);
+begin
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+end;
+
+procedure TMainForm.CompleteDbScriptStringScript;
+var
+  entry, Fields, Values: string;
+begin
+  medbLog.Clear;
+  entry := eddbsentry.Text;
+  if (entry = '') then
+    Exit;
+  SetFieldsAndValues(Fields, Values, 'db_script_string', PFX_DB_SCRIPT_STRING, medbLog);
+  case SyntaxStyle of
+    ssInsertDelete:
+      medbScript.Text := Format('DELETE FROM `db_script_string` WHERE (`entry`=%s);'#13#10 +
+        'INSERT INTO `db_script_string` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+    ssReplace:
+      medbScript.Text := Format('REPLACE INTO `db_script_string` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      medbScript.Text := MakeUpdate('db_script_string', PFX_DB_SCRIPT_STRING, 'entry', entry);
+  end;
+end;
+
+procedure TMainForm.btCopyToClipDBScriptsOnClick(Sender: TObject);
+begin
+  meotScript.SelectAll;
+  meotScript.CopyToClipboard;
+  meotScript.SelStart := 0;
+  meotScript.SelLength := 0;
+end;
+
+procedure TMainForm.btExecuteDBScriptsOnClick(Sender: TObject);
+begin
+  if MessageDlg(dmMain.Text[9], mtConfirmation, mbYesNoCancel, -1) = mrYes then
+    ExecuteScript(medbScript.Text, medbLog);
+end;
+
+
+procedure TMainForm.LoadDBScriptString(Sender: TObject);
+var
+  entry: string;
+begin
+  if TCustomEdit(Sender).Text = '' then
+    Exit;
+  entry := TCustomEdit(Sender).Text;
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `db_script_string` WHERE `entry`=%s', [entry]);
+  MyTempQuery.Open;
+  try
+    if MyTempQuery.Eof then
+      raise Exception.Create(Format(dmMain.Text[164], [StrToInt(entry)])); // 'Error: db_script_string (entry = %d) not found'
+    FillFields(MyTempQuery, PFX_DB_SCRIPT_STRING);
+    MyTempQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(dmMain.Text[165] + #10#13 + E.Message);
+  end;
+end;
+
+procedure TMainForm.eddbsentryButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := 0;
+  LoadDBScriptString(TCustomEdit(Sender));
 end;
 
 procedure TMainForm.tsProspectingLootShow(Sender: TObject);

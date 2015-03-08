@@ -1,4 +1,4 @@
-unit AreaTableUnit;
+unit SoundEntriesUnit;
 
 interface
 
@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, ComCtrls, Functions, ExtCtrls, JvExComCtrls, JvListView;
 
 type
-  TAreaTableForm = class(TForm)
+  TSoundEntriesForm = class(TForm)
     PageControl1: TPageControl;
     tsSearch: TTabSheet;
     pnSearch: TPanel;
@@ -31,7 +31,7 @@ type
   end;
 
 var
-  AreaTableForm: TAreaTableForm;
+  SoundEntriesForm: TSoundEntriesForm;
 
 implementation
 
@@ -39,13 +39,13 @@ uses MyDataModule, MainUnit;
 
 {$R *.dfm}
 
-{ TAreaTableForm }
+{ TSoundEntriesForm }
 
-procedure TAreaTableForm.Prepare(Text: string);
+procedure TSoundEntriesForm.Prepare(Text: string);
 var
   i: integer;
 begin
-  if lvList.Items.Count=0 then SetList(lvList, 'AreaTable');
+  if lvList.Items.Count=0 then SetList(lvList, 'SoundEntries');
   for i:=0 to lvList.Items.Count - 1 do
   begin
     if lvList.Items[i].Caption = Text then
@@ -57,7 +57,7 @@ begin
   end;
 end;
 
-procedure TAreaTableForm.Search;
+procedure TSoundEntriesForm.Search;
 var
   i: integer;
 begin
@@ -72,15 +72,15 @@ begin
   end;
 end;
 
-procedure TAreaTableForm.lvListChange(Sender: TObject; Item: TListItem;
+procedure TSoundEntriesForm.lvListChange(Sender: TObject; Item: TListItem;
   Change: TItemChange);
 begin
   btOK.Enabled:=Assigned(lvList.Selected);
 end;
 
-procedure TAreaTableForm.lvListColumnClick(Sender: TObject; Column: TListColumn);
+procedure TSoundEntriesForm.lvListColumnClick(Sender: TObject; Column: TListColumn);
 begin
-  if column.Index = 0 then
+  if (column.Index = 0) then
   begin
     lvList.CustomSort(@CustomIDSortProc, prmID);
     prmID := -prmID;
@@ -89,24 +89,24 @@ begin
     lvList.CustomSort(@CustomNameSortProc, column.Index);
 end;
 
-procedure TAreaTableForm.lvListDblClick(Sender: TObject);
+procedure TSoundEntriesForm.lvListDblClick(Sender: TObject);
 begin
   if Assigned(TJvListView(Sender).Selected) then ModalResult:=mrOk;
 end;
 
-procedure TAreaTableForm.edSearchMaskChange(Sender: TObject);
+procedure TSoundEntriesForm.edSearchMaskChange(Sender: TObject);
 begin
   Search;
 end;
 
-procedure TAreaTableForm.FormCreate(Sender: TObject);
+procedure TSoundEntriesForm.FormCreate(Sender: TObject);
 begin
   if not MainForm.MyMangosConnection.Connected then Exit;
   dmMain.Translate.CreateDefaultTranslation(TForm(Self));
   dmMain.Translate.TranslateForm(TForm(Self));
 end;
 
-function TAreaTableForm.GetValue(id: integer): WideString;
+function TSoundEntriesForm.GetValue(id: integer): WideString;
 var
   i: integer;
 begin

@@ -2157,7 +2157,7 @@ object MeConnectForm: TMeConnectForm
     object cbSavePassword: TCheckBox
       Left = 74
       Top = 120
-      Width = 100
+      Width = 107
       Height = 17
       Caption = 'Store Password'
       TabOrder = 4

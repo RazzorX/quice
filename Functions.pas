@@ -35,7 +35,7 @@ function GetRaceAcronym(value: integer): string; forward;
 function GetClassAcronym(value: integer): string; forward;
 
 function CustomIDSortProc(Item1, Item2: TListItem; ParamSort: integer): integer; stdcall; forward;
-function CustomNameSortProc(Item1, Item2: TListItem; ParamSort: integer): integer; stdcall; forward;
+function CustomNameSortProc(Item1, Item2: TListItem; Column: integer = 0): integer; stdcall; forward;
 
 function LoadLocales(): string;
 procedure ShowHourGlassCursor;
@@ -62,6 +62,8 @@ const
   I_CurrencyTypes        = 2;
   I_SpellName            = 136;
   I_SpellRank            = 153;
+  I_SoundType            = 1;
+  I_SoundName            = 2;
 
   MAX_ITEM_LENGTH        = 1000;
 
@@ -74,6 +76,7 @@ const
   I_SPELL                = 1007;
   I_PAGE_TEXT_MATERIAL   = 1008;
   I_CLASS                = 1009;
+  I_SOUND_ENTRIES        = 1010;
 
 function CustomIDSortProc(Item1, Item2: TListItem; ParamSort: integer): integer; stdcall;
 begin
@@ -83,10 +86,9 @@ begin
   if ParamSort < 0 then Result := -Result;
 end;
 
-function CustomNameSortProc(Item1, Item2: TListItem; ParamSort: integer): integer; stdcall;
+function CustomNameSortProc(Item1, Item2: TListItem; Column: integer = 0): integer; stdcall;
 begin
-  Result := CompareStr(Item1.SubItems[0], Item2.SubItems[0]);
-  if ParamSort < 0 then Result := -Result;  
+  Result := AnsiCompareStr(Item1.SubItems[Column - 1], Item2.SubItems[Column - 1]);
 end;
 
 function LoadListFromDBCFile(List: TListView; Name: string ): boolean;
@@ -124,6 +126,7 @@ begin
     SL.Add(Format('Spell=%d',[I_SPELL]));
     SL.Add(Format('PageTextMaterial=%d',[I_PAGE_TEXT_MATERIAL]));
     SL.Add(Format('Class=%d',[I_CLASS]));
+    SL.Add(Format('SoundEntries=%d',[I_SOUND_ENTRIES]));
 
     str := StrToIntDef(SL.Values[Name],0);
   finally
@@ -138,6 +141,33 @@ begin
     Result := False;
 end;
 
+function LoadSListFromCSVFile(List: TStringList; csvname: string): boolean;
+var
+  i, id, n: integer;
+  value, s: string;
+  Fname : TFileName;
+begin
+  Result := false;
+  Fname := dmMain.ProgramDir+'CSV\'+csvname+'.csv';
+  if FileExists(Fname) then
+  begin
+    List.LoadFromFile(Fname);
+    List.BeginUpdate;
+    try
+      for i:=0 to List.Count - 1 do
+      begin
+        s := List[i];
+        n := Pos(';', s);
+        id := StrToInt(MidStr(s, 1, n-1));
+        value := midStr(s, n+1, MAX_ITEM_LENGTH);
+        List.Add(Format('%d=%s',[id,value]));
+      end;
+    finally
+      List.EndUpdate;
+    end;
+    Result := true;
+  end;
+end;
 
 function LoadSListFromDBCFile(List: TStringList; Name: string; idx_str: Cardinal): boolean;
 var
@@ -197,7 +227,7 @@ function LoadListFromDBCFile(List: TListView; Fname: string; idx_str: Cardinal )
 var
   i: integer;
   Dbc : TDBCFile;
-  s, s1, s2: string;
+  s, s1, s2, s3: string;
   SL, SL2: TStringList;
 begin
   Sl := TStringList.Create;
@@ -214,6 +244,8 @@ begin
         LoadSListFromDBCFile(SL, 'Faction', I_Faction);
       I_GEM_PROPERTIES:
         LoadSListFromDBCFile(SL, 'SpellItemEnchantment', I_SpellItemEnchantment);
+      I_SOUND_ENTRIES:
+        LoadSListFromCSVFile(SL, 'SoundType');
     end;
 
     try
@@ -233,15 +265,9 @@ begin
             end;
             I_AREA_TABLE:
             begin
-              s1 := SL.Values[IntToStr(Dbc.getUInt(1))];
-              s2 := SL2.Values[IntToStr(Dbc.getUInt(2))];
-              if (s1 <> '') and (s2 <> '') then
-                s := '(' + s1 + ' - ' + s2 + ' )'
-              else if s1 <> '' then
-                s := '(' + s1 + ' )'
-              else if s2 <> '' then
-                s := '(' + s2 + ' )';
-              s := Format('%s%s',[Dbc.getString(11, true), s]);
+              s1 := Format('%s',[SL.Values[IntToStr(Dbc.getUInt(1))]]);
+              s2 := Format('%s',[SL2.Values[IntToStr(Dbc.getUInt(2))]]);
+              s3 := Format('%s',[Dbc.getString(I_AreaTable, true)]);
             end;
             I_FACTION_TEMPLATE:
             begin
@@ -252,6 +278,11 @@ begin
             begin
               s := SL.Values[IntToStr(Dbc.getUInt(1))];
               if s = '' then s := Format('< unknown SpellItemEnchantment %d>',[Dbc.getUInt(1)]);
+            end;
+            I_SOUND_ENTRIES:
+            begin
+              s1 := Format('%s', [SL.Values[IntToStr(Dbc.getUInt(I_SoundType))]]);
+              s2 := Format('%s', [Dbc.getString(I_SoundName)]);
             end;
             I_QUEST_SORT: s := Dbc.getString(1, true);
             I_CLASS: s := Dbc.getString(I_ChrClasses, true);
@@ -271,7 +302,26 @@ begin
             else
               s := Dbc.getString(idx_str, true);
           end;
-          if s <> '' then
+          if (s1 <> '') or (s2 <> '') or (s3 <> '') then
+          begin
+            with List.Items.Add do
+            begin
+              if (idx_str = I_SOUND_ENTRIES) then
+              begin
+                Caption := IntToStr(Dbc.getUInt(0));
+                SubItems.Add(s1);
+                SubItems.Add(s2);
+              end;
+              if (idx_str = I_AREA_TABLE) then
+              begin
+                Caption := IntToStr(Dbc.getUInt(0));
+                SubItems.Add(s1);
+                SubItems.Add(s2);
+                SubItems.Add(s3);
+              end;
+            end;
+          end
+          else if s <> '' then
           begin
             with List.Items.Add do
             begin

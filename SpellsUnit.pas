@@ -23,7 +23,7 @@ type
     procedure lvListDblClick(Sender: TObject);
     procedure lvListColumnClick(Sender: TObject; Column: TListColumn);
   private
-    prmName, prmID: integer;  
+    prmID: integer;  
     procedure Search();
   public
     procedure Prepare(Text: string);
@@ -86,10 +86,7 @@ begin
     prmID := -prmID;
   end
   else
-  begin
-    lvList.CustomSort(@CustomNameSortProc, prmName);
-    prmName := -prmName;    
-  end;
+    lvList.CustomSort(@CustomNameSortProc, column.Index);
 end;
 
 procedure TSpellsForm.lvListDblClick(Sender: TObject);

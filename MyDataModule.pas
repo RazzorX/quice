@@ -376,13 +376,16 @@ begin
   Text[153]:='Error: Character (guid = %d) not found';
   Text[154]:='The error has occurred while loading the Character:';
   Text[155]:='AreaTrigger';
-  Text[156]:='LootCondition';
+  Text[156]:='Conditions';
   Text[157]:='The error has occurred while loading Creature EventAI:';
   Text[158]:='Option Icon';
   Text[159]:='The error has occurred while loading Creature Template Spells:';
   Text[160]:='The error has occurred while loading DBScripts On Creature Death:';
-  Text[161]:='Error: Condition (condition_entry = %d) not found';
+  Text[161]:='Error: Conditions (condition_entry = %d) not found';
   Text[162]:='The error has occurred while loading Conditions:';
+  Text[163]:='Method of text output';
+  Text[164]:='Error: Db_script_string (entry = %d) not found';
+  Text[165]:='The error has occurred while loading Db_script_string:';
 end;
 
 procedure TdmMain.SetLanguage(const Value: string);

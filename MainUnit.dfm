@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 300
   Top = 66
   Caption = 'Quice'
-  ClientHeight = 705
+  ClientHeight = 716
   ClientWidth = 1008
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -25,8 +25,8 @@ object MainForm: TMainForm
     Left = 0
     Top = 0
     Width = 1008
-    Height = 705
-    ActivePage = tsOther
+    Height = 716
+    ActivePage = tsQuest
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
     Font.Color = clWindowText
@@ -51,8 +51,8 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 652
-        ActivePage = tsMailLoot
+        Height = 663
+        ActivePage = tsSearch
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
@@ -420,7 +420,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 458
+            Height = 469
             Hint = 'Browse URL'
             Align = alClient
             BorderStyle = bsNone
@@ -455,7 +455,7 @@ object MainForm: TMainForm
           end
           object Panel2: TPanel
             Left = 0
-            Top = 563
+            Top = 574
             Width = 992
             Height = 61
             Align = alBottom
@@ -5431,7 +5431,7 @@ object MainForm: TMainForm
           ImageIndex = 3
           DesignSize = (
             992
-            624)
+            635)
           object lbQuestGiverInfo: TLabel
             Left = 8
             Top = 37
@@ -5690,7 +5690,7 @@ object MainForm: TMainForm
           ImageIndex = 4
           DesignSize = (
             992
-            624)
+            635)
           object lbQuestTakerInfo: TLabel
             Left = 8
             Top = 37
@@ -5929,7 +5929,7 @@ object MainForm: TMainForm
           ImageIndex = 6
           DesignSize = (
             992
-            624)
+            635)
           object btssAdd: TSpeedButton
             Left = 784
             Top = 456
@@ -6452,7 +6452,7 @@ object MainForm: TMainForm
           ImageIndex = 7
           DesignSize = (
             992
-            624)
+            635)
           object btesAdd: TSpeedButton
             Left = 786
             Top = 455
@@ -7186,7 +7186,7 @@ object MainForm: TMainForm
           OnShow = tsScriptTabShow
           DesignSize = (
             992
-            624)
+            635)
           object btCopyToClipboard: TButton
             Left = 852
             Top = 555
@@ -7237,7 +7237,7 @@ object MainForm: TMainForm
           ImageIndex = 9
           DesignSize = (
             992
-            624)
+            635)
           object lbmlMailLootHint: TLabel
             Left = 8
             Top = 8
@@ -7671,8 +7671,8 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 652
-        ActivePage = tsGossipMenu
+        Height = 663
+        ActivePage = tsEditCreature
         Align = alClient
         MultiLine = True
         TabOrder = 0
@@ -7889,7 +7889,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 422
+            Height = 433
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -7957,7 +7957,7 @@ object MainForm: TMainForm
           end
           object Panel5: TPanel
             Left = 0
-            Top = 527
+            Top = 538
             Width = 992
             Height = 61
             Align = alBottom
@@ -10269,7 +10269,7 @@ object MainForm: TMainForm
           ImageIndex = 2
           DesignSize = (
             992
-            588)
+            599)
           object lbclCreatureLocationHint: TLabel
             Left = 8
             Top = 8
@@ -10674,7 +10674,7 @@ object MainForm: TMainForm
           ImageIndex = 12
           DesignSize = (
             992
-            588)
+            599)
           object lbHintCreatureMovement: TLabel
             Left = 8
             Top = 8
@@ -11200,7 +11200,7 @@ object MainForm: TMainForm
           ImageIndex = 19
           DesignSize = (
             992
-            588)
+            599)
           object btcmsAdd: TSpeedButton
             Left = 784
             Top = 456
@@ -11733,7 +11733,7 @@ object MainForm: TMainForm
           OnShow = tsCreatureModelInfoShow
           DesignSize = (
             992
-            588)
+            599)
           object lvCreatureModelSearch: TJvListView
             Left = 11
             Top = 50
@@ -12060,7 +12060,7 @@ object MainForm: TMainForm
           ImageIndex = 4
           DesignSize = (
             992
-            588)
+            599)
           object lbcoitem: TLabel
             Left = 97
             Top = 476
@@ -12557,7 +12557,7 @@ object MainForm: TMainForm
           ImageIndex = 7
           DesignSize = (
             992
-            588)
+            599)
           object lbcpitem: TLabel
             Left = 96
             Top = 474
@@ -13053,7 +13053,7 @@ object MainForm: TMainForm
           ImageIndex = 8
           DesignSize = (
             992
-            588)
+            599)
           object lbcsitem: TLabel
             Left = 97
             Top = 475
@@ -13549,7 +13549,7 @@ object MainForm: TMainForm
           ImageIndex = 5
           DesignSize = (
             992
-            588)
+            599)
           object lbcvitem: TLabel
             Left = 96
             Top = 475
@@ -13978,7 +13978,7 @@ object MainForm: TMainForm
           ImageIndex = 6
           DesignSize = (
             992
-            588)
+            599)
           object lbcrspell: TLabel
             Left = 96
             Top = 479
@@ -15165,7 +15165,7 @@ object MainForm: TMainForm
           ImageIndex = 17
           DesignSize = (
             992
-            588)
+            599)
           object lbcnevent_type: TLabel
             Left = 3
             Top = 347
@@ -16344,11 +16344,11 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 992
-            Height = 588
+            Height = 599
             Align = alClient
             TabOrder = 0
             ExplicitWidth = 992
-            ExplicitHeight = 588
+            ExplicitHeight = 599
             inherited gbNPCTextLoc: TGroupBox
               Height = 415
               ExplicitHeight = 415
@@ -16377,7 +16377,7 @@ object MainForm: TMainForm
           ImageIndex = 20
           DesignSize = (
             992
-            588)
+            599)
           object lbNpcVendorTemplateInfo: TLabel
             Left = 8
             Top = 8
@@ -16806,7 +16806,7 @@ object MainForm: TMainForm
           ImageIndex = 21
           DesignSize = (
             992
-            588)
+            599)
           object lbcrtreqskill: TLabel
             Left = 288
             Top = 479
@@ -17192,7 +17192,7 @@ object MainForm: TMainForm
           OnShow = tsGossipMenuShow
           DesignSize = (
             992
-            588)
+            599)
           object btGossipMenuOptionAdd: TSpeedButton
             Left = 890
             Top = 453
@@ -18193,7 +18193,7 @@ object MainForm: TMainForm
           OnShow = tsCreatureScriptShow
           DesignSize = (
             992
-            588)
+            599)
           object mectScript: TMemo
             Left = 8
             Top = 9
@@ -18391,7 +18391,7 @@ object MainForm: TMainForm
           ImageIndex = 24
           DesignSize = (
             992
-            588)
+            599)
           object lbcds: TLabel
             Left = 8
             Top = 8
@@ -18950,7 +18950,7 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 652
+        Height = 663
         ActivePage = tsGOLoot
         Align = alClient
         TabOrder = 0
@@ -19185,7 +19185,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 458
+            Height = 469
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -19241,7 +19241,7 @@ object MainForm: TMainForm
           end
           object Panel7: TPanel
             Left = 0
-            Top = 563
+            Top = 574
             Width = 992
             Height = 61
             Align = alBottom
@@ -20257,7 +20257,7 @@ object MainForm: TMainForm
           ImageIndex = 2
           DesignSize = (
             992
-            624)
+            635)
           object lbglGOLocationHint: TLabel
             Left = 8
             Top = 8
@@ -20582,7 +20582,7 @@ object MainForm: TMainForm
           OnShow = tsGOLootShow
           DesignSize = (
             992
-            624)
+            635)
           object lbgoitem: TLabel
             Left = 97
             Top = 494
@@ -21085,7 +21085,7 @@ object MainForm: TMainForm
           OnShow = tsButtonScriptShow
           DesignSize = (
             992
-            624)
+            635)
           object lbhintGOButtonScript: TLabel
             Left = 8
             Top = 8
@@ -21617,7 +21617,7 @@ object MainForm: TMainForm
           ImageIndex = 7
           DesignSize = (
             992
-            624)
+            635)
           object lbhintGOTemplateScript: TLabel
             Left = 8
             Top = 8
@@ -22150,7 +22150,7 @@ object MainForm: TMainForm
           OnShow = tsGOScriptShow
           DesignSize = (
             992
-            624)
+            635)
           object megoScript: TMemo
             Left = 8
             Top = 8
@@ -22410,8 +22410,8 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 652
-        ActivePage = tsEnchantment
+        Height = 663
+        ActivePage = tsItemTemplate
         Align = alClient
         TabOrder = 1
         object tsSearchItem: TTabSheet
@@ -22800,7 +22800,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 458
+            Height = 469
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -22877,7 +22877,7 @@ object MainForm: TMainForm
           end
           object Panel11: TPanel
             Left = 0
-            Top = 563
+            Top = 574
             Width = 992
             Height = 61
             Align = alBottom
@@ -26620,7 +26620,7 @@ object MainForm: TMainForm
           OnShow = tsItemLootShow
           DesignSize = (
             992
-            624)
+            635)
           object lbilitem: TLabel
             Left = 96
             Top = 484
@@ -27123,7 +27123,7 @@ object MainForm: TMainForm
           OnShow = tsDisenchantLootShow
           DesignSize = (
             992
-            624)
+            635)
           object lbiditem: TLabel
             Left = 96
             Top = 484
@@ -27626,7 +27626,7 @@ object MainForm: TMainForm
           OnShow = tsProspectingLootShow
           DesignSize = (
             992
-            624)
+            635)
           object lbipitem: TLabel
             Left = 96
             Top = 484
@@ -28129,7 +28129,7 @@ object MainForm: TMainForm
           OnShow = tsMillingLootShow
           DesignSize = (
             992
-            624)
+            635)
           object lbimitem: TLabel
             Left = 96
             Top = 484
@@ -28622,7 +28622,7 @@ object MainForm: TMainForm
           ImageIndex = 10
           DesignSize = (
             992
-            624)
+            635)
           object lbiritem: TLabel
             Left = 96
             Top = 484
@@ -29166,7 +29166,7 @@ object MainForm: TMainForm
           OnShow = tsSpellLootShow
           DesignSize = (
             992
-            624)
+            635)
           object btSpellLootAdd: TSpeedButton
             Left = 185
             Top = 500
@@ -29598,7 +29598,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 992
-            Height = 624
+            Height = 635
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -29968,7 +29968,7 @@ object MainForm: TMainForm
           OnShow = tsEnchantmentShow
           DesignSize = (
             992
-            624)
+            635)
           object btieEnchAdd: TSpeedButton
             Left = 736
             Top = 500
@@ -30246,7 +30246,7 @@ object MainForm: TMainForm
           OnShow = tsItemScriptShow
           DesignSize = (
             992
-            624)
+            635)
           object meitScript: TMemo
             Left = 8
             Top = 8
@@ -30310,8 +30310,8 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 652
-        ActivePage = Conditions
+        Height = 663
+        ActivePage = tsFishingLoot
         Align = alClient
         TabOrder = 1
         object tsFishingLoot: TTabSheet
@@ -30319,7 +30319,7 @@ object MainForm: TMainForm
           ImageIndex = 4
           DesignSize = (
             992
-            624)
+            635)
           object lbotitem: TLabel
             Left = 96
             Top = 495
@@ -30901,7 +30901,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 89
             Width = 992
-            Height = 317
+            Height = 328
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -31040,7 +31040,7 @@ object MainForm: TMainForm
           end
           object Panel13: TPanel
             Left = 0
-            Top = 406
+            Top = 417
             Width = 992
             Height = 218
             Align = alBottom
@@ -31298,7 +31298,7 @@ object MainForm: TMainForm
           end
           object pnSelectedEventInfo: TPanel
             Left = 0
-            Top = 332
+            Top = 343
             Width = 992
             Height = 292
             Align = alBottom
@@ -31863,14 +31863,14 @@ object MainForm: TMainForm
             Left = 0
             Top = 89
             Width = 992
-            Height = 243
+            Height = 254
             Align = alClient
             TabOrder = 2
             object lvSearchGameEvent: TJvListView
               Left = 1
               Top = 1
               Width = 990
-              Height = 182
+              Height = 193
               Align = alClient
               BorderStyle = bsNone
               Columns = <
@@ -31928,7 +31928,7 @@ object MainForm: TMainForm
             end
             object Panel18: TPanel
               Left = 1
-              Top = 183
+              Top = 194
               Width = 990
               Height = 59
               Align = alBottom
@@ -32199,7 +32199,7 @@ object MainForm: TMainForm
           ImageIndex = 4
           DesignSize = (
             992
-            624)
+            635)
           object lbcontype: TLabel
             Left = 125
             Top = 18
@@ -32273,7 +32273,7 @@ object MainForm: TMainForm
           end
           object btScriptConditions: TButton
             Left = 496
-            Top = 32
+            Top = 43
             Width = 75
             Height = 25
             Anchors = [akLeft, akBottom]
@@ -32341,7 +32341,7 @@ object MainForm: TMainForm
           OnShow = tsOtherScriptShow
           DesignSize = (
             992
-            624)
+            635)
           object meotScript: TMemo
             Left = 8
             Top = 8
@@ -32408,7 +32408,7 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 652
+        Height = 663
         ActivePage = tsCharacter
         Align = alClient
         TabOrder = 1
@@ -32531,7 +32531,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 500
+            Height = 511
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -32582,7 +32582,7 @@ object MainForm: TMainForm
           end
           object StatusBarChar: TStatusBar
             Left = 0
-            Top = 605
+            Top = 616
             Width = 992
             Height = 19
             Panels = <
@@ -32596,7 +32596,7 @@ object MainForm: TMainForm
           ImageIndex = 1
           DesignSize = (
             992
-            624)
+            635)
           object lbhtdata: TLabel
             Left = 19
             Top = 81
@@ -33199,7 +33199,7 @@ object MainForm: TMainForm
           ImageIndex = 3
           DesignSize = (
             992
-            624)
+            635)
           object btCharInvDel: TSpeedButton
             Left = 800
             Top = 499
@@ -33536,7 +33536,7 @@ object MainForm: TMainForm
           OnShow = tsCharacterScriptShow
           DesignSize = (
             992
-            624)
+            635)
           object mehtScript: TMemo
             Left = 8
             Top = 8
@@ -33584,6 +33584,509 @@ object MainForm: TMainForm
         end
       end
     end
+    object tsDBScript: TTabSheet
+      Caption = 'DBScript'
+      ImageIndex = 7
+      object Panel26: TPanel
+        Left = 0
+        Top = 0
+        Width = 1000
+        Height = 25
+        Align = alTop
+        BevelOuter = bvNone
+        TabOrder = 0
+      end
+      object DBScriptString: TPageControl
+        Left = 0
+        Top = 25
+        Width = 1000
+        Height = 663
+        ActivePage = tsString
+        Align = alClient
+        TabOrder = 1
+        object tsString: TTabSheet
+          Caption = 'DBScriptString'
+          ImageIndex = 4
+          DesignSize = (
+            992
+            635)
+          object lbdbstype: TLabel
+            Left = 221
+            Top = 18
+            Width = 20
+            Height = 13
+            Caption = 'type'
+          end
+          object lbdbsentry: TLabel
+            Left = 35
+            Top = 18
+            Width = 23
+            Height = 13
+            Caption = 'entry'
+          end
+          object lbdbsemote: TLabel
+            Left = 393
+            Top = 18
+            Width = 29
+            Height = 13
+            Caption = 'emote'
+          end
+          object lbdbslanguage: TLabel
+            Left = 307
+            Top = 18
+            Width = 44
+            Height = 13
+            Caption = 'language'
+          end
+          object lbdbssound: TLabel
+            Left = 135
+            Top = 18
+            Width = 29
+            Height = 13
+            Caption = 'sound'
+          end
+          object lbdbscontent_default: TLabel
+            Left = 35
+            Top = 72
+            Width = 74
+            Height = 13
+            Caption = 'content_default'
+          end
+          object lbdbscontent_loc2: TLabel
+            Left = 35
+            Top = 171
+            Width = 62
+            Height = 13
+            Caption = 'content_loc2'
+          end
+          object lbdbscontent_loc3: TLabel
+            Left = 323
+            Top = 171
+            Width = 62
+            Height = 13
+            Caption = 'content_loc3'
+          end
+          object lbdbscontent_loc1: TLabel
+            Left = 325
+            Top = 72
+            Width = 62
+            Height = 13
+            Caption = 'content_loc1'
+          end
+          object lbdbscontent_loc8: TLabel
+            Left = 35
+            Top = 482
+            Width = 62
+            Height = 13
+            Caption = 'content_loc8'
+          end
+          object lbdbscomment: TLabel
+            Left = 325
+            Top = 482
+            Width = 43
+            Height = 13
+            Caption = 'comment'
+          end
+          object lbdbscontent_loc7: TLabel
+            Left = 325
+            Top = 378
+            Width = 62
+            Height = 13
+            Caption = 'content_loc7'
+          end
+          object lbdbscontent_loc6: TLabel
+            Left = 35
+            Top = 378
+            Width = 62
+            Height = 13
+            Caption = 'content_loc6'
+          end
+          object lbdbscontent_loc5: TLabel
+            Left = 325
+            Top = 276
+            Width = 62
+            Height = 13
+            Caption = 'content_loc5'
+          end
+          object lbdbscontent_loc4: TLabel
+            Left = 35
+            Top = 276
+            Width = 62
+            Height = 13
+            Caption = 'content_loc4'
+          end
+          object eddbstype: TJvComboEdit
+            Left = 221
+            Top = 34
+            Width = 80
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            TabOrder = 0
+            OnButtonClick = GetTextType
+          end
+          object btDBScript: TButton
+            Left = 496
+            Top = 32
+            Width = 75
+            Height = 25
+            Anchors = [akLeft, akBottom]
+            Caption = 'Script'
+            TabOrder = 1
+            OnClick = btDBScriptsOnClick
+          end
+          object eddbsentry: TJvComboEdit
+            Left = 35
+            Top = 34
+            Width = 94
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36050000424D3605000000000000360400002800000010000000100000000100
+              080000000000000100000000000000000000000100000000000000000000FFFF
+              FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+              3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+              3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+              0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+              2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+              2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+              2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+              0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+              0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+              0100C0C0C0000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              0000000000000000000000000000000000000000000000000000000000000000
+              00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+              4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+              433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+              1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+              450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+              4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+              072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+              1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+              0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
+            TabOrder = 2
+            OnButtonClick = eddbsentryButtonClick
+          end
+          object eddbsemote: TJvComboEdit
+            Left = 393
+            Top = 34
+            Width = 80
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            TabOrder = 3
+            OnButtonClick = GetEmote
+          end
+          object eddbslanguage: TJvComboEdit
+            Left = 307
+            Top = 34
+            Width = 80
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            TabOrder = 4
+            OnButtonClick = LangButtonClick
+          end
+          object eddbssound: TJvComboEdit
+            Left = 135
+            Top = 34
+            Width = 80
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            TabOrder = 5
+            OnButtonClick = GetSoundEntries
+          end
+          object eddbscontent_default: TMemo
+            Left = 35
+            Top = 88
+            Width = 275
+            Height = 77
+            Hint = 'Objectives of the quest.'
+            ScrollBars = ssVertical
+            TabOrder = 6
+          end
+          object eddbscontent_loc2: TMemo
+            Left = 35
+            Top = 190
+            Width = 275
+            Height = 77
+            Hint = 
+              'This text ist send to player, yet did not terminate the Quest an' +
+              'd speak with NPC again!'
+            ScrollBars = ssVertical
+            TabOrder = 7
+          end
+          object eddbscontent_loc3: TMemo
+            Left = 323
+            Top = 190
+            Width = 275
+            Height = 77
+            Hint = 
+              'This text is indicated to the player, if you open your Questlog ' +
+              'and wars send to player ingame.'
+            ScrollBars = ssVertical
+            TabOrder = 8
+          end
+          object eddbscontent_loc1: TMemo
+            Left = 323
+            Top = 88
+            Width = 275
+            Height = 77
+            Hint = 
+              'First text send to the player by the NPC when completing the que' +
+              'st.'
+            ScrollBars = ssVertical
+            TabOrder = 9
+          end
+          object eddbscomment: TMemo
+            Left = 323
+            Top = 501
+            Width = 275
+            Height = 77
+            Hint = 
+              'This text is indicated to the player, if you open your Questlog ' +
+              'and wars send to player ingame.'
+            ScrollBars = ssVertical
+            TabOrder = 10
+          end
+          object eddbscontent_loc4: TMemo
+            Left = 35
+            Top = 295
+            Width = 275
+            Height = 77
+            Hint = 'Objectives of the quest.'
+            ScrollBars = ssVertical
+            TabOrder = 11
+          end
+          object eddbscontent_loc5: TMemo
+            Left = 323
+            Top = 295
+            Width = 275
+            Height = 77
+            Hint = 
+              'First text send to the player by the NPC when completing the que' +
+              'st.'
+            ScrollBars = ssVertical
+            TabOrder = 12
+          end
+          object eddbscontent_loc6: TMemo
+            Left = 35
+            Top = 397
+            Width = 275
+            Height = 77
+            Hint = 
+              'This text ist send to player, yet did not terminate the Quest an' +
+              'd speak with NPC again!'
+            ScrollBars = ssVertical
+            TabOrder = 13
+          end
+          object eddbscontent_loc7: TMemo
+            Left = 323
+            Top = 397
+            Width = 275
+            Height = 77
+            Hint = 
+              'This text is indicated to the player, if you open your Questlog ' +
+              'and wars send to player ingame.'
+            ScrollBars = ssVertical
+            TabOrder = 14
+          end
+          object eddbscontent_loc8: TMemo
+            Left = 35
+            Top = 501
+            Width = 275
+            Height = 77
+            Hint = 
+              'This text ist send to player, yet did not terminate the Quest an' +
+              'd speak with NPC again!'
+            ScrollBars = ssVertical
+            TabOrder = 15
+          end
+        end
+        object tsDBScriptsOn: TTabSheet
+          Caption = 'Script'
+          ImageIndex = 3
+          OnShow = tsDBScriptsOnShow
+          DesignSize = (
+            992
+            635)
+          object medbScript: TMemo
+            Left = 8
+            Top = 8
+            Width = 976
+            Height = 506
+            Anchors = [akLeft, akTop, akRight]
+            Font.Charset = DEFAULT_CHARSET
+            Font.Color = clNavy
+            Font.Height = -11
+            Font.Name = 'Courier New'
+            Font.Style = []
+            ParentFont = False
+            ScrollBars = ssVertical
+            TabOrder = 0
+          end
+          object medbLog: TMemo
+            Left = 8
+            Top = 520
+            Width = 823
+            Height = 105
+            Anchors = [akLeft, akTop, akRight]
+            ScrollBars = ssVertical
+            TabOrder = 1
+          end
+          object btCopyToClipDBScriptsOn: TButton
+            Left = 852
+            Top = 547
+            Width = 137
+            Height = 25
+            Anchors = [akTop, akRight]
+            Caption = 'Copy script to clipboard'
+            TabOrder = 2
+            OnClick = btCopyToClipDBScriptsOnClick
+          end
+          object btExecuteDBScriptsOn: TButton
+            Left = 852
+            Top = 578
+            Width = 137
+            Height = 25
+            Anchors = [akTop, akRight]
+            Caption = 'Execute script'
+            TabOrder = 3
+            OnClick = btExecuteDBScriptsOnClick
+          end
+        end
+      end
+    end
     object tsSQL: TTabSheet
       Caption = 'SQL'
       ImageIndex = 5
@@ -33600,7 +34103,7 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 652
+        Height = 663
         ActivePage = tsSQL1
         Align = alClient
         TabOrder = 1
@@ -33652,7 +34155,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 113
             Width = 992
-            Height = 511
+            Height = 522
             Align = alClient
             Ctl3D = False
             DataSource = DataSource
@@ -33678,8 +34181,7 @@ object MainForm: TMainForm
     end
   end
   object MyMangosConnection: TZConnection
-    UTF8StringsAsWideField = True
-    PreprepareSQL = False
+    ControlsCodePage = cCP_UTF16
     ClientCodepage = 'utf8'
     Properties.Strings = (
       'codepage=utf8')
