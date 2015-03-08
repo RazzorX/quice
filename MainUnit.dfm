@@ -33720,6 +33720,7 @@ object MainForm: TMainForm
             Top = 34
             Width = 80
             Height = 21
+            Hint = 'The type of message to display.'
             ButtonWidth = 22
             ClickKey = 13
             Glyph.Data = {
@@ -33767,6 +33768,9 @@ object MainForm: TMainForm
             Top = 34
             Width = 94
             Height = 21
+            Hint = 
+              'Entries in this table have to use an ID range from 2000000000 to' +
+              ' 2000010000'
             ButtonWidth = 22
             ClickKey = 13
             Glyph.Data = {
@@ -33820,6 +33824,9 @@ object MainForm: TMainForm
             Top = 34
             Width = 80
             Height = 21
+            Hint = 
+              'The value has to match with a emote identifier defined in Emotes' +
+              '.dbc'
             ButtonWidth = 22
             ClickKey = 13
             Glyph.Data = {
@@ -33857,6 +33864,9 @@ object MainForm: TMainForm
             Top = 34
             Width = 80
             Height = 21
+            Hint = 
+              'The value has to match with a language identifier defined in Lan' +
+              'guages.dbc'
             ButtonWidth = 22
             ClickKey = 13
             Glyph.Data = {
@@ -33894,6 +33904,9 @@ object MainForm: TMainForm
             Top = 34
             Width = 80
             Height = 21
+            Hint = 
+              'A sound identifier. The value has to match with a sound identifi' +
+              'er defined in SoundEntries.dbc'
             ButtonWidth = 22
             ClickKey = 13
             Glyph.Data = {
