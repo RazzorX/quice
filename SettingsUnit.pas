@@ -5,7 +5,7 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms,
   Dialogs, ComCtrls, StdCtrls, ExtCtrls, Buttons, MyDataModule,
-  Mask, JvExComCtrls, JvListView, JvExMask, JvToolEdit;
+  Mask, JvExComCtrls, JvListView, JvExMask, JvToolEdit, Themes;
 
 type
   TSettingsForm = class(TForm)
@@ -52,6 +52,8 @@ type
     lbDBCLocale: TLabel;
     cbxLocales: TComboBox;
     lbLocales: TLabel;
+    cbRegisteredStyles: TComboBox;
+    lbProgramSkin: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure btDelClick(Sender: TObject);
     procedure btUpClick(Sender: TObject);
@@ -62,6 +64,7 @@ type
     procedure btUpdateClick(Sender: TObject);
     procedure btOKClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure cbRegisteredStylesChange(Sender: TObject);
   private
     procedure LoadLanguages;
   public
@@ -91,6 +94,9 @@ begin
        SubItems.Add(IntToStr(MainForm.lvQuest.Columns[i].Width));
      end;
   end;
+  for i := 0 to Length(TStyleManager.StyleNames)-1 do
+    cbRegisteredStyles.Items.Add(TStyleManager.StyleNames[i]);
+  cbRegisteredStyles.ItemIndex:=0;
   case dmMain.Site of
     sW: rgSite.ItemIndex:=0;
     sRW: rgSite.ItemIndex:=1;
@@ -117,6 +123,11 @@ begin
     ssReplace: rgSQLStyle.ItemIndex := 0;
     ssUpdate: rgSQLStyle.ItemIndex := 2;
   end;
+end;
+
+procedure TSettingsForm.cbRegisteredStylesChange(Sender: TObject);
+begin
+  TStyleManager.TrySetStyle(cbRegisteredStyles.Items[cbRegisteredStyles.ItemIndex], false);
 end;
 
 procedure TSettingsForm.LoadLanguages;

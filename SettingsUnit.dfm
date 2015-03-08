@@ -21,15 +21,11 @@ object SettingsForm: TSettingsForm
     Top = 0
     Width = 350
     Height = 391
-    ActivePage = tsDBC
+    ActivePage = tsPreferences
     Align = alClient
     TabOrder = 0
     object tsColumns: TTabSheet
       Caption = 'Columns'
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -72,8 +68,8 @@ object SettingsForm: TSettingsForm
             Caption = 'Width'
             Width = 80
           end>
-        Groups = <>
         HideSelection = False
+        Items.ItemData = {}
         ReadOnly = True
         RowSelect = True
         TabOrder = 1
@@ -598,10 +594,13 @@ object SettingsForm: TSettingsForm
     object tsPreferences: TTabSheet
       Caption = 'Preferences'
       ImageIndex = 4
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
+      object lbProgramSkin: TLabel
+        Left = 8
+        Top = 144
+        Width = 66
+        Height = 13
+        Caption = 'Program Skin:'
+      end
       object rgSQLStyle: TRadioGroup
         Left = 3
         Top = 3
@@ -613,6 +612,16 @@ object SettingsForm: TSettingsForm
           'DELETE/INSERT'
           'UPDATE')
         TabOrder = 0
+      end
+      object cbRegisteredStyles: TComboBox
+        Left = 8
+        Top = 163
+        Width = 326
+        Height = 21
+        Style = csDropDownList
+        DropDownCount = 16
+        TabOrder = 1
+        OnChange = cbRegisteredStylesChange
       end
     end
     object tsDBC: TTabSheet
