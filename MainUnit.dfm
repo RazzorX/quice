@@ -7666,7 +7666,6 @@ object MainForm: TMainForm
     object tsCreature: TTabSheet
       Caption = 'Creature'
       ImageIndex = 2
-      OnShow = tsCreatureShow
       object PageControl3: TPageControl
         Left = 0
         Top = 25
@@ -33944,7 +33943,6 @@ object MainForm: TMainForm
             Top = 88
             Width = 275
             Height = 77
-            Hint = 'Objectives of the quest.'
             ScrollBars = ssVertical
             TabOrder = 6
           end
@@ -33953,9 +33951,6 @@ object MainForm: TMainForm
             Top = 190
             Width = 275
             Height = 77
-            Hint = 
-              'This text ist send to player, yet did not terminate the Quest an' +
-              'd speak with NPC again!'
             ScrollBars = ssVertical
             TabOrder = 7
           end
@@ -33964,9 +33959,6 @@ object MainForm: TMainForm
             Top = 190
             Width = 275
             Height = 77
-            Hint = 
-              'This text is indicated to the player, if you open your Questlog ' +
-              'and wars send to player ingame.'
             ScrollBars = ssVertical
             TabOrder = 8
           end
@@ -33975,9 +33967,6 @@ object MainForm: TMainForm
             Top = 88
             Width = 275
             Height = 77
-            Hint = 
-              'First text send to the player by the NPC when completing the que' +
-              'st.'
             ScrollBars = ssVertical
             TabOrder = 9
           end
@@ -33986,9 +33975,6 @@ object MainForm: TMainForm
             Top = 501
             Width = 275
             Height = 77
-            Hint = 
-              'This text is indicated to the player, if you open your Questlog ' +
-              'and wars send to player ingame.'
             ScrollBars = ssVertical
             TabOrder = 10
           end
@@ -33997,7 +33983,6 @@ object MainForm: TMainForm
             Top = 295
             Width = 275
             Height = 77
-            Hint = 'Objectives of the quest.'
             ScrollBars = ssVertical
             TabOrder = 11
           end
@@ -34006,9 +33991,6 @@ object MainForm: TMainForm
             Top = 295
             Width = 275
             Height = 77
-            Hint = 
-              'First text send to the player by the NPC when completing the que' +
-              'st.'
             ScrollBars = ssVertical
             TabOrder = 12
           end
@@ -34017,9 +33999,6 @@ object MainForm: TMainForm
             Top = 397
             Width = 275
             Height = 77
-            Hint = 
-              'This text ist send to player, yet did not terminate the Quest an' +
-              'd speak with NPC again!'
             ScrollBars = ssVertical
             TabOrder = 13
           end
@@ -34028,9 +34007,6 @@ object MainForm: TMainForm
             Top = 397
             Width = 275
             Height = 77
-            Hint = 
-              'This text is indicated to the player, if you open your Questlog ' +
-              'and wars send to player ingame.'
             ScrollBars = ssVertical
             TabOrder = 14
           end
@@ -34039,9 +34015,6 @@ object MainForm: TMainForm
             Top = 501
             Width = 275
             Height = 77
-            Hint = 
-              'This text ist send to player, yet did not terminate the Quest an' +
-              'd speak with NPC again!'
             ScrollBars = ssVertical
             TabOrder = 15
           end

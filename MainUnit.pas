@@ -28,6 +28,7 @@ const
 
 {$IFDEF CMANGOS}
   SCRIPT_TABLE_CREATURE_MOVEMENT = 'dbscripts_on_creature_movement';
+  SCRIPT_TABLE_CREATURE_DEATH = 'dbscripts_on_creature_death';
   SCRIPT_TABLE_EVENT = 'dbscripts_on_event';
   SCRIPT_TABLE_GO = 'dbscripts_on_go_use';
   SCRIPT_TABLE_GO_TEMPLATE = 'dbscripts_on_go_template_use';
@@ -35,6 +36,7 @@ const
   SCRIPT_TABLE_QUEST_END = 'dbscripts_on_quest_end';
   SCRIPT_TABLE_QUEST_START =  'dbscripts_on_quest_start';
   SCRIPT_TABLE_SPELL = 'dbscripts_on_spell';
+  TABLE_DB_SCRIPT_STRING = 'db_script_string';
 {$ELSE}
   SCRIPT_TABLE_CREATURE_MOVEMENT = 'creature_movement_scripts';
   SCRIPT_TABLE_EVENT = 'event_scripts';
@@ -2331,7 +2333,6 @@ type
     procedure edctGossipMenuIdButtonClick(Sender: TObject);
     procedure edcgmentryButtonClick(Sender: TObject);
     procedure tsGossipMenuShow(Sender: TObject);
-    procedure tsCreatureShow(Sender: TObject);
     procedure edcgmtext_idButtonClick(Sender: TObject);
     procedure btGossipMenuOptionDelClick(Sender: TObject);
     procedure lvcgmOptionsChange(Sender: TObject; Item: TListItem; Change: TItemChange);
@@ -3126,7 +3127,6 @@ begin
   begin
     PageControl2.ActivePageIndex := 1;
     LoadQuest(StrToInt(lvQuest.Selected.Caption));
-
   end;
 end;
 
@@ -4883,8 +4883,8 @@ begin
     LoadQueryToListView(Format('SELECT `guid`, `id`, `map`, `position_x`,' +
       ' `position_y`,`position_z`,`orientation` FROM `creature` WHERE (`id`=%d)', [entry]), lvclCreatureLocation);
 
-    LoadQueryToListView(Format('SELECT * FROM `dbscripts_on_creature_death` WHERE (`id`=%d)',
-      [entry]), lvcdsCreatureOnDeathScript);
+    LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_CREATURE_DEATH, entry]), lvcdsCreatureOnDeathScript);
 
     LoadQueryToListView(Format('SELECT clt.*, i.`name` FROM `creature_loot_template`' +
       ' clt LEFT OUTER JOIN `item_template` i ON i.`entry` = clt.`item`' + ' WHERE (clt.`entry`=%d)',
@@ -5206,11 +5206,6 @@ begin
     24:
       CompleteCreatureOnDeathScript;
   end;
-end;
-
-procedure TMainForm.tsCreatureShow(Sender: TObject);
-begin
-  edSearchCreatureEntry.SetFocus;
 end;
 
 procedure TMainForm.tsCreatureTemplateAddonShow(Sender: TObject);
@@ -7131,15 +7126,15 @@ begin
   entry := edcdsid.Text;
   if entry = '' then
     Exit;
-  SetFieldsAndValues(Fields, Values, 'dbscripts_on_creature_death', PFX_CREATURE_ON_DEATH_SCRIPTS, mectLog);
+  SetFieldsAndValues(Fields, Values, SCRIPT_TABLE_CREATURE_DEATH, PFX_CREATURE_ON_DEATH_SCRIPTS, mectLog);
   case SyntaxStyle of
     ssInsertDelete:
-      mectScript.Text := Format('DELETE FROM `dbscripts_on_creature_death` WHERE (`id`=%s);'#13#10 +
-        'INSERT INTO `dbscripts_on_creature_death` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+      mectScript.Text := Format('DELETE FROM `%0:s` WHERE (`id`=%s);'#13#10 +
+        'INSERT INTO `%0:s` (%s) VALUES (%s);'#13#10, [SCRIPT_TABLE_CREATURE_DEATH, entry, Fields, Values]);
     ssReplace:
-      mectScript.Text := Format('REPLACE INTO `dbscripts_on_creature_death` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+      mectScript.Text := Format('REPLACE INTO `%s` (%s) VALUES (%s);'#13#10, [SCRIPT_TABLE_CREATURE_DEATH, Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('dbscripts_on_creature_death', PFX_CREATURE_ON_DEATH_SCRIPTS, 'id', entry);
+      mectScript.Text := MakeUpdate(SCRIPT_TABLE_CREATURE_DEATH, PFX_CREATURE_ON_DEATH_SCRIPTS, 'id', entry);
   end;
 end;
 
@@ -9831,7 +9826,7 @@ end;
 procedure TMainForm.btcdsShowFullScriptClick(Sender: TObject);
 begin
   PageControl3.ActivePageIndex := SCRIPT_TAB_NO_CREATURE;
-  mectScript.Text := ScriptSQLScript(lvcdsCreatureOnDeathScript, 'dbscripts_on_creature_death', edcdsid.Text);
+  mectScript.Text := ScriptSQLScript(lvcdsCreatureOnDeathScript, SCRIPT_TABLE_CREATURE_DEATH, edcdsid.Text);
 end;
 
 procedure TMainForm.btcmsDelClick(Sender: TObject);
@@ -10949,15 +10944,15 @@ begin
   entry := eddbsentry.Text;
   if (entry = '') then
     Exit;
-  SetFieldsAndValues(Fields, Values, 'db_script_string', PFX_DB_SCRIPT_STRING, medbLog);
+  SetFieldsAndValues(Fields, Values, TABLE_DB_SCRIPT_STRING, PFX_DB_SCRIPT_STRING, medbLog);
   case SyntaxStyle of
     ssInsertDelete:
-      medbScript.Text := Format('DELETE FROM `db_script_string` WHERE (`entry`=%s);'#13#10 +
-        'INSERT INTO `db_script_string` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+      medbScript.Text := Format('DELETE FROM `%0:s` WHERE (`entry`=%s);'#13#10 +
+        'INSERT INTO `%0:s` (%s) VALUES (%s);'#13#10, [TABLE_DB_SCRIPT_STRING, entry, Fields, Values]);
     ssReplace:
-      medbScript.Text := Format('REPLACE INTO `db_script_string` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+      medbScript.Text := Format('REPLACE INTO `%s` (%s) VALUES (%s);'#13#10, [TABLE_DB_SCRIPT_STRING, Fields, Values]);
     ssUpdate:
-      medbScript.Text := MakeUpdate('db_script_string', PFX_DB_SCRIPT_STRING, 'entry', entry);
+      medbScript.Text := MakeUpdate(TABLE_DB_SCRIPT_STRING, PFX_DB_SCRIPT_STRING, 'entry', entry);
   end;
 end;
 
@@ -10983,7 +10978,7 @@ begin
   if TCustomEdit(Sender).Text = '' then
     Exit;
   entry := TCustomEdit(Sender).Text;
-  MyTempQuery.SQL.Text := Format('SELECT * FROM `db_script_string` WHERE `entry`=%s', [entry]);
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `entry`=%s', [TABLE_DB_SCRIPT_STRING, entry]);
   MyTempQuery.Open;
   try
     if MyTempQuery.Eof then
