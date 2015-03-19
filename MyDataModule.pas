@@ -386,6 +386,12 @@ begin
   Text[163]:='Method of text output';
   Text[164]:='Error: Db_script_string (entry = %d) not found';
   Text[165]:='The error has occurred while loading Db_script_string:';
+  Text[166]:='Error: %s (entry = %d) not found';
+  Text[167]:='The error has occurred while loading %s:';
+  Text[168]:='Error: creature_model_info (id = %d) not found';
+  Text[169]:='The error has occurred while loading creature_model_info:';
+  Text[170]:='Error: gossip_menu_option (id = %d) not found';
+  Text[171]:='The error has occurred while loading gossip_menu_option:';
 end;
 
 procedure TdmMain.SetLanguage(const Value: string);

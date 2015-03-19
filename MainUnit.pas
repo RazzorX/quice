@@ -48,20 +48,34 @@ const
   SCRIPT_TABLE_SPELL = 'spell_scripts';
 {$ENDIF}
 
-  SCRIPT_TAB_NO_QUEST = 8;
+  SCRIPT_TAB_NO_QUEST = 7;
   SCRIPT_TAB_NO_CREATURE = 22;
-  SCRIPT_TAB_NO_GAMEOBJECT = 6;
+  SCRIPT_TAB_NO_GAMEOBJECT = 5;
   SCRIPT_TAB_NO_ITEM = 11;
   SCRIPT_TAB_NO_OTHER = 4;
   SCRIPT_TAB_NO_CHARACTER = 3;
-  SCRIPT_TAB_NO_DBSCRIPTS_ON = 1;
-  SCRIPT_TAB_NO_MAIL_LOOT = 9;
-
-  TAB_NO_NPC_EQUIP_TEMPLATE = 6;
-  TAB_NO_NPC_GOSSIP = 14;
-  TAB_NO_NPC_VENDOR_TEMPLATE = 19;
-  TAB_NO_NPC_TRAINER_TEMPLATE = 20;
-  TAB_NO_NPC_GOSSIP_MENU = 21;
+  SCRIPT_TAB_NO_DBSCRIPTS_ON = 10;
+  
+  TAB_NO_QUEST_MAIL_LOOT = 6;
+  
+  TAB_NO_NPC_CREATURE_LOCATION = 2;
+  TAB_NO_NPC_CREATURE_MODEL_INFO = 4;
+  TAB_NO_NPC_GOSSIP = 13;
+  TAB_NO_NPC_GOSSIP_MENU = 20;
+  TAB_NO_NPC_EQUIP_TEMPLATE = 5;
+  TAB_NO_NPC_VENDOR_TEMPLATE = 18;
+  TAB_NO_NPC_TRAINER_TEMPLATE = 19;
+  
+  TAB_NO_DBSCRIPT_STRING = 0;
+  TAB_NO_DBSCRIPT_QUEST_START = 1;
+  TAB_NO_DBSCRIPT_QUEST_END = 2;
+  TAB_NO_DBSCRIPT_CREATURE_MOVEMENT = 3;
+  TAB_NO_DBSCRIPT_CREATURE_DEATH = 4;
+  TAB_NO_DBSCRIPT_GO = 5;
+  TAB_NO_DBSCRIPT_GO_TEMPLATE = 6;
+  TAB_NO_DBSCRIPT_EVENT = 7;
+  TAB_NO_DBSCRIPT_GOSSIP = 8;
+  TAB_NO_DBSCRIPT_SPELL = 9;
 
   WM_FREEQL = WM_USER + 1;
 
@@ -75,8 +89,6 @@ const
   PFX_CREATURE_EQUIP_TEMPLATE = 'ce';
   PFX_CREATURE_MODEL_INFO = 'ci';
   PFX_CREATURE_MOVEMENT = 'cm';
-  PFX_CREATURE_MOVEMENT_SCRIPTS = 'cms';
-  PFX_CREATURE_ON_DEATH_SCRIPTS = 'cds';
   PFX_CREATURE_LOOT_TEMPLATE = 'co';
   PFX_CREATURE_EVENTAI = 'cn';
   PFX_CREATURE_GOSSIP_MENU = 'cgm';
@@ -111,6 +123,15 @@ const
   PFX_NPC_TRAINER_TEMPLATE = 'crt';
   PFX_CONDITIONS = 'con';
   PFX_DB_SCRIPT_STRING = 'dbs';
+  PFX_DBSCRIPTS_ON_EVENT = 'doe';
+  PFX_DBSCRIPTS_ON_GOSSIP = 'dog';
+  PFX_DBSCRIPTS_ON_SPELL = 'dos';
+  PFX_DBSCRIPTS_ON_QUEST_START = 'ss';
+  PFX_DBSCRIPTS_ON_QUEST_END = 'es';
+  PFX_DBSCRIPTS_ON_CREATURE_MOVEMENT = 'cms';
+  PFX_DBSCRIPTS_ON_CREATURE_DEATH = 'cds';
+  PFX_DBSCRIPTS_ON_GO_USE = 'gb';
+  PFX_DBSCRIPTS_ON_GO_TEMPLATE_USE = 'gtb';
 
 type
   TSyntaxStyle = (ssInsertDelete, ssReplace, ssUpdate);
@@ -434,8 +455,6 @@ type
     btScriptCreatureTemplate: TButton;
     tsCreatureLocation: TTabSheet;
     lvclCreatureLocation: TJvListView;
-    edclguid: TLabeledEdit;
-    edclid: TLabeledEdit;
     edclposition_x: TLabeledEdit;
     edclposition_y: TLabeledEdit;
     edclposition_z: TLabeledEdit;
@@ -869,7 +888,6 @@ type
     tsCompleteScript: TTabSheet;
     lvqtStartScript: TJvListView;
     edsscommand: TJvComboEdit;
-    edssid: TLabeledEdit;
     btssAdd: TSpeedButton;
     btssUpd: TSpeedButton;
     btssDel: TSpeedButton;
@@ -877,14 +895,12 @@ type
     lbsscommand: TLabel;
     edssdatalong: TLabeledEdit;
     edssdatalong2: TLabeledEdit;
-    edssdataint: TLabeledEdit;
     edssx: TLabeledEdit;
     edssy: TLabeledEdit;
     edssz: TLabeledEdit;
     edsso: TLabeledEdit;
     lvqtEndScript: TJvListView;
     edescommand: TJvComboEdit;
-    edesid: TLabeledEdit;
     btesAdd: TSpeedButton;
     btesUpd: TSpeedButton;
     btesDel: TSpeedButton;
@@ -892,7 +908,6 @@ type
     lbescommand: TLabel;
     edesdatalong: TLabeledEdit;
     edesdatalong2: TLabeledEdit;
-    edesdataint: TLabeledEdit;
     edesx: TLabeledEdit;
     edesy: TLabeledEdit;
     edesz: TLabeledEdit;
@@ -1095,8 +1110,6 @@ type
     lbqtOfferRewardEmote1: TLabel;
     lbcaemote: TLabel;
     lbcmemote: TLabel;
-    edclequipment_id: TLabeledEdit;
-    edclmodelid: TLabeledEdit;
     edctFactionHorde: TJvComboEdit;
     lbctfaction_H: TLabel;
     edctRegenerateStats: TLabeledEdit;
@@ -1109,7 +1122,6 @@ type
     btCreatureModelSearch: TBitBtn;
     edCreatureModelSearch: TLabeledEdit;
     btShowCreatureModelInfoScript: TButton;
-    edcimodelid: TLabeledEdit;
     edcibounding_radius: TLabeledEdit;
     edcicombat_reach: TLabeledEdit;
     edcigender: TLabeledEdit;
@@ -1151,11 +1163,9 @@ type
     edgbz: TLabeledEdit;
     edgby: TLabeledEdit;
     edgbx: TLabeledEdit;
-    edgbdataint: TLabeledEdit;
     edgbdatalong2: TLabeledEdit;
     edgbdatalong: TLabeledEdit;
     edgbdelay: TLabeledEdit;
-    edgbid: TLabeledEdit;
     edgbcommand: TJvComboEdit;
     lbhintGOButtonScript: TLabel;
     lbgbcommand: TLabel;
@@ -1522,7 +1532,6 @@ type
     edesbuddy_entry: TLabeledEdit;
     edessearch_radius: TLabeledEdit;
     edesdata_flags: TLabeledEdit;
-    edcmscript_id: TLabeledEdit;
     tsCreatureMovementScript: TTabSheet;
     btcmsAdd: TSpeedButton;
     btcmsDel: TSpeedButton;
@@ -1530,13 +1539,11 @@ type
     btcmsUpd: TSpeedButton;
     edcmscommand: TJvComboEdit;
     edcmsdata_flags: TLabeledEdit;
-    edcmsdataint: TLabeledEdit;
     edcmsdatalong: TLabeledEdit;
     edcmsdatalong2: TLabeledEdit;
     edcmsbuddy_entry: TLabeledEdit;
     edcmssearch_radius: TLabeledEdit;
     edcmsdelay: TLabeledEdit;
-    edcmsid: TLabeledEdit;
     edcmso: TLabeledEdit;
     edcmsx: TLabeledEdit;
     edcmsy: TLabeledEdit;
@@ -1545,21 +1552,9 @@ type
     lbcms: TLabel;
     lvcmsCreatureMovementScript: TJvListView;
     edcimodelid_alternative: TLabeledEdit;
-    edcmsdataint2: TLabeledEdit;
-    edcmsdataint3: TLabeledEdit;
-    edcmsdataint4: TLabeledEdit;
     edcmscomments: TLabeledEdit;
-    edgbdataint2: TLabeledEdit;
-    edgbdataint3: TLabeledEdit;
-    edgbdataint4: TLabeledEdit;
     edgbcomments: TLabeledEdit;
-    edssdataint2: TLabeledEdit;
-    edssdataint3: TLabeledEdit;
-    edssdataint4: TLabeledEdit;
     edsscomments: TLabeledEdit;
-    edesdataint2: TLabeledEdit;
-    edesdataint3: TLabeledEdit;
-    edesdataint4: TLabeledEdit;
     edescomments: TLabeledEdit;
     edqtRequiredSkill: TJvComboEdit;
     edqtRequiredRaces: TJvComboEdit;
@@ -1620,8 +1615,6 @@ type
     edqtRewSkillValue: TLabeledEdit;
     edqtSoundAccept: TLabeledEdit;
     edqtSoundTurnIn: TLabeledEdit;
-    edqtStartScript: TLabeledEdit;
-    edqtCompleteScript: TLabeledEdit;
     lbqtReqCurrencyId1: TLabel;
     edqtReqCurrencyCount1: TLabeledEdit;
     edqtReqCurrencyCount2: TLabeledEdit;
@@ -1709,14 +1702,12 @@ type
     btGossipMenuOptionAdd: TSpeedButton;
     btGossipMenuOptionUpd: TSpeedButton;
     btGossipMenuOptionDel: TSpeedButton;
-    edcgmomenu_id: TLabeledEdit;
     lbcgmocondition_id: TLabel;
     edcgmoid: TLabeledEdit;
     edcgmooption_text: TLabeledEdit;
     edcgmooption_id: TLabeledEdit;
     edcgmonpc_option_npcflag: TLabeledEdit;
     edcgmoaction_poi_id: TLabeledEdit;
-    edcgmoaction_script_id: TLabeledEdit;
     edcgmobox_coded: TLabeledEdit;
     edcgmobox_money: TLabeledEdit;
     edcgmobox_text: TLabeledEdit;
@@ -1764,22 +1755,11 @@ type
     edctDamageVariance: TLabeledEdit;
     tsCreatureTemplateSpells: TTabSheet;
     lbcuCreatureTemplateSpells: TLabel;
-    edcuentry: TJvComboEdit;
     lbcuentry: TLabel;
-    edcuspell1: TLabeledEdit;
-    edcuspell2: TLabeledEdit;
-    edcuspell3: TLabeledEdit;
-    edcuspell4: TLabeledEdit;
-    edcuspell5: TLabeledEdit;
-    edcuspell6: TLabeledEdit;
-    edcuspell7: TLabeledEdit;
-    edcuspell8: TLabeledEdit;
     tsCreatureOnDeathScript: TTabSheet;
     lbcds: TLabel;
-    lvcdsCreatureOnDeathScript: TJvListView;
     edcdscommand: TJvComboEdit;
     lbcdscommand: TLabel;
-    edcdsid: TLabeledEdit;
     edcdsdelay: TLabeledEdit;
     btcdsAdd: TSpeedButton;
     btcdsDel: TSpeedButton;
@@ -1788,10 +1768,6 @@ type
     edcdsbuddy_entry: TLabeledEdit;
     edcdscomments: TLabeledEdit;
     edcdsdata_flags: TLabeledEdit;
-    edcdsdataint: TLabeledEdit;
-    edcdsdataint2: TLabeledEdit;
-    edcdsdataint3: TLabeledEdit;
-    edcdsdataint4: TLabeledEdit;
     edcdsdatalong: TLabeledEdit;
     edcdsdatalong2: TLabeledEdit;
     edcdso: TLabeledEdit;
@@ -1804,14 +1780,9 @@ type
     edgtbz: TLabeledEdit;
     edgtby: TLabeledEdit;
     edgtbx: TLabeledEdit;
-    edgtbdataint: TLabeledEdit;
-    edgtbdataint2: TLabeledEdit;
-    edgtbdataint3: TLabeledEdit;
-    edgtbdataint4: TLabeledEdit;
     edgtbdatalong2: TLabeledEdit;
     edgtbdatalong: TLabeledEdit;
     edgtbdelay: TLabeledEdit;
-    edgtbid: TLabeledEdit;
     edgtbbuddy_entry: TLabeledEdit;
     edgtbsearch_radius: TLabeledEdit;
     edgtbcomments: TLabeledEdit;
@@ -1920,6 +1891,196 @@ type
     eddbscontent_loc6: TMemo;
     eddbscontent_loc7: TMemo;
     eddbscontent_loc8: TMemo;
+    tsEvent: TTabSheet;
+    tsGossip: TTabSheet;
+    tsSpell: TTabSheet;
+    lbEventInfo: TLabel;
+    lvdoeEventScript: TJvListView;
+    eddoedelay: TLabeledEdit;
+    lbdoecommand: TLabel;
+    eddoecommand: TJvComboEdit;
+    eddoedatalong: TLabeledEdit;
+    eddoex: TLabeledEdit;
+    eddoey: TLabeledEdit;
+    eddoedatalong2: TLabeledEdit;
+    eddoebuddy_entry: TLabeledEdit;
+    eddoez: TLabeledEdit;
+    eddoeo: TLabeledEdit;
+    eddoesearch_radius: TLabeledEdit;
+    eddoedata_flags: TLabeledEdit;
+    eddoecomments: TLabeledEdit;
+    btFullEventScript: TButton;
+    btdoeAdd: TSpeedButton;
+    btdoeUpd: TSpeedButton;
+    btdoeDel: TSpeedButton;
+    lbGossipInfo: TLabel;
+    lvdogGossipScript: TJvListView;
+    eddogdelay: TLabeledEdit;
+    lbdogcommand: TLabel;
+    eddogcommand: TJvComboEdit;
+    eddogdatalong: TLabeledEdit;
+    eddogx: TLabeledEdit;
+    eddogy: TLabeledEdit;
+    eddogdatalong2: TLabeledEdit;
+    eddogbuddy_entry: TLabeledEdit;
+    eddogz: TLabeledEdit;
+    eddogo: TLabeledEdit;
+    eddogsearch_radius: TLabeledEdit;
+    eddogdata_flags: TLabeledEdit;
+    eddogcomments: TLabeledEdit;
+    btFullGossipScript: TButton;
+    btdogAdd: TSpeedButton;
+    btdogUpd: TSpeedButton;
+    btdogDel: TSpeedButton;
+    lbSpellInfo: TLabel;
+    lvdosSpellScript: TJvListView;
+    eddosdelay: TLabeledEdit;
+    lbdoscommand: TLabel;
+    eddoscommand: TJvComboEdit;
+    eddosdatalong: TLabeledEdit;
+    eddosx: TLabeledEdit;
+    eddosy: TLabeledEdit;
+    eddosdatalong2: TLabeledEdit;
+    eddosbuddy_entry: TLabeledEdit;
+    eddosz: TLabeledEdit;
+    eddoso: TLabeledEdit;
+    eddossearch_radius: TLabeledEdit;
+    eddosdata_flags: TLabeledEdit;
+    eddoscomments: TLabeledEdit;
+    btFullSpellScript: TButton;
+    btdosAdd: TSpeedButton;
+    btdosUpd: TSpeedButton;
+    btdosDel: TSpeedButton;
+    btesShowFullScript: TButton;
+    btssShowFullScript: TButton;
+    edssid: TJvComboEdit;
+    lbssid: TLabel;
+    edesid: TJvComboEdit;
+    lbesid: TLabel;
+    edssdataint: TJvComboEdit;
+    lbssdataint: TLabel;
+    edssdataint2: TJvComboEdit;
+    lbssdataint2: TLabel;
+    edssdataint3: TJvComboEdit;
+    lbssdataint3: TLabel;
+    edssdataint4: TJvComboEdit;
+    lbssdataint4: TLabel;
+    edesdataint: TJvComboEdit;
+    lbesdataint: TLabel;
+    lbesdataint2: TLabel;
+    lbesdataint3: TLabel;
+    lbesdataint4: TLabel;
+    edesdataint4: TJvComboEdit;
+    edesdataint3: TJvComboEdit;
+    edesdataint2: TJvComboEdit;
+    edcmsdataint: TJvComboEdit;
+    edcmsdataint2: TJvComboEdit;
+    edcmsdataint3: TJvComboEdit;
+    edcmsdataint4: TJvComboEdit;
+    lbcmsdataint4: TLabel;
+    lbcmsdataint3: TLabel;
+    lbcmsdataint2: TLabel;
+    lbcmsdataint: TLabel;
+    edcdsdataint: TJvComboEdit;
+    edcdsdataint2: TJvComboEdit;
+    edcdsdataint3: TJvComboEdit;
+    edcdsdataint4: TJvComboEdit;
+    lbcdsdataint4: TLabel;
+    lbcdsdataint3: TLabel;
+    lbcdsdataint2: TLabel;
+    lbcdsdataint: TLabel;
+    edgbdataint: TJvComboEdit;
+    edgbdataint2: TJvComboEdit;
+    edgbdataint3: TJvComboEdit;
+    edgbdataint4: TJvComboEdit;
+    lbgbdataint4: TLabel;
+    lbgbdataint3: TLabel;
+    lbgbdataint2: TLabel;
+    lbgbdataint: TLabel;
+    edgtbdataint: TJvComboEdit;
+    edgtbdataint2: TJvComboEdit;
+    edgtbdataint3: TJvComboEdit;
+    edgtbdataint4: TJvComboEdit;
+    lbgtbdataint4: TLabel;
+    lbgtbdataint3: TLabel;
+    lbgtbdataint2: TLabel;
+    lbgtbdataint: TLabel;
+    eddoedataint: TJvComboEdit;
+    eddoedataint2: TJvComboEdit;
+    eddoedataint3: TJvComboEdit;
+    eddoedataint4: TJvComboEdit;
+    lbdoedataint4: TLabel;
+    lbdoedataint3: TLabel;
+    lbdoedataint2: TLabel;
+    lbdoedataint: TLabel;
+    eddogdataint: TJvComboEdit;
+    eddogdataint2: TJvComboEdit;
+    eddogdataint3: TJvComboEdit;
+    eddogdataint4: TJvComboEdit;
+    lbdogdataint4: TLabel;
+    lbdogdataint3: TLabel;
+    lbdogdataint2: TLabel;
+    lbdogdataint: TLabel;
+    eddosdataint: TJvComboEdit;
+    eddosdataint2: TJvComboEdit;
+    eddosdataint3: TJvComboEdit;
+    eddosdataint4: TJvComboEdit;
+    lbdosdataint4: TLabel;
+    lbdosdataint3: TLabel;
+    lbdosdataint2: TLabel;
+    lbdosdataint: TLabel;
+    edcmsid: TJvComboEdit;
+    lbcmsid: TLabel;
+    edcmscript_id: TJvComboEdit;
+    lbcmscript_id: TLabel;
+    edclid: TJvComboEdit;
+    lbclid: TLabel;
+    edclguid: TJvComboEdit;
+    lbclguid: TLabel;
+    edcimodelid: TJvComboEdit;
+    lbcimodelid: TLabel;
+    edclmodelid: TJvComboEdit;
+    lbclmodelid: TLabel;
+    edclequipment_id: TJvComboEdit;
+    lbclequipment_id: TLabel;
+    lvcdsCreatureOnDeathScript: TJvListView;
+    edcdsid: TJvComboEdit;
+    lbcdsid: TLabel;
+    edcgmoaction_script_id: TJvComboEdit;
+    lbcgmoaction_script_id: TLabel;
+    edgbid: TJvComboEdit;
+    lbgbid: TLabel;
+    edgtbid: TJvComboEdit;
+    lbgtbid: TLabel;
+    eddoeid: TJvComboEdit;
+    lbdoeid: TLabel;
+    eddogid: TJvComboEdit;
+    lbdogid: TLabel;
+    lbdosid: TLabel;
+    edcgmomenu_id: TJvComboEdit;
+    lbcgmomenu_id: TLabel;
+    edcuspell2: TJvComboEdit;
+    lbcuspell1: TLabel;
+    edcuspell1: TJvComboEdit;
+    lbcuspell2: TLabel;
+    edcuspell3: TJvComboEdit;
+    lbcuspell5: TLabel;
+    edcuspell8: TJvComboEdit;
+    lbcuspell8: TLabel;
+    edcuspell5: TJvComboEdit;
+    lbcuspell3: TLabel;
+    edcuspell4: TJvComboEdit;
+    lbcuspell6: TLabel;
+    edcuspell7: TJvComboEdit;
+    lbcuspell7: TLabel;
+    edcuspell6: TJvComboEdit;
+    lbcuspell4: TLabel;
+    eddosid: TJvComboEdit;
+    edcuentry: TJvComboEdit;
+    edqtStartScript: TJvComboEdit;
+    lbqtStartScript: TLabel;
+    edqtCompleteScript: TJvComboEdit;
+    lbqtCompleteScript: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -1958,6 +2119,7 @@ type
     procedure btDeleteCreatureClick(Sender: TObject);
     procedure btBrowseCreatureClick(Sender: TObject);
     procedure edctEntryButtonClick(Sender: TObject);
+    procedure edcuentryButtonClick(Sender: TObject);
     procedure btExecuteCreatureScriptClick(Sender: TObject);
     procedure btCopyToClipboardCreatureClick(Sender: TObject);
     procedure tsCreatureScriptShow(Sender: TObject);
@@ -2114,6 +2276,18 @@ type
     procedure btDBScriptsOnClick(Sender: TObject);
     procedure LoadConditions(Sender: TObject);
     procedure LoadDBScriptString(Sender: TObject);
+    procedure LoadDBScripts(Sender: TObject; TableName: string; prefix: string);
+    procedure LoadDBScriptsOnQuestStart(Sender: TObject);
+    procedure LoadDBScriptsOnQuestEnd(Sender: TObject);
+    procedure LoadDBScriptsOnCreatureMvmnt(Sender: TObject);
+    procedure LoadDBScriptsOnCreatureDeath(Sender: TObject);
+    procedure LoadDBScriptsOnGoUse(Sender: TObject);
+    procedure LoadDBScriptsOnGoTemplateUse(Sender: TObject);
+    procedure LoadDBScriptsOnEvent(Sender: TObject);
+    procedure LoadDBScriptsOnGossip(Sender: TObject);
+    procedure LoadDBScriptsOnSpell(Sender: TObject);
+    procedure LoadCreatureModelInfo(Sender: TObject);
+    procedure LoadGossipMenuOption(Sender: TObject);
     procedure btSQLOpenClick(Sender: TObject);
     procedure btScriptCreatureLocationCustomToAllClick(Sender: TObject);
     procedure btFullScriptProsLootClick(Sender: TObject);
@@ -2233,6 +2407,19 @@ type
     procedure edhtguidButtonClick(Sender: TObject);
     procedure edconentryButtonClick(Sender: TObject);
     procedure eddbsentryButtonClick(Sender: TObject);
+    procedure edssidButtonClick(Sender: TObject);
+    procedure edesidButtonClick(Sender: TObject);
+    procedure edcmsidButtonClick(Sender: TObject);
+    procedure edcdsidButtonClick(Sender: TObject);
+    procedure edgbidButtonClick(Sender: TObject);
+    procedure edgtbidButtonClick(Sender: TObject);
+    procedure eddoeidButtonClick(Sender: TObject);
+    procedure eddogidButtonClick(Sender: TObject);
+    procedure eddosidButtonClick(Sender: TObject);
+    procedure edclguidButtonClick(Sender: TObject);
+    procedure edclidButtonClick(Sender: TObject);
+    procedure edcimodelidButtonClick(Sender: TObject);
+    procedure edcgmomenu_idButtonClick(Sender: TObject);
     procedure btCopyToClipboardCharClick(Sender: TObject);
     procedure btExecuteScriptCharClick(Sender: TObject);
     procedure edhtdataButtonClick(Sender: TObject);
@@ -2311,8 +2498,6 @@ type
     procedure lvcmsCreatureMovementScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvcdsCreatureOnDeathScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvcdsCreatureOnDeathScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
-    procedure btcmsShowFullScriptClick(Sender: TObject);
-    procedure btcdsShowFullScriptClick(Sender: TObject);
     procedure lvcvtNPCVendorSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btVendorTemplateAddClick(Sender: TObject);
     procedure btVendorTemplateUpdClick(Sender: TObject);
@@ -2369,8 +2554,8 @@ type
     procedure LoadQuestMailLoot(edqtRewMailTemplateId: Integer);
     procedure LoadQuestGiverInfo(objtype: string; entry: string);
     procedure LoadQuestTakerInfo(objtype: string; entry: string);
-    procedure LoadQuestStartScript(id: Integer);
-    procedure LoadQuestCompleteScript(id: Integer);
+    procedure LoadQuestStartScript(Sender: TObject);
+    procedure LoadQuestCompleteScript(Sender: TObject);
     procedure SetScriptEditFields(pfx: string; lvList: TJvListView);
     procedure ClearFields(Where: TType);
     procedure SetDefaultFields(Where: TType);
@@ -2394,12 +2579,12 @@ type
     procedure LoadNPCgossip(GUID: Integer);
     procedure LoadNPCText(TextId: string);
     procedure LoadCreatureLocation(GUID: Integer);
+    procedure LoadCreatureLocationSearchID(ID: Integer);
 
     procedure SetCreatureModelEditFields(pfx: string; lvList: TJvListView);
 
     procedure CompleteCreatureScript;
     procedure CompleteCreatureLocationScript;
-    procedure CompleteCreatureOnDeathScript;
     procedure CompleteCreatureLootScript;
     procedure CompleteCreatureEquipTemplateScript;
     procedure CompleteCreatureModelInfoScript;
@@ -2421,12 +2606,9 @@ type
     procedure SearchGO;
     procedure LoadGO(entry: Integer);
     procedure LoadGOLocation(GUID: Integer);
-    procedure LoadButtonScript(GUID: Integer);
     procedure CompleteGOLocationScript;
     procedure CompleteGOLootScript;
     procedure CompleteGOScript;
-    procedure CompleteButtonScriptScript;
-    procedure CompleteGOTemplateScriptScript;
 
     { items }
     procedure SearchItem;
@@ -2487,6 +2669,16 @@ type
     procedure CompleteConditionsScript;
     procedure CompleteDbScriptStringScript;
     procedure CompleteGameEventScript;
+    procedure CompleteDbScripts(TableName: string; prefix: string; entry: string; delay: string; command: string);
+    procedure CompleteDbScriptsOnQuestStartScript;
+    procedure CompleteDbScriptsOnQuestEndScript;
+    procedure CompleteDbScriptsOnCreatureDeathScript;
+    procedure CompleteDbScriptsOnCreatureMvmntScript;
+    procedure CompleteDbScriptsOnGoUseScript;
+    procedure CompleteDbScriptsOnGoTemplateUseScript;
+    procedure CompleteDbScriptsOnEventScript;
+    procedure CompleteDbScriptsOnGossipScript;
+    procedure CompleteDbScriptsOnSpellScript;
 
     procedure EditThis(objtype: string; entry: string);
     procedure CreateNPCTextFields;
@@ -3097,11 +3289,6 @@ begin
     edqtEntry.Text := IntToStr(QuestID);
     FillFields(MyQuery, PFX_QUEST_TEMPLATE);
     MyQuery.Close;
-
-    if edqtStartScript.Text <> '0' then
-      LoadQuestStartScript(StrToIntDef(edqtStartScript.Text, 0));
-    if edqtCompleteScript.Text <> '0' then
-      LoadQuestCompleteScript(StrToIntDef(edqtCompleteScript.Text, 0));
 
     MyQuery.SQL.Text := Format('SELECT * FROM `areatrigger_involvedrelation` WHERE `quest`=%d', [QuestID]);
     MyQuery.Open;
@@ -4773,11 +4960,6 @@ begin
     dmMain.BrowseSite(ttNPC, StrToInt(lvSearchCreature.Selected.Caption));
 end;
 
-procedure TMainForm.LoadButtonScript(GUID: Integer);
-begin
-  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)', [SCRIPT_TABLE_GO, GUID]), lvgbButtonScript);
-end;
-
 procedure TMainForm.LoadCharacter(GUID: Integer);
 begin
   ShowHourGlassCursor;
@@ -4882,9 +5064,6 @@ begin
 
     LoadQueryToListView(Format('SELECT `guid`, `id`, `map`, `position_x`,' +
       ' `position_y`,`position_z`,`orientation` FROM `creature` WHERE (`id`=%d)', [entry]), lvclCreatureLocation);
-
-    LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
-      [SCRIPT_TABLE_CREATURE_DEATH, entry]), lvcdsCreatureOnDeathScript);
 
     LoadQueryToListView(Format('SELECT clt.*, i.`name` FROM `creature_loot_template`' +
       ' clt LEFT OUTER JOIN `item_template` i ON i.`entry` = clt.`item`' + ' WHERE (clt.`entry`=%d)',
@@ -5004,8 +5183,15 @@ begin
   if entry = '' then
     Exit;
   SetFieldsAndValues(Fields, Values, 'creature_template_spells', PFX_CREATURE_TEMPLATE_SPELLS, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_template_spells` WHERE (`entry`=%s);'#13#10 +
-    'INSERT INTO `creature_template_spells` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `creature_template_spells` WHERE (`entry`=%s);'#13#10 +
+        'INSERT INTO `creature_template_spells` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `creature_template_spells` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate('creature_template_spells', PFX_CREATURE_TEMPLATE_SPELLS, 'entry', entry);
+  end;
 end;
 
 procedure TMainForm.GetCreatureDynamicFlags(Sender: TObject);
@@ -5162,49 +5348,45 @@ begin
   case PageControl3.ActivePageIndex of
     1:
       CompleteCreatureScript;
-    2:
+    TAB_NO_NPC_CREATURE_LOCATION:
       CompleteCreatureLocationScript;
     3:
       CompleteCreatureMovementScript;
-    4:
-      { CompleteCreatureMovementScriptScript };
-    5:
+    TAB_NO_NPC_CREATURE_MODEL_INFO:
       CompleteCreatureModelInfoScript;
-    6:
+    TAB_NO_NPC_EQUIP_TEMPLATE:
       CompleteCreatureEquipTemplateScript;
-    7:
+    6:
       CompleteCreatureLootScript;
-    8:
+    7:
       CompletePickpocketLootScript;
-    9:
+    8:
       CompleteSkinLootScript;
-    10:
+    9:
       CompleteNPCVendorScript;
-    11:
+    10:
       CompleteNPCTrainerScript;
-    12:
+    11:
       CompleteCreatureTemplateAddonScript;
-    13:
+    12:
       CompleteCreatureAddonScript;
-    14:
+    TAB_NO_NPC_GOSSIP:
       begin
         mectScript.Clear;
         CompleteNPCgossipScript;
       end;
-    15:
+    14:
       CompleteCreatureOnKillReputationScript;
-    16: { involved in tab - do nothing }
+    15: { involved in tab - do nothing }
       ;
-    17:
+    16:
       CompleteCreatureEventAIScript;
-    19:
+    TAB_NO_NPC_VENDOR_TEMPLATE:
       CompleteNPCVendorTemplateScript;
     TAB_NO_NPC_GOSSIP_MENU:
       CompleteGossipMenuScript;
-    23:
+    21:
       CompleteCreatureTemplateSpellsScript;
-    24:
-      CompleteCreatureOnDeathScript;
   end;
 end;
 
@@ -5902,7 +6084,7 @@ end;
 
 procedure TMainForm.edqtRewMailTemplateIdButtonClick(Sender: TObject);
 begin
-  PageControl2.ActivePageIndex := SCRIPT_TAB_NO_MAIL_LOOT;
+  PageControl2.ActivePageIndex := TAB_NO_QUEST_MAIL_LOOT;
 end;
 
 procedure TMainForm.edctTrainerTemplateIdButtonClick(Sender: TObject);
@@ -6714,10 +6896,6 @@ procedure TMainForm.lvcmMovementSelectItem(Sender: TObject; Item: TListItem; Sel
 begin
   if Selected then
     SetMvmntEditFields('edcm', lvcmMovement);
-
-  if edcmscript_id.Text <> '0' then
-    LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
-      [SCRIPT_TABLE_CREATURE_MOVEMENT, StrToIntDef(edcmscript_id.Text, 0)]), lvcmsCreatureMovementScript);
 end;
 
 procedure TMainForm.lvcmsCreatureMovementScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
@@ -6761,6 +6939,21 @@ begin
   if GUID < 1 then
     Exit;
   MyQuery.SQL.Text := Format('SELECT * FROM `creature` WHERE (`guid`=%d)', [GUID]);
+  MyQuery.Open;
+  try
+    FillFields(MyQuery, PFX_CREATURE);
+    MyQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(dmMain.Text[86] + #10#13 + E.Message);
+  end;
+end;
+
+procedure TMainForm.LoadCreatureLocationSearchID(ID: Integer);
+begin
+  if ID < 1 then
+    Exit;
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature` WHERE (`id`=%d)', [ID]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_CREATURE);
@@ -6936,16 +7129,6 @@ begin
   GetValueFromSimpleList(Sender, 163, 'TextType', false);
 end;
 
-procedure TMainForm.CompleteButtonScriptScript;
-begin
-  megoScript.Text := ScriptSQLScript(lvgbButtonScript, SCRIPT_TABLE_GO, edgtentry.Text);
-end;
-
-procedure TMainForm.CompleteGOTemplateScriptScript;
-begin
-  megoScript.Text := ScriptSQLScript(lvgtbGOTemplateScript, SCRIPT_TABLE_GO_TEMPLATE, edgtentry.Text);
-end;
-
 procedure TMainForm.CompleteCharacterInventoryScript;
 var
   GUID, Fields, Values: string;
@@ -7115,26 +7298,6 @@ begin
       mectScript.Text := Format('REPLACE INTO `creature` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
       mectScript.Text := MakeUpdate('creature', PFX_CREATURE, 'guid', clguid);
-  end;
-end;
-
-procedure TMainForm.CompleteCreatureOnDeathScript;
-var
-  entry, Fields, Values: string;
-begin
-  mectLog.Clear;
-  entry := edcdsid.Text;
-  if entry = '' then
-    Exit;
-  SetFieldsAndValues(Fields, Values, SCRIPT_TABLE_CREATURE_DEATH, PFX_CREATURE_ON_DEATH_SCRIPTS, mectLog);
-  case SyntaxStyle of
-    ssInsertDelete:
-      mectScript.Text := Format('DELETE FROM `%0:s` WHERE (`id`=%s);'#13#10 +
-        'INSERT INTO `%0:s` (%s) VALUES (%s);'#13#10, [SCRIPT_TABLE_CREATURE_DEATH, entry, Fields, Values]);
-    ssReplace:
-      mectScript.Text := Format('REPLACE INTO `%s` (%s) VALUES (%s);'#13#10, [SCRIPT_TABLE_CREATURE_DEATH, Fields, Values]);
-    ssUpdate:
-      mectScript.Text := MakeUpdate(SCRIPT_TABLE_CREATURE_DEATH, PFX_CREATURE_ON_DEATH_SCRIPTS, 'id', entry);
   end;
 end;
 
@@ -7795,7 +7958,6 @@ begin
 
     LoadQueryToListView(Format('SELECT `guid`, `id`, `map`, `position_x`,' +
       '`position_y`,`position_z`,`orientation` FROM `gameobject` WHERE (`id`=%d)', [entry]), lvglGOLocation);
-    LoadQueryToListView(Format('SELECT * FROM `dbscripts_on_go_template_use` WHERE (`id`=%d)', [entry]), lvgtbGOTemplateScript);
     LoadQueryToListView(Format('SELECT glt.*, i.name FROM `gameobject_loot_template` glt ' +
       'LEFT OUTER JOIN `item_template` i ON i.`entry` = glt.`item`  WHERE (glt.`entry`=%d)',
       [StrToIntDef(edgtdata1.Text, 0)]), lvgoGOLoot);
@@ -7916,10 +8078,6 @@ begin
       CompleteGOLocationScript;
     3:
       CompleteGOLootScript;
-    4:
-      CompleteButtonScriptScript;
-    5:
-      CompleteGOTemplateScriptScript;
   end;
 end;
 
@@ -7958,10 +8116,7 @@ end;
 procedure TMainForm.lvglGOLocationSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 begin
   if Selected then
-  begin
     LoadGOLocation(StrToIntDef(Item.Caption, 0));
-    LoadButtonScript(StrToIntDef(Item.Caption, 0));
-  end;
 end;
 
 procedure TMainForm.LoadGOLocation(GUID: Integer);
@@ -9817,18 +9972,6 @@ begin
   ScriptAdd('edcds', lvcdsCreatureOnDeathScript);
 end;
 
-procedure TMainForm.btcmsShowFullScriptClick(Sender: TObject);
-begin
-  PageControl3.ActivePageIndex := SCRIPT_TAB_NO_CREATURE;
-  mectScript.Text := ScriptSQLScript(lvcmsCreatureMovementScript, SCRIPT_TABLE_CREATURE_MOVEMENT, edcmsid.Text);
-end;
-
-procedure TMainForm.btcdsShowFullScriptClick(Sender: TObject);
-begin
-  PageControl3.ActivePageIndex := SCRIPT_TAB_NO_CREATURE;
-  mectScript.Text := ScriptSQLScript(lvcdsCreatureOnDeathScript, SCRIPT_TABLE_CREATURE_DEATH, edcdsid.Text);
-end;
-
 procedure TMainForm.btcmsDelClick(Sender: TObject);
 begin
   ScriptDel(lvcmsCreatureMovementScript);
@@ -10900,9 +11043,9 @@ procedure TMainForm.LoadConditions(Sender: TObject);
 var
   entry: string;
 begin
-  if TCustomEdit(Sender).Text = '' then
-    Exit;
   entry := TCustomEdit(Sender).Text;
+  if (StrToIntDef(entry, 0) < 1) then
+    Exit;
   MyTempQuery.SQL.Text := Format('SELECT * FROM `conditions` WHERE `condition_entry`=%s', [entry]);
   MyTempQuery.Open;
   try
@@ -10928,6 +11071,24 @@ begin
   case DBScriptString.ActivePageIndex of
     0:
       CompleteDbScriptStringScript;
+    1:
+      CompleteDbScriptsOnQuestStartScript;
+    2:
+      CompleteDbScriptsOnQuestEndScript;
+    3:
+      CompleteDbScriptsOnCreatureMvmntScript;
+    4:
+      CompleteDbScriptsOnCreatureDeathScript;
+    5:
+      CompleteDbScriptsOnGoUseScript;
+    6:
+      CompleteDbScriptsOnGoTemplateUseScript;
+    7:
+      CompleteDbScriptsOnEventScript;
+    8:
+      CompleteDbScriptsOnGossipScript;
+    9:
+      CompleteDbScriptsOnSpellScript;
   end;
 end;
 
@@ -10942,7 +11103,7 @@ var
 begin
   medbLog.Clear;
   entry := eddbsentry.Text;
-  if (entry = '') then
+  if (StrToIntDef(entry, 0) < 1) then
     Exit;
   SetFieldsAndValues(Fields, Values, TABLE_DB_SCRIPT_STRING, PFX_DB_SCRIPT_STRING, medbLog);
   case SyntaxStyle of
@@ -10954,6 +11115,63 @@ begin
     ssUpdate:
       medbScript.Text := MakeUpdate(TABLE_DB_SCRIPT_STRING, PFX_DB_SCRIPT_STRING, 'entry', entry);
   end;
+end;
+
+procedure TMainForm.CompleteDbScripts(TableName: string; prefix: string; entry: string; delay: string; command: string);
+var
+  Fields, Values: string;
+begin
+  medbLog.Clear;
+  if (StrToIntDef(entry, 0) < 1) then
+    Exit;
+  SetFieldsAndValues(Fields, Values, TableName, prefix, medbLog);
+  medbScript.Text := Format('DELETE FROM `%0:s` WHERE (`id`=%1:s) AND (`delay`=%2:s) AND (`command`=%3:s);'#13#10 +
+    'INSERT INTO `%0:s` (%4:s) VALUES (%5:s);'#13#10, [TableName, entry, delay, command, Fields, Values]);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnQuestStartScript;
+begin
+  CompleteDbScripts(SCRIPT_TABLE_QUEST_START, PFX_DBSCRIPTS_ON_QUEST_START, edssid.Text, edssdelay.Text, edsscommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnQuestEndScript;
+begin
+  CompleteDbScripts(SCRIPT_TABLE_QUEST_END, PFX_DBSCRIPTS_ON_QUEST_END, edesid.Text, edesdelay.Text, edescommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnCreatureMvmntScript;
+begin
+  CompleteDbScripts(SCRIPT_TABLE_CREATURE_MOVEMENT, PFX_DBSCRIPTS_ON_CREATURE_MOVEMENT, edcmsid.Text, edcmsdelay.Text, edcmscommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnCreatureDeathScript;
+begin
+  CompleteDbScripts(SCRIPT_TABLE_CREATURE_DEATH, PFX_DBSCRIPTS_ON_CREATURE_DEATH, edcdsid.Text, edcdsdelay.Text, edcdscommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnGoUseScript;
+begin
+  CompleteDbScripts(SCRIPT_TABLE_GO, PFX_DBSCRIPTS_ON_GO_USE, edgbid.Text, edgbdelay.Text, edgbcommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnGoTemplateUseScript;
+begin
+  CompleteDbScripts(SCRIPT_TABLE_GO_TEMPLATE, PFX_DBSCRIPTS_ON_GO_TEMPLATE_USE, edgtbid.Text, edgtbdelay.Text, edgtbcommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnEventScript;
+begin  
+  CompleteDbScripts(SCRIPT_TABLE_EVENT, PFX_DBSCRIPTS_ON_EVENT, eddoeid.Text, eddoedelay.Text, eddoecommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnGossipScript;
+begin
+  CompleteDbScripts(SCRIPT_TABLE_GOSSIP, PFX_DBSCRIPTS_ON_GOSSIP, eddogid.Text, eddogdelay.Text, eddogcommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnSpellScript;
+begin
+  CompleteDbScripts(SCRIPT_TABLE_SPELL, PFX_DBSCRIPTS_ON_SPELL, eddosid.Text, eddosdelay.Text, eddoscommand.Text);
 end;
 
 procedure TMainForm.btCopyToClipDBScriptsOnClick(Sender: TObject);
@@ -10970,14 +11188,13 @@ begin
     ExecuteScript(medbScript.Text, medbLog);
 end;
 
-
 procedure TMainForm.LoadDBScriptString(Sender: TObject);
 var
   entry: string;
 begin
-  if TCustomEdit(Sender).Text = '' then
-    Exit;
   entry := TCustomEdit(Sender).Text;
+  if (StrToIntDef(entry, 0) < 1) then
+    Exit;
   MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `entry`=%s', [TABLE_DB_SCRIPT_STRING, entry]);
   MyTempQuery.Open;
   try
@@ -10994,8 +11211,235 @@ end;
 procedure TMainForm.eddbsentryButtonClick(Sender: TObject);
 begin
   PageControl1.ActivePageIndex := 6;
-  DBScriptString.ActivePageIndex := 0;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_STRING;
   LoadDBScriptString(TCustomEdit(Sender));
+end;
+
+procedure TMainForm.LoadDBScripts(Sender: TObject; TableName: string; prefix: string);
+var
+  entry: string;
+begin
+  entry := TCustomEdit(Sender).Text;
+  if (StrToIntDef(entry, 0) < 1) then
+    Exit;
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `id`=%s', [TableName, entry]);
+  MyTempQuery.Open;
+  try
+    if MyTempQuery.Eof then
+      raise Exception.Create(Format(dmMain.Text[166], [TableName, StrToInt(entry)])); // 'Error: %s (id = %d) not found'
+    FillFields(MyTempQuery, prefix);
+    MyTempQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(Format(dmMain.Text[167], [TableName]) + #10#13 + E.Message);
+  end;
+end;
+
+procedure TMainForm.LoadDBScriptsOnQuestStart(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_QUEST_START, PFX_DBSCRIPTS_ON_QUEST_START);
+end;
+
+procedure TMainForm.edssidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_QUEST_START;
+  LoadDBScriptsOnQuestStart(TCustomEdit(Sender));
+  LoadQuestStartScript(TCustomEdit(Sender));
+end;
+
+procedure TMainForm.LoadDBScriptsOnQuestEnd(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_QUEST_END, PFX_DBSCRIPTS_ON_QUEST_END);
+end;
+
+procedure TMainForm.edesidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_QUEST_END;
+  LoadDBScriptsOnQuestEnd(TCustomEdit(Sender));
+  LoadQuestCompleteScript(TCustomEdit(Sender));
+end;
+
+procedure TMainForm.LoadDBScriptsOnCreatureMvmnt(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_CREATURE_MOVEMENT, PFX_DBSCRIPTS_ON_CREATURE_MOVEMENT);
+end;
+
+procedure TMainForm.edcmsidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_CREATURE_MOVEMENT;
+  LoadDBScriptsOnCreatureMvmnt(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_CREATURE_MOVEMENT, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvcmsCreatureMovementScript);
+end;
+
+procedure TMainForm.LoadDBScriptsOnCreatureDeath(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_CREATURE_DEATH, PFX_DBSCRIPTS_ON_CREATURE_DEATH);
+end;
+
+procedure TMainForm.edcdsidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_CREATURE_DEATH;
+  LoadDBScriptsOnCreatureDeath(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_CREATURE_DEATH, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvcdsCreatureOnDeathScript);
+end;
+
+procedure TMainForm.LoadDBScriptsOnGoUse(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_GO, PFX_DBSCRIPTS_ON_GO_USE);
+end;
+
+procedure TMainForm.edgbidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_GO;
+  LoadDBScriptsOnGoUse(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_GO, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvgbButtonScript);
+end;
+
+procedure TMainForm.LoadDBScriptsOnGoTemplateUse(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_GO_TEMPLATE, PFX_DBSCRIPTS_ON_GO_TEMPLATE_USE);
+end;
+
+procedure TMainForm.edgtbidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_GO_TEMPLATE;
+  LoadDBScriptsOnGoTemplateUse(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_GO_TEMPLATE, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvgtbGOTemplateScript);
+end;
+
+procedure TMainForm.LoadDBScriptsOnEvent(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_EVENT, PFX_DBSCRIPTS_ON_EVENT);
+end;
+
+procedure TMainForm.eddoeidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_EVENT;
+  LoadDBScriptsOnEvent(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_EVENT, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvdoeEventScript);
+end;
+
+procedure TMainForm.LoadDBScriptsOnGossip(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_GOSSIP, PFX_DBSCRIPTS_ON_GOSSIP);
+end;
+
+procedure TMainForm.eddogidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_GOSSIP;
+  LoadDBScriptsOnGossip(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_GOSSIP, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvdogGossipScript);
+end;
+
+procedure TMainForm.LoadDBScriptsOnSpell(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_SPELL, PFX_DBSCRIPTS_ON_SPELL);
+end;
+
+procedure TMainForm.eddosidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_SPELL;
+  LoadDBScriptsOnSpell(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_SPELL, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvdosSpellScript);
+end;
+
+procedure TMainForm.edclguidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 1;
+  PageControl3.ActivePageIndex := TAB_NO_NPC_CREATURE_LOCATION;
+  LoadCreatureLocation(StrToIntDef(TCustomEdit(Sender).Text, 0));
+  LoadQueryToListView(Format('SELECT guid, id, map, position_x, position_y, position_z, orientation FROM `creature` WHERE (`guid`=%d) LIMIT 1',
+      [StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvclCreatureLocation);
+end;
+
+procedure TMainForm.edclidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 1;
+  PageControl3.ActivePageIndex := TAB_NO_NPC_CREATURE_LOCATION;
+  LoadCreatureLocationSearchID(StrToIntDef(TCustomEdit(Sender).Text, 0));
+  LoadQueryToListView(Format('SELECT guid, id, map, position_x, position_y, position_z, orientation FROM `creature` WHERE (`id`=%d)',
+      [StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvclCreatureLocation);
+end;
+
+procedure TMainForm.LoadCreatureModelInfo(Sender: TObject);
+var
+  entry: string;
+begin
+  entry := TCustomEdit(Sender).Text;
+  if (StrToIntDef(entry, 0) < 1) then
+    Exit;
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `creature_model_info` WHERE `modelid`=%s', [entry]);
+  MyTempQuery.Open;
+  try
+    if MyTempQuery.Eof then
+      raise Exception.Create(Format(dmMain.Text[168], [StrToInt(entry)])); // 'Error: creature_model_info (id = %d) not found'
+    FillFields(MyTempQuery, PFX_CREATURE_MODEL_INFO);
+    MyTempQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(dmMain.Text[169] + #10#13 + E.Message);
+  end;
+end;
+
+procedure TMainForm.edcimodelidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 1;
+  PageControl3.ActivePageIndex := TAB_NO_NPC_CREATURE_MODEL_INFO;
+  LoadCreatureModelInfo(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `creature_model_info` WHERE (`modelid`=%d)',
+      [StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvCreatureModelSearch);
+end;
+
+procedure TMainForm.LoadGossipMenuOption(Sender: TObject);
+var
+  entry: string;
+begin
+  entry := TCustomEdit(Sender).Text;
+  if (StrToIntDef(entry, 0) < 1) then
+    Exit;
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `gossip_menu_option` WHERE `menu_id`=%s', [entry]);
+  MyTempQuery.Open;
+  try
+    if MyTempQuery.Eof then
+      raise Exception.Create(Format(dmMain.Text[170], [StrToInt(entry)])); // 'Error: gossip_menu_option (id = %d) not found'
+    FillFields(MyTempQuery, PFX_CREATURE_GOSSIP_MENU_OPTION);
+    MyTempQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(dmMain.Text[171] + #10#13 + E.Message);
+  end;
+end;
+
+procedure TMainForm.edcgmomenu_idButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 1;
+  PageControl3.ActivePageIndex := TAB_NO_NPC_GOSSIP_MENU;
+  LoadGossipMenuOption(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `gossip_menu_option` WHERE (`menu_id`=%d)',
+      [StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvcgmOptions);
+end;
+
+procedure TMainForm.edcuentryButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 1;
+  PageControl3.ActivePageIndex := 21;
+  LoadCreatureTemplateSpells(StrToIntDef(TCustomEdit(Sender).Text, 0));
 end;
 
 procedure TMainForm.tsProspectingLootShow(Sender: TObject);
@@ -11734,13 +12178,23 @@ begin
   lvQuickList.Selected := TListItem(lvQuickList.GetItemAt(X, Y));
 end;
 
-procedure TMainForm.LoadQuestCompleteScript(id: Integer);
+procedure TMainForm.LoadQuestCompleteScript(Sender: TObject);
+var
+  id: integer;
 begin
+  id := StrToIntDef(TCustomEdit(Sender).Text, 0);
+  if (id < 1) then
+    Exit;
   LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)', [SCRIPT_TABLE_QUEST_END, id]), lvqtEndScript);
 end;
 
-procedure TMainForm.LoadQuestStartScript(id: Integer);
+procedure TMainForm.LoadQuestStartScript(Sender: TObject);
+var
+  id: integer;
 begin
+  id := StrToIntDef(TCustomEdit(Sender).Text, 0);
+  if (id < 1) then
+    Exit;
   LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)', [SCRIPT_TABLE_QUEST_START, id]), lvqtStartScript);
 end;
 
