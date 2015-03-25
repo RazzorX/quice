@@ -8991,11 +8991,11 @@ begin
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'position_z')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'waittime')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'script_id')).Text);
-    SubItems.Add(TCustomEdit(FindComponent(pfx + 'text1')).Text);
-    SubItems.Add(TCustomEdit(FindComponent(pfx + 'text2')).Text);
-    SubItems.Add(TCustomEdit(FindComponent(pfx + 'text3')).Text);
-    SubItems.Add(TCustomEdit(FindComponent(pfx + 'text4')).Text);
-    SubItems.Add(TCustomEdit(FindComponent(pfx + 'text5')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'textid1')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'textid2')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'textid3')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'textid4')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'textid5')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'emote')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'spell')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'orientation')).Text);
@@ -9017,11 +9017,11 @@ begin
       SubItems[3] := TCustomEdit(FindComponent(pfx + 'position_z')).Text;
       SubItems[4] := TCustomEdit(FindComponent(pfx + 'waittime')).Text;
       SubItems[5] := TCustomEdit(FindComponent(pfx + 'script_id')).Text;
-      SubItems[6] := TCustomEdit(FindComponent(pfx + 'text1')).Text;
-      SubItems[7] := TCustomEdit(FindComponent(pfx + 'text2')).Text;
-      SubItems[8] := TCustomEdit(FindComponent(pfx + 'text3')).Text;
-      SubItems[9] := TCustomEdit(FindComponent(pfx + 'text4')).Text;
-      SubItems[10] := TCustomEdit(FindComponent(pfx + 'text5')).Text;
+      SubItems[6] := TCustomEdit(FindComponent(pfx + 'textid1')).Text;
+      SubItems[7] := TCustomEdit(FindComponent(pfx + 'textid2')).Text;
+      SubItems[8] := TCustomEdit(FindComponent(pfx + 'textid3')).Text;
+      SubItems[9] := TCustomEdit(FindComponent(pfx + 'textid4')).Text;
+      SubItems[10] := TCustomEdit(FindComponent(pfx + 'textid5')).Text;
       SubItems[11] := TCustomEdit(FindComponent(pfx + 'emote')).Text;
       SubItems[12] := TCustomEdit(FindComponent(pfx + 'spell')).Text;
       SubItems[13] := TCustomEdit(FindComponent(pfx + 'orientation')).Text;
@@ -9134,6 +9134,32 @@ begin
     edcmposition_z.Text := edclposition_z.Text;
     edcmorientation.Text := edclorientation.Text;
   end;
+  if (StrToIntDef(edcmid.Text, 0) < 1) or (StrToIntDef(edcmpoint.Text, 0) < 1) or
+     (edcmposition_x.Text = '') or (edcmposition_y.Text = '') or 
+     (edcmposition_z.Text = '') or (edcmorientation.Text = '') then
+    Exit;
+  if (edcmwaittime.Text = '') then
+    edcmwaittime.Text := '0';
+  if (edcmscript_id.Text = '') then
+    edcmscript_id.Text := '0';
+  if (edcmtextid1.Text = '') then
+    edcmtextid1.Text := '0';
+  if (edcmtextid2.Text = '') then
+    edcmtextid2.Text := '0';
+  if (edcmtextid3.Text = '') then
+    edcmtextid3.Text := '0';
+  if (edcmtextid4.Text = '') then
+    edcmtextid4.Text := '0';
+  if (edcmtextid5.Text = '') then
+    edcmtextid5.Text := '0';
+  if (edcmemote.Text = '') then
+    edcmemote.Text := '0';
+  if (edcmspell.Text = '') then
+    edcmspell.Text := '0';
+  if (edcmmodel1.Text = '') then
+    edcmmodel1.Text := '0';
+  if (edcmmodel2.Text = '') then
+    edcmmodel2.Text := '0';
   MvmntAdd('edcm', lvcmMovement);
 end;
 
