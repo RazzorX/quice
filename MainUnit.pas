@@ -9127,6 +9127,13 @@ end;
 
 procedure TMainForm.btCreatureMvmntAddClick(Sender: TObject);
 begin
+  if (StrToIntDef(edcmpoint.Text, 0) = 1) then
+  begin
+    edcmposition_x.Text := edclposition_x.Text;
+    edcmposition_y.Text := edclposition_y.Text;
+    edcmposition_z.Text := edclposition_z.Text;
+    edcmorientation.Text := edclorientation.Text;
+  end;
   MvmntAdd('edcm', lvcmMovement);
 end;
 
