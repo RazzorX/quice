@@ -49,7 +49,7 @@ const
 {$ENDIF}
 
   SCRIPT_TAB_NO_QUEST = 7;
-  SCRIPT_TAB_NO_CREATURE = 22;
+  SCRIPT_TAB_NO_CREATURE = 23;
   SCRIPT_TAB_NO_GAMEOBJECT = 5;
   SCRIPT_TAB_NO_ITEM = 11;
   SCRIPT_TAB_NO_OTHER = 4;
@@ -58,13 +58,28 @@ const
   
   TAB_NO_QUEST_MAIL_LOOT = 6;
   
+  TAB_NO_NPC_CREATURE_TEMPLATE = 1;
   TAB_NO_NPC_CREATURE_LOCATION = 2;
-  TAB_NO_NPC_CREATURE_MODEL_INFO = 4;
-  TAB_NO_NPC_GOSSIP = 13;
-  TAB_NO_NPC_GOSSIP_MENU = 20;
-  TAB_NO_NPC_EQUIP_TEMPLATE = 5;
-  TAB_NO_NPC_VENDOR_TEMPLATE = 18;
-  TAB_NO_NPC_TRAINER_TEMPLATE = 19;
+  TAB_NO_NPC_CREATURE_MOVEMENT = 3;
+  TAB_NO_NPC_CREATURE_MOVEMENT_TEMPLATE = 4;
+  TAB_NO_NPC_CREATURE_MODEL_INFO = 5;
+  TAB_NO_NPC_EQUIP_TEMPLATE = 6;
+  TAB_NO_NPC_CREATURE_LOOT = 7;
+  TAB_NO_NPC_PICKPOCKET_LOOT = 8;
+  TAB_NO_NPC_SKIN_LOOT = 9;
+  TAB_NO_NPC_VENDOR = 10;
+  TAB_NO_NPC_TRAINER = 11;
+  TAB_NO_NPC_CREATURE_TEMPLATE_ADDON = 12;
+  TAB_NO_NPC_CREATURE_ADDON = 13;
+  TAB_NO_NPC_GOSSIP = 14;
+  TAB_NO_NPC_CREATURE_ONKILL_REP = 15;
+  TAB_NO_NPC_INVOLVED_IN = 16;
+  TAB_NO_NPC_CREATURE_AI_EVENT = 17;
+  TAB_NO_NPC_LOCALES_TEXT = 18;
+  TAB_NO_NPC_VENDOR_TEMPLATE = 19;
+  TAB_NO_NPC_TRAINER_TEMPLATE = 20;
+  TAB_NO_NPC_GOSSIP_MENU = 21;
+  TAB_NO_NPC_CREATURE_TEMPLATE_SPELLS = 22;
   
   TAB_NO_DBSCRIPT_STRING = 0;
   TAB_NO_DBSCRIPT_QUEST_START = 1;
@@ -89,6 +104,7 @@ const
   PFX_CREATURE_EQUIP_TEMPLATE = 'ce';
   PFX_CREATURE_MODEL_INFO = 'ci';
   PFX_CREATURE_MOVEMENT = 'cm';
+  PFX_CREATURE_MOVEMENT_TEMPLATE = 'cmt';
   PFX_CREATURE_LOOT_TEMPLATE = 'co';
   PFX_CREATURE_EVENTAI = 'cn';
   PFX_CREATURE_GOSSIP_MENU = 'cgm';
@@ -1087,7 +1103,6 @@ type
     btCreatureMvmntAdd: TSpeedButton;
     btCreatureMvmntUpd: TSpeedButton;
     btCreatureMvmntDel: TSpeedButton;
-    edcmid: TLabeledEdit;
     edcmpoint: TLabeledEdit;
     edcmposition_x: TLabeledEdit;
     edcmposition_y: TLabeledEdit;
@@ -2080,6 +2095,35 @@ type
     lbqtStartScript: TLabel;
     edqtCompleteScript: TJvComboEdit;
     lbqtCompleteScript: TLabel;
+    tsCreatureMvmntTemplate: TTabSheet;
+    lvcmtMovement: TJvListView;
+    edcmttextid1: TLabeledEdit;
+    edcmtemote: TJvComboEdit;
+    lbcmtemote: TLabel;
+    edcmtspell: TLabeledEdit;
+    edcmttextid2: TLabeledEdit;
+    edcmtpoint: TLabeledEdit;
+    edcmtposition_x: TLabeledEdit;
+    edcmttextid3: TLabeledEdit;
+    edcmtorientation: TLabeledEdit;
+    edcmtmodel1: TLabeledEdit;
+    edcmttextid4: TLabeledEdit;
+    edcmtposition_y: TLabeledEdit;
+    edcmtposition_z: TLabeledEdit;
+    edcmttextid5: TLabeledEdit;
+    edcmtmodel2: TLabeledEdit;
+    edcmtscript_id: TJvComboEdit;
+    edcmtwaittime: TLabeledEdit;
+    btCreatureMvmntTemplateAdd: TSpeedButton;
+    btCreatureMvmntTemplateUpd: TSpeedButton;
+    btCreatureMvmntTemplateDel: TSpeedButton;
+    btFullCreatureMvmntTemplateScript: TButton;
+    btShowCreatureMvmntTemplateScript: TButton;
+    lbcmtscript_id: TLabel;
+    edcmid: TJvComboEdit;
+    lbcmid: TLabel;
+    edcmtentry: TJvComboEdit;
+    lbcmtentry: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2370,6 +2414,12 @@ type
     procedure btCreatureMvmntDelClick(Sender: TObject);
     procedure lvcmMovementSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btFullCreatureMovementScriptClick(Sender: TObject);
+    procedure lvcmtMovementChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure btCreatureMvmntTemplateAddClick(Sender: TObject);
+    procedure btCreatureMvmntTemplateUpdClick(Sender: TObject);
+    procedure btCreatureMvmntTemplateDelClick(Sender: TObject);
+    procedure lvcmtMovementSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure btFullCreatureMvmntTemplateScriptClick(Sender: TObject);
     procedure tsCreatureEquipTemplateShow(Sender: TObject);
     procedure tsCreatureModelInfoShow(Sender: TObject);
     procedure btCreatureModelSearchClick(Sender: TObject);
@@ -2409,6 +2459,8 @@ type
     procedure edssidButtonClick(Sender: TObject);
     procedure edesidButtonClick(Sender: TObject);
     procedure edcmsidButtonClick(Sender: TObject);
+    procedure edcmidButtonClick(Sender: TObject);
+    procedure edcmtentryButtonClick(Sender: TObject);
     procedure edcdsidButtonClick(Sender: TObject);
     procedure edgbidButtonClick(Sender: TObject);
     procedure edgtbidButtonClick(Sender: TObject);
@@ -2574,6 +2626,7 @@ type
     procedure LoadCreatureAddon(GUID: Integer);
     procedure LoadCreatureEquip(entry: Integer);
     procedure LoadCreatureMovement(GUID: Integer);
+    procedure LoadCreatureMovementTemplate(Entry: Integer);
     procedure LoadCreatureOnKillReputation(id: string);
     procedure LoadNPCgossip(GUID: Integer);
     procedure LoadNPCText(TextId: string);
@@ -2597,6 +2650,7 @@ type
     procedure CompleteCreatureEventAIScript;
     procedure CompleteCreatureAddonScript;
     procedure CompleteCreatureMovementScript;
+    procedure CompleteCreatureMvmntTemplateScript;
     procedure CompleteCreatureOnKillReputationScript;
     procedure CompleteNPCgossipScript;
     procedure CompleteNPCtextScript;
@@ -5345,46 +5399,48 @@ end;
 procedure TMainForm.tsCreatureScriptShow(Sender: TObject);
 begin
   case PageControl3.ActivePageIndex of
-    1:
+    TAB_NO_NPC_CREATURE_TEMPLATE:
       CompleteCreatureScript;
     TAB_NO_NPC_CREATURE_LOCATION:
       CompleteCreatureLocationScript;
-    3:
+    TAB_NO_NPC_CREATURE_MOVEMENT:
       CompleteCreatureMovementScript;
+    TAB_NO_NPC_CREATURE_MOVEMENT_TEMPLATE:
+      CompleteCreatureMvmntTemplateScript;
     TAB_NO_NPC_CREATURE_MODEL_INFO:
       CompleteCreatureModelInfoScript;
     TAB_NO_NPC_EQUIP_TEMPLATE:
       CompleteCreatureEquipTemplateScript;
-    6:
+    TAB_NO_NPC_CREATURE_LOOT:
       CompleteCreatureLootScript;
-    7:
+    TAB_NO_NPC_PICKPOCKET_LOOT:
       CompletePickpocketLootScript;
-    8:
+    TAB_NO_NPC_SKIN_LOOT:
       CompleteSkinLootScript;
-    9:
+    TAB_NO_NPC_VENDOR:
       CompleteNPCVendorScript;
-    10:
+    TAB_NO_NPC_TRAINER:
       CompleteNPCTrainerScript;
-    11:
+    TAB_NO_NPC_CREATURE_TEMPLATE_ADDON:
       CompleteCreatureTemplateAddonScript;
-    12:
+    TAB_NO_NPC_CREATURE_ADDON:
       CompleteCreatureAddonScript;
     TAB_NO_NPC_GOSSIP:
       begin
         mectScript.Clear;
         CompleteNPCgossipScript;
       end;
-    14:
+    TAB_NO_NPC_CREATURE_ONKILL_REP:
       CompleteCreatureOnKillReputationScript;
-    15: { involved in tab - do nothing }
+    TAB_NO_NPC_INVOLVED_IN: { involved in tab - do nothing }
       ;
-    16:
+    TAB_NO_NPC_CREATURE_AI_EVENT:
       CompleteCreatureEventAIScript;
     TAB_NO_NPC_VENDOR_TEMPLATE:
       CompleteNPCVendorTemplateScript;
     TAB_NO_NPC_GOSSIP_MENU:
       CompleteGossipMenuScript;
-    21:
+    TAB_NO_NPC_CREATURE_TEMPLATE_SPELLS:
       CompleteCreatureTemplateSpellsScript;
   end;
 end;
@@ -6878,11 +6934,30 @@ begin
   if Selected then
   begin
     LoadCreatureLocation(StrToIntDef(Item.Caption, 0));
-    LoadCreatureMovement(StrToIntDef(Item.Caption, 0));
+    LoadQueryToListView(Format('SELECT * FROM `creature_movement` WHERE (`id` = %d)', [StrToIntDef(Item.Caption, 0)]), lvcmMovement);
+    LoadQueryToListView(Format('SELECT * FROM `creature_movement_template` WHERE (`entry` = %d)', [StrToIntDef(Item.SubItems[0], 0)]), lvcmtMovement);
     LoadCreatureAddon(StrToIntDef(Item.Caption, 0));
     LoadNPCgossip(StrToIntDef(Item.Caption, 0));
     edcgtextid.Button.Click;
   end;
+end;
+
+procedure TMainForm.edcmidButtonClick(Sender: TObject);
+var id: integer;
+begin
+  PageControl3.ActivePageIndex := TAB_NO_NPC_CREATURE_MOVEMENT;
+  id := StrToIntDef(TCustomEdit(Sender).Text, 0);
+  LoadCreatureMovement(id);
+  LoadQueryToListView(Format('SELECT * FROM `creature_movement` WHERE (`id` = %d)', [id]), lvcmMovement);
+end;
+
+procedure TMainForm.edcmtentryButtonClick(Sender: TObject);
+var entry: integer;
+begin
+  PageControl3.ActivePageIndex := TAB_NO_NPC_CREATURE_MOVEMENT_TEMPLATE;
+  entry := StrToIntDef(TCustomEdit(Sender).Text, 0);
+  LoadCreatureMovementTemplate(entry);
+  LoadQueryToListView(Format('SELECT * FROM `creature_movement_template` WHERE (`entry` = %d)', [entry]), lvcmtMovement);
 end;
 
 procedure TMainForm.lvcmMovementChange(Sender: TObject; Item: TListItem; Change: TItemChange);
@@ -6895,6 +6970,18 @@ procedure TMainForm.lvcmMovementSelectItem(Sender: TObject; Item: TListItem; Sel
 begin
   if Selected then
     SetMvmntEditFields('edcm', lvcmMovement);
+end;
+
+procedure TMainForm.lvcmtMovementChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btCreatureMvmntTemplateUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btCreatureMvmntTemplateDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvcmtMovementSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetMvmntEditFields('edcmt', lvcmtMovement);
 end;
 
 procedure TMainForm.lvcmsCreatureMovementScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
@@ -6965,7 +7052,32 @@ end;
 
 procedure TMainForm.LoadCreatureMovement(GUID: Integer);
 begin
-  LoadQueryToListView(Format('SELECT * FROM `creature_movement` WHERE (`id` = %d)', [GUID]), lvcmMovement);
+  if GUID < 1 then
+    Exit;
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_movement` WHERE (`id`=%d)', [GUID]);
+  MyQuery.Open;
+  try
+    FillFields(MyQuery, PFX_CREATURE_MOVEMENT);
+    MyQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(dmMain.Text[86] + #10#13 + E.Message);
+  end;
+end;
+
+procedure TMainForm.LoadCreatureMovementTemplate(Entry: Integer);
+begin
+  if Entry < 1 then
+    Exit;
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_movement_template` WHERE (`entry`=%d)', [Entry]);
+  MyQuery.Open;
+  try
+    FillFields(MyQuery, PFX_CREATURE_MOVEMENT_TEMPLATE);
+    MyQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(dmMain.Text[86] + #10#13 + E.Message);
+  end;
 end;
 
 procedure TMainForm.LoadCreatureOnKillReputation(id: string);
@@ -7258,6 +7370,20 @@ begin
   SetFieldsAndValues(Fields, Values, 'creature_movement', PFX_CREATURE_MOVEMENT, mectLog);
   mectScript.Text := Format('DELETE FROM `creature_movement` WHERE (`id`=%s) AND (`point`=%s);'#13#10 +
     'INSERT INTO `creature_movement` (%s) VALUES (%s);'#13#10, [caguid, cmpoint, Fields, Values]);
+end;
+
+procedure TMainForm.CompleteCreatureMvmntTemplateScript;
+var
+  entry, cmtpoint, Fields, Values: string;
+begin
+  mectLog.Clear;
+  entry := Trim(edcmtentry.Text);
+  cmtpoint := Trim(edcmtpoint.Text);
+  if (entry = '') or (cmtpoint = '') then
+    Exit;
+  SetFieldsAndValues(Fields, Values, 'creature_movement_template', PFX_CREATURE_MOVEMENT_TEMPLATE, mectLog);
+  mectScript.Text := Format('DELETE FROM `creature_movement_template` WHERE (`entry`=%s) AND (`point`=%s);'#13#10 +
+    'INSERT INTO `creature_movement_template` (%s) VALUES (%s);'#13#10, [entry, cmtpoint, Fields, Values]);
 end;
 
 procedure TMainForm.CompleteCreatureOnKillReputationScript;
@@ -8984,7 +9110,10 @@ procedure TMainForm.MvmntAdd(pfx: string; lvList: TJvListView);
 begin
   with lvList.Items.Add do
   begin
-    Caption := TCustomEdit(FindComponent(pfx + 'id')).Text;
+    if (pfx = 'edcm') then
+      Caption := TCustomEdit(FindComponent(pfx + 'id')).Text
+    else
+      Caption := TCustomEdit(FindComponent(pfx + 'entry')).Text;
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'point')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'position_x')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'position_y')).Text);
@@ -9010,7 +9139,10 @@ begin
   begin
     with lvList.Selected do
     begin
-      Caption := TCustomEdit(FindComponent(pfx + 'id')).Text;
+      if (pfx = 'edcm') then
+        Caption := TCustomEdit(FindComponent(pfx + 'id')).Text
+      else
+        Caption := TCustomEdit(FindComponent(pfx + 'entry')).Text;
       SubItems[0] := TCustomEdit(FindComponent(pfx + 'point')).Text;
       SubItems[1] := TCustomEdit(FindComponent(pfx + 'position_x')).Text;
       SubItems[2] := TCustomEdit(FindComponent(pfx + 'position_y')).Text;
@@ -9173,6 +9305,54 @@ begin
   MvmntUpd('edcm', lvcmMovement);
 end;
 
+procedure TMainForm.btCreatureMvmntTemplateAddClick(Sender: TObject);
+begin
+  if (StrToIntDef(edcmtpoint.Text, 0) = 1) then
+  begin
+    edcmtposition_x.Text := edclposition_x.Text;
+    edcmtposition_y.Text := edclposition_y.Text;
+    edcmtposition_z.Text := edclposition_z.Text;
+    edcmtorientation.Text := edclorientation.Text;
+  end;
+  if (StrToIntDef(edcmtentry.Text, 0) < 1) or (StrToIntDef(edcmtpoint.Text, 0) < 1) or
+     (edcmtposition_x.Text = '') or (edcmtposition_y.Text = '') or 
+     (edcmtposition_z.Text = '') or (edcmtorientation.Text = '') then
+    Exit;
+  if (edcmtwaittime.Text = '') then
+    edcmtwaittime.Text := '0';
+  if (edcmtscript_id.Text = '') then
+    edcmtscript_id.Text := '0';
+  if (edcmttextid1.Text = '') then
+    edcmttextid1.Text := '0';
+  if (edcmttextid2.Text = '') then
+    edcmttextid2.Text := '0';
+  if (edcmttextid3.Text = '') then
+    edcmttextid3.Text := '0';
+  if (edcmttextid4.Text = '') then
+    edcmttextid4.Text := '0';
+  if (edcmttextid5.Text = '') then
+    edcmttextid5.Text := '0';
+  if (edcmtemote.Text = '') then
+    edcmtemote.Text := '0';
+  if (edcmtspell.Text = '') then
+    edcmtspell.Text := '0';
+  if (edcmtmodel1.Text = '') then
+    edcmtmodel1.Text := '0';
+  if (edcmtmodel2.Text = '') then
+    edcmtmodel2.Text := '0';
+  MvmntAdd('edcmt', lvcmtMovement);
+end;
+
+procedure TMainForm.btCreatureMvmntTemplateDelClick(Sender: TObject);
+begin
+  MvmntDel(lvcmtMovement);
+end;
+
+procedure TMainForm.btCreatureMvmntTemplateUpdClick(Sender: TObject);
+begin
+  MvmntUpd('edcmt', lvcmtMovement);
+end;
+
 procedure TMainForm.btCreatureLootDelClick(Sender: TObject);
 begin
   LootDel(lvcoCreatureLoot);
@@ -9257,7 +9437,10 @@ begin
   begin
     with lvList.Selected do
     begin
-      TCustomEdit(FindComponent(pfx + 'id')).Text := Caption;
+      if (pfx = 'edcm') then
+        TCustomEdit(FindComponent(pfx + 'id')).Text := Caption
+      else
+        TCustomEdit(FindComponent(pfx + 'entry')).Text := Caption;
       TCustomEdit(FindComponent(pfx + 'point')).Text := SubItems[0];
       TCustomEdit(FindComponent(pfx + 'position_x')).Text := SubItems[1];
       TCustomEdit(FindComponent(pfx + 'position_y')).Text := SubItems[2];
@@ -9675,6 +9858,12 @@ begin
   PageControl3.ActivePageIndex := SCRIPT_TAB_NO_CREATURE;
   mectScript.Text := FullScript('creature_movement', 'id', edclguid.Text);
   // ShowFullMvmntScript('creature_movement', lvcmMovement, mectScript, edclguid.Text);
+end;
+
+procedure TMainForm.btFullCreatureMvmntTemplateScriptClick(Sender: TObject);
+begin
+  PageControl3.ActivePageIndex := SCRIPT_TAB_NO_CREATURE;
+  mectScript.Text := FullScript('creature_movement_template', 'entry', edctentry.Text);
 end;
 
 procedure TMainForm.btFullScriptGOLocationClick(Sender: TObject);
