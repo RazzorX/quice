@@ -47,7 +47,7 @@
 			<Base>true</Base>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base)'!=''">
-			<VCL_Custom_Styles>&quot;Carbon|VCLSTYLE|$(PUBLIC)\Documents\RAD Studio\9.0\Styles\Carbon.vsf&quot;;&quot;Metro Black|VCLSTYLE|$(PUBLIC)\Documents\RAD Studio\9.0\Styles\MetroBlack.vsf&quot;;&quot;Ruby Graphite|VCLSTYLE|$(PUBLIC)\Documents\RAD Studio\9.0\Styles\RubyGraphite.vsf&quot;;&quot;Sapphire Kamri|VCLSTYLE|$(PUBLIC)\Documents\RAD Studio\9.0\Styles\SapphireKamri.vsf&quot;;&quot;Slate Classico|VCLSTYLE|$(PUBLIC)\Documents\RAD Studio\9.0\Styles\SlateClassico.vsf&quot;;&quot;Smokey Quartz Kamri|VCLSTYLE|$(PUBLIC)\Documents\RAD Studio\9.0\Styles\SmokeyQuartzKamri.vsf&quot;;&quot;Turquoise Gray|VCLSTYLE|$(PUBLIC)\Documents\RAD Studio\9.0\Styles\TurquoiseGray.vsf&quot;</VCL_Custom_Styles>
+			<DCC_UsePackage>rtl;dbrtl;fmx;$(DCC_UsePackage)</DCC_UsePackage>
 			<VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
 			<VerInfo_Build>1199</VerInfo_Build>
 			<VerInfo_Keys>CompanyName=indomit®;FileDescription=Quice - MaNGOS DB Editor;FileVersion=1.2.63.1199;InternalName=Quice;LegalCopyright=© indomit, 2012;LegalTrademarks=indomit™;OriginalFilename=Quice.exe;ProductName=Quice;ProductVersion=1.2;Comments=Build by indomit for cmangos[12279]</VerInfo_Keys>
@@ -65,9 +65,11 @@
 			<DCC_K>false</DCC_K>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base_Win64)'!=''">
+			<DCC_UsePackage>vclx;vcl;vclimg;vcldb;TeeUI;TeeDB;Tee;$(DCC_UsePackage)</DCC_UsePackage>
 			<Icon_MainIcon>Quice_Icon21.ico</Icon_MainIcon>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Base_Win32)'!=''">
+			<DCC_UsePackage>vclx;vcl;Jcl;JvCore;JvSystem;JvStdCtrls;JvControls;JvCmp;JvMM;vclimg;vcldb;JclVcl;JclDeveloperTools;JclContainers;JvAppFrm;JvBands;bdertl;JvDB;JvDlgs;JvBDE;JvCustom;JvDocking;JvDotNetCtrls;JvCrypt;JvGlobus;JvHMI;JvPascalInterpreter;JvJans;JvManagedThreads;JvNet;JvPageComps;JvPluginSystem;JvPrintPreview;JvRuntimeDesign;JvTimeFramework;JvWizards;JvXPCtrls;TeeUI;TeeDB;Tee;FmxTeeUI;FMXTee;$(DCC_UsePackage)</DCC_UsePackage>
 			<VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
 			<Icon_MainIcon>Quice_Icon21.ico</Icon_MainIcon>
 			<DCC_Namespace>Data.Win;Datasnap.Win;Web.Win;Soap.Win;Xml.Win;Bde;$(DCC_Namespace)</DCC_Namespace>
@@ -82,6 +84,7 @@
 			<DCC_DebugInformation>false</DCC_DebugInformation>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_1_Win32)'!=''">
+			<DCC_ImportedDataReferences>false</DCC_ImportedDataReferences>
 			<DCC_IOChecking>false</DCC_IOChecking>
 			<DCC_AssertionsAtRuntime>false</DCC_AssertionsAtRuntime>
 			<VerInfo_MinorVer>0</VerInfo_MinorVer>
@@ -201,7 +204,7 @@
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">2</VersionInfo>
 						<VersionInfo Name="Release">63</VersionInfo>
-						<VersionInfo Name="Build">1295</VersionInfo>
+						<VersionInfo Name="Build">1312</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -213,7 +216,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">indomit®</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription">Quice - MaNGOS DB Editor</VersionInfoKeys>
-						<VersionInfoKeys Name="FileVersion">1.2.63.1295</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.2.63.1312</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName">Quice</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalCopyright">© indomit, 2012</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks">indomit™</VersionInfoKeys>
@@ -223,6 +226,42 @@
 						<VersionInfoKeys Name="Comments">Build by indomit for cmangos[12279]</VersionInfoKeys>
 					</VersionInfoKeys>
 					<Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\applet160.bpl">Embarcadero Control Panel Applet Package</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclact160.bpl">Embarcadero ActionBar Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclado160.bpl">Embarcadero ADO DB Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclbde160.bpl">Embarcadero BDE DB Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclbindcompfmx160.bpl">Embarcadero LiveBindings Components FireMonkey</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclbindcompvcl160.bpl">Embarcadero LiveBindings Components VCL</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclCloudService160.bpl">Embarcadero Cloud management components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclDataSnapClient160.bpl">Embarcadero DBExpress DataSnap Client Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclDataSnapConnectors160.bpl">Embarcadero DataSnap Connector Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclDataSnapIndy10ServerTransport160.bpl">Embarcadero DBExpress DataSnap Server Transport Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclDataSnapProviderClient160.bpl">Embarcadero DBExpress DataSnap Provider Client Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcldbxcds160.bpl">Embarcadero SimpleDataset Component (DBX)</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclDBXDrivers160.bpl">Embarcadero Driver Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclDBXDriversEnt160.bpl">Embarcadero Enterprise Driver Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclDBXDriversInt160.bpl">Embarcadero Intro Driver Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclIPIndyImpl160.bpl">IP Abstraction Indy Implementation Design Time</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclemacsedit160.bpl">Embarcadero Editor Emacs Enhancements</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclfmistd160.bpl">Embarcadero FMI Standard Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclfmxstd160.bpl">Embarcadero FMX Standard Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclib160.bpl">Embarcadero InterBase Express Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclie160.bpl">Internet Explorer Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclIndyProtocols160.bpl">Indy 10 Protocols Design Time</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclIntraweb_120_160.bpl">IntraWeb 12.0 Design Package for RAD Studio XE2</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclmcn160.bpl">Embarcadero DataSnap Connection Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclmlwiz160.bpl">Embarcadero Markup Language Wizards</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclribbon160.bpl">Embarcadero Ribbon Controls</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclsmp160.bpl">Embarcadero Sample Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclsmpedit160.bpl">Embarcadero Editor Script Enhancements</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclsoap160.bpl">Embarcadero SOAP Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcltouch160.bpl">Embarcadero Touch Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dclwebsnap160.bpl">Embarcadero WebSnap Components</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\samplevisualizers160.bpl">Embarcadero Sample Debugger Visualizers</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\svnide160.bpl">Embarcadero Subversion Integration</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JclDebugExpert160.bpl">JCL Debug IDE extension</Excluded_Packages>
+						<Excluded_Packages Name="C:\Users\Public\Documents\RAD Studio\9.0\Bpl\JclSIMDViewExpert160.bpl">JCL Debug Window of XMM registers</Excluded_Packages>
+						<Excluded_Packages Name="$(BDSBIN)\dcl31w160.bpl">Delphi 1.0 Compatibility Components</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dcloffice2k160.bpl">Microsoft Office 2000 Sample Automation Server Wrapper Components</Excluded_Packages>
 						<Excluded_Packages Name="$(BDSBIN)\dclofficexp160.bpl">Microsoft Office XP Sample Automation Server Wrapper Components</Excluded_Packages>
 					</Excluded_Packages>
