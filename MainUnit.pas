@@ -1100,7 +1100,6 @@ type
     edcmtextid5: TLabeledEdit;
     edcmemote: TJvComboEdit;
     edcmspell: TLabeledEdit;
-    edcmwpguid: TLabeledEdit;
     edcmmodel1: TLabeledEdit;
     edcmorientation: TLabeledEdit;
     edcmmodel2: TLabeledEdit;
@@ -8999,7 +8998,6 @@ begin
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'text5')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'emote')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'spell')).Text);
-    SubItems.Add(TCustomEdit(FindComponent(pfx + 'wpguid')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'orientation')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'model1')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'model2')).Text);
@@ -9026,10 +9024,9 @@ begin
       SubItems[10] := TCustomEdit(FindComponent(pfx + 'text5')).Text;
       SubItems[11] := TCustomEdit(FindComponent(pfx + 'emote')).Text;
       SubItems[12] := TCustomEdit(FindComponent(pfx + 'spell')).Text;
-      SubItems[13] := TCustomEdit(FindComponent(pfx + 'wpguid')).Text;
-      SubItems[14] := TCustomEdit(FindComponent(pfx + 'orientation')).Text;
-      SubItems[15] := TCustomEdit(FindComponent(pfx + 'model1')).Text;
-      SubItems[16] := TCustomEdit(FindComponent(pfx + 'model2')).Text;
+      SubItems[13] := TCustomEdit(FindComponent(pfx + 'orientation')).Text;
+      SubItems[14] := TCustomEdit(FindComponent(pfx + 'model1')).Text;
+      SubItems[15] := TCustomEdit(FindComponent(pfx + 'model2')).Text;
     end;
   end;
 end;
@@ -9241,10 +9238,9 @@ begin
       TCustomEdit(FindComponent(pfx + 'textid5')).Text := SubItems[10];
       TCustomEdit(FindComponent(pfx + 'emote')).Text := SubItems[11];
       TCustomEdit(FindComponent(pfx + 'spell')).Text := SubItems[12];
-      TCustomEdit(FindComponent(pfx + 'wpguid')).Text := SubItems[13];
-      TCustomEdit(FindComponent(pfx + 'orientation')).Text := SubItems[14];
-      TCustomEdit(FindComponent(pfx + 'model1')).Text := SubItems[15];
-      TCustomEdit(FindComponent(pfx + 'model2')).Text := SubItems[16];
+      TCustomEdit(FindComponent(pfx + 'orientation')).Text := SubItems[13];
+      TCustomEdit(FindComponent(pfx + 'model1')).Text := SubItems[14];
+      TCustomEdit(FindComponent(pfx + 'model2')).Text := SubItems[15];
     end;
   end;
 end;
