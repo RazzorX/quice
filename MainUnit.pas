@@ -9259,6 +9259,10 @@ end;
 
 procedure TMainForm.btCreatureMvmntAddClick(Sender: TObject);
 begin
+  if (StrToIntDef(edcmid.Text, 0) < 1) then
+    Exit;
+  if (StrToIntDef(edcmpoint.Text, 0) < 1) then
+    edcmpoint.Text := '1';
   if (StrToIntDef(edcmpoint.Text, 0) = 1) then
   begin
     edcmposition_x.Text := edclposition_x.Text;
@@ -9266,10 +9270,6 @@ begin
     edcmposition_z.Text := edclposition_z.Text;
     edcmorientation.Text := edclorientation.Text;
   end;
-  if (StrToIntDef(edcmid.Text, 0) < 1) or (StrToIntDef(edcmpoint.Text, 0) < 1) or
-     (edcmposition_x.Text = '') or (edcmposition_y.Text = '') or 
-     (edcmposition_z.Text = '') or (edcmorientation.Text = '') then
-    Exit;
   if (edcmwaittime.Text = '') then
     edcmwaittime.Text := '0';
   if (edcmscript_id.Text = '') then
@@ -9307,6 +9307,10 @@ end;
 
 procedure TMainForm.btCreatureMvmntTemplateAddClick(Sender: TObject);
 begin
+  if (StrToIntDef(edcmtentry.Text, 0) < 1) then
+    Exit;
+  if (StrToIntDef(edcmtpoint.Text, 0) < 1) then
+    edcmtpoint.Text := '1';
   if (StrToIntDef(edcmtpoint.Text, 0) = 1) then
   begin
     edcmtposition_x.Text := edclposition_x.Text;
@@ -9314,10 +9318,6 @@ begin
     edcmtposition_z.Text := edclposition_z.Text;
     edcmtorientation.Text := edclorientation.Text;
   end;
-  if (StrToIntDef(edcmtentry.Text, 0) < 1) or (StrToIntDef(edcmtpoint.Text, 0) < 1) or
-     (edcmtposition_x.Text = '') or (edcmtposition_y.Text = '') or 
-     (edcmtposition_z.Text = '') or (edcmtorientation.Text = '') then
-    Exit;
   if (edcmtwaittime.Text = '') then
     edcmtwaittime.Text := '0';
   if (edcmtscript_id.Text = '') then
