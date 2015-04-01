@@ -2366,7 +2366,6 @@ type
     procedure lvitItemLootedFromDblClick(Sender: TObject);
     procedure nUninstallClick(Sender: TObject);
     procedure lvQuickListMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
-    procedure lvQuickListMouseLeave(Sender: TObject);
     procedure lvQuickListClick(Sender: TObject);
     procedure lvQuickListKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
     procedure btSearchGameEventClick(Sender: TObject);
@@ -6058,7 +6057,7 @@ begin
   try
     SetList(f.lvList, Name, Sort);
     i := f.lvList.Items.Count;
-    if (i > 0) and (i <= 0) then // scroll is broken
+    if (i > 0) and (i <= 15) then
     begin
       if not Assigned(lvQuickList) then
       begin
@@ -6068,6 +6067,7 @@ begin
         lvQuickList.ViewStyle := TViewStyle(vsReport);
         lvQuickList.ShowColumnHeaders := false;
         lvQuickList.BorderStyle := bsSingle;
+        lvQuickList.GridLines := true;
         lvQuickList.RowSelect := true;
         lvQuickList.ReadOnly := true;
         lvQuickList.HideSelection := false;
@@ -6076,7 +6076,7 @@ begin
           Width := 30;
         with lvQuickList.Columns.Add do
           Width := 230;
-        lvQuickList.Width := 300;
+        lvQuickList.Width := 281;
         SetList(lvQuickList, Name, Sort);
         edit := TJvComboEdit(Sender);
         QLPrepare;
@@ -8903,11 +8903,10 @@ begin
   end;
 
   lvQuickList.OnMouseMove := lvQuickListMouseMove;
-  lvQuickList.OnMouseLeave := lvQuickListMouseLeave;
   lvQuickList.OnClick := lvQuickListClick;
   lvQuickList.OnKeyDown := lvQuickListKeyDown;
 
-  lvQuickList.Height := 16 * cnt + 5;
+  lvQuickList.Height := 16 * cnt + 12;
   p := edit.ClientToScreen(Point(0, edit.Height));
   p := lvQuickList.ScreenToClient(p);
   lvQuickList.Left := p.X;
@@ -12383,12 +12382,6 @@ procedure TMainForm.lvQuickListKeyDown(Sender: TObject; var Key: Word; Shift: TS
 begin
   if Key = vk_escape then
     PostMessage(MainForm.Handle, WM_FREEQL, 0, 0);
-end;
-
-procedure TMainForm.lvQuickListMouseLeave(Sender: TObject);
-begin
-  edit.SetFocus;
-  PostMessage(MainForm.Handle, WM_FREEQL, 0, 0);
 end;
 
 procedure TMainForm.lvQuickListMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
