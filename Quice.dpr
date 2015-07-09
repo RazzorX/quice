@@ -26,9 +26,7 @@ uses
   AreaTableUnit in 'AreaTableUnit.pas' {AreaTableForm},
   SoundEntriesUnit in 'SoundEntriesUnit.pas' {SoundEntriesForm},
   Functions in 'Functions.pas',
-  LocNPCFrame in 'LocNPCFrame.pas' {NPCTextLoc: TFrame},
-  Vcl.Themes,
-  Vcl.Styles;
+  LocNPCFrame in 'LocNPCFrame.pas' {NPCTextLoc: TFrame};
 
 {$R *.res}
 begin
