@@ -39,6 +39,7 @@ const
   TABLE_DB_SCRIPT_STRING = 'db_script_string';
 {$ELSE}
   SCRIPT_TABLE_CREATURE_MOVEMENT = 'creature_movement_scripts';
+  SCRIPT_TABLE_CREATURE_DEATH = '';
   SCRIPT_TABLE_EVENT = 'event_scripts';
   SCRIPT_TABLE_GO = 'gameobject_scripts';
   SCRIPT_TABLE_GO_TEMPLATE = 'gameobject_template_scripts';
@@ -46,6 +47,7 @@ const
   SCRIPT_TABLE_QUEST_END = 'quest_end_scripts';
   SCRIPT_TABLE_QUEST_START =  'quest_start_scripts';
   SCRIPT_TABLE_SPELL = 'spell_scripts';
+  TABLE_DB_SCRIPT_STRING = '';
 {$ENDIF}
 
   SCRIPT_TAB_NO_QUEST = 7;
