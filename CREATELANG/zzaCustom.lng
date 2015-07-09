@@ -154,9 +154,20 @@ TEXT152=ItemExtendedCost
 TEXT153=Error: Character (guid = %d) not found
 TEXT154=The error has occurred while loading the Character:
 TEXT155=AreaTrigger
-TEXT156=LootCondition
+TEXT156=Conditions
 TEXT157=The error has occurred while loading Creature EventAI:
 TEXT158=Option Icon
 TEXT159=The error has occurred while loading Creature Template Spells:
 TEXT160=The error has occurred while loading DBScripts On Creature Death:
+TEXT161=Error: Conditions (condition_entry = %d) not found
+TEXT162=The error has occurred while loading Conditions:
+TEXT163=Method of text output
+TEXT164=Error: Db_script_string (entry = %d) not found
+TEXT165=The error has occurred while loading Db_script_string:
+TEXT166=Error: %s (entry = %d) not found
+TEXT167=The error has occurred while loading %s:
+TEXT168=Error: creature_model_info (id = %d) not found
+TEXT169=The error has occurred while loading creature_model_info:
+TEXT170=Error: gossip_menu_option (id = %d) not found
+TEXT171=The error has occurred while loading gossip_menu_option:
 
