@@ -94,6 +94,8 @@ end;
 
 procedure TMeConnectForm.btConnectClick(Sender: TObject);
 begin
+  if dmMain.DBCDir = '' then
+    dmMain.DBCDir := IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName)) + 'DBFilesClient';
   SaveSettings;
   DoConnect;
   if cbSavePassword.Checked then begin

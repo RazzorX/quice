@@ -79,7 +79,7 @@ begin
   try
     DBCDir := ReadFromRegistry(CurrentUser, '', 'DBCDir', tpString);
   except
-    DBCDir := IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName)) + 'DBC';
+    DBCDir := IncludeTrailingPathDelimiter(ExtractFilePath(Application.ExeName)) + 'DBFilesClient';
   end;
   try
     DBCLocale := ReadFromRegistry(CurrentUser, '', 'DBCLocale', tpInteger);
