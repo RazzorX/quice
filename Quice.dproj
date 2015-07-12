@@ -97,9 +97,11 @@
 			<DCC_GenerateStackFrames>true</DCC_GenerateStackFrames>
 		</PropertyGroup>
 		<PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
+			<DCC_Optimize>true</DCC_Optimize>
+			<Icon_MainIcon>Quice_Icon.ico</Icon_MainIcon>
 			<DCC_IntegerOverflowCheck>true</DCC_IntegerOverflowCheck>
 			<DCC_RangeChecking>true</DCC_RangeChecking>
-			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.0.0.0;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
+			<VerInfo_Keys>CompanyName=;FileDescription=;FileVersion=1.2.63.1199;InternalName=;LegalCopyright=;LegalTrademarks=;OriginalFilename=;ProductName=;ProductVersion=1.0.0.0;Comments=</VerInfo_Keys>
 			<VerInfo_Locale>1033</VerInfo_Locale>
 			<Manifest_File>None</Manifest_File>
 		</PropertyGroup>
@@ -203,7 +205,7 @@
 						<VersionInfo Name="MajorVer">1</VersionInfo>
 						<VersionInfo Name="MinorVer">2</VersionInfo>
 						<VersionInfo Name="Release">63</VersionInfo>
-						<VersionInfo Name="Build">1319</VersionInfo>
+						<VersionInfo Name="Build">1322</VersionInfo>
 						<VersionInfo Name="Debug">False</VersionInfo>
 						<VersionInfo Name="PreRelease">False</VersionInfo>
 						<VersionInfo Name="Special">False</VersionInfo>
@@ -215,7 +217,7 @@
 					<VersionInfoKeys>
 						<VersionInfoKeys Name="CompanyName">indomit®</VersionInfoKeys>
 						<VersionInfoKeys Name="FileDescription">Quice - MaNGOS DB Editor</VersionInfoKeys>
-						<VersionInfoKeys Name="FileVersion">1.2.63.1319</VersionInfoKeys>
+						<VersionInfoKeys Name="FileVersion">1.2.63.1322</VersionInfoKeys>
 						<VersionInfoKeys Name="InternalName">Quice</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalCopyright">© indomit, 2012</VersionInfoKeys>
 						<VersionInfoKeys Name="LegalTrademarks">indomit™</VersionInfoKeys>
