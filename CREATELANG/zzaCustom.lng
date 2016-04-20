@@ -170,4 +170,3 @@ TEXT168=Error: creature_model_info (id = %d) not found
 TEXT169=The error has occurred while loading creature_model_info:
 TEXT170=Error: gossip_menu_option (id = %d) not found
 TEXT171=The error has occurred while loading gossip_menu_option:
-

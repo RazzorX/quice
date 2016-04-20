@@ -109,5 +109,4 @@ begin
   if key = vk_escape then Close;
 end;
 
-
 end.
