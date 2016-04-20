@@ -1,0 +1,10 @@
+# Auto detect text files and perform LF normalization
+* text=auto
+
+*.dfm text eol=crlf
+*.pas text eol=crlf
+*.csv text eol=crlf
+*.lng text eol=crlf
+
+# Custom for Visual Studio
+*.cs     diff=csharp
