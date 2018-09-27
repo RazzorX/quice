@@ -2,7 +2,7 @@ object MainForm: TMainForm
   Left = 300
   Top = 66
   Caption = 'Quice'
-  ClientHeight = 716
+  ClientHeight = 681
   ClientWidth = 1008
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -25,7 +25,7 @@ object MainForm: TMainForm
     Left = 0
     Top = 0
     Width = 1008
-    Height = 716
+    Height = 681
     ActivePage = tsQuest
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
@@ -51,7 +51,7 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 663
+        Height = 628
         ActivePage = tsSearch
         Align = alClient
         Font.Charset = DEFAULT_CHARSET
@@ -152,6 +152,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = btQuestGiverSearchClick
               OnChange = edSearchChange
             end
@@ -190,6 +191,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 3
+              Text = ''
               OnButtonClick = btQuestTakerSearchClick
               OnChange = edSearchChange
             end
@@ -301,6 +303,7 @@ object MainForm: TMainForm
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
                 TabOrder = 0
+                Text = ''
                 OnButtonClick = GetQuestFlags
                 OnChange = edSearchChange
               end
@@ -367,6 +370,7 @@ object MainForm: TMainForm
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
                 TabOrder = 0
+                Text = ''
                 OnButtonClick = edZoneOrSortSearchButtonClick
                 OnChange = edSearchChange
               end
@@ -420,7 +424,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 469
+            Height = 434
             Hint = 'Browse URL'
             Align = alClient
             BorderStyle = bsNone
@@ -455,7 +459,7 @@ object MainForm: TMainForm
           end
           object Panel2: TPanel
             Left = 0
-            Top = 574
+            Top = 539
             Width = 992
             Height = 61
             Align = alBottom
@@ -964,6 +968,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 0
+              Text = ''
               OnButtonClick = btLoadQuest
             end
             object edqtPrevQuestId: TJvComboEdit
@@ -1021,6 +1026,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 1
+              Text = ''
               OnButtonClick = btLoadQuest
             end
             object edqtNextQuestId: TJvComboEdit
@@ -1075,6 +1081,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 2
+              Text = ''
               OnButtonClick = btLoadQuest
             end
             object edqtExclusiveGroup: TLabeledEdit
@@ -1142,6 +1149,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 4
+              Text = ''
               OnButtonClick = btLoadQuest
             end
             object edqtRewXPId: TLabeledEdit
@@ -1266,6 +1274,7 @@ object MainForm: TMainForm
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
                 TabOrder = 0
+                Text = ''
                 OnButtonClick = edqtZoneOrSortButtonClick
                 OnChange = edqtZoneOrSortChange
               end
@@ -1322,6 +1331,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 5
+              Text = ''
               OnButtonClick = GetClasses
             end
             object edqtRequiredRaces: TJvComboEdit
@@ -1360,6 +1370,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 6
+              Text = ''
               OnButtonClick = GetRaces
             end
           end
@@ -1431,6 +1442,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = btTypeClick
             end
             object edqtQuestFlags: TJvComboEdit
@@ -1476,6 +1488,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = GetQuestFlags
             end
           end
@@ -1556,6 +1569,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = GetFaction
             end
             object edqtRequiredMaxRepFaction: TJvComboEdit
@@ -1594,6 +1608,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 3
+              Text = ''
               OnButtonClick = GetFaction
             end
             object edqtRequiredMaxRepValue: TLabeledEdit
@@ -1656,6 +1671,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 5
+              Text = ''
               OnButtonClick = GetSkill
             end
           end
@@ -1727,6 +1743,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtSrcSpell: TJvComboEdit
@@ -1765,6 +1782,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = GetSpell
             end
           end
@@ -2016,6 +2034,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 15
+              Text = ''
               OnButtonClick = GetCreatureOrGO
             end
             object edqtPortraitTurnIn: TJvComboEdit
@@ -2058,6 +2077,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 16
+              Text = ''
               OnButtonClick = GetCreatureOrGO
             end
           end
@@ -2299,6 +2319,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqItemId2: TJvComboEdit
@@ -2337,6 +2358,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqItemId3: TJvComboEdit
@@ -2375,6 +2397,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 4
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqItemId4: TJvComboEdit
@@ -2413,6 +2436,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 5
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqSourceId1: TJvComboEdit
@@ -2461,6 +2485,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 7
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqSourceId2: TJvComboEdit
@@ -2509,6 +2534,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 9
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqSourceId3: TJvComboEdit
@@ -2557,6 +2583,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 11
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqSourceId4: TJvComboEdit
@@ -2605,6 +2632,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 13
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqCreatureOrGOId4: TJvComboEdit
@@ -2647,6 +2675,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 24
+              Text = ''
               OnButtonClick = GetCreatureOrGO
             end
             object edqtReqCreatureOrGOId3: TJvComboEdit
@@ -2689,6 +2718,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 21
+              Text = ''
               OnButtonClick = GetCreatureOrGO
             end
             object edqtReqCreatureOrGOId2: TJvComboEdit
@@ -2731,6 +2761,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 18
+              Text = ''
               OnButtonClick = GetCreatureOrGO
             end
             object edqtReqCreatureOrGOId1: TJvComboEdit
@@ -2773,6 +2804,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 15
+              Text = ''
               OnButtonClick = GetCreatureOrGO
             end
             object edqtReqSpellCast1: TJvComboEdit
@@ -2815,6 +2847,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 17
+              Text = ''
               OnButtonClick = GetSpell
             end
             object edqtReqSpellCast2: TJvComboEdit
@@ -2857,6 +2890,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 20
+              Text = ''
               OnButtonClick = GetSpell
             end
             object edqtReqSpellCast3: TJvComboEdit
@@ -2899,6 +2933,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 23
+              Text = ''
               OnButtonClick = GetSpell
             end
             object edqtReqSpellCast4: TJvComboEdit
@@ -2941,6 +2976,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 26
+              Text = ''
               OnButtonClick = GetSpell
             end
             object edqtRepObjectiveValue: TLabeledEdit
@@ -2988,6 +3024,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 27
+              Text = ''
               OnButtonClick = GetFaction
             end
             object edqtReqItemId5: TJvComboEdit
@@ -3026,6 +3063,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 29
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqItemCount5: TLabeledEdit
@@ -3088,6 +3126,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 32
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtReqSpellLearned: TJvComboEdit
@@ -3125,6 +3164,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 33
+              Text = ''
               OnButtonClick = GetSpell
             end
             object edqtReqCurrencyCount1: TLabeledEdit
@@ -3206,6 +3246,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 38
+              Text = ''
               OnButtonClick = GetCurrency
             end
             object edqtReqCurrencyId2: TJvComboEdit
@@ -3243,6 +3284,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 39
+              Text = ''
               OnButtonClick = GetCurrency
             end
             object edqtReqCurrencyId3: TJvComboEdit
@@ -3280,6 +3322,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 40
+              Text = ''
               OnButtonClick = GetCurrency
             end
             object edqtReqCurrencyId4: TJvComboEdit
@@ -3317,6 +3360,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 41
+              Text = ''
               OnButtonClick = GetCurrency
             end
             object edqtReqItemCount3: TLabeledEdit
@@ -3654,6 +3698,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewItemId1: TJvComboEdit
@@ -3692,6 +3737,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 12
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewRepFaction1: TJvComboEdit
@@ -3730,6 +3776,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 23
+              Text = ''
               OnButtonClick = GetFaction
             end
             object edqtRewSpell: TJvComboEdit
@@ -3771,6 +3818,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 22
+              Text = ''
               OnButtonClick = GetSpell
             end
             object edqtRewChoiceItemId2: TJvComboEdit
@@ -3809,6 +3857,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewChoiceItemId3: TJvComboEdit
@@ -3847,6 +3896,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 4
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewChoiceItemId4: TJvComboEdit
@@ -3885,6 +3935,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 6
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewChoiceItemId5: TJvComboEdit
@@ -3923,6 +3974,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 8
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewChoiceItemId6: TJvComboEdit
@@ -3961,6 +4013,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 10
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewItemId2: TJvComboEdit
@@ -3999,6 +4052,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 14
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewItemId3: TJvComboEdit
@@ -4037,6 +4091,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 16
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewItemId4: TJvComboEdit
@@ -4075,6 +4130,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 18
+              Text = ''
               OnButtonClick = GetItem
             end
             object edqtRewRepFaction2: TJvComboEdit
@@ -4113,6 +4169,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 25
+              Text = ''
               OnButtonClick = GetFaction
             end
             object edqtRewRepFaction3: TJvComboEdit
@@ -4151,6 +4208,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 27
+              Text = ''
               OnButtonClick = GetFaction
             end
             object edqtRewRepFaction4: TJvComboEdit
@@ -4189,6 +4247,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 29
+              Text = ''
               OnButtonClick = GetFaction
             end
             object edqtRewRepFaction5: TJvComboEdit
@@ -4227,6 +4286,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 31
+              Text = ''
               OnButtonClick = GetFaction
             end
             object edqtRewSpellCast: TJvComboEdit
@@ -4264,6 +4324,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 33
+              Text = ''
               OnButtonClick = GetSpell
             end
             object edqtRewMailDelaySecs: TLabeledEdit
@@ -4388,6 +4449,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 42
+              Text = ''
               OnButtonClick = GetSkill
             end
             object edqtRewSkillValue: TLabeledEdit
@@ -4479,6 +4541,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 48
+              Text = ''
               OnButtonClick = GetCurrency
             end
             object edqtRewCurrencyId2: TJvComboEdit
@@ -4516,6 +4579,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 49
+              Text = ''
               OnButtonClick = GetCurrency
             end
             object edqtRewCurrencyId3: TJvComboEdit
@@ -4553,6 +4617,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 50
+              Text = ''
               OnButtonClick = GetCurrency
             end
             object edqtRewCurrencyId4: TJvComboEdit
@@ -4590,6 +4655,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 51
+              Text = ''
               OnButtonClick = GetCurrency
             end
             object edqtRewMailTemplateId: TJvComboEdit
@@ -4643,6 +4709,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 52
+              Text = ''
               OnButtonClick = edqtRewMailTemplateIdButtonClick
             end
           end
@@ -4719,6 +4786,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 4
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtCompleteEmote: TJvComboEdit
@@ -4759,6 +4827,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 5
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtDetailsEmote1: TJvComboEdit
@@ -4796,6 +4865,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtDetailsEmote2: TJvComboEdit
@@ -4833,6 +4903,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtDetailsEmote3: TJvComboEdit
@@ -4870,6 +4941,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtDetailsEmote4: TJvComboEdit
@@ -4907,6 +4979,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 3
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtOfferRewardEmote1: TJvComboEdit
@@ -4944,6 +5017,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 6
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtOfferRewardEmote2: TJvComboEdit
@@ -4981,6 +5055,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 7
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtOfferRewardEmote3: TJvComboEdit
@@ -5018,6 +5093,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 8
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtOfferRewardEmote4: TJvComboEdit
@@ -5055,6 +5131,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 9
+              Text = ''
               OnButtonClick = GetEmote
             end
             object edqtDetailsEmoteDelay1: TLabeledEdit
@@ -5254,6 +5331,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = btAreatriggerClick
             end
             object edqtSpecialFlags: TJvComboEdit
@@ -5291,6 +5369,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = GetSpecialFlags
               OnChange = edflagsChange
             end
@@ -5384,6 +5463,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 7
+              Text = ''
               OnButtonClick = GetMap
             end
             object edqtPointX: TLabeledEdit
@@ -5467,6 +5547,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 11
+              Text = ''
               OnButtonClick = edssidButtonClick
             end
             object edqtCompleteScript: TJvComboEdit
@@ -5520,6 +5601,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 12
+              Text = ''
               OnButtonClick = edesidButtonClick
             end
           end
@@ -5529,7 +5611,7 @@ object MainForm: TMainForm
           ImageIndex = 3
           DesignSize = (
             992
-            635)
+            600)
           object lbQuestGiverInfo: TLabel
             Left = 8
             Top = 37
@@ -5689,6 +5771,7 @@ object MainForm: TMainForm
                 Width = 80
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -5751,6 +5834,7 @@ object MainForm: TMainForm
                 Width = 70
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -5788,7 +5872,7 @@ object MainForm: TMainForm
           ImageIndex = 4
           DesignSize = (
             992
-            635)
+            600)
           object lbQuestTakerInfo: TLabel
             Left = 8
             Top = 37
@@ -5948,6 +6032,7 @@ object MainForm: TMainForm
                 Width = 180
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -5998,6 +6083,7 @@ object MainForm: TMainForm
                 Width = 160
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -6025,6 +6111,10 @@ object MainForm: TMainForm
         object tsLocalesQuest: TTabSheet
           Caption = 'Locales Quest'
           ImageIndex = 9
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object gbLocalesQuest: TGroupBox
             Left = 3
             Top = 3
@@ -6235,7 +6325,7 @@ object MainForm: TMainForm
           ImageIndex = 9
           DesignSize = (
             992
-            635)
+            600)
           object lbmlMailLootHint: TLabel
             Left = 8
             Top = 8
@@ -6512,6 +6602,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 4
+            Text = ''
             OnButtonClick = GetItem
           end
           object edmlChanceOrQuestChance: TLabeledEdit
@@ -6574,6 +6665,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 7
@@ -6656,6 +6748,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 8
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -6663,9 +6756,13 @@ object MainForm: TMainForm
           Caption = 'SQL-Script Tab'
           ImageIndex = 2
           OnShow = tsScriptTabShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
-            635)
+            600)
           object btCopyToClipboard: TButton
             Left = 852
             Top = 555
@@ -6716,15 +6813,20 @@ object MainForm: TMainForm
     object tsCreature: TTabSheet
       Caption = 'Creature'
       ImageIndex = 2
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object PageControl3: TPageControl
         Left = 0
         Top = 25
         Width = 1000
-        Height = 663
+        Height = 628
         ActivePage = tsSearchCreature
         Align = alClient
         MultiLine = True
         TabOrder = 0
+        ExplicitHeight = 663
         object tsSearchCreature: TTabSheet
           Caption = 'Search'
           object Panel4: TPanel
@@ -6883,6 +6985,7 @@ object MainForm: TMainForm
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
                 TabOrder = 0
+                Text = ''
                 OnButtonClick = edctNpcFlagsButtonClick
                 OnChange = edSearchCreatureChange
               end
@@ -6938,7 +7041,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 433
+            Height = 398
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -6977,6 +7080,7 @@ object MainForm: TMainForm
                 Width = 112
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -7006,11 +7110,12 @@ object MainForm: TMainForm
           end
           object Panel5: TPanel
             Left = 0
-            Top = 538
+            Top = 503
             Width = 992
             Height = 61
             Align = alBottom
             TabOrder = 2
+            ExplicitTop = 538
             object btEditCreature: TBitBtn
               Left = 112
               Top = 10
@@ -7390,6 +7495,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 0
+              Text = ''
               OnButtonClick = edctEntryButtonClick
             end
             object edctModelId1: TLabeledEdit
@@ -7638,6 +7744,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 16
+              Text = ''
               OnButtonClick = edctEntryButtonClick
             end
             object edctKillCredit1: TLabeledEdit
@@ -7713,6 +7820,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 19
+              Text = ''
               OnButtonClick = edctEntryButtonClick
             end
             object edctDifficultyEntry3: TJvComboEdit
@@ -7766,6 +7874,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 20
+              Text = ''
               OnButtonClick = edctEntryButtonClick
             end
             object edctExpansion: TLabeledEdit
@@ -7970,6 +8079,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 12
+              Text = ''
               OnButtonClick = GetFactionTemplate
             end
             object edctNpcFlags: TJvComboEdit
@@ -8011,6 +8121,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 15
+              Text = ''
               OnButtonClick = edctNpcFlagsButtonClick
             end
             object edctRank: TJvComboEdit
@@ -8049,6 +8160,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 10
+              Text = ''
               OnButtonClick = edctRankButtonClick
             end
             object edctFamily: TJvComboEdit
@@ -8087,6 +8199,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 11
+              Text = ''
               OnButtonClick = edctFamilyButtonClick
             end
             object edctCreatureType: TJvComboEdit
@@ -8124,6 +8237,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 14
+              Text = ''
               OnButtonClick = edctCreatureTypeButtonClick
             end
             object edctMinMeleeDmg: TLabeledEdit
@@ -8216,6 +8330,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 13
+              Text = ''
               OnButtonClick = GetFactionTemplate
             end
             object edctRegenerateStats: TLabeledEdit
@@ -8263,6 +8378,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 16
+              Text = ''
               OnButtonClick = GetUnitFlags
             end
             object edctCreatureTypeFlags: TJvComboEdit
@@ -8300,6 +8416,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 17
+              Text = ''
               OnButtonClick = GetCreatureTypeFlags
             end
             object edctDynamicFlags: TJvComboEdit
@@ -8337,6 +8454,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 18
+              Text = ''
               OnButtonClick = GetCreatureDynamicFlags
             end
             object edctUnitClass: TLabeledEdit
@@ -8400,6 +8518,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 20
+              Text = ''
               OnButtonClick = edctVendorTemplateIdButtonClick
             end
             object edctTrainerTemplateId: TJvComboEdit
@@ -8453,6 +8572,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 21
+              Text = ''
               OnButtonClick = edctTrainerTemplateIdButtonClick
             end
             object edctVehicleTemplateId: TLabeledEdit
@@ -8500,6 +8620,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 23
+              Text = ''
               OnButtonClick = GetFlagsExtra
             end
             object edctEquipmentTemplateId: TJvComboEdit
@@ -8553,6 +8674,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 24
+              Text = ''
               OnButtonClick = edctEquipTemplateIdButtonClick
             end
           end
@@ -8765,6 +8887,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = GetMovementType
             end
             object edctInhabitType: TJvComboEdit
@@ -8802,6 +8925,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = GetInhabitType
             end
             object edctMovementTemplateId: TLabeledEdit
@@ -8866,6 +8990,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 5
+              Text = ''
               OnButtonClick = edctGossipMenuIdButtonClick
             end
           end
@@ -8939,6 +9064,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = edctTrainerTypeButtonClick
             end
             object edctTrainerSpell: TJvComboEdit
@@ -8980,6 +9106,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = GetSpell
             end
             object edctTrainerClass: TJvComboEdit
@@ -9021,6 +9148,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 3
+              Text = ''
               OnButtonClick = GetClass
             end
             object edctTrainerRace: TJvComboEdit
@@ -9062,6 +9190,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = GetRace
             end
           end
@@ -9170,6 +9299,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 8
+            Text = ''
             OnButtonClick = GetMechanicImmuneMask
           end
           object gbUnk: TGroupBox
@@ -9363,7 +9493,7 @@ object MainForm: TMainForm
           ImageIndex = 2
           DesignSize = (
             992
-            599)
+            564)
           object lbclCreatureLocationHint: TLabel
             Left = 8
             Top = 8
@@ -9444,6 +9574,7 @@ object MainForm: TMainForm
                 Width = 100
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -9699,6 +9830,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 1
+            Text = ''
             OnButtonClick = GetMap
           end
           object edclphaseMask: TLabeledEdit
@@ -9746,6 +9878,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 20
+            Text = ''
             OnButtonClick = GetSpawnMask
           end
           object edclid: TJvComboEdit
@@ -9799,6 +9932,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 21
+            Text = ''
             OnButtonClick = edclidButtonClick
           end
           object edclguid: TJvComboEdit
@@ -9852,6 +9986,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 22
+            Text = ''
             OnButtonClick = edclguidButtonClick
           end
           object edclmodelid: TJvComboEdit
@@ -9905,6 +10040,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 23
+            Text = ''
             OnButtonClick = edcimodelidButtonClick
           end
           object edclequipment_id: TJvComboEdit
@@ -9958,6 +10094,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 24
+            Text = ''
             OnButtonClick = edctEquipTemplateIdButtonClick
           end
         end
@@ -9966,7 +10103,7 @@ object MainForm: TMainForm
           ImageIndex = 12
           DesignSize = (
             992
-            599)
+            564)
           object lbHintCreatureMovement: TLabel
             Left = 8
             Top = 8
@@ -10226,6 +10363,7 @@ object MainForm: TMainForm
                 Width = 48
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -10424,6 +10562,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 11
+            Text = ''
             OnButtonClick = GetEmote
           end
           object edcmspell: TLabeledEdit
@@ -10517,6 +10656,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = edcmsidButtonClick
           end
           object edcmid: TJvComboEdit
@@ -10570,6 +10710,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 19
+            Text = ''
             OnButtonClick = edcmidButtonClick
           end
         end
@@ -10578,7 +10719,7 @@ object MainForm: TMainForm
           ImageIndex = 23
           DesignSize = (
             992
-            599)
+            564)
           object lbcmtemote: TLabel
             Left = 16
             Top = 477
@@ -10829,6 +10970,7 @@ object MainForm: TMainForm
                 Width = 48
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -10919,6 +11061,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetEmote
           end
           object edcmtspell: TLabeledEdit
@@ -11092,6 +11235,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = edcmsidButtonClick
           end
           object edcmtwaittime: TLabeledEdit
@@ -11173,6 +11317,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 19
+            Text = ''
             OnButtonClick = edcmtentryButtonClick
           end
         end
@@ -11182,7 +11327,7 @@ object MainForm: TMainForm
           OnShow = tsCreatureModelInfoShow
           DesignSize = (
             992
-            599)
+            564)
           object lbcimodelid: TLabel
             Left = 12
             Top = 280
@@ -11222,6 +11367,7 @@ object MainForm: TMainForm
                 Width = 120
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -11432,6 +11578,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 8
+            Text = ''
             OnButtonClick = edcimodelidButtonClick
           end
         end
@@ -11541,6 +11688,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 3
+              Text = ''
               OnButtonClick = edctEquipTemplateIdButtonClick
             end
           end
@@ -11559,7 +11707,7 @@ object MainForm: TMainForm
           ImageIndex = 4
           DesignSize = (
             992
-            599)
+            564)
           object lbcoitem: TLabel
             Left = 97
             Top = 476
@@ -11803,6 +11951,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -11920,6 +12069,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetItem
           end
           object btScriptCreatureLoot: TButton
@@ -11995,6 +12145,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edcocondition_id: TJvComboEdit
@@ -12048,6 +12199,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -12056,7 +12208,7 @@ object MainForm: TMainForm
           ImageIndex = 7
           DesignSize = (
             992
-            599)
+            564)
           object lbcpitem: TLabel
             Left = 96
             Top = 474
@@ -12300,6 +12452,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -12416,6 +12569,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetItem
           end
           object btScriptPickpocketLoot: TButton
@@ -12491,6 +12645,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edcpcondition_id: TJvComboEdit
@@ -12544,6 +12699,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -12552,7 +12708,7 @@ object MainForm: TMainForm
           ImageIndex = 8
           DesignSize = (
             992
-            599)
+            564)
           object lbcsitem: TLabel
             Left = 97
             Top = 475
@@ -12796,6 +12952,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -12912,6 +13069,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetItem
           end
           object btScriptSkinLoot: TButton
@@ -12987,6 +13145,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edcscondition_id: TJvComboEdit
@@ -13040,6 +13199,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -13048,7 +13208,7 @@ object MainForm: TMainForm
           ImageIndex = 5
           DesignSize = (
             992
-            599)
+            564)
           object lbcvitem: TLabel
             Left = 96
             Top = 475
@@ -13275,6 +13435,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13341,6 +13502,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetItem
           end
           object edcvmaxcount: TLabeledEdit
@@ -13416,6 +13578,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = edcvExtendedCostButtonClick
           end
           object edcvcondition_id: TJvComboEdit
@@ -13469,6 +13632,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 8
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -13477,7 +13641,7 @@ object MainForm: TMainForm
           ImageIndex = 6
           DesignSize = (
             992
-            599)
+            564)
           object lbcrspell: TLabel
             Left = 96
             Top = 479
@@ -13700,6 +13864,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13768,6 +13933,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcrspellcost: TLabeledEdit
@@ -13854,6 +14020,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 4
+            Text = ''
             OnButtonClick = GetSkill
           end
         end
@@ -13965,6 +14132,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 3
+            Text = ''
             OnButtonClick = GetEmote
           end
           object edcdmoveflags: TLabeledEdit
@@ -14098,6 +14266,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 4
+            Text = ''
             OnButtonClick = GetEmote
           end
           object edcaauras: TLabeledEdit
@@ -14237,6 +14406,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 1
+              Text = ''
               OnButtonClick = edcgtextidButtonClick
             end
           end
@@ -14356,6 +14526,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 1
+            Text = ''
             OnButtonClick = GetFaction
           end
           object edckRewOnKillRepFaction2: TJvComboEdit
@@ -14394,6 +14565,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 5
+            Text = ''
             OnButtonClick = GetFaction
           end
           object edckRewOnKillRepValue2: TLabeledEdit
@@ -14474,6 +14646,10 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 11
           OnShow = tsCreatureUsedShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object pcCreatureInfo: TPageControl
             Left = 0
             Top = 41
@@ -14516,6 +14692,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14572,6 +14749,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14628,6 +14806,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14664,7 +14843,7 @@ object MainForm: TMainForm
           ImageIndex = 17
           DesignSize = (
             992
-            599)
+            564)
           object lbcnevent_type: TLabel
             Left = 3
             Top = 347
@@ -15072,6 +15251,7 @@ object MainForm: TMainForm
                 Width = 36
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -15184,6 +15364,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 3
+            Text = ''
             OnButtonClick = GetEventType
             OnChange = edcnevent_typeChange
           end
@@ -15222,6 +15403,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 4
+            Text = ''
           end
           object edcnevent_param1: TJvComboEdit
             Left = 3
@@ -15258,6 +15440,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 5
+            Text = ''
           end
           object edcnevent_param2: TJvComboEdit
             Left = 155
@@ -15294,6 +15477,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 6
+            Text = ''
           end
           object edcnevent_param3: TJvComboEdit
             Left = 283
@@ -15330,6 +15514,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 7
+            Text = ''
           end
           object edcnaction1_param3: TJvComboEdit
             Left = 411
@@ -15366,6 +15551,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 11
+            Text = ''
           end
           object edcnaction1_param2: TJvComboEdit
             Left = 283
@@ -15402,6 +15588,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 10
+            Text = ''
           end
           object edcnaction1_param1: TJvComboEdit
             Left = 155
@@ -15438,6 +15625,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 9
+            Text = ''
           end
           object edcnaction1_type: TJvComboEdit
             Left = 3
@@ -15474,6 +15662,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 8
+            Text = ''
             OnButtonClick = GetActionType
             OnChange = edcnaction1_typeChange
           end
@@ -15512,6 +15701,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 15
+            Text = ''
           end
           object edcnaction2_param2: TJvComboEdit
             Left = 283
@@ -15548,6 +15738,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 14
+            Text = ''
           end
           object edcnaction2_param1: TJvComboEdit
             Left = 155
@@ -15584,6 +15775,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 13
+            Text = ''
           end
           object edcnaction2_type: TJvComboEdit
             Left = 3
@@ -15620,6 +15812,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 12
+            Text = ''
             OnButtonClick = GetActionType
             OnChange = edcnaction2_typeChange
           end
@@ -15658,6 +15851,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 19
+            Text = ''
           end
           object edcnaction3_param2: TJvComboEdit
             Left = 283
@@ -15694,6 +15888,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 18
+            Text = ''
           end
           object edcnaction3_param1: TJvComboEdit
             Left = 155
@@ -15730,6 +15925,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 17
+            Text = ''
           end
           object edcnaction3_type: TJvComboEdit
             Left = 3
@@ -15766,6 +15962,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 16
+            Text = ''
             OnButtonClick = GetActionType
             OnChange = edcnaction3_typeChange
           end
@@ -15824,6 +16021,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ShowButton = False
             TabOrder = 24
+            Text = ''
           end
           object edcnevent_flags: TLabeledEdit
             Left = 411
@@ -15843,11 +16041,11 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 992
-            Height = 599
+            Height = 564
             Align = alClient
             TabOrder = 0
             ExplicitWidth = 992
-            ExplicitHeight = 599
+            ExplicitHeight = 564
             inherited gbNPCTextLoc: TGroupBox
               Height = 415
               ExplicitHeight = 415
@@ -15876,7 +16074,7 @@ object MainForm: TMainForm
           ImageIndex = 20
           DesignSize = (
             992
-            599)
+            564)
           object lbNpcVendorTemplateInfo: TLabel
             Left = 8
             Top = 8
@@ -16130,6 +16328,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = edcvExtendedCostButtonClick
           end
           object edcvtincrtime: TLabeledEdit
@@ -16187,6 +16386,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 5
+            Text = ''
             OnButtonClick = GetItem
           end
           object edcvtentry: TLabeledEdit
@@ -16225,6 +16425,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 7
@@ -16297,6 +16498,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 8
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -16305,7 +16507,7 @@ object MainForm: TMainForm
           ImageIndex = 21
           DesignSize = (
             992
-            599)
+            564)
           object lbcrtreqskill: TLabel
             Left = 288
             Top = 479
@@ -16528,6 +16730,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -16596,6 +16799,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcrtspellcost: TLabeledEdit
@@ -16644,6 +16848,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 4
+            Text = ''
             OnButtonClick = GetSkill
           end
           object edcrtreqskillvalue: TLabeledEdit
@@ -16691,7 +16896,7 @@ object MainForm: TMainForm
           OnShow = tsGossipMenuShow
           DesignSize = (
             992
-            599)
+            564)
           object btGossipMenuOptionAdd: TSpeedButton
             Left = 890
             Top = 453
@@ -16998,6 +17203,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 0
+              Text = ''
               OnButtonClick = edcgmtext_idButtonClick
             end
             object edcgmscript_id: TJvComboEdit
@@ -17035,6 +17241,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               ShowButton = False
               TabOrder = 1
+              Text = ''
             end
             object edcgmcond_1: TLabeledEdit
               Left = 419
@@ -17159,6 +17366,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 8
+              Text = ''
               OnButtonClick = edcgmentryButtonClick
             end
             object edcgcondition_id: TJvComboEdit
@@ -17212,6 +17420,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 9
+              Text = ''
               OnButtonClick = edconentryButtonClick
             end
           end
@@ -17284,6 +17493,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2
@@ -17571,6 +17781,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 21
+            Text = ''
             OnButtonClick = GetOptionIcon
           end
           object edcgmoaction_menu_id: TJvComboEdit
@@ -17624,6 +17835,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 22
+            Text = ''
             OnButtonClick = edcgmoaction_menu_idButtonClick
           end
           object edcgmcondition_id: TJvComboEdit
@@ -17677,6 +17889,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 23
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
           object edcgmoaction_script_id: TJvComboEdit
@@ -17730,6 +17943,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 24
+            Text = ''
             OnButtonClick = eddogidButtonClick
           end
           object edcgmomenu_id: TJvComboEdit
@@ -17783,6 +17997,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 25
+            Text = ''
             OnButtonClick = edcgmomenu_idButtonClick
           end
         end
@@ -17906,6 +18121,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 1
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcuspell1: TJvComboEdit
@@ -17943,6 +18159,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcuspell3: TJvComboEdit
@@ -17980,6 +18197,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 3
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcuspell8: TJvComboEdit
@@ -18017,6 +18235,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 4
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcuspell5: TJvComboEdit
@@ -18054,6 +18273,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 5
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcuspell4: TJvComboEdit
@@ -18091,6 +18311,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 6
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcuspell7: TJvComboEdit
@@ -18128,6 +18349,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcuspell6: TJvComboEdit
@@ -18165,6 +18387,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 8
+            Text = ''
             OnButtonClick = GetSpell
           end
           object edcuentry: TJvComboEdit
@@ -18218,6 +18441,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 9
+            Text = ''
             OnButtonClick = edcuentryButtonClick
           end
         end
@@ -18225,9 +18449,13 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsCreatureScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
-            599)
+            564)
           object mectScript: TMemo
             Left = 8
             Top = 9
@@ -18287,14 +18515,19 @@ object MainForm: TMainForm
     object tsGameObject: TTabSheet
       Caption = 'Game Object'
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object PageControl4: TPageControl
         Left = 0
         Top = 25
         Width = 1000
-        Height = 663
+        Height = 628
         ActivePage = tsSearchGO
         Align = alClient
         TabOrder = 0
+        ExplicitHeight = 663
         object tsSearchGO: TTabSheet
           Caption = 'Search'
           object Panel6: TPanel
@@ -18446,6 +18679,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = edgttypeButtonClick
               OnChange = edSearchGOChange
             end
@@ -18485,6 +18719,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 3
+              Text = ''
               OnButtonClick = GetFactionTemplate
               OnChange = edSearchGOChange
             end
@@ -18526,7 +18761,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 469
+            Height = 434
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -18557,6 +18792,7 @@ object MainForm: TMainForm
                 Caption = 'castbarcaption_loc*'
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -18582,11 +18818,12 @@ object MainForm: TMainForm
           end
           object Panel7: TPanel
             Left = 0
-            Top = 574
+            Top = 539
             Width = 992
             Height = 61
             Align = alBottom
             TabOrder = 2
+            ExplicitTop = 574
             object btEditGO: TBitBtn
               Left = 112
               Top = 10
@@ -18952,6 +19189,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 0
+              Text = ''
               OnButtonClick = edgtentryButtonClick
             end
             object edgtname: TLabeledEdit
@@ -19036,6 +19274,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 5
+              Text = ''
               OnButtonClick = GetFactionTemplate
             end
             object edgttype: TJvComboEdit
@@ -19074,6 +19313,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = edgttypeButtonClick
               OnChange = edgttypeChange
             end
@@ -19112,6 +19352,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 6
+              Text = ''
               OnButtonClick = GetGOFlags
               OnChange = edflagsChange
             end
@@ -19598,7 +19839,7 @@ object MainForm: TMainForm
           ImageIndex = 2
           DesignSize = (
             992
-            635)
+            600)
           object lbglGOLocationHint: TLabel
             Left = 8
             Top = 8
@@ -19651,6 +19892,7 @@ object MainForm: TMainForm
                 Width = 100
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -19867,6 +20109,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 3
+            Text = ''
             OnButtonClick = GetMap
           end
           object edglphaseMask: TLabeledEdit
@@ -19914,6 +20157,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 18
+            Text = ''
             OnButtonClick = GetSpawnMask
           end
         end
@@ -19923,7 +20167,7 @@ object MainForm: TMainForm
           OnShow = tsGOLootShow
           DesignSize = (
             992
-            635)
+            600)
           object lbgoitem: TLabel
             Left = 97
             Top = 494
@@ -20173,6 +20417,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -20289,6 +20534,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetItem
           end
           object btScriptGOLoot: TButton
@@ -20364,6 +20610,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edgocondition_id: TJvComboEdit
@@ -20417,6 +20664,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -20424,6 +20672,10 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 5
           OnShow = tsGOInvolvedInShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object pcGameObjectInfo: TPageControl
             Left = 0
             Top = 41
@@ -20466,6 +20718,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -20521,6 +20774,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -20576,6 +20830,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -20611,9 +20866,13 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsGOScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
-            635)
+            600)
           object megoScript: TMemo
             Left = 8
             Top = 8
@@ -20673,6 +20932,10 @@ object MainForm: TMainForm
     object tsItem: TTabSheet
       Caption = 'Item'
       ImageIndex = 3
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel9: TPanel
         Left = 0
         Top = 0
@@ -20686,10 +20949,11 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 663
+        Height = 628
         ActivePage = tsSearchItem
         Align = alClient
         TabOrder = 1
+        ExplicitHeight = 663
         object tsSearchItem: TTabSheet
           Caption = 'Search'
           object Panel10: TPanel
@@ -20869,6 +21133,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = editclassButtonClick
             end
             object edSearchItemSubclass: TJvComboEdit
@@ -20907,6 +21172,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 3
+              Text = ''
               OnButtonClick = edSearchItemSubclassButtonClick
             end
             object edSearchItemItemset: TJvComboEdit
@@ -20945,6 +21211,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 6
+              Text = ''
               OnButtonClick = edititemsetButtonClick
             end
             object edSearchItemInventoryType: TJvComboEdit
@@ -20983,6 +21250,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 5
+              Text = ''
               OnButtonClick = editInventoryTypeButtonClick
             end
             object edSearchItemQuality: TJvComboEdit
@@ -21021,6 +21289,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 4
+              Text = ''
               OnButtonClick = editQualityButtonClick
             end
             object edSearchItemFlags: TJvComboEdit
@@ -21058,6 +21327,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 9
+              Text = ''
               OnButtonClick = GetItemFlags
             end
             object edSearchItemItemLevel: TLabeledEdit
@@ -21076,7 +21346,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 469
+            Height = 434
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -21122,6 +21392,7 @@ object MainForm: TMainForm
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             ParentFont = False
@@ -21153,11 +21424,12 @@ object MainForm: TMainForm
           end
           object Panel11: TPanel
             Left = 0
-            Top = 574
+            Top = 539
             Width = 992
             Height = 61
             Align = alBottom
             TabOrder = 2
+            ExplicitTop = 574
             object btEditItem: TBitBtn
               Left = 112
               Top = 10
@@ -21539,6 +21811,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 0
+            Text = ''
             OnButtonClick = editentryButtonClick
           end
           object editname: TLabeledEdit
@@ -21942,6 +22215,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = GetSpell
             end
             object editspellid_2: TJvComboEdit
@@ -21980,6 +22254,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 5
+              Text = ''
               OnButtonClick = GetSpell
             end
             object editspellid_3: TJvComboEdit
@@ -22018,6 +22293,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 10
+              Text = ''
               OnButtonClick = GetSpell
             end
             object editspellid_4: TJvComboEdit
@@ -22056,6 +22332,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 15
+              Text = ''
               OnButtonClick = GetSpell
             end
             object editspellid_5: TJvComboEdit
@@ -22094,6 +22371,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 20
+              Text = ''
               OnButtonClick = GetSpell
             end
             object editspellppmRate_5: TLabeledEdit
@@ -22187,6 +22465,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 30
+              Text = ''
               OnButtonClick = GetSpellTrigger
             end
             object editspelltrigger_4: TJvComboEdit
@@ -22225,6 +22504,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 31
+              Text = ''
               OnButtonClick = GetSpellTrigger
             end
             object editspelltrigger_3: TJvComboEdit
@@ -22263,6 +22543,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 32
+              Text = ''
               OnButtonClick = GetSpellTrigger
             end
             object editspelltrigger_2: TJvComboEdit
@@ -22301,6 +22582,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 33
+              Text = ''
               OnButtonClick = GetSpellTrigger
             end
             object editspelltrigger_1: TJvComboEdit
@@ -22339,6 +22621,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 34
+              Text = ''
               OnButtonClick = GetSpellTrigger
             end
           end
@@ -22524,6 +22807,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editstat_type2: TJvComboEdit
@@ -22564,6 +22848,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 2
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editstat_type3: TJvComboEdit
@@ -22604,6 +22889,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 4
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editstat_type4: TJvComboEdit
@@ -22644,6 +22930,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 6
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editstat_type5: TJvComboEdit
@@ -22684,6 +22971,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 8
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editstat_type6: TJvComboEdit
@@ -22724,6 +23012,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 10
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editstat_type7: TJvComboEdit
@@ -22764,6 +23053,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 12
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editstat_type8: TJvComboEdit
@@ -22804,6 +23094,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 14
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editstat_type9: TJvComboEdit
@@ -22844,6 +23135,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 16
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editstat_type10: TJvComboEdit
@@ -22884,6 +23176,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 18
+              Text = ''
               OnButtonClick = GetStatType
             end
             object editScalingStatDistribution: TLabeledEdit
@@ -23248,6 +23541,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 6
+              Text = ''
               OnButtonClick = editGemPropertiesButtonClick
             end
             object editsocketBonus: TJvComboEdit
@@ -23285,6 +23579,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 7
+              Text = ''
               OnButtonClick = editsocketBonusButtonClick
             end
           end
@@ -23439,6 +23734,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = GetRaces
             end
             object editAllowableClass: TJvComboEdit
@@ -23479,6 +23775,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = GetClasses
             end
             object editRequiredReputationFaction: TJvComboEdit
@@ -23519,6 +23816,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 8
+              Text = ''
               OnButtonClick = GetFactionTemplate
             end
             object editRequiredReputationRank: TJvComboEdit
@@ -23559,6 +23857,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 9
+              Text = ''
               OnButtonClick = editRequiredReputationRankButtonClick
             end
             object editrequiredspell: TJvComboEdit
@@ -23597,6 +23896,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 6
+              Text = ''
               OnButtonClick = GetSpell
             end
             object editRequiredSkill: TJvComboEdit
@@ -23635,6 +23935,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 4
+              Text = ''
               OnButtonClick = GetSkill
             end
           end
@@ -23733,6 +24034,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = editbondingButtonClick
             end
             object edititemset: TJvComboEdit
@@ -23771,6 +24073,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = edititemsetButtonClick
             end
             object editDamageType: TJvComboEdit
@@ -23809,6 +24112,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 5
+              Text = ''
               OnButtonClick = GetDmgType
             end
             object editammo_type: TLabeledEdit
@@ -24040,6 +24344,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 4
+              Text = ''
               OnButtonClick = LangButtonClick
             end
             object editPageMaterial: TJvComboEdit
@@ -24078,6 +24383,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 5
+              Text = ''
               OnButtonClick = editPageMaterialButtonClick
             end
             object editMaterial: TJvComboEdit
@@ -24118,6 +24424,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 0
+              Text = ''
               OnButtonClick = editMaterialButtonClick
             end
             object editsheath: TJvComboEdit
@@ -24156,6 +24463,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = editsheathButtonClick
             end
             object editBagFamily: TJvComboEdit
@@ -24193,6 +24501,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 6
+              Text = ''
               OnButtonClick = editBagFamilyButtonClick
             end
             object editunk0: TLabeledEdit
@@ -24244,6 +24553,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 3
+              Text = ''
               OnButtonClick = GetPage
             end
             object editMap: TJvComboEdit
@@ -24281,6 +24591,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 9
+              Text = ''
               OnButtonClick = GetMap
             end
             object editFoodType: TJvComboEdit
@@ -24318,6 +24629,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 17
+              Text = ''
               OnButtonClick = editFoodTypeButtonClick
             end
             object editmaxMoneyLoot: TLabeledEdit
@@ -24375,6 +24687,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 8
+              Text = ''
               OnButtonClick = GetArea
             end
             object editDuration: TLabeledEdit
@@ -24512,6 +24825,7 @@ object MainForm: TMainForm
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
                 TabOrder = 0
+                Text = ''
                 OnButtonClick = GetDmgType
               end
               object editdmg_type2: TJvComboEdit
@@ -24550,6 +24864,7 @@ object MainForm: TMainForm
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                   FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
                 TabOrder = 3
+                Text = ''
                 OnButtonClick = GetDmgType
               end
             end
@@ -24590,6 +24905,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 6
+            Text = ''
             OnButtonClick = editQualityButtonClick
           end
           object editInventoryType: TJvComboEdit
@@ -24628,6 +24944,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 11
+            Text = ''
             OnButtonClick = editInventoryTypeButtonClick
           end
           object editclass: TJvComboEdit
@@ -24666,6 +24983,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 1
+            Text = ''
             OnButtonClick = editclassButtonClick
           end
           object editsubclass: TJvComboEdit
@@ -24704,6 +25022,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = editsubclassButtonClick
           end
           object editFlags: TJvComboEdit
@@ -24741,6 +25060,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetItemFlags
             OnChange = edflagsChange
           end
@@ -24896,7 +25216,7 @@ object MainForm: TMainForm
           OnShow = tsItemLootShow
           DesignSize = (
             992
-            635)
+            600)
           object lbilitem: TLabel
             Left = 96
             Top = 484
@@ -25146,6 +25466,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -25262,6 +25583,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetItem
           end
           object btScriptItemLoot: TButton
@@ -25337,6 +25659,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edilcondition_id: TJvComboEdit
@@ -25390,6 +25713,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -25399,7 +25723,7 @@ object MainForm: TMainForm
           OnShow = tsDisenchantLootShow
           DesignSize = (
             992
-            635)
+            600)
           object lbiditem: TLabel
             Left = 96
             Top = 484
@@ -25649,6 +25973,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -25765,6 +26090,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetItem
           end
           object btScriptDisLoot: TButton
@@ -25840,6 +26166,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edidcondition_id: TJvComboEdit
@@ -25893,6 +26220,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -25902,7 +26230,7 @@ object MainForm: TMainForm
           OnShow = tsProspectingLootShow
           DesignSize = (
             992
-            635)
+            600)
           object lbipitem: TLabel
             Left = 96
             Top = 484
@@ -26152,6 +26480,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -26268,6 +26597,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetItem
           end
           object btScriptProsLoot: TButton
@@ -26343,6 +26673,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edipcondition_id: TJvComboEdit
@@ -26396,6 +26727,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -26405,7 +26737,7 @@ object MainForm: TMainForm
           OnShow = tsMillingLootShow
           DesignSize = (
             992
-            635)
+            600)
           object lbimitem: TLabel
             Left = 96
             Top = 484
@@ -26646,6 +26978,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -26712,6 +27045,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 1
+            Text = ''
             OnButtonClick = GetItem
           end
           object edimentry: TLabeledEdit
@@ -26799,6 +27133,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 7
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edimcondition_value1: TLabeledEdit
@@ -26890,6 +27225,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -26898,7 +27234,7 @@ object MainForm: TMainForm
           ImageIndex = 10
           DesignSize = (
             992
-            635)
+            600)
           object lbiritem: TLabel
             Left = 96
             Top = 484
@@ -27146,6 +27482,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -27212,6 +27549,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 1
+            Text = ''
             OnButtonClick = GetItem
           end
           object edirChanceOrQuestChance: TLabeledEdit
@@ -27289,6 +27627,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 6
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edircondition_value1: TLabeledEdit
@@ -27380,6 +27719,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 11
+            Text = ''
             OnButtonClick = edirentryButtonClick
           end
           object edircondition_id: TJvComboEdit
@@ -27433,6 +27773,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 12
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -27442,7 +27783,7 @@ object MainForm: TMainForm
           OnShow = tsSpellLootShow
           DesignSize = (
             992
-            635)
+            600)
           object btSpellLootAdd: TSpeedButton
             Left = 185
             Top = 500
@@ -27676,6 +28017,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -27761,6 +28103,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 3
+            Text = ''
             OnButtonClick = GetItem
           end
           object edslgroupid: TLabeledEdit
@@ -27863,6 +28206,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 9
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -27874,7 +28218,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 0
             Width = 992
-            Height = 635
+            Height = 600
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -27908,6 +28252,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -27945,6 +28290,10 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 8
           OnShow = tsItemInvolvedInShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Panel22: TPanel
             Left = 0
             Top = 0
@@ -27996,6 +28345,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28051,6 +28401,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28106,6 +28457,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28161,6 +28513,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28216,6 +28569,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28244,7 +28598,7 @@ object MainForm: TMainForm
           OnShow = tsEnchantmentShow
           DesignSize = (
             992
-            635)
+            600)
           object btieEnchAdd: TSpeedButton
             Left = 736
             Top = 500
@@ -28452,6 +28806,7 @@ object MainForm: TMainForm
                 Width = 90
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -28520,9 +28875,13 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsItemScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
-            635)
+            600)
           object meitScript: TMemo
             Left = 8
             Top = 8
@@ -28573,6 +28932,10 @@ object MainForm: TMainForm
     object tsOther: TTabSheet
       Caption = 'Other'
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel12: TPanel
         Left = 0
         Top = 0
@@ -28586,16 +28949,17 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 663
+        Height = 628
         ActivePage = tsFishingLoot
         Align = alClient
         TabOrder = 1
+        ExplicitHeight = 663
         object tsFishingLoot: TTabSheet
           Caption = 'Fishing Loot'
           ImageIndex = 4
           DesignSize = (
             992
-            635)
+            600)
           object lbotitem: TLabel
             Left = 96
             Top = 495
@@ -28850,6 +29214,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2
@@ -28956,6 +29321,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 4
+            Text = ''
             OnButtonClick = GetItem
           end
           object btScriptFishingLoot: TButton
@@ -29011,6 +29377,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 3
+            Text = ''
             OnButtonClick = edotentryButtonClick
           end
           object edotZone: TJvComboEdit
@@ -29048,6 +29415,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 0
+            Text = ''
             OnButtonClick = GetArea
           end
           object btGetLootForZone: TButton
@@ -29114,6 +29482,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 9
+            Text = ''
             OnButtonClick = GetConditions
           end
           object edotcondition_id: TJvComboEdit
@@ -29167,6 +29536,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -29177,7 +29547,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 89
             Width = 992
-            Height = 328
+            Height = 293
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -29194,6 +29564,7 @@ object MainForm: TMainForm
                 Width = 80
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -29316,7 +29687,7 @@ object MainForm: TMainForm
           end
           object Panel13: TPanel
             Left = 0
-            Top = 417
+            Top = 382
             Width = 992
             Height = 218
             Align = alBottom
@@ -29397,6 +29768,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 0
+              Text = ''
               OnButtonClick = LoadPageText
             end
             object edptnext_page: TJvComboEdit
@@ -29450,6 +29822,7 @@ object MainForm: TMainForm
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
               TabOrder = 1
+              Text = ''
               OnButtonClick = LoadPageText
             end
             object edpttext: TMemo
@@ -29574,7 +29947,7 @@ object MainForm: TMainForm
           end
           object pnSelectedEventInfo: TPanel
             Left = 0
-            Top = 343
+            Top = 308
             Width = 992
             Height = 292
             Align = alBottom
@@ -29987,6 +30360,7 @@ object MainForm: TMainForm
                 end>
               Enabled = False
               HideSelection = False
+              Items.ItemData = {}
               ReadOnly = True
               RowSelect = True
               TabOrder = 0
@@ -30029,6 +30403,7 @@ object MainForm: TMainForm
                 end>
               Enabled = False
               HideSelection = False
+              Items.ItemData = {}
               ReadOnly = True
               RowSelect = True
               TabOrder = 2
@@ -30083,6 +30458,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 1
+              Text = ''
               OnButtonClick = edgeCreatureGuidButtonClick
             end
             object edgeGOguid: TJvComboEdit
@@ -30121,6 +30497,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 3
+              Text = ''
               OnButtonClick = edgeGOguidButtonClick
             end
             object btScriptGameEvent: TButton
@@ -30139,14 +30516,14 @@ object MainForm: TMainForm
             Left = 0
             Top = 89
             Width = 992
-            Height = 254
+            Height = 219
             Align = alClient
             TabOrder = 2
             object lvSearchGameEvent: TJvListView
               Left = 1
               Top = 1
               Width = 990
-              Height = 193
+              Height = 158
               Align = alClient
               BorderStyle = bsNone
               Columns = <
@@ -30179,6 +30556,7 @@ object MainForm: TMainForm
                   Width = 250
                 end>
               HideSelection = False
+              Items.ItemData = {}
               ReadOnly = True
               RowSelect = True
               TabOrder = 0
@@ -30204,12 +30582,13 @@ object MainForm: TMainForm
             end
             object Panel18: TPanel
               Left = 1
-              Top = 194
+              Top = 159
               Width = 990
               Height = 59
               Align = alBottom
               BevelOuter = bvNone
               TabOrder = 1
+              ExplicitTop = 194
               object btGameEventDel: TSpeedButton
                 Left = 843
                 Top = 27
@@ -30475,7 +30854,7 @@ object MainForm: TMainForm
           ImageIndex = 4
           DesignSize = (
             992
-            635)
+            600)
           object lbcontype: TLabel
             Left = 125
             Top = 18
@@ -30545,6 +30924,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetConditions
           end
           object btScriptConditions: TButton
@@ -30608,6 +30988,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 4
+            Text = ''
             OnButtonClick = edconentryButtonClick
           end
         end
@@ -30615,9 +30996,13 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsOtherScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
-            635)
+            600)
           object meotScript: TMemo
             Left = 8
             Top = 8
@@ -30668,6 +31053,10 @@ object MainForm: TMainForm
     object tsChars: TTabSheet
       Caption = 'Character'
       ImageIndex = 6
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -30684,10 +31073,11 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 663
+        Height = 628
         ActivePage = tsCharSearch
         Align = alClient
         TabOrder = 1
+        ExplicitHeight = 663
         object tsCharSearch: TTabSheet
           Caption = 'Search'
           object Panel16: TPanel
@@ -30807,7 +31197,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 105
             Width = 992
-            Height = 511
+            Height = 476
             Align = alClient
             BorderStyle = bsNone
             Columns = <
@@ -30836,6 +31226,7 @@ object MainForm: TMainForm
                 Width = 60
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -30858,13 +31249,14 @@ object MainForm: TMainForm
           end
           object StatusBarChar: TStatusBar
             Left = 0
-            Top = 616
+            Top = 581
             Width = 992
             Height = 19
             Panels = <
               item
                 Width = 50
               end>
+            ExplicitTop = 616
           end
         end
         object tsCharacter: TTabSheet
@@ -30872,7 +31264,7 @@ object MainForm: TMainForm
           ImageIndex = 1
           DesignSize = (
             992
-            635)
+            600)
           object lbhtdata: TLabel
             Left = 19
             Top = 81
@@ -31220,6 +31612,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 27
+            Text = ''
             OnButtonClick = edhtdataButtonClick
           end
           object edhtrace: TJvComboEdit
@@ -31257,6 +31650,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 28
+            Text = ''
             OnButtonClick = GetRace
           end
           object edhtclass: TJvComboEdit
@@ -31294,6 +31688,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 29
+            Text = ''
             OnButtonClick = GetClass
           end
           object edhtmap: TJvComboEdit
@@ -31331,6 +31726,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 30
+            Text = ''
             OnButtonClick = GetMap
           end
           object edhttaximask: TJvComboEdit
@@ -31368,6 +31764,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 31
+            Text = ''
             OnButtonClick = edhttaximaskButtonClick
           end
           object edhtzone: TJvComboEdit
@@ -31405,6 +31802,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 32
+            Text = ''
             OnButtonClick = GetArea
           end
           object btShowCharacterScript: TButton
@@ -31467,6 +31865,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 34
+            Text = ''
             OnButtonClick = edhtguidButtonClick
           end
         end
@@ -31475,7 +31874,7 @@ object MainForm: TMainForm
           ImageIndex = 3
           DesignSize = (
             992
-            635)
+            600)
           object btCharInvDel: TSpeedButton
             Left = 800
             Top = 499
@@ -31707,6 +32106,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2
@@ -31773,6 +32173,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 4
+            Text = ''
             OnButtonClick = GetItem
           end
           object edhibag: TLabeledEdit
@@ -31810,9 +32211,13 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 2
           OnShow = tsCharacterScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
-            635)
+            600)
           object mehtScript: TMemo
             Left = 8
             Top = 8
@@ -31863,6 +32268,10 @@ object MainForm: TMainForm
     object tsDBScript: TTabSheet
       Caption = 'DBScript'
       ImageIndex = 7
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel26: TPanel
         Left = 0
         Top = 0
@@ -31876,16 +32285,17 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 663
+        Height = 628
         ActivePage = tsString
         Align = alClient
         TabOrder = 1
+        ExplicitHeight = 663
         object tsString: TTabSheet
           Caption = 'db_script_string'
           ImageIndex = 4
           DesignSize = (
             992
-            635)
+            600)
           object lbdbstype: TLabel
             Left = 221
             Top = 18
@@ -32027,6 +32437,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 0
+            Text = ''
             OnButtonClick = GetTextType
           end
           object btDBScript: TButton
@@ -32093,6 +32504,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 2
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddbsemote: TJvComboEdit
@@ -32133,6 +32545,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 3
+            Text = ''
             OnButtonClick = GetEmote
           end
           object eddbslanguage: TJvComboEdit
@@ -32173,6 +32586,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 4
+            Text = ''
             OnButtonClick = LangButtonClick
           end
           object eddbssound: TJvComboEdit
@@ -32213,6 +32627,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 5
+            Text = ''
             OnButtonClick = GetSoundEntries
           end
           object eddbscontent_default: TMemo
@@ -32301,7 +32716,7 @@ object MainForm: TMainForm
           ImageIndex = 6
           DesignSize = (
             992
-            635)
+            600)
           object btssAdd: TSpeedButton
             Left = 784
             Top = 456
@@ -32575,6 +32990,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -32657,6 +33073,7 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetCommand
             OnChange = edsscommandChange
           end
@@ -32853,6 +33270,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = edssidButtonClick
           end
           object edssdataint: TJvComboEdit
@@ -32909,6 +33327,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edssdataint2: TJvComboEdit
@@ -32965,6 +33384,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 16
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edssdataint3: TJvComboEdit
@@ -33021,6 +33441,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 17
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edssdataint4: TJvComboEdit
@@ -33077,6 +33498,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
         end
@@ -33085,7 +33507,7 @@ object MainForm: TMainForm
           ImageIndex = 7
           DesignSize = (
             992
-            635)
+            600)
           object btesAdd: TSpeedButton
             Left = 786
             Top = 455
@@ -33361,6 +33783,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -33443,6 +33866,7 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetCommand
             OnChange = edescommandChange
           end
@@ -33639,6 +34063,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = edesidButtonClick
           end
           object edesdataint: TJvComboEdit
@@ -33695,6 +34120,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edesdataint4: TJvComboEdit
@@ -33751,6 +34177,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 16
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edesdataint3: TJvComboEdit
@@ -33807,6 +34234,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 17
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edesdataint2: TJvComboEdit
@@ -33863,6 +34291,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
         end
@@ -33871,7 +34300,7 @@ object MainForm: TMainForm
           ImageIndex = 19
           DesignSize = (
             992
-            635)
+            600)
           object btcmsAdd: TSpeedButton
             Left = 784
             Top = 456
@@ -34139,6 +34568,7 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 1
+            Text = ''
             OnButtonClick = GetCommand
             OnChange = edsscommandChange
           end
@@ -34315,6 +34745,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 12
@@ -34426,6 +34857,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edcmsdataint2: TJvComboEdit
@@ -34482,6 +34914,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edcmsdataint3: TJvComboEdit
@@ -34538,6 +34971,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 16
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edcmsdataint4: TJvComboEdit
@@ -34594,6 +35028,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 17
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edcmsid: TJvComboEdit
@@ -34647,6 +35082,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = edcmsidButtonClick
           end
         end
@@ -34655,7 +35091,7 @@ object MainForm: TMainForm
           ImageIndex = 24
           DesignSize = (
             992
-            635)
+            600)
           object lbcds: TLabel
             Left = 8
             Top = 8
@@ -34914,6 +35350,7 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 0
+            Text = ''
             OnButtonClick = GetCommand
             OnChange = edsscommandChange
           end
@@ -35113,6 +35550,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 13
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edcdsdataint2: TJvComboEdit
@@ -35169,6 +35607,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edcdsdataint3: TJvComboEdit
@@ -35225,6 +35664,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edcdsdataint4: TJvComboEdit
@@ -35281,6 +35721,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 16
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object lvcdsCreatureOnDeathScript: TJvListView
@@ -35335,6 +35776,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 17
@@ -35431,6 +35873,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = edcdsidButtonClick
           end
         end
@@ -35440,7 +35883,7 @@ object MainForm: TMainForm
           OnShow = tsButtonScriptShow
           DesignSize = (
             992
-            635)
+            600)
           object lbhintGOButtonScript: TLabel
             Left = 8
             Top = 8
@@ -35714,6 +36157,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -35881,6 +36325,7 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetCommand
             OnChange = edsscommandChange
           end
@@ -35995,6 +36440,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edgbdataint2: TJvComboEdit
@@ -36051,6 +36497,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edgbdataint3: TJvComboEdit
@@ -36107,6 +36554,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 16
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edgbdataint4: TJvComboEdit
@@ -36163,6 +36611,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 17
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edgbid: TJvComboEdit
@@ -36216,6 +36665,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = edgbidButtonClick
           end
         end
@@ -36224,7 +36674,7 @@ object MainForm: TMainForm
           ImageIndex = 7
           DesignSize = (
             992
-            635)
+            600)
           object lbhintGOTemplateScript: TLabel
             Left = 8
             Top = 8
@@ -36498,6 +36948,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -36709,6 +37160,7 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 12
+            Text = ''
             OnButtonClick = GetCommand
             OnChange = edsscommandChange
           end
@@ -36779,6 +37231,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edgtbdataint2: TJvComboEdit
@@ -36835,6 +37288,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edgtbdataint3: TJvComboEdit
@@ -36891,6 +37345,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 16
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edgtbdataint4: TJvComboEdit
@@ -36947,6 +37402,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 17
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object edgtbid: TJvComboEdit
@@ -37000,6 +37456,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = edgtbidButtonClick
           end
         end
@@ -37008,7 +37465,7 @@ object MainForm: TMainForm
           ImageIndex = 8
           DesignSize = (
             992
-            635)
+            600)
           object lbEventInfo: TLabel
             Left = 8
             Top = 8
@@ -37282,6 +37739,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -37377,6 +37835,7 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetCommand
             OnChange = edsscommandChange
           end
@@ -37563,6 +38022,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddoedataint2: TJvComboEdit
@@ -37619,6 +38079,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddoedataint3: TJvComboEdit
@@ -37675,6 +38136,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 16
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddoedataint4: TJvComboEdit
@@ -37731,6 +38193,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 17
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddoeid: TJvComboEdit
@@ -37784,6 +38247,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = eddoeidButtonClick
           end
         end
@@ -37792,7 +38256,7 @@ object MainForm: TMainForm
           ImageIndex = 9
           DesignSize = (
             992
-            635)
+            600)
           object lbGossipInfo: TLabel
             Left = 8
             Top = 8
@@ -38066,6 +38530,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -38161,6 +38626,7 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetCommand
             OnChange = edsscommandChange
           end
@@ -38347,6 +38813,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddogdataint2: TJvComboEdit
@@ -38403,6 +38870,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddogdataint3: TJvComboEdit
@@ -38459,6 +38927,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 16
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddogdataint4: TJvComboEdit
@@ -38515,6 +38984,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 17
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddogid: TJvComboEdit
@@ -38568,6 +39038,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = eddogidButtonClick
           end
         end
@@ -38576,7 +39047,7 @@ object MainForm: TMainForm
           ImageIndex = 10
           DesignSize = (
             992
-            635)
+            600)
           object lbSpellInfo: TLabel
             Left = 8
             Top = 8
@@ -38850,6 +39321,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -38945,6 +39417,7 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 2
+            Text = ''
             OnButtonClick = GetCommand
             OnChange = edsscommandChange
           end
@@ -39131,6 +39604,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddosdataint2: TJvComboEdit
@@ -39187,6 +39661,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 15
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddosdataint3: TJvComboEdit
@@ -39243,6 +39718,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 16
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddosdataint4: TJvComboEdit
@@ -39299,6 +39775,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 17
+            Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
           object eddosid: TJvComboEdit
@@ -39352,6 +39829,7 @@ object MainForm: TMainForm
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 18
+            Text = ''
             OnButtonClick = eddosidButtonClick
           end
         end
@@ -39359,9 +39837,13 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsDBScriptsOnShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
-            635)
+            600)
           object medbScript: TMemo
             Left = 8
             Top = 8
@@ -39412,6 +39894,10 @@ object MainForm: TMainForm
     object tsSQL: TTabSheet
       Caption = 'SQL'
       ImageIndex = 5
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel14: TPanel
         Left = 0
         Top = 0
@@ -39425,12 +39911,17 @@ object MainForm: TMainForm
         Left = 0
         Top = 25
         Width = 1000
-        Height = 663
+        Height = 628
         ActivePage = tsSQL1
         Align = alClient
         TabOrder = 1
+        ExplicitHeight = 663
         object tsSQL1: TTabSheet
           Caption = 'Recordset1'
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Panel15: TPanel
             Left = 0
             Top = 0
@@ -39477,7 +39968,7 @@ object MainForm: TMainForm
             Left = 0
             Top = 113
             Width = 992
-            Height = 522
+            Height = 487
             Align = alClient
             Ctl3D = False
             DataSource = DataSource
@@ -39505,9 +39996,11 @@ object MainForm: TMainForm
   object MyMangosConnection: TZConnection
     ControlsCodePage = cCP_UTF16
     ClientCodepage = 'utf8'
+    Catalog = ''
     Properties.Strings = (
       'codepage=utf8')
     SQLHourGlass = True
+    HostName = ''
     Port = 3306
     Database = 'mangos'
     User = 'root'
