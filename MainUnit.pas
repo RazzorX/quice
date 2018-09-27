@@ -9,7 +9,8 @@ uses
   CheckQuestThreadUnit, Buttons, About, xpman, ActnList, ExtActns, Mask, Grids, TextFieldEditorUnit,
   JvExComCtrls, JvListView, JvExMask, JvToolEdit, DBGrids, JvExDBGrids, JvDBGrid, JvComponentBase,
   JvUrlListGrabber, JvUrlGrabbers, JvExControls, JvLinkLabel, ZAbstractRODataset, ZAbstractDataset,
-  ZDataset, ZConnection, ZSqlProcessor, LocNPCFrame, ZAbstractConnection;
+  ZDataset, ZConnection, ZSqlProcessor, LocNPCFrame, ZAbstractConnection,
+  System.Actions;
 
 const
 {$IFDEF CMANGOS}
@@ -2126,6 +2127,8 @@ type
     lbcmid: TLabel;
     edcmtentry: TJvComboEdit;
     lbcmtentry: TLabel;
+    edctSchoolImmuneMask: TJvComboEdit;
+    lbctSchoolImmuneMask: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2503,6 +2506,7 @@ type
     procedure GetActionType(Sender: TObject);
     procedure linkEventAIInfoClick(Sender: TObject);
     procedure GetMechanicImmuneMask(Sender: TObject);
+    procedure GetSchoolImmuneMask(Sender: TObject);
     procedure lvSearchItemCustomDrawSubItem(Sender: TCustomListView; Item: TListItem; SubItem: Integer;
       State: TCustomDrawState; var DefaultDraw: Boolean);
     procedure Timer1Timer(Sender: TObject);
@@ -5964,6 +5968,11 @@ end;
 procedure TMainForm.GetMechanicImmuneMask(Sender: TObject);
 begin
   GetSomeFlags(Sender, 'Mechanic');
+end;
+
+procedure TMainForm.GetSchoolImmuneMask(Sender: TObject);
+begin
+  GetSomeFlags(Sender, 'School');
 end;
 
 procedure TMainForm.GetInhabitType(Sender: TObject);
