@@ -2132,6 +2132,10 @@ type
     edgelinkedTo: TLabeledEdit;
     edqtRequiredCondition: TJvComboEdit;
     lbRequiredCondition: TLabel;
+    edcrcondition_id: TJvComboEdit;
+    lbcrcondition_id: TLabel;
+    edcrtcondition_id: TJvComboEdit;
+    lbcrtcondition_id: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
