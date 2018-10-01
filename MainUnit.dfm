@@ -30804,7 +30804,7 @@ object MainForm: TMainForm
                 EditLabel.Height = 13
                 EditLabel.Caption = 'end_time'
                 TabOrder = 2
-                Text = '0000-00-00 00:00:00'
+                Text = '1970-01-01 00:00:00'
               end
               object edgestart_time: TLabeledEdit
                 Left = 94
@@ -30816,7 +30816,7 @@ object MainForm: TMainForm
                 EditLabel.Height = 13
                 EditLabel.Caption = 'start_time'
                 TabOrder = 1
-                Text = '0000-00-00 00:00:00'
+                Text = '1970-01-01 00:00:00'
               end
               object edgeentry: TLabeledEdit
                 Left = 8

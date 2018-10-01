@@ -7840,10 +7840,10 @@ begin
               try
                 t := FormatDateTime('yyyy-mm-dd hh:mm:ss', Field.AsDateTime);
               except
-                t := '0000-00-00 00:00:00';
+                t := '1970-01-01 00:00:00';
               end;
               if t = '1899-12-30 00:00:00' then
-                t := '0000-00-00 00:00:00';
+                t := '1970-01-01 00:00:00';
 
             end
             else
