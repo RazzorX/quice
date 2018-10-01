@@ -2130,6 +2130,8 @@ type
     edctSchoolImmuneMask: TJvComboEdit;
     lbctSchoolImmuneMask: TLabel;
     edgelinkedTo: TLabeledEdit;
+    edqtRequiredCondition: TJvComboEdit;
+    lbRequiredCondition: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

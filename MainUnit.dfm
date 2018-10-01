@@ -1495,7 +1495,7 @@ object MainForm: TMainForm
           object gbRequirementsBegin: TGroupBox
             Left = 472
             Top = 8
-            Width = 217
+            Width = 316
             Height = 146
             Caption = 'Requirements to begin quest'
             TabOrder = 3
@@ -1519,6 +1519,13 @@ object MainForm: TMainForm
               Width = 62
               Height = 13
               Caption = 'RequiredSkill'
+            end
+            object lbRequiredCondition: TLabel
+              Left = 214
+              Top = 16
+              Width = 87
+              Height = 13
+              Caption = 'RequiredCondition'
             end
             object edqtRequiredMinRepValue: TLabeledEdit
               Left = 120
@@ -1674,9 +1681,63 @@ object MainForm: TMainForm
               Text = ''
               OnButtonClick = GetSkill
             end
+            object edqtRequiredCondition: TJvComboEdit
+              Left = 214
+              Top = 32
+              Width = 94
+              Height = 21
+              ButtonWidth = 22
+              ClickKey = 13
+              Glyph.Data = {
+                36050000424D3605000000000000360400002800000010000000100000000100
+                080000000000000100000000000000000000000100000000000000000000FFFF
+                FF00F28C0000FBC87E00B2795C00B8570C00E69D4B00CC782E00D39C7900A961
+                3300D66E0000F9B85A00ED972800CE854B00B6917700D97C1700B7642000F6A7
+                3700AE684D00EDB36C00CB6D1900F5971600DF8D3000B7856800D0946A00E680
+                0000C25A0000BF712900D08E5700CB650100B4652D00EFA64800D2813500CC76
+                2100DD770000CB6A0E00E9860900AF715500BA5B1500A8654600F5B86C00C06A
+                2300BB540000D8740700BA8D7000D27A2600C6702200BE631E00EB850000BB67
+                2700CF854400B7611A00D6771400CF6A0200B7806400B57D6000B68D7200D36A
+                0000CB6F1500B8886B00B0745800AC6B4F00B8692900C16D2500D0966D00E079
+                0000C06D2100CD752400CD660000B2662E00A8664800AA623400F18B0000CA65
+                0100C0C0C0000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                0000000000000000000000000000000000000000000000000000000000000000
+                00000000000000000000000000000000000000000000000000004A4A4A4A4A4A
+                4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A33384A4A4A4A4A4A4A4A4A4A4A4A4A2103
+                433B4A4A4A4A4A4A4A4A4A4A4A3F13280B14364A4A4A4A4A4A4A4A4A4A4A2906
+                1F1123044A4A4A4A4A4A4A4A4A4A4A3E160C151D254A4A4A4A4A4A4A4A4A4A4A
+                450F244844124A4A4A4A4A4A4A4A4A4A4A093519020A274A4A4A4A4A4A4A4A4A
+                4A4749413039464A4A4A4A4A4A4A4A4A1E3A2B221A3D4A4A4A4A4A4A4A4A4A31
+                072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
+                1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
+                0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
+              TabOrder = 6
+              Text = ''
+              OnButtonClick = edconentryButtonClick
+            end
           end
           object gbSource: TGroupBox
-            Left = 696
+            Left = 794
             Top = 8
             Width = 121
             Height = 146
@@ -5771,7 +5832,6 @@ object MainForm: TMainForm
                 Width = 80
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -5834,7 +5894,6 @@ object MainForm: TMainForm
                 Width = 70
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -6032,7 +6091,6 @@ object MainForm: TMainForm
                 Width = 180
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -6083,7 +6141,6 @@ object MainForm: TMainForm
                 Width = 160
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -6111,10 +6168,6 @@ object MainForm: TMainForm
         object tsLocalesQuest: TTabSheet
           Caption = 'Locales Quest'
           ImageIndex = 9
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object gbLocalesQuest: TGroupBox
             Left = 3
             Top = 3
@@ -6665,7 +6718,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 7
@@ -6756,10 +6808,6 @@ object MainForm: TMainForm
           Caption = 'SQL-Script Tab'
           ImageIndex = 2
           OnShow = tsScriptTabShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -6813,10 +6861,6 @@ object MainForm: TMainForm
     object tsCreature: TTabSheet
       Caption = 'Creature'
       ImageIndex = 2
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object PageControl3: TPageControl
         Left = 0
         Top = 25
@@ -7079,7 +7123,6 @@ object MainForm: TMainForm
                 Width = 112
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -9572,7 +9615,6 @@ object MainForm: TMainForm
                 Width = 100
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -10361,7 +10403,6 @@ object MainForm: TMainForm
                 Width = 48
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -10968,7 +11009,6 @@ object MainForm: TMainForm
                 Width = 48
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -11365,7 +11405,6 @@ object MainForm: TMainForm
                 Width = 120
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -11949,7 +11988,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -12450,7 +12488,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -12950,7 +12987,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13433,7 +13469,6 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13862,7 +13897,6 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -14644,10 +14678,6 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 11
           OnShow = tsCreatureUsedShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object pcCreatureInfo: TPageControl
             Left = 0
             Top = 41
@@ -14690,7 +14720,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14747,7 +14776,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14804,7 +14832,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -15249,7 +15276,6 @@ object MainForm: TMainForm
                 Width = 36
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -16423,7 +16449,6 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 7
@@ -16728,7 +16753,6 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -17491,7 +17515,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2
@@ -18447,10 +18470,6 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsCreatureScriptShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           DesignSize = (
             992
             564)
@@ -18513,10 +18532,6 @@ object MainForm: TMainForm
     object tsGameObject: TTabSheet
       Caption = 'Game Object'
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object PageControl4: TPageControl
         Left = 0
         Top = 25
@@ -18789,7 +18804,6 @@ object MainForm: TMainForm
                 Caption = 'castbarcaption_loc*'
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -19888,7 +19902,6 @@ object MainForm: TMainForm
                 Width = 100
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -20413,7 +20426,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -20668,10 +20680,6 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 5
           OnShow = tsGOInvolvedInShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object pcGameObjectInfo: TPageControl
             Left = 0
             Top = 41
@@ -20714,7 +20722,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -20770,7 +20777,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -20826,7 +20832,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -20862,10 +20867,6 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsGOScriptShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -20928,10 +20929,6 @@ object MainForm: TMainForm
     object tsItem: TTabSheet
       Caption = 'Item'
       ImageIndex = 3
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel9: TPanel
         Left = 0
         Top = 0
@@ -21387,7 +21384,6 @@ object MainForm: TMainForm
             Font.Name = 'MS Sans Serif'
             Font.Style = []
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             ParentFont = False
@@ -25460,7 +25456,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -25967,7 +25962,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -26474,7 +26468,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -26972,7 +26965,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -27476,7 +27468,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -28011,7 +28002,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -28246,7 +28236,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -28284,10 +28273,6 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 8
           OnShow = tsItemInvolvedInShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object Panel22: TPanel
             Left = 0
             Top = 0
@@ -28339,7 +28324,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28395,7 +28379,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28451,7 +28434,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28507,7 +28489,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28563,7 +28544,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28800,7 +28780,6 @@ object MainForm: TMainForm
                 Width = 90
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -28869,10 +28848,6 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsItemScriptShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -28940,7 +28915,7 @@ object MainForm: TMainForm
         Top = 25
         Width = 1000
         Height = 628
-        ActivePage = tsFishingLoot
+        ActivePage = Conditions
         Align = alClient
         TabOrder = 1
         object tsFishingLoot: TTabSheet
@@ -31057,10 +31032,6 @@ object MainForm: TMainForm
     object tsChars: TTabSheet
       Caption = 'Character'
       ImageIndex = 6
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -31229,7 +31200,6 @@ object MainForm: TMainForm
                 Width = 60
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -32108,7 +32078,6 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2
@@ -32213,10 +32182,6 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 2
           OnShow = tsCharacterScriptShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -32270,10 +32235,6 @@ object MainForm: TMainForm
     object tsDBScript: TTabSheet
       Caption = 'DBScript'
       ImageIndex = 7
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel26: TPanel
         Left = 0
         Top = 0
@@ -32991,7 +32952,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -33784,7 +33744,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -34746,7 +34705,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 12
@@ -35777,7 +35735,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 17
@@ -36158,7 +36115,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -36949,7 +36905,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -37740,7 +37695,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -38531,7 +38485,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -39322,7 +39275,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -39838,10 +39790,6 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsDBScriptsOnShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -39895,10 +39843,6 @@ object MainForm: TMainForm
     object tsSQL: TTabSheet
       Caption = 'SQL'
       ImageIndex = 5
-      ExplicitLeft = 0
-      ExplicitTop = 0
-      ExplicitWidth = 0
-      ExplicitHeight = 0
       object Panel14: TPanel
         Left = 0
         Top = 0
@@ -39918,10 +39862,6 @@ object MainForm: TMainForm
         TabOrder = 1
         object tsSQL1: TTabSheet
           Caption = 'Recordset1'
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object Panel15: TPanel
             Left = 0
             Top = 0
