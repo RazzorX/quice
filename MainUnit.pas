@@ -2137,6 +2137,8 @@ type
     lbcrtcondition_id: TLabel;
     edgtExtraFlags: TLabeledEdit;
     edgtCustomData1: TLabeledEdit;
+    edcvcomments: TLabeledEdit;
+    edcvtcomments: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
