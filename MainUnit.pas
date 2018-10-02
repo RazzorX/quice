@@ -478,7 +478,7 @@ type
     edclposition_y: TLabeledEdit;
     edclposition_z: TLabeledEdit;
     edclorientation: TLabeledEdit;
-    edclspawntimesecs: TLabeledEdit;
+    edclspawntimesecsmin: TLabeledEdit;
     edclspawndist: TLabeledEdit;
     edclcurrentwaypoint: TLabeledEdit;
     edclspawn_position_x: TLabeledEdit;
@@ -962,7 +962,7 @@ type
     edglrotation1: TLabeledEdit;
     edglrotation2: TLabeledEdit;
     edglrotation3: TLabeledEdit;
-    edglspawntimesecs: TLabeledEdit;
+    edglspawntimesecsmin: TLabeledEdit;
     edglanimprogress: TLabeledEdit;
     edglstate: TLabeledEdit;
     lbglGOLocationHint: TLabel;
@@ -2157,6 +2157,8 @@ type
     eddogdatalong3: TLabeledEdit;
     eddosdatalong3: TLabeledEdit;
     edcmtpathId: TLabeledEdit;
+    edclspawntimesecsmax: TLabeledEdit;
+    edglspawntimesecsmax: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

@@ -9615,7 +9615,6 @@ object MainForm: TMainForm
                 Width = 100
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -9685,20 +9684,20 @@ object MainForm: TMainForm
             EditLabel.Caption = 'edclorientation'
             TabOrder = 5
           end
-          object edclspawntimesecs: TLabeledEdit
+          object edclspawntimesecsmin: TLabeledEdit
             Left = 8
             Top = 448
             Width = 81
             Height = 21
             Hint = 'Delay before creature respawns in seconds'
-            EditLabel.Width = 92
+            EditLabel.Width = 88
             EditLabel.Height = 13
-            EditLabel.Caption = 'edclspawntimesecs'
+            EditLabel.Caption = 'spawntimesecsmin'
             TabOrder = 6
           end
           object edclspawndist: TLabeledEdit
-            Left = 96
-            Top = 448
+            Left = 200
+            Top = 488
             Width = 81
             Height = 21
             Hint = 
@@ -9712,7 +9711,7 @@ object MainForm: TMainForm
           end
           object edclcurrentwaypoint: TLabeledEdit
             Left = 200
-            Top = 448
+            Top = 447
             Width = 81
             Height = 21
             Hint = 'If creature has waypoints, value of its current waypoint.'
@@ -9780,7 +9779,7 @@ object MainForm: TMainForm
             TabOrder = 13
           end
           object edclDeathState: TLabeledEdit
-            Left = 200
+            Left = 288
             Top = 488
             Width = 81
             Height = 21
@@ -9791,7 +9790,7 @@ object MainForm: TMainForm
             TabOrder = 14
           end
           object edclMovementType: TLabeledEdit
-            Left = 288
+            Left = 376
             Top = 488
             Width = 81
             Height = 21
@@ -10138,6 +10137,17 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = edctEquipTemplateIdButtonClick
           end
+          object edclspawntimesecsmax: TLabeledEdit
+            Left = 96
+            Top = 448
+            Width = 81
+            Height = 21
+            Hint = 'Delay before creature respawns in seconds'
+            EditLabel.Width = 91
+            EditLabel.Height = 13
+            EditLabel.Caption = 'spawntimesecsmax'
+            TabOrder = 25
+          end
         end
         object tsCreatureMovement: TTabSheet
           Caption = 'Creature Movement'
@@ -10404,7 +10414,6 @@ object MainForm: TMainForm
                 Width = 48
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -11417,7 +11426,6 @@ object MainForm: TMainForm
                 Width = 120
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -12001,7 +12009,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -12512,7 +12519,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13012,7 +13018,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13505,7 +13510,6 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13951,7 +13955,6 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -14787,10 +14790,6 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 11
           OnShow = tsCreatureUsedShow
-          ExplicitLeft = 0
-          ExplicitTop = 0
-          ExplicitWidth = 0
-          ExplicitHeight = 0
           object pcCreatureInfo: TPageControl
             Left = 0
             Top = 41
@@ -14833,7 +14832,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14890,7 +14888,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14947,7 +14944,6 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
-                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -15392,7 +15388,6 @@ object MainForm: TMainForm
                 Width = 36
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -16566,7 +16561,6 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 7
@@ -16888,7 +16882,6 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -17705,7 +17698,6 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
-            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2
@@ -20243,18 +20235,18 @@ object MainForm: TMainForm
             EditLabel.Caption = 'edglrotation3'
             TabOrder = 11
           end
-          object edglspawntimesecs: TLabeledEdit
+          object edglspawntimesecsmin: TLabeledEdit
             Left = 200
             Top = 528
             Width = 81
             Height = 21
-            EditLabel.Width = 92
+            EditLabel.Width = 88
             EditLabel.Height = 13
-            EditLabel.Caption = 'edglspawntimesecs'
+            EditLabel.Caption = 'spawntimesecsmin'
             TabOrder = 12
           end
           object edglanimprogress: TLabeledEdit
-            Left = 288
+            Left = 374
             Top = 528
             Width = 81
             Height = 21
@@ -20264,7 +20256,7 @@ object MainForm: TMainForm
             TabOrder = 13
           end
           object edglstate: TLabeledEdit
-            Left = 376
+            Left = 461
             Top = 528
             Width = 81
             Height = 21
@@ -20369,6 +20361,16 @@ object MainForm: TMainForm
             TabOrder = 18
             Text = ''
             OnButtonClick = GetSpawnMask
+          end
+          object edglspawntimesecsmax: TLabeledEdit
+            Left = 287
+            Top = 528
+            Width = 81
+            Height = 21
+            EditLabel.Width = 91
+            EditLabel.Height = 13
+            EditLabel.Caption = 'spawntimesecsmax'
+            TabOrder = 19
           end
         end
         object tsGOLoot: TTabSheet
