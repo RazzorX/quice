@@ -2147,6 +2147,15 @@ type
     edcocomments: TLabeledEdit;
     edgocomments: TLabeledEdit;
     edircomments: TLabeledEdit;
+    edssdatalong3: TLabeledEdit;
+    edesdatalong3: TLabeledEdit;
+    edcmsdatalong3: TLabeledEdit;
+    edcdsdatalong3: TLabeledEdit;
+    edgbdatalong3: TLabeledEdit;
+    edgtbdatalong3: TLabeledEdit;
+    eddoedatalong3: TLabeledEdit;
+    eddogdatalong3: TLabeledEdit;
+    eddosdatalong3: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

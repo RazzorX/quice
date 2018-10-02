@@ -33348,7 +33348,7 @@ object MainForm: TMainForm
             TabOrder = 8
           end
           object edssbuddy_entry: TLabeledEdit
-            Left = 440
+            Left = 519
             Top = 456
             Width = 73
             Height = 21
@@ -33360,7 +33360,7 @@ object MainForm: TMainForm
             TabOrder = 9
           end
           object edsssearch_radius: TLabeledEdit
-            Left = 519
+            Left = 598
             Top = 456
             Width = 73
             Height = 21
@@ -33372,7 +33372,7 @@ object MainForm: TMainForm
             TabOrder = 10
           end
           object edssdata_flags: TLabeledEdit
-            Left = 598
+            Left = 677
             Top = 456
             Width = 73
             Height = 21
@@ -33685,6 +33685,18 @@ object MainForm: TMainForm
             TabOrder = 18
             Text = ''
             OnButtonClick = eddbsentryButtonClick
+          end
+          object edssdatalong3: TLabeledEdit
+            Left = 440
+            Top = 456
+            Width = 73
+            Height = 21
+            EditLabel.Width = 47
+            EditLabel.Height = 13
+            EditLabel.Caption = 'datalong3'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 19
           end
         end
         object tsCompleteScript: TTabSheet
@@ -34140,7 +34152,7 @@ object MainForm: TMainForm
             TabOrder = 8
           end
           object edesbuddy_entry: TLabeledEdit
-            Left = 443
+            Left = 523
             Top = 456
             Width = 73
             Height = 21
@@ -34152,7 +34164,7 @@ object MainForm: TMainForm
             TabOrder = 9
           end
           object edessearch_radius: TLabeledEdit
-            Left = 523
+            Left = 602
             Top = 456
             Width = 73
             Height = 21
@@ -34164,7 +34176,7 @@ object MainForm: TMainForm
             TabOrder = 10
           end
           object edesdata_flags: TLabeledEdit
-            Left = 602
+            Left = 681
             Top = 456
             Width = 73
             Height = 21
@@ -34478,6 +34490,18 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = eddbsentryButtonClick
           end
+          object edesdatalong3: TLabeledEdit
+            Left = 443
+            Top = 456
+            Width = 73
+            Height = 21
+            EditLabel.Width = 47
+            EditLabel.Height = 13
+            EditLabel.Caption = 'datalong3'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 19
+          end
         end
         object tsCreatureMovementScript: TTabSheet
           Caption = 'creature_movement'
@@ -34757,7 +34781,7 @@ object MainForm: TMainForm
             OnChange = edsscommandChange
           end
           object edcmsdata_flags: TLabeledEdit
-            Left = 600
+            Left = 679
             Top = 456
             Width = 73
             Height = 21
@@ -34793,7 +34817,7 @@ object MainForm: TMainForm
             TabOrder = 4
           end
           object edcmsbuddy_entry: TLabeledEdit
-            Left = 440
+            Left = 520
             Top = 456
             Width = 73
             Height = 21
@@ -34805,7 +34829,7 @@ object MainForm: TMainForm
             TabOrder = 5
           end
           object edcmssearch_radius: TLabeledEdit
-            Left = 520
+            Left = 600
             Top = 456
             Width = 73
             Height = 21
@@ -35268,6 +35292,18 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = edcmsidButtonClick
           end
+          object edcmsdatalong3: TLabeledEdit
+            Left = 440
+            Top = 456
+            Width = 73
+            Height = 21
+            EditLabel.Width = 47
+            EditLabel.Height = 13
+            EditLabel.Caption = 'datalong3'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 19
+          end
         end
         object tsCreatureOnDeathScript: TTabSheet
           Caption = 'creature_death'
@@ -35560,7 +35596,7 @@ object MainForm: TMainForm
             OnClick = btDBScriptsOnClick
           end
           object edcdsbuddy_entry: TLabeledEdit
-            Left = 441
+            Left = 520
             Top = 456
             Width = 73
             Height = 21
@@ -35584,7 +35620,7 @@ object MainForm: TMainForm
             TabOrder = 4
           end
           object edcdsdata_flags: TLabeledEdit
-            Left = 600
+            Left = 679
             Top = 456
             Width = 73
             Height = 21
@@ -35632,7 +35668,7 @@ object MainForm: TMainForm
             TabOrder = 8
           end
           object edcdssearch_radius: TLabeledEdit
-            Left = 520
+            Left = 600
             Top = 456
             Width = 73
             Height = 21
@@ -36057,6 +36093,18 @@ object MainForm: TMainForm
             TabOrder = 18
             Text = ''
             OnButtonClick = edcdsidButtonClick
+          end
+          object edcdsdatalong3: TLabeledEdit
+            Left = 440
+            Top = 456
+            Width = 73
+            Height = 21
+            EditLabel.Width = 47
+            EditLabel.Height = 13
+            EditLabel.Caption = 'datalong3'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 19
           end
         end
         object tsButtonScript: TTabSheet
@@ -36520,7 +36568,7 @@ object MainForm: TMainForm
             OnClick = btDBScriptsOnClick
           end
           object edgbbuddy_entry: TLabeledEdit
-            Left = 440
+            Left = 520
             Top = 456
             Width = 73
             Height = 21
@@ -36532,7 +36580,7 @@ object MainForm: TMainForm
             TabOrder = 10
           end
           object edgbsearch_radius: TLabeledEdit
-            Left = 520
+            Left = 599
             Top = 456
             Width = 73
             Height = 21
@@ -36544,7 +36592,7 @@ object MainForm: TMainForm
             TabOrder = 11
           end
           object edgbdata_flags: TLabeledEdit
-            Left = 600
+            Left = 678
             Top = 456
             Width = 73
             Height = 21
@@ -36848,6 +36896,18 @@ object MainForm: TMainForm
             TabOrder = 18
             Text = ''
             OnButtonClick = edgbidButtonClick
+          end
+          object edgbdatalong3: TLabeledEdit
+            Left = 440
+            Top = 456
+            Width = 73
+            Height = 21
+            EditLabel.Width = 47
+            EditLabel.Height = 13
+            EditLabel.Caption = 'datalong3'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 19
           end
         end
         object tsGOTemplateScript: TTabSheet
@@ -37196,7 +37256,7 @@ object MainForm: TMainForm
             TabOrder = 2
           end
           object edgtbdata_flags: TLabeledEdit
-            Left = 600
+            Left = 678
             Top = 456
             Width = 73
             Height = 21
@@ -37208,7 +37268,7 @@ object MainForm: TMainForm
             TabOrder = 3
           end
           object edgtbsearch_radius: TLabeledEdit
-            Left = 520
+            Left = 599
             Top = 456
             Width = 73
             Height = 21
@@ -37244,7 +37304,7 @@ object MainForm: TMainForm
             TabOrder = 6
           end
           object edgtbbuddy_entry: TLabeledEdit
-            Left = 440
+            Left = 520
             Top = 456
             Width = 73
             Height = 21
@@ -37638,6 +37698,18 @@ object MainForm: TMainForm
             TabOrder = 18
             Text = ''
             OnButtonClick = edgtbidButtonClick
+          end
+          object edgtbdatalong3: TLabeledEdit
+            Left = 440
+            Top = 456
+            Width = 73
+            Height = 21
+            EditLabel.Width = 47
+            EditLabel.Height = 13
+            EditLabel.Caption = 'datalong3'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 19
           end
         end
         object tsEvent: TTabSheet
@@ -38067,7 +38139,7 @@ object MainForm: TMainForm
             TabOrder = 6
           end
           object eddoebuddy_entry: TLabeledEdit
-            Left = 440
+            Left = 520
             Top = 456
             Width = 73
             Height = 21
@@ -38103,7 +38175,7 @@ object MainForm: TMainForm
             TabOrder = 9
           end
           object eddoesearch_radius: TLabeledEdit
-            Left = 520
+            Left = 599
             Top = 456
             Width = 73
             Height = 21
@@ -38115,7 +38187,7 @@ object MainForm: TMainForm
             TabOrder = 10
           end
           object eddoedata_flags: TLabeledEdit
-            Left = 600
+            Left = 678
             Top = 456
             Width = 73
             Height = 21
@@ -38428,6 +38500,18 @@ object MainForm: TMainForm
             TabOrder = 18
             Text = ''
             OnButtonClick = eddoeidButtonClick
+          end
+          object eddoedatalong3: TLabeledEdit
+            Left = 440
+            Top = 456
+            Width = 73
+            Height = 21
+            EditLabel.Width = 47
+            EditLabel.Height = 13
+            EditLabel.Caption = 'datalong3'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 19
           end
         end
         object tsGossip: TTabSheet
@@ -38857,7 +38941,7 @@ object MainForm: TMainForm
             TabOrder = 6
           end
           object eddogbuddy_entry: TLabeledEdit
-            Left = 440
+            Left = 520
             Top = 456
             Width = 73
             Height = 21
@@ -38893,7 +38977,7 @@ object MainForm: TMainForm
             TabOrder = 9
           end
           object eddogsearch_radius: TLabeledEdit
-            Left = 520
+            Left = 599
             Top = 456
             Width = 73
             Height = 21
@@ -38905,7 +38989,7 @@ object MainForm: TMainForm
             TabOrder = 10
           end
           object eddogdata_flags: TLabeledEdit
-            Left = 600
+            Left = 678
             Top = 456
             Width = 73
             Height = 21
@@ -39218,6 +39302,18 @@ object MainForm: TMainForm
             TabOrder = 18
             Text = ''
             OnButtonClick = eddogidButtonClick
+          end
+          object eddogdatalong3: TLabeledEdit
+            Left = 440
+            Top = 456
+            Width = 73
+            Height = 21
+            EditLabel.Width = 47
+            EditLabel.Height = 13
+            EditLabel.Caption = 'datalong3'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 19
           end
         end
         object tsSpell: TTabSheet
@@ -39647,7 +39743,7 @@ object MainForm: TMainForm
             TabOrder = 6
           end
           object eddosbuddy_entry: TLabeledEdit
-            Left = 440
+            Left = 520
             Top = 456
             Width = 73
             Height = 21
@@ -39683,7 +39779,7 @@ object MainForm: TMainForm
             TabOrder = 9
           end
           object eddossearch_radius: TLabeledEdit
-            Left = 520
+            Left = 599
             Top = 456
             Width = 73
             Height = 21
@@ -39695,7 +39791,7 @@ object MainForm: TMainForm
             TabOrder = 10
           end
           object eddosdata_flags: TLabeledEdit
-            Left = 600
+            Left = 678
             Top = 456
             Width = 73
             Height = 21
@@ -40008,6 +40104,18 @@ object MainForm: TMainForm
             TabOrder = 18
             Text = ''
             OnButtonClick = eddosidButtonClick
+          end
+          object eddosdatalong3: TLabeledEdit
+            Left = 440
+            Top = 456
+            Width = 73
+            Height = 21
+            EditLabel.Width = 47
+            EditLabel.Height = 13
+            EditLabel.Caption = 'datalong3'
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 19
           end
         end
         object tsDBScriptsOn: TTabSheet
