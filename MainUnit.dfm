@@ -9615,6 +9615,7 @@ object MainForm: TMainForm
                 Width = 100
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -10403,6 +10404,7 @@ object MainForm: TMainForm
                 Width = 48
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -11123,7 +11125,7 @@ object MainForm: TMainForm
             TabOrder = 4
           end
           object edcmtpoint: TLabeledEdit
-            Left = 143
+            Left = 270
             Top = 408
             Width = 121
             Height = 21
@@ -11133,8 +11135,8 @@ object MainForm: TMainForm
             TabOrder = 5
           end
           object edcmtposition_x: TLabeledEdit
-            Left = 270
-            Top = 409
+            Left = 397
+            Top = 408
             Width = 121
             Height = 21
             EditLabel.Width = 47
@@ -11183,7 +11185,7 @@ object MainForm: TMainForm
             TabOrder = 10
           end
           object edcmtposition_y: TLabeledEdit
-            Left = 397
+            Left = 524
             Top = 408
             Width = 121
             Height = 21
@@ -11193,7 +11195,7 @@ object MainForm: TMainForm
             TabOrder = 11
           end
           object edcmtposition_z: TLabeledEdit
-            Left = 524
+            Left = 651
             Top = 408
             Width = 121
             Height = 21
@@ -11277,7 +11279,7 @@ object MainForm: TMainForm
             OnButtonClick = edcmsidButtonClick
           end
           object edcmtwaittime: TLabeledEdit
-            Left = 651
+            Left = 778
             Top = 408
             Width = 121
             Height = 21
@@ -11358,6 +11360,16 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = edcmtentryButtonClick
           end
+          object edcmtpathId: TLabeledEdit
+            Left = 143
+            Top = 408
+            Width = 121
+            Height = 21
+            EditLabel.Width = 30
+            EditLabel.Height = 13
+            EditLabel.Caption = 'pathId'
+            TabOrder = 20
+          end
         end
         object tsCreatureModelInfo: TTabSheet
           Caption = 'Model Info'
@@ -11405,6 +11417,7 @@ object MainForm: TMainForm
                 Width = 120
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -11988,6 +12001,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -12498,6 +12512,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -12997,6 +13012,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13489,6 +13505,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13934,6 +13951,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -14769,6 +14787,10 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 11
           OnShow = tsCreatureUsedShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object pcCreatureInfo: TPageControl
             Left = 0
             Top = 41
@@ -14811,6 +14833,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14867,6 +14890,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14923,6 +14947,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -15367,6 +15392,7 @@ object MainForm: TMainForm
                 Width = 36
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -16540,6 +16566,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 7
@@ -16861,6 +16888,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -17677,6 +17705,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2

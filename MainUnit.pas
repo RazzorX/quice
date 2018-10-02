@@ -2156,6 +2156,7 @@ type
     eddoedatalong3: TLabeledEdit;
     eddogdatalong3: TLabeledEdit;
     eddosdatalong3: TLabeledEdit;
+    edcmtpathId: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -7415,16 +7416,17 @@ end;
 
 procedure TMainForm.CompleteCreatureMvmntTemplateScript;
 var
-  entry, cmtpoint, Fields, Values: string;
+  entry, pathId, cmtpoint, Fields, Values: string;
 begin
   mectLog.Clear;
   entry := Trim(edcmtentry.Text);
+  pathid := Trim(edcmtpathId.Text);
   cmtpoint := Trim(edcmtpoint.Text);
   if (entry = '') or (cmtpoint = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'creature_movement_template', PFX_CREATURE_MOVEMENT_TEMPLATE, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_movement_template` WHERE (`entry`=%s) AND (`point`=%s);'#13#10 +
-    'INSERT INTO `creature_movement_template` (%s) VALUES (%s);'#13#10, [entry, cmtpoint, Fields, Values]);
+  mectScript.Text := Format('DELETE FROM `creature_movement_template` WHERE (`entry`=%s) AND (`pathId`=%s) AND (`point`=%s);'#13#10 +
+    'INSERT INTO `creature_movement_template` (%s) VALUES (%s);'#13#10, [entry, pathid, cmtpoint, Fields, Values]);
 end;
 
 procedure TMainForm.CompleteCreatureOnKillReputationScript;
@@ -9243,8 +9245,11 @@ begin
   begin
     if (pfx = 'edcm') then
       Caption := TCustomEdit(FindComponent(pfx + 'id')).Text
-    else
+    else if (pfx = 'edcmt') then
+	begin
       Caption := TCustomEdit(FindComponent(pfx + 'entry')).Text;
+      SubItems.Add(TCustomEdit(FindComponent(pfx + 'pathId')).Text);
+	end;
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'point')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'position_x')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'position_y')).Text);
@@ -9271,25 +9276,46 @@ begin
     with lvList.Selected do
     begin
       if (pfx = 'edcm') then
-        Caption := TCustomEdit(FindComponent(pfx + 'id')).Text
-      else
+	  begin
+        Caption := TCustomEdit(FindComponent(pfx + 'id')).Text;
+        SubItems[0] := TCustomEdit(FindComponent(pfx + 'point')).Text;
+        SubItems[1] := TCustomEdit(FindComponent(pfx + 'position_x')).Text;
+        SubItems[2] := TCustomEdit(FindComponent(pfx + 'position_y')).Text;
+        SubItems[3] := TCustomEdit(FindComponent(pfx + 'position_z')).Text;
+        SubItems[4] := TCustomEdit(FindComponent(pfx + 'waittime')).Text;
+        SubItems[5] := TCustomEdit(FindComponent(pfx + 'script_id')).Text;
+        SubItems[6] := TCustomEdit(FindComponent(pfx + 'textid1')).Text;
+        SubItems[7] := TCustomEdit(FindComponent(pfx + 'textid2')).Text;
+        SubItems[8] := TCustomEdit(FindComponent(pfx + 'textid3')).Text;
+        SubItems[9] := TCustomEdit(FindComponent(pfx + 'textid4')).Text;
+        SubItems[10] := TCustomEdit(FindComponent(pfx + 'textid5')).Text;
+        SubItems[11] := TCustomEdit(FindComponent(pfx + 'emote')).Text;
+        SubItems[12] := TCustomEdit(FindComponent(pfx + 'spell')).Text;
+        SubItems[13] := TCustomEdit(FindComponent(pfx + 'orientation')).Text;
+        SubItems[14] := TCustomEdit(FindComponent(pfx + 'model1')).Text;
+        SubItems[15] := TCustomEdit(FindComponent(pfx + 'model2')).Text;
+      end
+      else if (pfx = 'edcmt') then
+	  begin
         Caption := TCustomEdit(FindComponent(pfx + 'entry')).Text;
-      SubItems[0] := TCustomEdit(FindComponent(pfx + 'point')).Text;
-      SubItems[1] := TCustomEdit(FindComponent(pfx + 'position_x')).Text;
-      SubItems[2] := TCustomEdit(FindComponent(pfx + 'position_y')).Text;
-      SubItems[3] := TCustomEdit(FindComponent(pfx + 'position_z')).Text;
-      SubItems[4] := TCustomEdit(FindComponent(pfx + 'waittime')).Text;
-      SubItems[5] := TCustomEdit(FindComponent(pfx + 'script_id')).Text;
-      SubItems[6] := TCustomEdit(FindComponent(pfx + 'textid1')).Text;
-      SubItems[7] := TCustomEdit(FindComponent(pfx + 'textid2')).Text;
-      SubItems[8] := TCustomEdit(FindComponent(pfx + 'textid3')).Text;
-      SubItems[9] := TCustomEdit(FindComponent(pfx + 'textid4')).Text;
-      SubItems[10] := TCustomEdit(FindComponent(pfx + 'textid5')).Text;
-      SubItems[11] := TCustomEdit(FindComponent(pfx + 'emote')).Text;
-      SubItems[12] := TCustomEdit(FindComponent(pfx + 'spell')).Text;
-      SubItems[13] := TCustomEdit(FindComponent(pfx + 'orientation')).Text;
-      SubItems[14] := TCustomEdit(FindComponent(pfx + 'model1')).Text;
-      SubItems[15] := TCustomEdit(FindComponent(pfx + 'model2')).Text;
+        SubItems[0] := TCustomEdit(FindComponent(pfx + 'pathId')).Text;
+        SubItems[1] := TCustomEdit(FindComponent(pfx + 'point')).Text;
+        SubItems[2] := TCustomEdit(FindComponent(pfx + 'position_x')).Text;
+        SubItems[3] := TCustomEdit(FindComponent(pfx + 'position_y')).Text;
+        SubItems[4] := TCustomEdit(FindComponent(pfx + 'position_z')).Text;
+        SubItems[5] := TCustomEdit(FindComponent(pfx + 'waittime')).Text;
+        SubItems[6] := TCustomEdit(FindComponent(pfx + 'script_id')).Text;
+        SubItems[7] := TCustomEdit(FindComponent(pfx + 'textid1')).Text;
+        SubItems[8] := TCustomEdit(FindComponent(pfx + 'textid2')).Text;
+        SubItems[9] := TCustomEdit(FindComponent(pfx + 'textid3')).Text;
+        SubItems[10] := TCustomEdit(FindComponent(pfx + 'textid4')).Text;
+        SubItems[11] := TCustomEdit(FindComponent(pfx + 'textid5')).Text;
+        SubItems[12] := TCustomEdit(FindComponent(pfx + 'emote')).Text;
+        SubItems[13] := TCustomEdit(FindComponent(pfx + 'spell')).Text;
+        SubItems[14] := TCustomEdit(FindComponent(pfx + 'orientation')).Text;
+        SubItems[15] := TCustomEdit(FindComponent(pfx + 'model1')).Text;
+        SubItems[16] := TCustomEdit(FindComponent(pfx + 'model2')).Text;
+	  end;
     end;
   end;
 end;
@@ -9440,6 +9466,8 @@ procedure TMainForm.btCreatureMvmntTemplateAddClick(Sender: TObject);
 begin
   if (StrToIntDef(edcmtentry.Text, 0) < 1) then
     Exit;
+  if (StrToIntDef(edcmtpathId.Text, 0) < 0) then
+    Exit;
   if (StrToIntDef(edcmtpoint.Text, 0) < 1) then
     edcmtpoint.Text := '1';
   if (StrToIntDef(edcmtpoint.Text, 0) = 1) then
@@ -9569,25 +9597,46 @@ begin
     with lvList.Selected do
     begin
       if (pfx = 'edcm') then
-        TCustomEdit(FindComponent(pfx + 'id')).Text := Caption
-      else
-        TCustomEdit(FindComponent(pfx + 'entry')).Text := Caption;
-      TCustomEdit(FindComponent(pfx + 'point')).Text := SubItems[0];
-      TCustomEdit(FindComponent(pfx + 'position_x')).Text := SubItems[1];
-      TCustomEdit(FindComponent(pfx + 'position_y')).Text := SubItems[2];
-      TCustomEdit(FindComponent(pfx + 'position_z')).Text := SubItems[3];
-      TCustomEdit(FindComponent(pfx + 'waittime')).Text := SubItems[4];
-      TCustomEdit(FindComponent(pfx + 'script_id')).Text := SubItems[5];
-      TCustomEdit(FindComponent(pfx + 'textid1')).Text := SubItems[6];
-      TCustomEdit(FindComponent(pfx + 'textid2')).Text := SubItems[7];
-      TCustomEdit(FindComponent(pfx + 'textid3')).Text := SubItems[8];
-      TCustomEdit(FindComponent(pfx + 'textid4')).Text := SubItems[9];
-      TCustomEdit(FindComponent(pfx + 'textid5')).Text := SubItems[10];
-      TCustomEdit(FindComponent(pfx + 'emote')).Text := SubItems[11];
-      TCustomEdit(FindComponent(pfx + 'spell')).Text := SubItems[12];
-      TCustomEdit(FindComponent(pfx + 'orientation')).Text := SubItems[13];
-      TCustomEdit(FindComponent(pfx + 'model1')).Text := SubItems[14];
-      TCustomEdit(FindComponent(pfx + 'model2')).Text := SubItems[15];
+	  begin
+        Caption := TCustomEdit(FindComponent(pfx + 'id')).Text;
+        SubItems[0] := TCustomEdit(FindComponent(pfx + 'point')).Text;
+        SubItems[1] := TCustomEdit(FindComponent(pfx + 'position_x')).Text;
+        SubItems[2] := TCustomEdit(FindComponent(pfx + 'position_y')).Text;
+        SubItems[3] := TCustomEdit(FindComponent(pfx + 'position_z')).Text;
+        SubItems[4] := TCustomEdit(FindComponent(pfx + 'waittime')).Text;
+        SubItems[5] := TCustomEdit(FindComponent(pfx + 'script_id')).Text;
+        SubItems[6] := TCustomEdit(FindComponent(pfx + 'textid1')).Text;
+        SubItems[7] := TCustomEdit(FindComponent(pfx + 'textid2')).Text;
+        SubItems[8] := TCustomEdit(FindComponent(pfx + 'textid3')).Text;
+        SubItems[9] := TCustomEdit(FindComponent(pfx + 'textid4')).Text;
+        SubItems[10] := TCustomEdit(FindComponent(pfx + 'textid5')).Text;
+        SubItems[11] := TCustomEdit(FindComponent(pfx + 'emote')).Text;
+        SubItems[12] := TCustomEdit(FindComponent(pfx + 'spell')).Text;
+        SubItems[13] := TCustomEdit(FindComponent(pfx + 'orientation')).Text;
+        SubItems[14] := TCustomEdit(FindComponent(pfx + 'model1')).Text;
+        SubItems[15] := TCustomEdit(FindComponent(pfx + 'model2')).Text;
+      end
+      else if (pfx = 'edcmt') then
+	  begin
+        Caption := TCustomEdit(FindComponent(pfx + 'entry')).Text;
+        SubItems[0] := TCustomEdit(FindComponent(pfx + 'pathId')).Text;
+        SubItems[1] := TCustomEdit(FindComponent(pfx + 'point')).Text;
+        SubItems[2] := TCustomEdit(FindComponent(pfx + 'position_x')).Text;
+        SubItems[3] := TCustomEdit(FindComponent(pfx + 'position_y')).Text;
+        SubItems[4] := TCustomEdit(FindComponent(pfx + 'position_z')).Text;
+        SubItems[5] := TCustomEdit(FindComponent(pfx + 'waittime')).Text;
+        SubItems[6] := TCustomEdit(FindComponent(pfx + 'script_id')).Text;
+        SubItems[7] := TCustomEdit(FindComponent(pfx + 'textid1')).Text;
+        SubItems[8] := TCustomEdit(FindComponent(pfx + 'textid2')).Text;
+        SubItems[9] := TCustomEdit(FindComponent(pfx + 'textid3')).Text;
+        SubItems[10] := TCustomEdit(FindComponent(pfx + 'textid4')).Text;
+        SubItems[11] := TCustomEdit(FindComponent(pfx + 'textid5')).Text;
+        SubItems[12] := TCustomEdit(FindComponent(pfx + 'emote')).Text;
+        SubItems[13] := TCustomEdit(FindComponent(pfx + 'spell')).Text;
+        SubItems[14] := TCustomEdit(FindComponent(pfx + 'orientation')).Text;
+        SubItems[15] := TCustomEdit(FindComponent(pfx + 'model1')).Text;
+        SubItems[16] := TCustomEdit(FindComponent(pfx + 'model2')).Text;
+	  end;
     end;
   end;
 end;
