@@ -5832,6 +5832,7 @@ object MainForm: TMainForm
                 Width = 80
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -5894,6 +5895,7 @@ object MainForm: TMainForm
                 Width = 70
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -6091,6 +6093,7 @@ object MainForm: TMainForm
                 Width = 180
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -6141,6 +6144,7 @@ object MainForm: TMainForm
                 Width = 160
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -6168,6 +6172,10 @@ object MainForm: TMainForm
         object tsLocalesQuest: TTabSheet
           Caption = 'Locales Quest'
           ImageIndex = 9
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object gbLocalesQuest: TGroupBox
             Left = 3
             Top = 3
@@ -6718,6 +6726,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 7
@@ -6808,6 +6817,10 @@ object MainForm: TMainForm
           Caption = 'SQL-Script Tab'
           ImageIndex = 2
           OnShow = tsScriptTabShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -9615,6 +9628,7 @@ object MainForm: TMainForm
                 Width = 100
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -10403,6 +10417,7 @@ object MainForm: TMainForm
                 Width = 48
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -11009,6 +11024,7 @@ object MainForm: TMainForm
                 Width = 48
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -11405,6 +11421,7 @@ object MainForm: TMainForm
                 Width = 120
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -11988,6 +12005,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -12488,6 +12506,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -12987,6 +13006,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13469,6 +13489,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -13904,6 +13925,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -14739,6 +14761,10 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 11
           OnShow = tsCreatureUsedShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object pcCreatureInfo: TPageControl
             Left = 0
             Top = 41
@@ -14781,6 +14807,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14837,6 +14864,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -14893,6 +14921,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -15337,6 +15366,7 @@ object MainForm: TMainForm
                 Width = 36
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -16510,6 +16540,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 7
@@ -16821,6 +16852,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -17637,6 +17669,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2
@@ -18592,6 +18625,10 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsCreatureScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
             564)
@@ -19236,7 +19273,7 @@ object MainForm: TMainForm
           ImageIndex = 1
           object gbGO1: TGroupBox
             Left = 3
-            Top = 6
+            Top = 3
             Width = 463
             Height = 140
             Caption = 'GameObject'
@@ -19330,9 +19367,9 @@ object MainForm: TMainForm
               Width = 121
               Height = 21
               Hint = 'Object'#39's name.'
-              EditLabel.Width = 47
+              EditLabel.Width = 26
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtname'
+              EditLabel.Caption = 'name'
               TabOrder = 1
             end
             object edgtdisplayId: TLabeledEdit
@@ -19341,9 +19378,9 @@ object MainForm: TMainForm
               Width = 73
               Height = 21
               Hint = 'Graphic model'#39's id sent to the client.'
-              EditLabel.Width = 62
+              EditLabel.Width = 41
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdisplayId'
+              EditLabel.Caption = 'displayId'
               TabOrder = 4
             end
             object edgtsize: TLabeledEdit
@@ -19354,9 +19391,9 @@ object MainForm: TMainForm
               Hint = 
                 'Object'#39's size must be set because graphic models can be resample' +
                 '.'
-              EditLabel.Width = 39
+              EditLabel.Width = 18
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtsize'
+              EditLabel.Caption = 'size'
               TabOrder = 3
             end
             object edgtScriptName: TLabeledEdit
@@ -19365,9 +19402,9 @@ object MainForm: TMainForm
               Width = 107
               Height = 21
               Hint = 'Script'#39's name this object uses, if needed.'
-              EditLabel.Width = 76
+              EditLabel.Width = 55
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtScriptName'
+              EditLabel.Caption = 'ScriptName'
               TabOrder = 7
             end
             object edgtfaction: TJvComboEdit
@@ -19489,9 +19526,9 @@ object MainForm: TMainForm
               OnChange = edflagsChange
             end
             object edgtcastBarCaption: TLabeledEdit
-              Left = 159
+              Left = 87
               Top = 111
-              Width = 163
+              Width = 122
               Height = 21
               EditLabel.Width = 72
               EditLabel.Height = 13
@@ -19501,7 +19538,7 @@ object MainForm: TMainForm
             object edgtIconName: TLabeledEdit
               Left = 8
               Top = 111
-              Width = 145
+              Width = 73
               Height = 21
               EditLabel.Width = 49
               EditLabel.Height = 13
@@ -19509,29 +19546,29 @@ object MainForm: TMainForm
               TabOrder = 9
             end
             object edgtunk1: TLabeledEdit
-              Left = 333
+              Left = 215
               Top = 111
-              Width = 50
+              Width = 111
               Height = 21
               EditLabel.Width = 24
               EditLabel.Height = 13
               EditLabel.Caption = 'unk1'
               TabOrder = 10
             end
-            object edgtunk2: TLabeledEdit
-              Left = 389
+            object edgtExtraFlags: TLabeledEdit
+              Left = 332
               Top = 111
-              Width = 50
+              Width = 111
               Height = 21
-              EditLabel.Width = 24
+              EditLabel.Width = 49
               EditLabel.Height = 13
-              EditLabel.Caption = 'unk2'
+              EditLabel.Caption = 'ExtraFlags'
               TabOrder = 11
             end
           end
           object btScriptGOTemplate: TButton
-            Left = 656
-            Top = 361
+            Left = 651
+            Top = 333
             Width = 217
             Height = 25
             Caption = 'Show GO Template Script'
@@ -19539,8 +19576,8 @@ object MainForm: TMainForm
             OnClick = btScriptGOClick
           end
           object gbGOsounds: TGroupBox
-            Left = 8
-            Top = 162
+            Left = 3
+            Top = 144
             Width = 865
             Height = 183
             Hint = 
@@ -19553,9 +19590,9 @@ object MainForm: TMainForm
               Top = 32
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata0'
+              EditLabel.Caption = 'data0'
               TabOrder = 0
             end
             object edgtdata1: TLabeledEdit
@@ -19563,9 +19600,9 @@ object MainForm: TMainForm
               Top = 32
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata1'
+              EditLabel.Caption = 'data1'
               TabOrder = 1
             end
             object edgtdata2: TLabeledEdit
@@ -19573,9 +19610,9 @@ object MainForm: TMainForm
               Top = 32
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata2'
+              EditLabel.Caption = 'data2'
               TabOrder = 2
             end
             object edgtdata3: TLabeledEdit
@@ -19583,9 +19620,9 @@ object MainForm: TMainForm
               Top = 32
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata3'
+              EditLabel.Caption = 'data3'
               TabOrder = 3
             end
             object edgtdata4: TLabeledEdit
@@ -19593,9 +19630,9 @@ object MainForm: TMainForm
               Top = 32
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata4'
+              EditLabel.Caption = 'data4'
               TabOrder = 4
             end
             object edgtdata5: TLabeledEdit
@@ -19603,9 +19640,9 @@ object MainForm: TMainForm
               Top = 32
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata5'
+              EditLabel.Caption = 'data5'
               TabOrder = 5
             end
             object edgtdata6: TLabeledEdit
@@ -19613,9 +19650,9 @@ object MainForm: TMainForm
               Top = 32
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata6'
+              EditLabel.Caption = 'data6'
               TabOrder = 6
             end
             object edgtdata7: TLabeledEdit
@@ -19623,9 +19660,9 @@ object MainForm: TMainForm
               Top = 32
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata7'
+              EditLabel.Caption = 'data7'
               TabOrder = 7
             end
             object edgtdata8: TLabeledEdit
@@ -19633,9 +19670,9 @@ object MainForm: TMainForm
               Top = 72
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata8'
+              EditLabel.Caption = 'data8'
               TabOrder = 8
             end
             object edgtdata9: TLabeledEdit
@@ -19643,9 +19680,9 @@ object MainForm: TMainForm
               Top = 72
               Width = 100
               Height = 21
-              EditLabel.Width = 48
+              EditLabel.Width = 27
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata9'
+              EditLabel.Caption = 'data9'
               TabOrder = 9
             end
             object edgtdata10: TLabeledEdit
@@ -19653,9 +19690,9 @@ object MainForm: TMainForm
               Top = 72
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata10'
+              EditLabel.Caption = 'data10'
               TabOrder = 10
             end
             object edgtdata12: TLabeledEdit
@@ -19663,9 +19700,9 @@ object MainForm: TMainForm
               Top = 72
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata12'
+              EditLabel.Caption = 'data12'
               TabOrder = 12
             end
             object edgtdata13: TLabeledEdit
@@ -19673,9 +19710,9 @@ object MainForm: TMainForm
               Top = 72
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata13'
+              EditLabel.Caption = 'data13'
               TabOrder = 13
             end
             object edgtdata14: TLabeledEdit
@@ -19683,9 +19720,9 @@ object MainForm: TMainForm
               Top = 72
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata14'
+              EditLabel.Caption = 'data14'
               TabOrder = 14
             end
             object edgtdata15: TLabeledEdit
@@ -19693,9 +19730,9 @@ object MainForm: TMainForm
               Top = 72
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata15'
+              EditLabel.Caption = 'data15'
               TabOrder = 15
             end
             object edgtdata16: TLabeledEdit
@@ -19703,9 +19740,9 @@ object MainForm: TMainForm
               Top = 112
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata16'
+              EditLabel.Caption = 'data16'
               TabOrder = 16
             end
             object edgtdata17: TLabeledEdit
@@ -19713,9 +19750,9 @@ object MainForm: TMainForm
               Top = 112
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata17'
+              EditLabel.Caption = 'data17'
               TabOrder = 17
             end
             object edgtdata18: TLabeledEdit
@@ -19723,9 +19760,9 @@ object MainForm: TMainForm
               Top = 112
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata18'
+              EditLabel.Caption = 'data18'
               TabOrder = 18
             end
             object edgtdata19: TLabeledEdit
@@ -19733,9 +19770,9 @@ object MainForm: TMainForm
               Top = 112
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata19'
+              EditLabel.Caption = 'data19'
               TabOrder = 19
             end
             object edgtdata11: TLabeledEdit
@@ -19743,9 +19780,9 @@ object MainForm: TMainForm
               Top = 72
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata11'
+              EditLabel.Caption = 'data11'
               TabOrder = 11
             end
             object edgtdata20: TLabeledEdit
@@ -19753,9 +19790,9 @@ object MainForm: TMainForm
               Top = 112
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata20'
+              EditLabel.Caption = 'data20'
               TabOrder = 20
             end
             object edgtdata21: TLabeledEdit
@@ -19763,9 +19800,9 @@ object MainForm: TMainForm
               Top = 112
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata21'
+              EditLabel.Caption = 'data21'
               TabOrder = 21
             end
             object edgtdata22: TLabeledEdit
@@ -19773,9 +19810,9 @@ object MainForm: TMainForm
               Top = 112
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata22'
+              EditLabel.Caption = 'data22'
               TabOrder = 22
             end
             object edgtdata23: TLabeledEdit
@@ -19783,9 +19820,9 @@ object MainForm: TMainForm
               Top = 112
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata23'
+              EditLabel.Caption = 'data23'
               TabOrder = 23
             end
             object edgtdata24: TLabeledEdit
@@ -19793,9 +19830,9 @@ object MainForm: TMainForm
               Top = 152
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata24'
+              EditLabel.Caption = 'data24'
               TabOrder = 24
             end
             object edgtdata25: TLabeledEdit
@@ -19803,9 +19840,9 @@ object MainForm: TMainForm
               Top = 152
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata25'
+              EditLabel.Caption = 'data25'
               TabOrder = 25
             end
             object edgtdata26: TLabeledEdit
@@ -19813,9 +19850,9 @@ object MainForm: TMainForm
               Top = 152
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata26'
+              EditLabel.Caption = 'data26'
               TabOrder = 26
             end
             object edgtdata27: TLabeledEdit
@@ -19823,9 +19860,9 @@ object MainForm: TMainForm
               Top = 152
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata27'
+              EditLabel.Caption = 'data27'
               TabOrder = 27
             end
             object edgtdata28: TLabeledEdit
@@ -19833,9 +19870,9 @@ object MainForm: TMainForm
               Top = 152
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata28'
+              EditLabel.Caption = 'data28'
               TabOrder = 28
             end
             object edgtdata29: TLabeledEdit
@@ -19843,9 +19880,9 @@ object MainForm: TMainForm
               Top = 152
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata29'
+              EditLabel.Caption = 'data29'
               TabOrder = 29
             end
             object edgtdata30: TLabeledEdit
@@ -19853,9 +19890,9 @@ object MainForm: TMainForm
               Top = 152
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata30'
+              EditLabel.Caption = 'data30'
               TabOrder = 30
             end
             object edgtdata31: TLabeledEdit
@@ -19863,15 +19900,15 @@ object MainForm: TMainForm
               Top = 152
               Width = 100
               Height = 21
-              EditLabel.Width = 54
+              EditLabel.Width = 33
               EditLabel.Height = 13
-              EditLabel.Caption = 'edgtdata31'
+              EditLabel.Caption = 'data31'
               TabOrder = 31
             end
           end
           object gbGOQuestItems: TGroupBox
             Left = 474
-            Top = 6
+            Top = 3
             Width = 246
             Height = 140
             Caption = 'Quest Items'
@@ -19939,14 +19976,14 @@ object MainForm: TMainForm
           end
           object gbGOgolds: TGroupBox
             Left = 726
-            Top = 6
-            Width = 247
-            Height = 61
+            Top = 3
+            Width = 142
+            Height = 102
             Caption = 'GO golds'
             TabOrder = 4
             object edgtmaxgold: TLabeledEdit
-              Left = 128
-              Top = 30
+              Left = 7
+              Top = 70
               Width = 107
               Height = 21
               EditLabel.Width = 63
@@ -19964,6 +20001,16 @@ object MainForm: TMainForm
               EditLabel.Caption = 'MinLootGold'
               TabOrder = 1
             end
+          end
+          object edgtCustomData1: TLabeledEdit
+            Left = 733
+            Top = 122
+            Width = 107
+            Height = 21
+            EditLabel.Width = 64
+            EditLabel.Height = 13
+            EditLabel.Caption = 'CustomData1'
+            TabOrder = 5
           end
         end
         object tsGOLocation: TTabSheet
@@ -20024,6 +20071,7 @@ object MainForm: TMainForm
                 Width = 100
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -20548,6 +20596,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -20802,6 +20851,10 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 5
           OnShow = tsGOInvolvedInShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object pcGameObjectInfo: TPageControl
             Left = 0
             Top = 41
@@ -20844,6 +20897,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -20899,6 +20953,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -20954,6 +21009,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -20989,6 +21045,10 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsGOScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -25578,6 +25638,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -26084,6 +26145,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -26590,6 +26652,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -27087,6 +27150,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -27590,6 +27654,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -28124,6 +28189,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -28358,6 +28424,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -28395,6 +28462,10 @@ object MainForm: TMainForm
           Caption = 'Involved in'
           ImageIndex = 8
           OnShow = tsItemInvolvedInShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Panel22: TPanel
             Left = 0
             Top = 0
@@ -28446,6 +28517,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28501,6 +28573,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28556,6 +28629,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28611,6 +28685,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28666,6 +28741,7 @@ object MainForm: TMainForm
                     Width = 80
                   end>
                 HideSelection = False
+                Items.ItemData = {}
                 ReadOnly = True
                 RowSelect = True
                 TabOrder = 0
@@ -28902,6 +28978,7 @@ object MainForm: TMainForm
                 Width = 90
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -28970,6 +29047,10 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsItemScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -29023,6 +29104,10 @@ object MainForm: TMainForm
     object tsOther: TTabSheet
       Caption = 'Other'
       ImageIndex = 4
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel12: TPanel
         Left = 0
         Top = 0
@@ -29300,6 +29385,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2
@@ -29649,6 +29735,7 @@ object MainForm: TMainForm
                 Width = 80
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -30444,6 +30531,7 @@ object MainForm: TMainForm
                 end>
               Enabled = False
               HideSelection = False
+              Items.ItemData = {}
               ReadOnly = True
               RowSelect = True
               TabOrder = 0
@@ -30486,6 +30574,7 @@ object MainForm: TMainForm
                 end>
               Enabled = False
               HideSelection = False
+              Items.ItemData = {}
               ReadOnly = True
               RowSelect = True
               TabOrder = 2
@@ -30642,6 +30731,7 @@ object MainForm: TMainForm
                   Width = 250
                 end>
               HideSelection = False
+              Items.ItemData = {}
               ReadOnly = True
               RowSelect = True
               TabOrder = 0
@@ -31093,6 +31183,10 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsOtherScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -31146,6 +31240,10 @@ object MainForm: TMainForm
     object tsChars: TTabSheet
       Caption = 'Character'
       ImageIndex = 6
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel1: TPanel
         Left = 0
         Top = 0
@@ -31314,6 +31412,7 @@ object MainForm: TMainForm
                 Width = 60
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 1
@@ -32192,6 +32291,7 @@ object MainForm: TMainForm
                 Width = 200
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 2
@@ -32296,6 +32396,10 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 2
           OnShow = tsCharacterScriptShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -32349,6 +32453,10 @@ object MainForm: TMainForm
     object tsDBScript: TTabSheet
       Caption = 'DBScript'
       ImageIndex = 7
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel26: TPanel
         Left = 0
         Top = 0
@@ -33066,6 +33174,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -33858,6 +33967,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -34819,6 +34929,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 12
@@ -35849,6 +35960,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 17
@@ -36229,6 +36341,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -37019,6 +37132,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -37809,6 +37923,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -38599,6 +38714,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -39389,6 +39505,7 @@ object MainForm: TMainForm
               item
               end>
             HideSelection = False
+            Items.ItemData = {}
             ReadOnly = True
             RowSelect = True
             TabOrder = 0
@@ -39904,6 +40021,10 @@ object MainForm: TMainForm
           Caption = 'Script'
           ImageIndex = 3
           OnShow = tsDBScriptsOnShow
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           DesignSize = (
             992
             600)
@@ -39957,6 +40078,10 @@ object MainForm: TMainForm
     object tsSQL: TTabSheet
       Caption = 'SQL'
       ImageIndex = 5
+      ExplicitLeft = 0
+      ExplicitTop = 0
+      ExplicitWidth = 0
+      ExplicitHeight = 0
       object Panel14: TPanel
         Left = 0
         Top = 0
@@ -39976,6 +40101,10 @@ object MainForm: TMainForm
         TabOrder = 1
         object tsSQL1: TTabSheet
           Caption = 'Recordset1'
+          ExplicitLeft = 0
+          ExplicitTop = 0
+          ExplicitWidth = 0
+          ExplicitHeight = 0
           object Panel15: TPanel
             Left = 0
             Top = 0

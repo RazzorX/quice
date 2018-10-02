@@ -1698,7 +1698,6 @@ type
     edgtdata29: TLabeledEdit;
     edgtdata30: TLabeledEdit;
     edgtdata31: TLabeledEdit;
-    edgtunk2: TLabeledEdit;
     edqtReqItemCount3: TLabeledEdit;
     tsGossipMenu: TTabSheet;
     Panel25: TPanel;
@@ -2136,6 +2135,8 @@ type
     lbcrcondition_id: TLabel;
     edcrtcondition_id: TJvComboEdit;
     lbcrtcondition_id: TLabel;
+    edgtExtraFlags: TLabeledEdit;
+    edgtCustomData1: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -8439,22 +8440,31 @@ begin
       begin
         edgtdata0.Hint := dmMain.Text[95] + ' (data0)';
         edgtdata1.Hint := dmMain.Text[96] + ' (data1)';
-        edgtdata2.Hint := dmMain.Text[97] + ' (data2)';
         edgtdata3.Hint := dmMain.Text[97] + ' (data3)';
       end;
     1:
       begin
         edgtdata0.Hint := dmMain.Text[95] + ' (data0)';
         edgtdata1.Hint := dmMain.Text[96] + ' (data1)';
-        edgtdata2.Hint := dmMain.Text[97] + ' (data2)';
         edgtdata3.Hint := dmMain.Text[98] + ' (data3)';
-        edgtdata4.Hint := dmMain.Text[99] + ' (data4)';
+        edgtdata4.Hint := dmMain.Text[97] + ' (data4)';
+        edgtdata5.Hint := dmMain.Text[97] + ' (data5)';
+        edgtdata6.Hint := dmMain.Text[99] + ' (data6)';
+        edgtdata7.Hint := dmMain.Text[99] + ' (data7)';
+        edgtdata8.Hint := dmMain.Text[97] + ' (data8)';
       end;
     2:
       begin
         edgtdata0.Hint := dmMain.Text[96] + ' (data0)';
         edgtdata1.Hint := dmMain.Text[100] + ' (data1)';
-        edgtdata3.Hint := dmMain.Text[100] + ' (data3)';
+        edgtdata2.Hint := dmMain.Text[172] + ' (data2)';
+        edgtdata3.Hint := dmMain.Text[173] + ' (data3)';
+        edgtdata4.Hint := dmMain.Text[174] + ' (data4)';
+        edgtdata5.Hint := dmMain.Text[97] + ' (data5)';
+        edgtdata6.Hint := dmMain.Text[99] + ' (data6)';
+        edgtdata7.Hint := dmMain.Text[97] + ' (data7)';
+        edgtdata8.Hint := dmMain.Text[97] + ' (data8)';
+        edgtdata9.Hint := dmMain.Text[97] + ' (data9)';
       end;
     3:
       begin
@@ -8467,69 +8477,150 @@ begin
         edgtdata6.Hint := dmMain.Text[100] + ' (data6)';
         edgtdata7.Hint := dmMain.Text[98] + ' (data7)';
         edgtdata8.Hint := dmMain.Text[105] + ' (data8)';
+        edgtdata9.Hint := dmMain.Text[175] + ' (data9)';
+        edgtdata10.Hint := dmMain.Text[97] + ' (data10)';
+        edgtdata11.Hint := dmMain.Text[97] + ' (data11)';
+        edgtdata12.Hint := dmMain.Text[97] + ' (data12)';
+        edgtdata13.Hint := dmMain.Text[97] + ' (data13)';
+        edgtdata14.Hint := dmMain.Text[100] + ' (data14)';
+        edgtdata15.Hint := dmMain.Text[97] + ' (data15)';
       end;
     5:
       begin
-        edgtdata0.Hint := dmMain.Text[95] + ' (data0)';
-        edgtdata1.Hint := dmMain.Text[95] + ' (data1)';
+        edgtdata0.Hint := dmMain.Text[97] + ' (data0)';
+        edgtdata1.Hint := dmMain.Text[97] + ' (data1)';
+        edgtdata2.Hint := dmMain.Text[176] + ' (data2)';
+        edgtdata3.Hint := dmMain.Text[97] + ' (data3)';
+        edgtdata4.Hint := dmMain.Text[97] + ' (data4)';
+        edgtdata5.Hint := dmMain.Text[177] + ' (data5)';
       end;
     6:
       begin
         edgtdata0.Hint := dmMain.Text[96] + ' (data0)';
-        edgtdata1.Hint := dmMain.Text[102] + ' (data1)';
-        edgtdata2.Hint := dmMain.Text[106] + ' (data2)';
+        edgtdata1.Hint := dmMain.Text[178] + ' (data1)';
         edgtdata3.Hint := dmMain.Text[107] + ' (data3)';
         edgtdata4.Hint := dmMain.Text[95] + ' ?' + ' (data4)';
-        edgtdata5.Hint := dmMain.Text[108] + ' (data5)';
-        edgtdata6.Hint := dmMain.Text[109] + ' (data6)';
-        edgtdata7.Hint := dmMain.Text[110] + ' (data7)';
+        edgtdata5.Hint := dmMain.Text[102] + ' (data5)';
+        edgtdata7.Hint := dmMain.Text[102] + ' (data7)';
+        edgtdata8.Hint := dmMain.Text[176] + ' (data8)';
+        edgtdata9.Hint := dmMain.Text[97] + ' (data9)';
+        edgtdata10.Hint := dmMain.Text[97] + ' (data10)';
+        edgtdata11.Hint := dmMain.Text[97] + ' (data11)';
+        edgtdata12.Hint := dmMain.Text[100] + ' (data12)';
       end;
     7:
       begin
-        edgtdata0.Hint := dmMain.Text[95] + ' (data0)';
-        edgtdata1.Hint := dmMain.Text[112] + ' (data1)';
+        edgtdata0.Hint := dmMain.Text[179] + ' (data0)';
       end;
     8:
       begin
         edgtdata0.Hint := dmMain.Text[113] + ' (data0)';
-        edgtdata1.Hint := dmMain.Text[106] + ' (data1)';
         edgtdata2.Hint := dmMain.Text[98] + ' (data2)';
-        edgtdata3.Hint := dmMain.Text[95] + ' ?' + ' (data3)';
       end;
     9:
       begin
         edgtdata0.Hint := dmMain.Text[114] + ' (data0)';
+        edgtdata1.Hint := dmMain.Text[180] + ' (data1)';
         edgtdata2.Hint := dmMain.Text[115] + ' (data2)';
       end;
     10:
       begin
         edgtdata0.Hint := dmMain.Text[96] + ' (data0)';
-        edgtdata1.Hint := dmMain.Text[97] + ' (data1)';
-        edgtdata2.Hint := dmMain.Text[100] + ' (data2)';
-        edgtdata3.Hint := dmMain.Text[97] + ' (data3)';
-        edgtdata4.Hint := dmMain.Text[95] + ' ?' + ' (data4)';
-        edgtdata5.Hint := dmMain.Text[95] + ' ?' + ' (data5)';
+        edgtdata1.Hint := dmMain.Text[177] + ' (data1)';
+        edgtdata2.Hint := dmMain.Text[181] + ' (data2)';
+        edgtdata5.Hint := dmMain.Text[182] + ' (data5)';
+        edgtdata6.Hint := dmMain.Text[102] + ' (data6)';
+        edgtdata7.Hint := dmMain.Text[114] + ' (data7)';
+        edgtdata8.Hint := dmMain.Text[180] + ' (data8)';
+        edgtdata9.Hint := dmMain.Text[115] + ' (data9)';
+        edgtdata10.Hint := dmMain.Text[107] + ' (data10)';
+        edgtdata11.Hint := dmMain.Text[97] + ' (data11)';
+        edgtdata12.Hint := dmMain.Text[98] + ' (data12)';
+        edgtdata13.Hint := dmMain.Text[97] + ' (data13)';
+        edgtdata14.Hint := dmMain.Text[100] + ' (data14)';
+        edgtdata15.Hint := dmMain.Text[100] + ' (data15)';
+        edgtdata16.Hint := dmMain.Text[97] + ' (data16)';
+        edgtdata19.Hint := dmMain.Text[173] + ' (data19)';
+      end;
+	13:
+	  begin
+	    edgtdata0.Hint := dmMain.Text[96] + ' (data0)';
+        edgtdata1.Hint := dmMain.Text[183] + ' (data1)';
+	  end;
+	15:
+	  begin
+	    edgtdata0.Hint := dmMain.Text[184] + ' (data0)';
       end;
     18:
       begin
-        edgtdata0.Hint := dmMain.Text[102] + ' (data0)';
         edgtdata1.Hint := dmMain.Text[107] + ' (data1)';
         edgtdata2.Hint := dmMain.Text[107] + ' (data2)';
+        edgtdata3.Hint := dmMain.Text[97] + ' (data3)';
+        edgtdata4.Hint := dmMain.Text[107] + ' (data4)';
+        edgtdata5.Hint := dmMain.Text[97] + ' (data5)';
+        edgtdata6.Hint := dmMain.Text[97] + ' (data6)';
       end;
     22:
       begin
         edgtdata0.Hint := dmMain.Text[107] + ' (data0)';
-        edgtdata2.Hint := dmMain.Text[95] + ' ?' + ' (data2)';
+        edgtdata2.Hint := dmMain.Text[185] + ' (data2)';
+      end;
+    23:
+      begin
+        edgtdata2.Hint := dmMain.Text[186] + ' (data2)';
       end;
     24:
       begin
+        edgtdata0.Hint := dmMain.Text[96] + ' (data0)';
         edgtdata1.Hint := dmMain.Text[107] + ' (data1)';
+        edgtdata2.Hint := dmMain.Text[106] + ' (data2)';
         edgtdata3.Hint := dmMain.Text[107] + ' (data3)';
         edgtdata4.Hint := dmMain.Text[107] + ' (data4)';
+        edgtdata5.Hint := dmMain.Text[97] + ' (data5)';
+        edgtdata7.Hint := dmMain.Text[97] + ' (data7)';
       end;
-    27:
+    25:
       begin
-        edgtdata0.Hint := dmMain.Text[111] + ' (data0)';
+        edgtdata0.Hint := dmMain.Text[106] + ' (data0)';
+        edgtdata1.Hint := dmMain.Text[101] + ' (data1)';
+        edgtdata4.Hint := dmMain.Text[96] + ' (data4)';
+      end;
+    26:
+      begin
+        edgtdata0.Hint := dmMain.Text[96] + ' (data0)';
+        edgtdata1.Hint := dmMain.Text[111] + ' (data1)';
+        edgtdata2.Hint := dmMain.Text[107] + ' (data2)';
+        edgtdata3.Hint := dmMain.Text[97] + ' (data3)';
+      end;
+	29:
+      begin
+        edgtdata0.Hint := dmMain.Text[106] + ' (data0)';
+        edgtdata1.Hint := dmMain.Text[187] + ' (data1)';
+        edgtdata4.Hint := dmMain.Text[111] + ' (data4)';
+        edgtdata5.Hint := dmMain.Text[111] + ' (data5)';
+        edgtdata6.Hint := dmMain.Text[111] + ' (data6)';
+        edgtdata7.Hint := dmMain.Text[111] + ' (data7)';
+        edgtdata8.Hint := dmMain.Text[111] + ' (data8)';
+        edgtdata9.Hint := dmMain.Text[111] + ' (data9)';
+        edgtdata10.Hint := dmMain.Text[111] + ' (data10)';
+        edgtdata11.Hint := dmMain.Text[111] + ' (data11)';
+        edgtdata16.Hint := dmMain.Text[102] + ' (data16)';
+        edgtdata17.Hint := dmMain.Text[102] + ' (data17)';
+        edgtdata18.Hint := dmMain.Text[97] + ' (data18)';
+      end;
+	30:
+      begin
+        edgtdata0.Hint := dmMain.Text[97] + ' (data0)';
+        edgtdata1.Hint := dmMain.Text[106] + ' (data1)';
+        edgtdata2.Hint := dmMain.Text[107] + ' (data2)';
+        edgtdata3.Hint := dmMain.Text[100] + ' (data3)';
+        edgtdata4.Hint := dmMain.Text[107] + ' (data4)';
+        edgtdata5.Hint := dmMain.Text[100] + ' (data5)';
+      end;
+    31:
+      begin
+        edgtdata0.Hint := dmMain.Text[188] + ' (data0)';
+        edgtdata1.Hint := dmMain.Text[189] + ' (data1)';
       end;
   end;
 end;
@@ -12075,17 +12166,18 @@ begin
     0:
       begin
         edgtdata0.EditLabel.Caption := 'startOpen';
-        edgtdata1.EditLabel.Caption := 'open';
-        edgtdata2.EditLabel.Caption := 'autoClose';
+        edgtdata1.EditLabel.Caption := 'lockId';
+        edgtdata2.EditLabel.Caption := 'autoCloseTime';
         edgtdata3.EditLabel.Caption := 'noDamageImmune';
         edgtdata4.EditLabel.Caption := 'openTextID';
         edgtdata5.EditLabel.Caption := 'closeTextID';
+        edgtdata6.EditLabel.Caption := 'ignoredByPathing';
       end;
     1:
       begin
         edgtdata0.EditLabel.Caption := 'startOpen';
-        edgtdata1.EditLabel.Caption := 'open';
-        edgtdata2.EditLabel.Caption := 'autoClose';
+        edgtdata1.EditLabel.Caption := 'lockId';
+        edgtdata2.EditLabel.Caption := 'autoCloseTime';
         edgtdata3.EditLabel.Caption := 'linkedTrap';
         edgtdata4.EditLabel.Caption := 'noDamageImmune';
         edgtdata5.EditLabel.Caption := 'large';
@@ -12095,7 +12187,7 @@ begin
       end;
     2:
       begin
-        edgtdata0.EditLabel.Caption := 'open';
+        edgtdata0.EditLabel.Caption := 'lockId';
         edgtdata1.EditLabel.Caption := 'questList';
         edgtdata2.EditLabel.Caption := 'pageMaterial';
         edgtdata3.EditLabel.Caption := 'gossipID';
@@ -12108,22 +12200,23 @@ begin
       end;
     3:
       begin
-        edgtdata0.EditLabel.Caption := 'open';
-        edgtdata1.EditLabel.Caption := 'chestLoot';
+        edgtdata0.EditLabel.Caption := 'lockId';
+        edgtdata1.EditLabel.Caption := 'lootId';
         edgtdata2.EditLabel.Caption := 'chestRestockTime';
         edgtdata3.EditLabel.Caption := 'consumable';
-        edgtdata4.EditLabel.Caption := 'minRestock';
-        edgtdata5.EditLabel.Caption := 'maxRestock';
-        edgtdata6.EditLabel.Caption := 'lootedEvent';
-        edgtdata7.EditLabel.Caption := 'linkedTrap';
+        edgtdata4.EditLabel.Caption := 'minSuccessOpens';
+        edgtdata5.EditLabel.Caption := 'maxSuccessOpens';
+        edgtdata6.EditLabel.Caption := 'eventId';
+        edgtdata7.EditLabel.Caption := 'linkedTrapId';
         edgtdata8.EditLabel.Caption := 'questID';
         edgtdata9.EditLabel.Caption := 'level';
         edgtdata10.EditLabel.Caption := 'losOK';
         edgtdata11.EditLabel.Caption := 'leaveLoot';
         edgtdata12.EditLabel.Caption := 'notInCombat';
-        edgtdata13.EditLabel.Caption := 'log loot';
+        edgtdata13.EditLabel.Caption := 'logLoot';
         edgtdata14.EditLabel.Caption := 'openTextID';
-        edgtdata15.EditLabel.Caption := 'use group loot rules';
+        edgtdata15.EditLabel.Caption := 'groupLootRules';
+        edgtdata16.EditLabel.Caption := 'floatingTooltip';
       end;
     4:
       begin
@@ -12139,13 +12232,13 @@ begin
       end;
     6:
       begin
-        edgtdata0.EditLabel.Caption := 'open';
+        edgtdata0.EditLabel.Caption := 'lockId';
         edgtdata1.EditLabel.Caption := 'level';
         edgtdata2.EditLabel.Caption := 'radius';
-        edgtdata3.EditLabel.Caption := 'spell';
+        edgtdata3.EditLabel.Caption := 'spellId';
         edgtdata4.EditLabel.Caption := 'charges';
         edgtdata5.EditLabel.Caption := 'cooldown';
-        edgtdata6.EditLabel.Caption := 'autoClose';
+        edgtdata6.EditLabel.Caption := 'autoCloseTime';
         edgtdata7.EditLabel.Caption := 'startDelay';
         edgtdata8.EditLabel.Caption := 'serverOnly';
         edgtdata9.EditLabel.Caption := 'stealthed';
@@ -12153,18 +12246,24 @@ begin
         edgtdata11.EditLabel.Caption := 'stealthAffected';
         edgtdata12.EditLabel.Caption := 'openTextID';
         edgtdata13.EditLabel.Caption := 'closeTextID';
+        edgtdata14.EditLabel.Caption := 'ignoreTotems';
       end;
     7:
       begin
-        edgtdata0.EditLabel.Caption := 'chairslots';
-        edgtdata1.EditLabel.Caption := 'chairheight';
+        edgtdata0.EditLabel.Caption := 'slots';
+        edgtdata1.EditLabel.Caption := 'height';
+        edgtdata2.EditLabel.Caption := 'onlyCreatorUse';
+        edgtdata3.EditLabel.Caption := 'triggeredEvent';
       end;
     8:
       begin
-        edgtdata0.EditLabel.Caption := 'spellFocusType';
-        edgtdata1.EditLabel.Caption := 'radius';
-        edgtdata2.EditLabel.Caption := 'linkedTrap';
+        edgtdata0.EditLabel.Caption := 'focusID';
+        edgtdata1.EditLabel.Caption := 'dist';
+        edgtdata2.EditLabel.Caption := 'linkedTrapId';
         edgtdata3.EditLabel.Caption := 'serverOnly';
+        edgtdata4.EditLabel.Caption := 'questID';
+        edgtdata5.EditLabel.Caption := 'large';
+        edgtdata6.EditLabel.Caption := 'floatingTooltip';
       end;
     9:
       begin
@@ -12175,42 +12274,50 @@ begin
       end;
     10:
       begin
-        edgtdata0.EditLabel.Caption := 'open';
+        edgtdata0.EditLabel.Caption := 'lockId';
         edgtdata1.EditLabel.Caption := 'questID';
         edgtdata2.EditLabel.Caption := 'eventID';
-        edgtdata3.EditLabel.Caption := 'autoClose';
+        edgtdata3.EditLabel.Caption := 'autoCloseTime';
         edgtdata4.EditLabel.Caption := 'customAnim';
         edgtdata5.EditLabel.Caption := 'consumable';
         edgtdata6.EditLabel.Caption := 'cooldown';
         edgtdata7.EditLabel.Caption := 'pageID';
         edgtdata8.EditLabel.Caption := 'language';
         edgtdata9.EditLabel.Caption := 'pageMaterial';
-        edgtdata10.EditLabel.Caption := 'spell';
+        edgtdata10.EditLabel.Caption := 'spellId';
         edgtdata11.EditLabel.Caption := 'noDamageImmune';
-        edgtdata12.EditLabel.Caption := 'linkedTrap';
+        edgtdata12.EditLabel.Caption := 'linkedTrapId';
         edgtdata13.EditLabel.Caption := 'large';
         edgtdata14.EditLabel.Caption := 'openTextID';
         edgtdata15.EditLabel.Caption := 'closeTextID';
         edgtdata16.EditLabel.Caption := 'losOK';
         edgtdata17.EditLabel.Caption := 'allowMounted';
+        edgtdata18.EditLabel.Caption := 'floatingTooltip';
+        edgtdata19.EditLabel.Caption := 'gossipID';
+        edgtdata20.EditLabel.Caption := 'WorldStateSetsState';
       end;
     11:
       begin
+        edgtdata0.EditLabel.Caption := 'pause';
+        edgtdata1.EditLabel.Caption := 'startOpen';
+        edgtdata2.EditLabel.Caption := 'autoCloseTime';
+        edgtdata3.EditLabel.Caption := 'pause1EventID';
+        edgtdata4.EditLabel.Caption := 'pause2EventID';
       end;
     12:
       begin
-        edgtdata0.EditLabel.Caption := 'open';
+        edgtdata0.EditLabel.Caption := 'lockId';
         edgtdata1.EditLabel.Caption := 'radius';
         edgtdata2.EditLabel.Caption := 'damageMin';
         edgtdata3.EditLabel.Caption := 'damageMax';
         edgtdata4.EditLabel.Caption := 'damageSchool';
-        edgtdata5.EditLabel.Caption := 'autoClose';
+        edgtdata5.EditLabel.Caption := 'autoCloseTime';
         edgtdata6.EditLabel.Caption := 'openTextID';
         edgtdata7.EditLabel.Caption := 'closeTextID';
       end;
     13:
       begin
-        edgtdata0.EditLabel.Caption := 'open';
+        edgtdata0.EditLabel.Caption := 'lockId';
         edgtdata1.EditLabel.Caption := 'camera';
         edgtdata2.EditLabel.Caption := 'eventID';
         edgtdata3.EditLabel.Caption := 'openTextID';
@@ -12225,6 +12332,9 @@ begin
         edgtdata2.EditLabel.Caption := 'accelRate';
         edgtdata3.EditLabel.Caption := 'startEventID';
         edgtdata4.EditLabel.Caption := 'stopEventID';
+        edgtdata5.EditLabel.Caption := 'transportPhysics';
+        edgtdata6.EditLabel.Caption := 'mapID';
+        edgtdata7.EditLabel.Caption := 'worldState1';
       end;
     16:
       begin
@@ -12234,20 +12344,20 @@ begin
       end;
     18:
       begin
-        edgtdata0.EditLabel.Caption := 'casters';
-        edgtdata1.EditLabel.Caption := 'spell';
+        edgtdata0.EditLabel.Caption := 'reqParticipants';
+        edgtdata1.EditLabel.Caption := 'spellId';
         edgtdata2.EditLabel.Caption := 'animSpell';
         edgtdata3.EditLabel.Caption := 'ritualPersistent';
         edgtdata4.EditLabel.Caption := 'casterTargetSpell';
         edgtdata5.EditLabel.Caption := 'casterTargetSpellTargets';
         edgtdata6.EditLabel.Caption := 'castersGrouped';
+        edgtdata7.EditLabel.Caption := 'ritualNoTargetCheck';
       end;
     19:
       begin
       end;
     20:
       begin
-        edgtdata0.EditLabel.Caption := 'actionHouseID';
       end;
     21:
       begin
@@ -12257,9 +12367,11 @@ begin
 
     22:
       begin
-        edgtdata0.EditLabel.Caption := 'spell';
+        edgtdata0.EditLabel.Caption := 'spellId';
         edgtdata1.EditLabel.Caption := 'charges';
         edgtdata2.EditLabel.Caption := 'partyOnly';
+        edgtdata3.EditLabel.Caption := 'allowMounted';
+        edgtdata4.EditLabel.Caption := 'large';
       end;
 
     23:
@@ -12270,7 +12382,7 @@ begin
       end;
     24:
       begin
-        edgtdata0.EditLabel.Caption := 'open';
+        edgtdata0.EditLabel.Caption := 'lockId';
         edgtdata1.EditLabel.Caption := 'pickupSpell';
         edgtdata2.EditLabel.Caption := 'radius';
         edgtdata3.EditLabel.Caption := 'returnAura';
@@ -12282,14 +12394,14 @@ begin
     25:
       begin
         edgtdata0.EditLabel.Caption := 'radius';
-        edgtdata1.EditLabel.Caption := 'chestLoot';
-        edgtdata2.EditLabel.Caption := 'minRestock';
-        edgtdata3.EditLabel.Caption := 'maxRestock';
-        edgtdata4.EditLabel.Caption := 'open';
+        edgtdata1.EditLabel.Caption := 'lootId';
+        edgtdata2.EditLabel.Caption := 'minSuccessOpens';
+        edgtdata3.EditLabel.Caption := 'maxSuccessOpens';
+        edgtdata4.EditLabel.Caption := 'lockId';
       end;
     26:
       begin
-        edgtdata0.EditLabel.Caption := 'open';
+        edgtdata0.EditLabel.Caption := 'lockId';
         edgtdata1.EditLabel.Caption := 'eventID';
         edgtdata2.EditLabel.Caption := 'pickupSpell';
         edgtdata3.EditLabel.Caption := 'noDamageImmune';
@@ -12324,6 +12436,8 @@ begin
         edgtdata17.EditLabel.Caption := 'maxTime';
         edgtdata18.EditLabel.Caption := 'large';
         edgtdata19.EditLabel.Caption := 'highlight';
+        edgtdata20.EditLabel.Caption := 'startingValue';
+        edgtdata21.EditLabel.Caption := 'unidirectional';
       end;
     30:
       begin
@@ -12333,12 +12447,54 @@ begin
         edgtdata3.EditLabel.Caption := 'conditionID1';
         edgtdata4.EditLabel.Caption := 'auraID2';
         edgtdata5.EditLabel.Caption := 'conditionID2';
+        edgtdata6.EditLabel.Caption := 'serverOnly';
       end;
     31:
       begin
         edgtdata0.EditLabel.Caption := 'mapID';
         edgtdata1.EditLabel.Caption := 'difficulty';
       end;
+	32:
+	  begin
+        edgtdata0.EditLabel.Caption := 'chairheight';
+        edgtdata1.EditLabel.Caption := 'heightOffset';
+	  end;
+	33:
+	  begin
+        edgtdata0.EditLabel.Caption := 'intactNumHits';
+        edgtdata1.EditLabel.Caption := 'creditProxyCreature';
+        edgtdata2.EditLabel.Caption := 'empty1';
+        edgtdata3.EditLabel.Caption := 'intactEvent';
+        edgtdata4.EditLabel.Caption := 'empty2';
+        edgtdata5.EditLabel.Caption := 'damagedNumHits';
+        edgtdata6.EditLabel.Caption := 'empty3';
+        edgtdata7.EditLabel.Caption := 'empty4';
+        edgtdata8.EditLabel.Caption := 'empty5';
+        edgtdata9.EditLabel.Caption := 'damagedEvent';
+        edgtdata10.EditLabel.Caption := 'empty6';
+        edgtdata11.EditLabel.Caption := 'empty7';
+        edgtdata12.EditLabel.Caption := 'empty8';
+        edgtdata13.EditLabel.Caption := 'empty9';
+        edgtdata14.EditLabel.Caption := 'destroyedEvent';
+        edgtdata15.EditLabel.Caption := 'empty10';
+        edgtdata16.EditLabel.Caption := 'debuildingTimeSecs';
+        edgtdata17.EditLabel.Caption := 'empty11';
+        edgtdata18.EditLabel.Caption := 'destructibleData';
+        edgtdata19.EditLabel.Caption := 'rebuildingEvent';
+        edgtdata20.EditLabel.Caption := 'empty12';
+        edgtdata21.EditLabel.Caption := 'empty13';
+        edgtdata22.EditLabel.Caption := 'damageEvent';
+        edgtdata23.EditLabel.Caption := 'empty14';
+	  end;
+	34:
+	  begin
+	  end;
+	35:
+	  begin
+        edgtdata0.EditLabel.Caption := 'whenToPause';
+        edgtdata1.EditLabel.Caption := 'startOpen';
+        edgtdata2.EditLabel.Caption := 'autoClose';
+	  end;
   end;
 end;
 
