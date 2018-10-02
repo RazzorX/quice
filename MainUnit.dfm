@@ -12238,6 +12238,16 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = edconentryButtonClick
           end
+          object edcocomments: TLabeledEdit
+            Left = 189
+            Top = 492
+            Width = 243
+            Height = 21
+            EditLabel.Width = 48
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comments'
+            TabOrder = 13
+          end
         end
         object tsPickpocketLoot: TTabSheet
           Caption = 'Pickpocket Loot'
@@ -13235,6 +13245,16 @@ object MainForm: TMainForm
             TabOrder = 12
             Text = ''
             OnButtonClick = edconentryButtonClick
+          end
+          object edcscomments: TLabeledEdit
+            Left = 197
+            Top = 491
+            Width = 243
+            Height = 21
+            EditLabel.Width = 48
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comments'
+            TabOrder = 13
           end
         end
         object tsNPCVendor: TTabSheet
@@ -20827,6 +20847,16 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = edconentryButtonClick
           end
+          object edgocomments: TLabeledEdit
+            Left = 190
+            Top = 510
+            Width = 243
+            Height = 21
+            EditLabel.Width = 48
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comments'
+            TabOrder = 13
+          end
         end
         object tsGOInvolvedIn: TTabSheet
           Caption = 'Involved in'
@@ -25857,6 +25887,16 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = edconentryButtonClick
           end
+          object edilcomments: TLabeledEdit
+            Left = 285
+            Top = 500
+            Width = 243
+            Height = 21
+            EditLabel.Width = 48
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comments'
+            TabOrder = 13
+          end
         end
         object tsDisenchantLoot: TTabSheet
           Caption = 'Disenchant Loot'
@@ -26363,6 +26403,16 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = edconentryButtonClick
           end
+          object edidcomments: TLabeledEdit
+            Left = 285
+            Top = 500
+            Width = 243
+            Height = 21
+            EditLabel.Width = 48
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comments'
+            TabOrder = 13
+          end
         end
         object tsProspectingLoot: TTabSheet
           Caption = 'Prospecting Loot'
@@ -26868,6 +26918,16 @@ object MainForm: TMainForm
             TabOrder = 12
             Text = ''
             OnButtonClick = edconentryButtonClick
+          end
+          object edipcomments: TLabeledEdit
+            Left = 285
+            Top = 500
+            Width = 243
+            Height = 21
+            EditLabel.Width = 48
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comments'
+            TabOrder = 13
           end
         end
         object tsMillingLoot: TTabSheet
@@ -27912,6 +27972,16 @@ object MainForm: TMainForm
             TabOrder = 12
             Text = ''
             OnButtonClick = edconentryButtonClick
+          end
+          object edircomments: TLabeledEdit
+            Left = 285
+            Top = 500
+            Width = 243
+            Height = 21
+            EditLabel.Width = 48
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comments'
+            TabOrder = 13
           end
         end
         object tsSpellLoot: TTabSheet
@@ -29653,6 +29723,16 @@ object MainForm: TMainForm
             TabOrder = 14
             Text = ''
             OnButtonClick = edconentryButtonClick
+          end
+          object edotcomments: TLabeledEdit
+            Left = 200
+            Top = 511
+            Width = 243
+            Height = 21
+            EditLabel.Width = 48
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comments'
+            TabOrder = 15
           end
         end
         object tsPageText: TTabSheet

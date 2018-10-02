@@ -2139,6 +2139,14 @@ type
     edgtCustomData1: TLabeledEdit;
     edcvcomments: TLabeledEdit;
     edcvtcomments: TLabeledEdit;
+    edidcomments: TLabeledEdit;
+    edotcomments: TLabeledEdit;
+    edilcomments: TLabeledEdit;
+    edipcomments: TLabeledEdit;
+    edcscomments: TLabeledEdit;
+    edcocomments: TLabeledEdit;
+    edgocomments: TLabeledEdit;
+    edircomments: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
