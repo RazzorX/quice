@@ -3491,24 +3491,24 @@ begin
   begin
     for i := 0 to lvList.Items.Count - 2 do
     begin
-      Result := Result + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s),'#13#10,
+      Result := Result + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s),'#13#10,
         [lvList.Items[i].Caption, lvList.Items[i].SubItems[0], lvList.Items[i].SubItems[1], lvList.Items[i].SubItems[2],
         lvList.Items[i].SubItems[3], lvList.Items[i].SubItems[4], lvList.Items[i].SubItems[5],
-        lvList.Items[i].SubItems[6], QuotedStr(lvList.Items[i].SubItems[7]), QuotedStr(lvList.Items[i].SubItems[8]),
-        QuotedStr(lvList.Items[i].SubItems[9]), QuotedStr(lvList.Items[i].SubItems[10]), lvList.Items[i].SubItems[11],
+        lvList.Items[i].SubItems[6], lvList.Items[i].SubItems[7], lvList.Items[i].SubItems[8],
+        lvList.Items[i].SubItems[9], lvList.Items[i].SubItems[10], lvList.Items[i].SubItems[11],
         lvList.Items[i].SubItems[12], lvList.Items[i].SubItems[13], lvList.Items[i].SubItems[14],
-        QuotedStr(lvList.Items[i].SubItems[15])]);
+        lvList.Items[i].SubItems[15], QuotedStr(lvList.Items[i].SubItems[16])]);
     end;
     i := lvList.Items.Count - 1;
-    Result := Result + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s);',
+    Result := Result + Format('(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s),'#13#10,
       [lvList.Items[i].Caption, lvList.Items[i].SubItems[0], lvList.Items[i].SubItems[1], lvList.Items[i].SubItems[2],
       lvList.Items[i].SubItems[3], lvList.Items[i].SubItems[4], lvList.Items[i].SubItems[5],
-      lvList.Items[i].SubItems[6], QuotedStr(lvList.Items[i].SubItems[7]), QuotedStr(lvList.Items[i].SubItems[8]),
-      QuotedStr(lvList.Items[i].SubItems[9]), QuotedStr(lvList.Items[i].SubItems[10]), lvList.Items[i].SubItems[11],
+      lvList.Items[i].SubItems[6], lvList.Items[i].SubItems[7], lvList.Items[i].SubItems[8],
+      lvList.Items[i].SubItems[9], lvList.Items[i].SubItems[10], lvList.Items[i].SubItems[11],
       lvList.Items[i].SubItems[12], lvList.Items[i].SubItems[13], lvList.Items[i].SubItems[14],
-      QuotedStr(lvList.Items[i].SubItems[15])]);
+      lvList.Items[i].SubItems[15], QuotedStr(lvList.Items[i].SubItems[16])]);
     Result := Format('DELETE FROM `%0:s` WHERE `id`=%1:s;'#13#10 +
-      'INSERT INTO `%0:s` (`id`, `delay`, `command`, `datalong`, `datalong2`, ' +
+      'INSERT INTO `%0:s` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, ' +
       '`buddy_entry`, `search_radius`, `data_flags`,`dataint`,`dataint2`,`dataint3`,`dataint4`, `x`, `y`, `z`, `o`,`comments`) VALUES '#13#10'%2:s'#13#10,
       [tn, id, Result]);
   end;
@@ -12680,18 +12680,19 @@ begin
       TCustomEdit(FindComponent(pfx + 'command')).Text := SubItems[1];
       TCustomEdit(FindComponent(pfx + 'datalong')).Text := SubItems[2];
       TCustomEdit(FindComponent(pfx + 'datalong2')).Text := SubItems[3];
-      TCustomEdit(FindComponent(pfx + 'buddy_entry')).Text := SubItems[4];
-      TCustomEdit(FindComponent(pfx + 'search_radius')).Text := SubItems[5];
-      TCustomEdit(FindComponent(pfx + 'data_flags')).Text := SubItems[6];
-      TCustomEdit(FindComponent(pfx + 'dataint')).Text := SubItems[7];
-      TCustomEdit(FindComponent(pfx + 'dataint2')).Text := SubItems[8];
-      TCustomEdit(FindComponent(pfx + 'dataint3')).Text := SubItems[9];
-      TCustomEdit(FindComponent(pfx + 'dataint4')).Text := SubItems[10];
-      TCustomEdit(FindComponent(pfx + 'x')).Text := SubItems[11];
-      TCustomEdit(FindComponent(pfx + 'y')).Text := SubItems[12];
-      TCustomEdit(FindComponent(pfx + 'z')).Text := SubItems[13];
-      TCustomEdit(FindComponent(pfx + 'o')).Text := SubItems[14];
-      TCustomEdit(FindComponent(pfx + 'comments')).Text := SubItems[15];
+      TCustomEdit(FindComponent(pfx + 'datalong3')).Text := SubItems[4];
+      TCustomEdit(FindComponent(pfx + 'buddy_entry')).Text := SubItems[5];
+      TCustomEdit(FindComponent(pfx + 'search_radius')).Text := SubItems[6];
+      TCustomEdit(FindComponent(pfx + 'data_flags')).Text := SubItems[7];
+      TCustomEdit(FindComponent(pfx + 'dataint')).Text := SubItems[8];
+      TCustomEdit(FindComponent(pfx + 'dataint2')).Text := SubItems[9];
+      TCustomEdit(FindComponent(pfx + 'dataint3')).Text := SubItems[10];
+      TCustomEdit(FindComponent(pfx + 'dataint4')).Text := SubItems[11];
+      TCustomEdit(FindComponent(pfx + 'x')).Text := SubItems[12];
+      TCustomEdit(FindComponent(pfx + 'y')).Text := SubItems[13];
+      TCustomEdit(FindComponent(pfx + 'z')).Text := SubItems[14];
+      TCustomEdit(FindComponent(pfx + 'o')).Text := SubItems[15];
+      TCustomEdit(FindComponent(pfx + 'comments')).Text := SubItems[16];
     end;
   end;
 end;
@@ -12705,6 +12706,7 @@ begin
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'command')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'datalong')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'datalong2')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'datalong3')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'buddy_entry')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'search_radius')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'data_flags')).Text);
@@ -12731,18 +12733,19 @@ begin
       SubItems[1] := TCustomEdit(FindComponent(pfx + 'command')).Text;
       SubItems[2] := TCustomEdit(FindComponent(pfx + 'datalong')).Text;
       SubItems[3] := TCustomEdit(FindComponent(pfx + 'datalong2')).Text;
-      SubItems[4] := TCustomEdit(FindComponent(pfx + 'buddy_entry')).Text;
-      SubItems[5] := TCustomEdit(FindComponent(pfx + 'search_radius')).Text;
-      SubItems[6] := TCustomEdit(FindComponent(pfx + 'data_flags')).Text;
-      SubItems[7] := TCustomEdit(FindComponent(pfx + 'dataint')).Text;
-      SubItems[8] := TCustomEdit(FindComponent(pfx + 'dataint2')).Text;
-      SubItems[9] := TCustomEdit(FindComponent(pfx + 'dataint3')).Text;
-      SubItems[10] := TCustomEdit(FindComponent(pfx + 'dataint4')).Text;
-      SubItems[11] := TCustomEdit(FindComponent(pfx + 'x')).Text;
-      SubItems[12] := TCustomEdit(FindComponent(pfx + 'y')).Text;
-      SubItems[13] := TCustomEdit(FindComponent(pfx + 'z')).Text;
-      SubItems[14] := TCustomEdit(FindComponent(pfx + 'o')).Text;
-      SubItems[15] := TCustomEdit(FindComponent(pfx + 'comments')).Text;
+      SubItems[4] := TCustomEdit(FindComponent(pfx + 'datalong3')).Text;
+      SubItems[5] := TCustomEdit(FindComponent(pfx + 'buddy_entry')).Text;
+      SubItems[6] := TCustomEdit(FindComponent(pfx + 'search_radius')).Text;
+      SubItems[7] := TCustomEdit(FindComponent(pfx + 'data_flags')).Text;
+      SubItems[8] := TCustomEdit(FindComponent(pfx + 'dataint')).Text;
+      SubItems[9] := TCustomEdit(FindComponent(pfx + 'dataint2')).Text;
+      SubItems[10] := TCustomEdit(FindComponent(pfx + 'dataint3')).Text;
+      SubItems[11] := TCustomEdit(FindComponent(pfx + 'dataint4')).Text;
+      SubItems[12] := TCustomEdit(FindComponent(pfx + 'x')).Text;
+      SubItems[13] := TCustomEdit(FindComponent(pfx + 'y')).Text;
+      SubItems[14] := TCustomEdit(FindComponent(pfx + 'z')).Text;
+      SubItems[15] := TCustomEdit(FindComponent(pfx + 'o')).Text;
+      SubItems[16] := TCustomEdit(FindComponent(pfx + 'comments')).Text;
     end;
   end;
 end;
@@ -12875,12 +12878,17 @@ begin
       begin
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'creature id to summon';
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'lifetime of creature (in ms)';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong3')).Hint := 'creature_movement_template.pathId';
         TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'always empty';
         TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := 'coord x';
         TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := 'coord y';
         TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := 'coord z';
         TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := 'orientation';
       end;
+	31:
+	  begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong3')).Hint := 'pool_id';
+	  end;
   end;
 end;
 

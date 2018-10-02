@@ -33174,6 +33174,8 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
             HideSelection = False
             ReadOnly = True
@@ -33184,8 +33186,10 @@ object MainForm: TMainForm
             OnSelectItem = lvqtStartScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
-              '=50,13=50,14=50,15=50,16=50'
+              '=50,13=50,14=50,15=50,16=50,17=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -33978,6 +33982,8 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
             HideSelection = False
             ReadOnly = True
@@ -33988,8 +33994,10 @@ object MainForm: TMainForm
             OnSelectItem = lvqtEndScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
-              '=50,13=50,14=50,15=50,16=50'
+              '=50,13=50,14=50,15=50,16=50,17=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -34951,6 +34959,8 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
             HideSelection = False
             ReadOnly = True
@@ -34961,8 +34971,10 @@ object MainForm: TMainForm
             OnSelectItem = lvcmsCreatureMovementScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
-              '=50,13=50,14=50,15=50,16=50'
+              '=50,13=50,14=50,15=50,16=50,17=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -35993,6 +36005,8 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
             HideSelection = False
             ReadOnly = True
@@ -36003,8 +36017,10 @@ object MainForm: TMainForm
             OnSelectItem = lvcdsCreatureOnDeathScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
-              '=50,13=50,14=50,15=50,16=50'
+              '=50,13=50,14=50,15=50,16=50,17=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -36385,6 +36401,8 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
             HideSelection = False
             ReadOnly = True
@@ -36395,8 +36413,10 @@ object MainForm: TMainForm
             OnSelectItem = lvgbButtonScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
-              '=50,13=50,14=50,15=50,16=50'
+              '=50,13=50,14=50,15=50,16=50,17=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -37187,6 +37207,8 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
             HideSelection = False
             ReadOnly = True
@@ -37197,8 +37219,10 @@ object MainForm: TMainForm
             OnSelectItem = lvgtbGOTemplateScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
-              '=50,13=50,14=50,15=50,16=50'
+              '=50,13=50,14=50,15=50,16=50,17=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -37989,6 +38013,8 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
             HideSelection = False
             ReadOnly = True
@@ -37999,8 +38025,10 @@ object MainForm: TMainForm
             OnSelectItem = lvgtbGOTemplateScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
-              '=50,13=50,14=50,15=50,16=50'
+              '=50,13=50,14=50,15=50,16=50,17=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -38791,6 +38819,8 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
             HideSelection = False
             ReadOnly = True
@@ -38801,8 +38831,10 @@ object MainForm: TMainForm
             OnSelectItem = lvgtbGOTemplateScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
-              '=50,13=50,14=50,15=50,16=50'
+              '=50,13=50,14=50,15=50,16=50,17=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -39593,6 +39625,8 @@ object MainForm: TMainForm
               item
               end
               item
+              end
+              item
               end>
             HideSelection = False
             ReadOnly = True
@@ -39603,8 +39637,10 @@ object MainForm: TMainForm
             OnSelectItem = lvgtbGOTemplateScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
-              '=50,13=50,14=50,15=50,16=50'
+              '=50,13=50,14=50,15=50,16=50,17=50'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
