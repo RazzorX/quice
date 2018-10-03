@@ -2474,6 +2474,14 @@ type
     procedure lvgtbGOTemplateScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvgbButtonScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvgtbGOTemplateScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvdoeEventScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvdoeEventScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvdogGossipScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvdogGossipScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvdosSpellScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvdosSpellScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvdorRelayScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvdorRelayScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btgbAddClick(Sender: TObject);
     procedure btgbUpdClick(Sender: TObject);
     procedure btgbDelClick(Sender: TObject);
@@ -8299,6 +8307,54 @@ procedure TMainForm.lvglGOLocationSelectItem(Sender: TObject; Item: TListItem; S
 begin
   if Selected then
     LoadGOLocation(StrToIntDef(Item.Caption, 0));
+end;
+
+procedure TMainForm.lvdoeEventScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btdoeUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btdoeDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvdoeEventScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetScriptEditFields('eddoe', lvdoeEventScript);
+end;
+
+procedure TMainForm.lvdogGossipScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btdogUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btdogDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvdogGossipScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetScriptEditFields('eddog', lvdogGossipScript);
+end;
+
+procedure TMainForm.lvdosSpellScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btdosUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btdosDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvdosSpellScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetScriptEditFields('eddos', lvdosSpellScript);
+end;
+
+procedure TMainForm.lvdorRelayScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btdorUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btdorDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvdorRelayScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetScriptEditFields('eddor', lvdorRelayScript);
 end;
 
 procedure TMainForm.LoadGOLocation(GUID: Integer);

@@ -36776,8 +36776,8 @@ object MainForm: TMainForm
             RowSelect = True
             TabOrder = 0
             ViewStyle = vsReport
-            OnChange = lvgtbGOTemplateScriptChange
-            OnSelectItem = lvgtbGOTemplateScriptSelectItem
+            OnChange = lvdoeEventScriptChange
+            OnSelectItem = lvdoeEventScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
               '=50,13=50,14=50,15=50,16=50,17=50'
@@ -37374,8 +37374,8 @@ object MainForm: TMainForm
             RowSelect = True
             TabOrder = 0
             ViewStyle = vsReport
-            OnChange = lvgtbGOTemplateScriptChange
-            OnSelectItem = lvgtbGOTemplateScriptSelectItem
+            OnChange = lvdogGossipScriptChange
+            OnSelectItem = lvdogGossipScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
               '=50,13=50,14=50,15=50,16=50,17=50'
@@ -37972,8 +37972,8 @@ object MainForm: TMainForm
             RowSelect = True
             TabOrder = 0
             ViewStyle = vsReport
-            OnChange = lvgtbGOTemplateScriptChange
-            OnSelectItem = lvgtbGOTemplateScriptSelectItem
+            OnChange = lvdosSpellScriptChange
+            OnSelectItem = lvdosSpellScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
               '=50,13=50,14=50,15=50,16=50,17=50'
@@ -38570,8 +38570,8 @@ object MainForm: TMainForm
             RowSelect = True
             TabOrder = 0
             ViewStyle = vsReport
-            OnChange = lvgtbGOTemplateScriptChange
-            OnSelectItem = lvgtbGOTemplateScriptSelectItem
+            OnChange = lvdorRelayScriptChange
+            OnSelectItem = lvdorRelayScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
               '=50,13=50,14=50,15=50,16=50,17=50'
