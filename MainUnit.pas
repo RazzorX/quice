@@ -2472,6 +2472,18 @@ type
     procedure btgtbAddClick(Sender: TObject);
     procedure btgtbUpdClick(Sender: TObject);
     procedure btgtbDelClick(Sender: TObject);
+    procedure btdoeAddClick(Sender: TObject);
+    procedure btdoeUpdClick(Sender: TObject);
+    procedure btdoeDelClick(Sender: TObject);
+    procedure btdogAddClick(Sender: TObject);
+    procedure btdogUpdClick(Sender: TObject);
+    procedure btdogDelClick(Sender: TObject);
+    procedure btdosAddClick(Sender: TObject);
+    procedure btdosUpdClick(Sender: TObject);
+    procedure btdosDelClick(Sender: TObject);
+    procedure btdorAddClick(Sender: TObject);
+    procedure btdorUpdClick(Sender: TObject);
+    procedure btdorDelClick(Sender: TObject);
     procedure tsButtonScriptShow(Sender: TObject);
     procedure btBrowsePopupClick(Sender: TObject);
     procedure edcvExtendedCostButtonClick(Sender: TObject);
@@ -11954,6 +11966,66 @@ end;
 procedure TMainForm.btgtbUpdClick(Sender: TObject);
 begin
   ScriptUpd('edgtb', lvgtbGOTemplateScript);
+end;
+
+procedure TMainForm.btdoeAddClick(Sender: TObject);
+begin
+  ScriptAdd('eddoe', lvdoeEventScript);
+end;
+
+procedure TMainForm.btdoeDelClick(Sender: TObject);
+begin
+  ScriptDel(lvdoeEventScript);
+end;
+
+procedure TMainForm.btdoeUpdClick(Sender: TObject);
+begin
+  ScriptUpd('eddoe', lvdoeEventScript);
+end;
+
+procedure TMainForm.btdogAddClick(Sender: TObject);
+begin
+  ScriptAdd('eddog', lvdogGossipScript);
+end;
+
+procedure TMainForm.btdogDelClick(Sender: TObject);
+begin
+  ScriptDel(lvdogGossipScript);
+end;
+
+procedure TMainForm.btdogUpdClick(Sender: TObject);
+begin
+  ScriptUpd('eddog', lvdogGossipScript);
+end;
+
+procedure TMainForm.btdosAddClick(Sender: TObject);
+begin
+  ScriptAdd('eddos', lvdosSpellScript);
+end;
+
+procedure TMainForm.btdosDelClick(Sender: TObject);
+begin
+  ScriptDel(lvdosSpellScript);
+end;
+
+procedure TMainForm.btdosUpdClick(Sender: TObject);
+begin
+  ScriptUpd('eddos', lvdosSpellScript);
+end;
+
+procedure TMainForm.btdorAddClick(Sender: TObject);
+begin
+  ScriptAdd('eddor', lvdorRelayScript);
+end;
+
+procedure TMainForm.btdorDelClick(Sender: TObject);
+begin
+  ScriptDel(lvdorRelayScript);
+end;
+
+procedure TMainForm.btdorUpdClick(Sender: TObject);
+begin
+  ScriptUpd('eddor', lvdorRelayScript);
 end;
 
 procedure TMainForm.btgeCreatureGuidAddClick(Sender: TObject);

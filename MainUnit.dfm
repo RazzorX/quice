@@ -36589,7 +36589,7 @@ object MainForm: TMainForm
               1218336A31382A59416C6C6C6C6C6C0C3D2849191A6C6C6C6C6C6C6C6C6C6C42
               271447534B6C6C6C6C6C6C6C6C6C6C42041B2D1E5D6C6C6C6C6C6C6C6C6C6C51
               054332152C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C}
-            OnClick = btgtbAddClick
+            OnClick = btdoeAddClick
           end
           object btdoeUpd: TSpeedButton
             Left = 815
@@ -36649,7 +36649,7 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btgtbUpdClick
+            OnClick = btdoeUpdClick
           end
           object btdoeDel: TSpeedButton
             Left = 845
@@ -36709,7 +36709,7 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btgtbDelClick
+            OnClick = btdoeDelClick
           end
           object lbdoeid: TLabel
             Left = 8
@@ -37187,7 +37187,7 @@ object MainForm: TMainForm
               1218336A31382A59416C6C6C6C6C6C0C3D2849191A6C6C6C6C6C6C6C6C6C6C42
               271447534B6C6C6C6C6C6C6C6C6C6C42041B2D1E5D6C6C6C6C6C6C6C6C6C6C51
               054332152C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C}
-            OnClick = btgtbAddClick
+            OnClick = btdogAddClick
           end
           object btdogUpd: TSpeedButton
             Left = 815
@@ -37247,7 +37247,7 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btgtbUpdClick
+            OnClick = btdogUpdClick
           end
           object btdogDel: TSpeedButton
             Left = 845
@@ -37307,7 +37307,7 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btgtbDelClick
+            OnClick = btdogDelClick
           end
           object lbdogid: TLabel
             Left = 8
@@ -37785,7 +37785,7 @@ object MainForm: TMainForm
               1218336A31382A59416C6C6C6C6C6C0C3D2849191A6C6C6C6C6C6C6C6C6C6C42
               271447534B6C6C6C6C6C6C6C6C6C6C42041B2D1E5D6C6C6C6C6C6C6C6C6C6C51
               054332152C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C}
-            OnClick = btgtbAddClick
+            OnClick = btdosAddClick
           end
           object btdosUpd: TSpeedButton
             Left = 815
@@ -37845,7 +37845,7 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btgtbUpdClick
+            OnClick = btdosUpdClick
           end
           object btdosDel: TSpeedButton
             Left = 845
@@ -37905,7 +37905,7 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btgtbDelClick
+            OnClick = btdosDelClick
           end
           object lbdosid: TLabel
             Left = 8
@@ -38383,7 +38383,7 @@ object MainForm: TMainForm
               1218336A31382A59416C6C6C6C6C6C0C3D2849191A6C6C6C6C6C6C6C6C6C6C42
               271447534B6C6C6C6C6C6C6C6C6C6C42041B2D1E5D6C6C6C6C6C6C6C6C6C6C51
               054332152C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C6C}
-            OnClick = btgtbAddClick
+            OnClick = btdorAddClick
           end
           object btdorUpd: TSpeedButton
             Left = 810
@@ -38443,7 +38443,7 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btgtbUpdClick
+            OnClick = btdorUpdClick
           end
           object btdorDel: TSpeedButton
             Left = 840
@@ -38503,7 +38503,7 @@ object MainForm: TMainForm
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0
               C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0C0}
             NumGlyphs = 2
-            OnClick = btgtbDelClick
+            OnClick = btdorDelClick
           end
           object lbdorid: TLabel
             Left = 3
