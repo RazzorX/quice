@@ -33407,9 +33407,9 @@ object MainForm: TMainForm
             Top = 528
             Width = 193
             Height = 25
-            Caption = 'Show Quest Start Script'
+            Caption = 'Show Full Script'
             TabOrder = 13
-            OnClick = btDBScriptsOnClick
+            OnClick = btssShowFullScriptOnClick
           end
           object edssid: TJvComboEdit
             Left = 8
@@ -33524,6 +33524,15 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 19
+          end
+          object btssScript: TButton
+            Left = 752
+            Top = 490
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
           end
         end
         object tsCompleteScript: TTabSheet
@@ -34007,9 +34016,9 @@ object MainForm: TMainForm
             Top = 536
             Width = 193
             Height = 25
-            Caption = 'Show Quest End Script'
+            Caption = 'Show Full Script'
             TabOrder = 13
-            OnClick = btDBScriptsOnClick
+            OnClick = btesShowFullScriptOnClick
           end
           object edesid: TJvComboEdit
             Left = 8
@@ -34124,6 +34133,15 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 19
+          end
+          object btesScript: TButton
+            Left = 752
+            Top = 493
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
           end
         end
         object tsCreatureMovementScript: TTabSheet
@@ -34330,9 +34348,9 @@ object MainForm: TMainForm
             Top = 536
             Width = 193
             Height = 25
-            Caption = 'Show Creature Movement Script'
+            Caption = 'Show Full Script'
             TabOrder = 0
-            OnClick = btDBScriptsOnClick
+            OnClick = btcmsShowFullScriptOnClick
           end
           object edcmscommand: TJvComboEdit
             Left = 192
@@ -34600,7 +34618,7 @@ object MainForm: TMainForm
           object edcmscomments: TLabeledEdit
             Left = 600
             Top = 493
-            Width = 181
+            Width = 134
             Height = 21
             EditLabel.Width = 48
             EditLabel.Height = 13
@@ -34722,6 +34740,15 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 19
+          end
+          object btcmsScript: TButton
+            Left = 740
+            Top = 491
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
           end
         end
         object tsCreatureOnDeathScript: TTabSheet
@@ -34982,9 +35009,9 @@ object MainForm: TMainForm
             Top = 536
             Width = 193
             Height = 25
-            Caption = 'Show Creature Death Script'
+            Caption = 'Show Full Script'
             TabOrder = 2
-            OnClick = btDBScriptsOnClick
+            OnClick = btcdsShowFullScriptOnClick
           end
           object edcdsbuddy_entry: TLabeledEdit
             Left = 520
@@ -35001,7 +35028,7 @@ object MainForm: TMainForm
           object edcdscomments: TLabeledEdit
             Left = 600
             Top = 493
-            Width = 181
+            Width = 146
             Height = 21
             EditLabel.Width = 48
             EditLabel.Height = 13
@@ -35321,6 +35348,15 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 19
           end
+          object btcdsScript: TButton
+            Left = 752
+            Top = 491
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
+          end
         end
         object tsButtonScript: TTabSheet
           Caption = 'go_use'
@@ -35522,7 +35558,7 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'id'
           end
-          object lvgbButtonScript: TJvListView
+          object lvgbGOScript: TJvListView
             Left = 8
             Top = 32
             Width = 975
@@ -35580,8 +35616,8 @@ object MainForm: TMainForm
             RowSelect = True
             TabOrder = 0
             ViewStyle = vsReport
-            OnChange = lvgbButtonScriptChange
-            OnSelectItem = lvgbButtonScriptSelectItem
+            OnChange = lvgbGOScriptChange
+            OnSelectItem = lvgbGOScriptSelectItem
             ColumnsOrder = 
               '0=60,1=60,2=60,3=60,4=60,5=60,6=60,7=60,8=60,9=60,10=50,11=50,12' +
               '=50,13=50,14=50,15=50,16=50,17=50'
@@ -35754,9 +35790,9 @@ object MainForm: TMainForm
             Top = 536
             Width = 193
             Height = 25
-            Caption = 'Show GO Script'
+            Caption = 'Show Full Script'
             TabOrder = 9
-            OnClick = btDBScriptsOnClick
+            OnClick = btgbShowFullScriptOnClick
           end
           object edgbbuddy_entry: TLabeledEdit
             Left = 520
@@ -35919,6 +35955,15 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 19
+          end
+          object btgbScript: TButton
+            Left = 755
+            Top = 491
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
           end
         end
         object tsGOTemplateScript: TTabSheet
@@ -36226,9 +36271,9 @@ object MainForm: TMainForm
             Top = 536
             Width = 193
             Height = 25
-            Caption = 'Show GO Template Script'
+            Caption = 'Show Full Script'
             TabOrder = 1
-            OnClick = btDBScriptsOnClick
+            OnClick = btgtbShowFullScriptOnClick
           end
           object edgtbcomments: TLabeledEdit
             Left = 599
@@ -36517,6 +36562,15 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 19
+          end
+          object btgtbScript: TButton
+            Left = 755
+            Top = 491
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
           end
         end
         object tsEvent: TTabSheet
@@ -36998,9 +37052,9 @@ object MainForm: TMainForm
             Top = 536
             Width = 193
             Height = 25
-            Caption = 'Show Event Script'
+            Caption = 'Show Full Script'
             TabOrder = 13
-            OnClick = btDBScriptsOnClick
+            OnClick = btdoeShowFullScriptOnClick
           end
           object eddoeid: TJvComboEdit
             Left = 8
@@ -37115,6 +37169,15 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 19
+          end
+          object btdoeScript: TButton
+            Left = 755
+            Top = 491
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
           end
         end
         object tsGossip: TTabSheet
@@ -37596,9 +37659,9 @@ object MainForm: TMainForm
             Top = 536
             Width = 193
             Height = 25
-            Caption = 'Show Gossip Script'
+            Caption = 'Show Full Script'
             TabOrder = 13
-            OnClick = btDBScriptsOnClick
+            OnClick = btdogShowFullScriptOnClick
           end
           object eddogid: TJvComboEdit
             Left = 8
@@ -37713,6 +37776,15 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 19
+          end
+          object btdogScript: TButton
+            Left = 755
+            Top = 491
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
           end
         end
         object tsSpell: TTabSheet
@@ -38194,9 +38266,9 @@ object MainForm: TMainForm
             Top = 536
             Width = 193
             Height = 25
-            Caption = 'Show Spell Script'
+            Caption = 'Show Full Script'
             TabOrder = 13
-            OnClick = btDBScriptsOnClick
+            OnClick = btdosShowFullScriptOnClick
           end
           object eddosid: TJvComboEdit
             Left = 8
@@ -38311,6 +38383,15 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 19
+          end
+          object btdosScript: TButton
+            Left = 755
+            Top = 491
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
           end
         end
         object tsRelay: TTabSheet
@@ -38792,9 +38873,9 @@ object MainForm: TMainForm
             Top = 536
             Width = 193
             Height = 25
-            Caption = 'Show Relay Script'
+            Caption = 'Show Full Script'
             TabOrder = 13
-            OnClick = btDBScriptsOnClick
+            OnClick = btdorShowFullScriptOnClick
           end
           object eddorid: TJvComboEdit
             Left = 3
@@ -38909,6 +38990,15 @@ object MainForm: TMainForm
             ParentShowHint = False
             ShowHint = True
             TabOrder = 19
+          end
+          object btdorScript: TButton
+            Left = 750
+            Top = 491
+            Width = 133
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 20
+            OnClick = btDBScriptsOnClick
           end
         end
         object tsDBScriptsOn: TTabSheet

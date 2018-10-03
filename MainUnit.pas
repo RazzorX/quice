@@ -1177,7 +1177,7 @@ type
     editsocketBonus: TJvComboEdit;
     lbitsocketBonus: TLabel;
     tsButtonScript: TTabSheet;
-    lvgbButtonScript: TJvListView;
+    lvgbGOScript: TJvListView;
     lvgtbGOTemplateScript: TJvListView;
     edgbo: TLabeledEdit;
     edgbz: TLabeledEdit;
@@ -2153,6 +2153,16 @@ type
     eddordataint2: TLabeledEdit;
     eddordataint3: TLabeledEdit;
     eddordataint4: TLabeledEdit;
+    btssScript: TButton;
+    btesScript: TButton;
+    btcmsScript: TButton;
+    btcdsScript: TButton;
+    btgbScript: TButton;
+    btgtbScript: TButton;
+    btdoeScript: TButton;
+    btdogScript: TButton;
+    btdosScript: TButton;
+    btdorScript: TButton;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2346,6 +2356,16 @@ type
     procedure LoadPageText(Sender: TObject);
     procedure btScriptConditionsClick(Sender: TObject);
     procedure btDBScriptsOnClick(Sender: TObject);
+    procedure btssShowFullScriptOnClick(Sender: TObject);
+    procedure btesShowFullScriptOnClick(Sender: TObject);
+    procedure btcmsShowFullScriptOnClick(Sender: TObject);
+    procedure btcdsShowFullScriptOnClick(Sender: TObject);
+    procedure btgbShowFullScriptOnClick(Sender: TObject);
+    procedure btgtbShowFullScriptOnClick(Sender: TObject);
+    procedure btdoeShowFullScriptOnClick(Sender: TObject);
+    procedure btdogShowFullScriptOnClick(Sender: TObject);
+    procedure btdosShowFullScriptOnClick(Sender: TObject);
+    procedure btdorShowFullScriptOnClick(Sender: TObject);
     procedure LoadConditions(Sender: TObject);
     procedure LoadDBScriptString(Sender: TObject);
     procedure LoadDBScripts(Sender: TObject; TableName: string; prefix: string);
@@ -2474,9 +2494,9 @@ type
     procedure tsCreatureTemplateSpellsShow(Sender: TObject);
     procedure editGemPropertiesButtonClick(Sender: TObject);
     procedure editsocketBonusButtonClick(Sender: TObject);
-    procedure lvgbButtonScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvgbGOScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvgtbGOTemplateScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
-    procedure lvgbButtonScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvgbGOScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvgtbGOTemplateScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvdoeEventScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvdoeEventScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
@@ -3535,11 +3555,16 @@ begin
       lvList.Items[i].SubItems[9], lvList.Items[i].SubItems[10], lvList.Items[i].SubItems[11],
       lvList.Items[i].SubItems[12], lvList.Items[i].SubItems[13], lvList.Items[i].SubItems[14],
       lvList.Items[i].SubItems[15], QuotedStr(lvList.Items[i].SubItems[16])]);
+  end;
+  if Result <> '' then
+  begin
     Result := Format('DELETE FROM `%0:s` WHERE `id`=%1:s;'#13#10 +
       'INSERT INTO `%0:s` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, ' +
       '`buddy_entry`, `search_radius`, `data_flags`,`dataint`,`dataint2`,`dataint3`,`dataint4`, `x`, `y`, `z`, `o`,`comments`) VALUES '#13#10'%2:s'#13#10,
       [tn, id, Result]);
-  end;
+  end
+  else
+    Result := Format('DELETE FROM `%s` WHERE `id`=%s;', [tn, id]);
 end;
 
 procedure TMainForm.CompleteScript;
@@ -8285,7 +8310,7 @@ begin
   PageControl4.ActivePageIndex := 1;
 end;
 
-procedure TMainForm.lvgbButtonScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+procedure TMainForm.lvgbGOScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
 begin
   btgbUpd.Enabled := Assigned(TJvListView(Sender).Selected);
   btgbDel.Enabled := Assigned(TJvListView(Sender).Selected);
@@ -8297,10 +8322,10 @@ begin
   btgtbDel.Enabled := Assigned(TJvListView(Sender).Selected);
 end;
 
-procedure TMainForm.lvgbButtonScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+procedure TMainForm.lvgbGOScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 begin
   if Selected then
-    SetScriptEditFields('edgb', lvgbButtonScript);
+    SetScriptEditFields('edgb', lvgbGOScript);
 end;
 
 procedure TMainForm.lvgtbGOTemplateScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
@@ -11572,6 +11597,76 @@ begin
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
 end;
 
+procedure TMainForm.btssShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvssStartScript, SCRIPT_TABLE_QUEST_START, edssid.Text);
+end;
+
+procedure TMainForm.btesShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvesEndScript, SCRIPT_TABLE_QUEST_END, edesid.Text);
+end;
+
+procedure TMainForm.btcmsShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvcmsCreatureMovementScript, SCRIPT_TABLE_CREATURE_MOVEMENT, edcmsid.Text);
+end;
+
+procedure TMainForm.btcdsShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvcdsCreatureOnDeathScript, SCRIPT_TABLE_CREATURE_DEATH, edcdsid.Text);
+end;
+
+procedure TMainForm.btgbShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvgbGOScript, SCRIPT_TABLE_GO, edgbid.Text);
+end;
+
+procedure TMainForm.btgtbShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvgtbGOTemplateScript, SCRIPT_TABLE_GO_TEMPLATE, edgtbid.Text);
+end;
+
+procedure TMainForm.btdoeShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvdoeEventScript, SCRIPT_TABLE_EVENT, eddoeid.Text);
+end;
+
+procedure TMainForm.btdogShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvdogGossipScript, SCRIPT_TABLE_GOSSIP, eddogid.Text);
+end;
+
+procedure TMainForm.btdosShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvdosSpellScript, SCRIPT_TABLE_SPELL, eddosid.Text);
+end;
+
+procedure TMainForm.btdorShowFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := ScriptSQLScript(lvdorRelayScript, SCRIPT_TABLE_RELAY, eddorid.Text);
+end;
+
 procedure TMainForm.CompleteDbScriptStringScript;
 var
   entry, Fields, Values: string;
@@ -11780,7 +11875,7 @@ begin
   DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_GO;
   LoadDBScriptsOnGoUse(TCustomEdit(Sender));
   LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
-      [SCRIPT_TABLE_GO, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvgbButtonScript);
+      [SCRIPT_TABLE_GO, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvgbGOScript);
 end;
 
 procedure TMainForm.LoadDBScriptsOnGoTemplateUse(Sender: TObject);
@@ -12031,17 +12126,17 @@ end;
 
 procedure TMainForm.btgbAddClick(Sender: TObject);
 begin
-  ScriptAdd('edgb', lvgbButtonScript);
+  ScriptAdd('edgb', lvgbGOScript);
 end;
 
 procedure TMainForm.btgbDelClick(Sender: TObject);
 begin
-  ScriptDel(lvgbButtonScript);
+  ScriptDel(lvgbGOScript);
 end;
 
 procedure TMainForm.btgbUpdClick(Sender: TObject);
 begin
-  ScriptUpd('edgb', lvgbButtonScript);
+  ScriptUpd('edgb', lvgbGOScript);
 end;
 
 procedure TMainForm.btgtbAddClick(Sender: TObject);
