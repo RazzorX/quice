@@ -2378,6 +2378,14 @@ type
     procedure GetCommand(Sender: TObject);
     procedure edsscommandChange(Sender: TObject);
     procedure edescommandChange(Sender: TObject);
+    procedure edcmscommandChange(Sender: TObject);
+    procedure edcdscommandChange(Sender: TObject);
+    procedure edgbcommandChange(Sender: TObject);
+    procedure edgtbcommandChange(Sender: TObject);
+    procedure eddoecommandChange(Sender: TObject);
+    procedure eddogcommandChange(Sender: TObject);
+    procedure eddoscommandChange(Sender: TObject);
+    procedure eddorcommandChange(Sender: TObject);
     procedure lvitEnchantmentChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvitEnchantmentSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btieEnchAddClick(Sender: TObject);
@@ -12913,6 +12921,46 @@ end;
 procedure TMainForm.edescommandChange(Sender: TObject);
 begin
   ChangeScriptCommand(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'es');
+end;
+
+procedure TMainForm.edcmscommandChange(Sender: TObject);
+begin
+  ChangeScriptCommand(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'cms');
+end;
+
+procedure TMainForm.edcdscommandChange(Sender: TObject);
+begin
+  ChangeScriptCommand(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'cds');
+end;
+
+procedure TMainForm.edgbcommandChange(Sender: TObject);
+begin
+  ChangeScriptCommand(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'gb');
+end;
+
+procedure TMainForm.edgtbcommandChange(Sender: TObject);
+begin
+  ChangeScriptCommand(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'gtb');
+end;
+
+procedure TMainForm.eddoecommandChange(Sender: TObject);
+begin
+  ChangeScriptCommand(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'doe');
+end;
+
+procedure TMainForm.eddogcommandChange(Sender: TObject);
+begin
+  ChangeScriptCommand(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'dog');
+end;
+
+procedure TMainForm.eddoscommandChange(Sender: TObject);
+begin
+  ChangeScriptCommand(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'dos');
+end;
+
+procedure TMainForm.eddorcommandChange(Sender: TObject);
+begin
+  ChangeScriptCommand(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'dor');
 end;
 
 procedure TMainForm.ChangeScriptCommand(command: Integer; pfx: string);

@@ -34373,7 +34373,7 @@ object MainForm: TMainForm
             TabOrder = 1
             Text = ''
             OnButtonClick = GetCommand
-            OnChange = edsscommandChange
+            OnChange = edcmscommandChange
           end
           object edcmsdata_flags: TLabeledEdit
             Left = 679
@@ -34962,7 +34962,7 @@ object MainForm: TMainForm
             TabOrder = 0
             Text = ''
             OnButtonClick = GetCommand
-            OnChange = edsscommandChange
+            OnChange = edcdscommandChange
           end
           object edcdsdelay: TLabeledEdit
             Left = 104
@@ -35747,7 +35747,7 @@ object MainForm: TMainForm
             TabOrder = 2
             Text = ''
             OnButtonClick = GetCommand
-            OnChange = edsscommandChange
+            OnChange = edgbcommandChange
           end
           object btgbShowFullScript: TButton
             Left = 695
@@ -36389,7 +36389,7 @@ object MainForm: TMainForm
             TabOrder = 12
             Text = ''
             OnButtonClick = GetCommand
-            OnChange = edsscommandChange
+            OnChange = edgtbcommandChange
           end
           object edgtbdelay: TLabeledEdit
             Left = 104
@@ -36871,7 +36871,7 @@ object MainForm: TMainForm
             TabOrder = 2
             Text = ''
             OnButtonClick = GetCommand
-            OnChange = edsscommandChange
+            OnChange = eddoecommandChange
           end
           object eddoedatalong: TLabeledEdit
             Left = 280
@@ -37469,7 +37469,7 @@ object MainForm: TMainForm
             TabOrder = 2
             Text = ''
             OnButtonClick = GetCommand
-            OnChange = edsscommandChange
+            OnChange = eddogcommandChange
           end
           object eddogdatalong: TLabeledEdit
             Left = 280
@@ -38067,7 +38067,7 @@ object MainForm: TMainForm
             TabOrder = 2
             Text = ''
             OnButtonClick = GetCommand
-            OnChange = edsscommandChange
+            OnChange = eddoscommandChange
           end
           object eddosdatalong: TLabeledEdit
             Left = 280
@@ -38665,7 +38665,7 @@ object MainForm: TMainForm
             TabOrder = 2
             Text = ''
             OnButtonClick = GetCommand
-            OnChange = edsscommandChange
+            OnChange = eddorcommandChange
           end
           object eddordatalong: TLabeledEdit
             Left = 275
@@ -38848,7 +38848,7 @@ object MainForm: TMainForm
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
             TabOrder = 14
             Text = ''
-            OnButtonClick = eddosidButtonClick
+            OnButtonClick = eddoridButtonClick
           end
           object eddordatalong3: TLabeledEdit
             Left = 435
