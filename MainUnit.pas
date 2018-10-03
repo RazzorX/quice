@@ -905,7 +905,7 @@ type
     btFullScriptProsLoot: TButton;
     tsStartScript: TTabSheet;
     tsCompleteScript: TTabSheet;
-    lvqtStartScript: TJvListView;
+    lvssStartScript: TJvListView;
     edsscommand: TJvComboEdit;
     btssAdd: TSpeedButton;
     btssUpd: TSpeedButton;
@@ -918,7 +918,7 @@ type
     edssy: TLabeledEdit;
     edssz: TLabeledEdit;
     edsso: TLabeledEdit;
-    lvqtEndScript: TJvListView;
+    lvesEndScript: TJvListView;
     edescommand: TJvComboEdit;
     btesAdd: TSpeedButton;
     btesUpd: TSpeedButton;
@@ -941,8 +941,8 @@ type
     btieEnchUpd: TSpeedButton;
     btieEnchDel: TSpeedButton;
     edieench: TLabeledEdit;
-    lbqtStartScriptHint: TLabel;
-    lbqtCompleteScriptHint: TLabel;
+    lbssStartScriptHint: TLabel;
+    lbesCompleteScriptHint: TLabel;
     lbclCreatureLocationHint: TLabel;
     lbcoCreatureLootHint: TLabel;
     lbcoPickpocketLootHint: TLabel;
@@ -1973,78 +1973,6 @@ type
     lbssid: TLabel;
     edesid: TJvComboEdit;
     lbesid: TLabel;
-    edssdataint: TJvComboEdit;
-    lbssdataint: TLabel;
-    edssdataint2: TJvComboEdit;
-    lbssdataint2: TLabel;
-    edssdataint3: TJvComboEdit;
-    lbssdataint3: TLabel;
-    edssdataint4: TJvComboEdit;
-    lbssdataint4: TLabel;
-    edesdataint: TJvComboEdit;
-    lbesdataint: TLabel;
-    lbesdataint2: TLabel;
-    lbesdataint3: TLabel;
-    lbesdataint4: TLabel;
-    edesdataint4: TJvComboEdit;
-    edesdataint3: TJvComboEdit;
-    edesdataint2: TJvComboEdit;
-    edcmsdataint: TJvComboEdit;
-    edcmsdataint2: TJvComboEdit;
-    edcmsdataint3: TJvComboEdit;
-    edcmsdataint4: TJvComboEdit;
-    lbcmsdataint4: TLabel;
-    lbcmsdataint3: TLabel;
-    lbcmsdataint2: TLabel;
-    lbcmsdataint: TLabel;
-    edcdsdataint: TJvComboEdit;
-    edcdsdataint2: TJvComboEdit;
-    edcdsdataint3: TJvComboEdit;
-    edcdsdataint4: TJvComboEdit;
-    lbcdsdataint4: TLabel;
-    lbcdsdataint3: TLabel;
-    lbcdsdataint2: TLabel;
-    lbcdsdataint: TLabel;
-    edgbdataint: TJvComboEdit;
-    edgbdataint2: TJvComboEdit;
-    edgbdataint3: TJvComboEdit;
-    edgbdataint4: TJvComboEdit;
-    lbgbdataint4: TLabel;
-    lbgbdataint3: TLabel;
-    lbgbdataint2: TLabel;
-    lbgbdataint: TLabel;
-    edgtbdataint: TJvComboEdit;
-    edgtbdataint2: TJvComboEdit;
-    edgtbdataint3: TJvComboEdit;
-    edgtbdataint4: TJvComboEdit;
-    lbgtbdataint4: TLabel;
-    lbgtbdataint3: TLabel;
-    lbgtbdataint2: TLabel;
-    lbgtbdataint: TLabel;
-    eddoedataint: TJvComboEdit;
-    eddoedataint2: TJvComboEdit;
-    eddoedataint3: TJvComboEdit;
-    eddoedataint4: TJvComboEdit;
-    lbdoedataint4: TLabel;
-    lbdoedataint3: TLabel;
-    lbdoedataint2: TLabel;
-    lbdoedataint: TLabel;
-    eddogdataint: TJvComboEdit;
-    eddogdataint2: TJvComboEdit;
-    eddogdataint3: TJvComboEdit;
-    eddogdataint4: TJvComboEdit;
-    lbdogdataint4: TLabel;
-    lbdogdataint3: TLabel;
-    lbdogdataint2: TLabel;
-    lbdogdataint: TLabel;
-    eddosdataint: TJvComboEdit;
-    eddosdataint2: TJvComboEdit;
-    eddosdataint3: TJvComboEdit;
-    eddosdataint4: TJvComboEdit;
-    lbdosdataint4: TLabel;
-    lbdosdataint3: TLabel;
-    lbdosdataint2: TLabel;
-    lbdosdataint: TLabel;
     edcmsid: TJvComboEdit;
     lbcmsid: TLabel;
     edcmscript_id: TJvComboEdit;
@@ -2159,6 +2087,69 @@ type
     edcmtpathId: TLabeledEdit;
     edclspawntimesecsmax: TLabeledEdit;
     edglspawntimesecsmax: TLabeledEdit;
+    tsRelay: TTabSheet;
+    lbRelayInfo: TLabel;
+    lbdorcommand: TLabel;
+    btdorAdd: TSpeedButton;
+    btdorUpd: TSpeedButton;
+    btdorDel: TSpeedButton;
+    lbdorid: TLabel;
+    lvdorRelayScript: TJvListView;
+    eddordelay: TLabeledEdit;
+    eddorcommand: TJvComboEdit;
+    eddordatalong: TLabeledEdit;
+    eddorx: TLabeledEdit;
+    eddory: TLabeledEdit;
+    eddordatalong2: TLabeledEdit;
+    eddorbuddy_entry: TLabeledEdit;
+    eddorz: TLabeledEdit;
+    eddoro: TLabeledEdit;
+    eddorsearch_radius: TLabeledEdit;
+    eddordata_flags: TLabeledEdit;
+    eddorcomments: TLabeledEdit;
+    btFullRelayScript: TButton;
+    eddorid: TJvComboEdit;
+    eddordatalong3: TLabeledEdit;
+    edssdataint: TLabeledEdit;
+    edssdataint2: TLabeledEdit;
+    edssdataint3: TLabeledEdit;
+    edssdataint4: TLabeledEdit;
+    edesdataint: TLabeledEdit;
+    edesdataint2: TLabeledEdit;
+    edesdataint3: TLabeledEdit;
+    edesdataint4: TLabeledEdit;
+    edcmsdataint: TLabeledEdit;
+    edcmsdataint2: TLabeledEdit;
+    edcmsdataint3: TLabeledEdit;
+    edcmsdataint4: TLabeledEdit;
+    edcdsdataint4: TLabeledEdit;
+    edcdsdataint3: TLabeledEdit;
+    edcdsdataint2: TLabeledEdit;
+    edcdsdataint: TLabeledEdit;
+    edgbdataint4: TLabeledEdit;
+    edgbdataint3: TLabeledEdit;
+    edgbdataint2: TLabeledEdit;
+    edgbdataint: TLabeledEdit;
+    edgtbdataint4: TLabeledEdit;
+    edgtbdataint3: TLabeledEdit;
+    edgtbdataint2: TLabeledEdit;
+    edgtbdataint: TLabeledEdit;
+    eddoedataint: TLabeledEdit;
+    eddoedataint2: TLabeledEdit;
+    eddoedataint3: TLabeledEdit;
+    eddoedataint4: TLabeledEdit;
+    eddogdataint: TLabeledEdit;
+    eddogdataint2: TLabeledEdit;
+    eddogdataint3: TLabeledEdit;
+    eddogdataint4: TLabeledEdit;
+    eddosdataint: TLabeledEdit;
+    eddosdataint2: TLabeledEdit;
+    eddosdataint3: TLabeledEdit;
+    eddosdataint4: TLabeledEdit;
+    eddordataint: TLabeledEdit;
+    eddordataint2: TLabeledEdit;
+    eddordataint3: TLabeledEdit;
+    eddordataint4: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2374,10 +2365,10 @@ type
     procedure btProsLootDelClick(Sender: TObject);
     procedure lvitProsLootChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvitProsLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
-    procedure lvqtStartScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
-    procedure lvqtEndScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
-    procedure lvqtStartScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
-    procedure lvqtEndScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvssStartScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvesEndScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvssStartScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvesEndScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btssAddClick(Sender: TObject);
     procedure btssUpdClick(Sender: TObject);
     procedure btssDelClick(Sender: TObject);
@@ -3569,8 +3560,8 @@ begin
           [s2, id, quest])
     end;
 
-  s5 := ScriptSQLScript(lvqtStartScript, SCRIPT_TABLE_QUEST_START, edqtStartScript.Text);
-  s6 := ScriptSQLScript(lvqtEndScript, SCRIPT_TABLE_QUEST_END, edqtCompleteScript.Text);
+  s5 := ScriptSQLScript(lvssStartScript, SCRIPT_TABLE_QUEST_START, edqtStartScript.Text);
+  s6 := ScriptSQLScript(lvesEndScript, SCRIPT_TABLE_QUEST_END, edqtCompleteScript.Text);
 
   SetFieldsAndValues(Fields, Values, 'quest_template', PFX_QUEST_TEMPLATE, meqtLog);
 
@@ -12649,7 +12640,7 @@ begin
   id := StrToIntDef(TCustomEdit(Sender).Text, 0);
   if (id < 1) then
     Exit;
-  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)', [SCRIPT_TABLE_QUEST_END, id]), lvqtEndScript);
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)', [SCRIPT_TABLE_QUEST_END, id]), lvesEndScript);
 end;
 
 procedure TMainForm.LoadQuestStartScript(Sender: TObject);
@@ -12659,25 +12650,25 @@ begin
   id := StrToIntDef(TCustomEdit(Sender).Text, 0);
   if (id < 1) then
     Exit;
-  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)', [SCRIPT_TABLE_QUEST_START, id]), lvqtStartScript);
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)', [SCRIPT_TABLE_QUEST_START, id]), lvssStartScript);
 end;
 
-procedure TMainForm.lvqtStartScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+procedure TMainForm.lvssStartScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
 begin
   btssUpd.Enabled := Assigned(TJvListView(Sender).Selected);
   btssDel.Enabled := Assigned(TJvListView(Sender).Selected);
 end;
 
-procedure TMainForm.lvqtEndScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+procedure TMainForm.lvesEndScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
 begin
   btesUpd.Enabled := Assigned(TJvListView(Sender).Selected);
   btesDel.Enabled := Assigned(TJvListView(Sender).Selected);
 end;
 
-procedure TMainForm.lvqtStartScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+procedure TMainForm.lvssStartScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 begin
   if Selected then
-    SetScriptEditFields('edss', lvqtStartScript);
+    SetScriptEditFields('edss', lvssStartScript);
 end;
 
 procedure TMainForm.lvqtTakerTemplateChange(Sender: TObject; Item: TListItem; Change: TItemChange);
@@ -12697,10 +12688,10 @@ begin
     LoadQuestTakerInfo(Item.Caption, Item.SubItems[0]);
 end;
 
-procedure TMainForm.lvqtEndScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+procedure TMainForm.lvesEndScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
 begin
   if Selected then
-    SetScriptEditFields('edes', lvqtEndScript);
+    SetScriptEditFields('edes', lvesEndScript);
 end;
 
 procedure TMainForm.lvqtGiverTemplateChange(Sender: TObject; Item: TListItem; Change: TItemChange);
@@ -12809,32 +12800,32 @@ end;
 
 procedure TMainForm.btssAddClick(Sender: TObject);
 begin
-  ScriptAdd('edss', lvqtStartScript);
+  ScriptAdd('edss', lvssStartScript);
 end;
 
 procedure TMainForm.btssUpdClick(Sender: TObject);
 begin
-  ScriptUpd('edss', lvqtStartScript);
+  ScriptUpd('edss', lvssStartScript);
 end;
 
 procedure TMainForm.btssDelClick(Sender: TObject);
 begin
-  ScriptDel(lvqtStartScript);
+  ScriptDel(lvssStartScript);
 end;
 
 procedure TMainForm.btesAddClick(Sender: TObject);
 begin
-  ScriptAdd('edes', lvqtEndScript);
+  ScriptAdd('edes', lvesEndScript);
 end;
 
 procedure TMainForm.btesUpdClick(Sender: TObject);
 begin
-  ScriptUpd('edes', lvqtEndScript);
+  ScriptUpd('edes', lvesEndScript);
 end;
 
 procedure TMainForm.btesDelClick(Sender: TObject);
 begin
-  ScriptDel(lvqtEndScript);
+  ScriptDel(lvesEndScript);
 end;
 
 procedure TMainForm.GetCommand(Sender: TObject);
