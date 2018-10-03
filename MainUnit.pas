@@ -37,6 +37,7 @@ const
   SCRIPT_TABLE_QUEST_END = 'dbscripts_on_quest_end';
   SCRIPT_TABLE_QUEST_START =  'dbscripts_on_quest_start';
   SCRIPT_TABLE_SPELL = 'dbscripts_on_spell';
+  SCRIPT_TABLE_RELAY = 'dbscripts_on_relay';
   TABLE_DB_SCRIPT_STRING = 'db_script_string';
 {$ELSE}
   SCRIPT_TABLE_CREATURE_MOVEMENT = 'creature_movement_scripts';
@@ -57,7 +58,7 @@ const
   SCRIPT_TAB_NO_ITEM = 11;
   SCRIPT_TAB_NO_OTHER = 4;
   SCRIPT_TAB_NO_CHARACTER = 3;
-  SCRIPT_TAB_NO_DBSCRIPTS_ON = 10;
+  SCRIPT_TAB_NO_DBSCRIPTS_ON = 11;
   
   TAB_NO_QUEST_MAIL_LOOT = 6;
   
@@ -94,6 +95,7 @@ const
   TAB_NO_DBSCRIPT_EVENT = 7;
   TAB_NO_DBSCRIPT_GOSSIP = 8;
   TAB_NO_DBSCRIPT_SPELL = 9;
+  TAB_NO_DBSCRIPT_RELAY = 10;
 
   WM_FREEQL = WM_USER + 1;
 
@@ -145,6 +147,7 @@ const
   PFX_DBSCRIPTS_ON_EVENT = 'doe';
   PFX_DBSCRIPTS_ON_GOSSIP = 'dog';
   PFX_DBSCRIPTS_ON_SPELL = 'dos';
+  PFX_DBSCRIPTS_ON_RELAY = 'dor';
   PFX_DBSCRIPTS_ON_QUEST_START = 'ss';
   PFX_DBSCRIPTS_ON_QUEST_END = 'es';
   PFX_DBSCRIPTS_ON_CREATURE_MOVEMENT = 'cms';
@@ -2355,6 +2358,7 @@ type
     procedure LoadDBScriptsOnEvent(Sender: TObject);
     procedure LoadDBScriptsOnGossip(Sender: TObject);
     procedure LoadDBScriptsOnSpell(Sender: TObject);
+    procedure LoadDBScriptsOnRelay(Sender: TObject);
     procedure LoadCreatureModelInfo(Sender: TObject);
     procedure LoadGossipMenuOption(Sender: TObject);
     procedure btSQLOpenClick(Sender: TObject);
@@ -2520,6 +2524,7 @@ type
     procedure eddoeidButtonClick(Sender: TObject);
     procedure eddogidButtonClick(Sender: TObject);
     procedure eddosidButtonClick(Sender: TObject);
+    procedure eddoridButtonClick(Sender: TObject);
     procedure edclguidButtonClick(Sender: TObject);
     procedure edclidButtonClick(Sender: TObject);
     procedure edcimodelidButtonClick(Sender: TObject);
@@ -2786,6 +2791,7 @@ type
     procedure CompleteDbScriptsOnEventScript;
     procedure CompleteDbScriptsOnGossipScript;
     procedure CompleteDbScriptsOnSpellScript;
+    procedure CompleteDbScriptsOnRelayScript;
 
     procedure EditThis(objtype: string; entry: string);
     procedure CreateNPCTextFields;
@@ -11556,6 +11562,8 @@ begin
       CompleteDbScriptsOnGossipScript;
     9:
       CompleteDbScriptsOnSpellScript;
+    10:
+      CompleteDbScriptsOnRelayScript;
   end;
 end;
 
@@ -11639,6 +11647,11 @@ end;
 procedure TMainForm.CompleteDbScriptsOnSpellScript;
 begin
   CompleteDbScripts(SCRIPT_TABLE_SPELL, PFX_DBSCRIPTS_ON_SPELL, eddosid.Text, eddosdelay.Text, eddoscommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptsOnRelayScript;
+begin
+  CompleteDbScripts(SCRIPT_TABLE_RELAY, PFX_DBSCRIPTS_ON_RELAY, eddorid.Text, eddordelay.Text, eddorcommand.Text);
 end;
 
 procedure TMainForm.btCopyToClipDBScriptsOnClick(Sender: TObject);
@@ -11824,6 +11837,20 @@ begin
   LoadDBScriptsOnSpell(TCustomEdit(Sender));
   LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
       [SCRIPT_TABLE_SPELL, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvdosSpellScript);
+end;
+
+procedure TMainForm.LoadDBScriptsOnRelay(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_RELAY, PFX_DBSCRIPTS_ON_RELAY);
+end;
+
+procedure TMainForm.eddoridButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_RELAY;
+  LoadDBScriptsOnRelay(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_RELAY, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvdorRelayScript);
 end;
 
 procedure TMainForm.edclguidButtonClick(Sender: TObject);
