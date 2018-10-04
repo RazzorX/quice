@@ -38,6 +38,7 @@ const
   SCRIPT_TABLE_QUEST_START =  'dbscripts_on_quest_start';
   SCRIPT_TABLE_SPELL = 'dbscripts_on_spell';
   SCRIPT_TABLE_RELAY = 'dbscripts_on_relay';
+  SCRIPT_TABLE_RND_TMPL = 'dbscript_random_templates';
   TABLE_DB_SCRIPT_STRING = 'db_script_string';
 {$ELSE}
   SCRIPT_TABLE_CREATURE_MOVEMENT = 'creature_movement_scripts';
@@ -58,7 +59,7 @@ const
   SCRIPT_TAB_NO_ITEM = 11;
   SCRIPT_TAB_NO_OTHER = 4;
   SCRIPT_TAB_NO_CHARACTER = 3;
-  SCRIPT_TAB_NO_DBSCRIPTS_ON = 11;
+  SCRIPT_TAB_NO_DBSCRIPTS_ON = 12;
   
   TAB_NO_QUEST_MAIL_LOOT = 6;
   
@@ -96,6 +97,7 @@ const
   TAB_NO_DBSCRIPT_GOSSIP = 8;
   TAB_NO_DBSCRIPT_SPELL = 9;
   TAB_NO_DBSCRIPT_RELAY = 10;
+  TAB_NO_DBSCRIPT_RND_TMPL = 11;
 
   WM_FREEQL = WM_USER + 1;
 
@@ -148,6 +150,7 @@ const
   PFX_DBSCRIPTS_ON_GOSSIP = 'dog';
   PFX_DBSCRIPTS_ON_SPELL = 'dos';
   PFX_DBSCRIPTS_ON_RELAY = 'dor';
+  PFX_DBSCRIPTS_ON_RND_TMPL = 'rt';
   PFX_DBSCRIPTS_ON_QUEST_START = 'ss';
   PFX_DBSCRIPTS_ON_QUEST_END = 'es';
   PFX_DBSCRIPTS_ON_CREATURE_MOVEMENT = 'cms';
@@ -2163,6 +2166,20 @@ type
     btdogScript: TButton;
     btdosScript: TButton;
     btdorScript: TButton;
+    tsRandomTemplates: TTabSheet;
+    lvrtRandomScript: TJvListView;
+    edrtid: TJvComboEdit;
+    lbrtid: TLabel;
+    edrttarget_id: TJvComboEdit;
+    lbrttarget_id: TLabel;
+    edrtcomments: TLabeledEdit;
+    edrttype: TLabeledEdit;
+    edrtchance: TLabeledEdit;
+    btrtAdd: TSpeedButton;
+    btrtUpd: TSpeedButton;
+    btrtDel: TSpeedButton;
+    btrtScript: TButton;
+    btrtFullScript: TButton;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2366,6 +2383,7 @@ type
     procedure btdogShowFullScriptOnClick(Sender: TObject);
     procedure btdosShowFullScriptOnClick(Sender: TObject);
     procedure btdorShowFullScriptOnClick(Sender: TObject);
+    procedure btrtFullScriptOnClick(Sender: TObject);
     procedure LoadConditions(Sender: TObject);
     procedure LoadDBScriptString(Sender: TObject);
     procedure LoadDBScripts(Sender: TObject; TableName: string; prefix: string);
@@ -2379,6 +2397,7 @@ type
     procedure LoadDBScriptsOnGossip(Sender: TObject);
     procedure LoadDBScriptsOnSpell(Sender: TObject);
     procedure LoadDBScriptsOnRelay(Sender: TObject);
+    procedure LoadDBScriptsOnRandomTemplates(Sender: TObject);
     procedure LoadCreatureModelInfo(Sender: TObject);
     procedure LoadGossipMenuOption(Sender: TObject);
     procedure btSQLOpenClick(Sender: TObject);
@@ -2506,6 +2525,8 @@ type
     procedure lvdosSpellScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure lvdorRelayScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
     procedure lvdorRelayScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+    procedure lvrtRandomScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+    procedure lvrtRandomScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure btgbAddClick(Sender: TObject);
     procedure btgbUpdClick(Sender: TObject);
     procedure btgbDelClick(Sender: TObject);
@@ -2524,6 +2545,9 @@ type
     procedure btdorAddClick(Sender: TObject);
     procedure btdorUpdClick(Sender: TObject);
     procedure btdorDelClick(Sender: TObject);
+    procedure btrtAddClick(Sender: TObject);
+    procedure btrtUpdClick(Sender: TObject);
+    procedure btrtDelClick(Sender: TObject);
     procedure tsButtonScriptShow(Sender: TObject);
     procedure btBrowsePopupClick(Sender: TObject);
     procedure edcvExtendedCostButtonClick(Sender: TObject);
@@ -2545,6 +2569,8 @@ type
     procedure eddogidButtonClick(Sender: TObject);
     procedure eddosidButtonClick(Sender: TObject);
     procedure eddoridButtonClick(Sender: TObject);
+    procedure edrtidButtonClick(Sender: TObject);
+    procedure edrttarget_idButtonClick(Sender: TObject);
     procedure edclguidButtonClick(Sender: TObject);
     procedure edclidButtonClick(Sender: TObject);
     procedure edcimodelidButtonClick(Sender: TObject);
@@ -2687,6 +2713,7 @@ type
     procedure LoadQuestStartScript(Sender: TObject);
     procedure LoadQuestCompleteScript(Sender: TObject);
     procedure SetScriptEditFields(pfx: string; lvList: TJvListView);
+	procedure SetRandomTemplatesScriptEditFields(pfx: string; lvList: TJvListView);
     procedure ClearFields(Where: TType);
     procedure SetDefaultFields(Where: TType);
     procedure ShowSettings(n: Integer);
@@ -2776,6 +2803,8 @@ type
     procedure ScriptAdd(pfx: string; lvList: TJvListView);
     procedure ScriptDel(lvList: TJvListView);
     procedure ScriptUpd(pfx: string; lvList: TJvListView);
+    procedure RandomTemplatesScriptAdd(pfx: string; lvList: TJvListView);
+    procedure RandomTemplatesScriptUpd(pfx: string; lvList: TJvListView);
 
     procedure EnchAdd(pfx: string; lvList: TJvListView);
     procedure EnchDel(lvList: TJvListView);
@@ -2802,6 +2831,7 @@ type
     procedure CompleteDbScriptStringScript;
     procedure CompleteGameEventScript;
     procedure CompleteDbScripts(TableName: string; prefix: string; entry: string; delay: string; command: string);
+    procedure CompleteDbScriptRandomTemplates(TableName: string; prefix: string; entry: string; entry_type: string; target_id: string);
     procedure CompleteDbScriptsOnQuestStartScript;
     procedure CompleteDbScriptsOnQuestEndScript;
     procedure CompleteDbScriptsOnCreatureDeathScript;
@@ -2812,6 +2842,7 @@ type
     procedure CompleteDbScriptsOnGossipScript;
     procedure CompleteDbScriptsOnSpellScript;
     procedure CompleteDbScriptsOnRelayScript;
+    procedure CompleteDbScriptRandomTemplatesScript;
 
     procedure EditThis(objtype: string; entry: string);
     procedure CreateNPCTextFields;
@@ -2846,6 +2877,7 @@ type
     function GetValueFromDBC(Name: string; id: Cardinal; idx_str: Integer = 1): string;
     function GetZoneOrSortAcronym(ZoneOrSort: Integer): string;
     function ScriptSQLScript(lvList: TJvListView; tn, id: string): string;
+    function RandomTemplatesSQLScript(lvList: TJvListView; tn, id: string): string;
     procedure GetSomeFlags(Sender: TObject; What: string);
     function GetActionParamHint(ActionType, ParamNo: Integer): string;
     procedure LoadGossipMenu(entry: Integer);
@@ -3561,6 +3593,32 @@ begin
     Result := Format('DELETE FROM `%0:s` WHERE `id`=%1:s;'#13#10 +
       'INSERT INTO `%0:s` (`id`, `delay`, `command`, `datalong`, `datalong2`, `datalong3`, ' +
       '`buddy_entry`, `search_radius`, `data_flags`,`dataint`,`dataint2`,`dataint3`,`dataint4`, `x`, `y`, `z`, `o`,`comments`) VALUES '#13#10'%2:s'#13#10,
+      [tn, id, Result]);
+  end
+  else
+    Result := Format('DELETE FROM `%s` WHERE `id`=%s;', [tn, id]);
+end;
+
+function TMainForm.RandomTemplatesSQLScript(lvList: TJvListView; tn: string; id: string): string;
+var
+  i: Integer;
+begin
+  Result := '';
+  if lvList.Items.Count > 0 then
+  begin
+    for i := 0 to lvList.Items.Count - 2 do
+    begin
+      Result := Result + Format('(%s, %s, %s, %s, %s),'#13#10,
+        [lvList.Items[i].Caption, lvList.Items[i].SubItems[0], lvList.Items[i].SubItems[1], lvList.Items[i].SubItems[2], QuotedStr(lvList.Items[i].SubItems[3])]);
+    end;
+    i := lvList.Items.Count - 1;
+    Result := Result + Format('(%s, %s, %s, %s, %s),'#13#10,
+        [lvList.Items[i].Caption, lvList.Items[i].SubItems[0], lvList.Items[i].SubItems[1], lvList.Items[i].SubItems[2], QuotedStr(lvList.Items[i].SubItems[3])]);
+  end;
+  if Result <> '' then
+  begin
+    Result := Format('DELETE FROM `%0:s` WHERE `id`=%1:s;'#13#10 +
+      'INSERT INTO `%0:s` (`id`,`type`,`target_id`,`chance`,`comments`) VALUES '#13#10'%2:s'#13#10,
       [tn, id, Result]);
   end
   else
@@ -8388,6 +8446,18 @@ begin
     SetScriptEditFields('eddor', lvdorRelayScript);
 end;
 
+procedure TMainForm.lvrtRandomScriptChange(Sender: TObject; Item: TListItem; Change: TItemChange);
+begin
+  btrtUpd.Enabled := Assigned(TJvListView(Sender).Selected);
+  btrtDel.Enabled := Assigned(TJvListView(Sender).Selected);
+end;
+
+procedure TMainForm.lvrtRandomScriptSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
+begin
+  if Selected then
+    SetRandomTemplatesScriptEditFields('edrt', lvrtRandomScript);
+end;
+
 procedure TMainForm.LoadGOLocation(GUID: Integer);
 begin
   if GUID < 1 then
@@ -11589,6 +11659,8 @@ begin
       CompleteDbScriptsOnSpellScript;
     10:
       CompleteDbScriptsOnRelayScript;
+    11:
+      CompleteDbScriptRandomTemplatesScript;
   end;
 end;
 
@@ -11667,6 +11739,13 @@ begin
   medbScript.Text := ScriptSQLScript(lvdorRelayScript, SCRIPT_TABLE_RELAY, eddorid.Text);
 end;
 
+procedure TMainForm.btrtFullScriptOnClick(Sender: TObject);
+begin
+  medbScript.Clear;
+  DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
+  medbScript.Text := RandomTemplatesSQLScript(lvrtRandomScript, SCRIPT_TABLE_RND_TMPL, edrtid.Text);
+end;
+
 procedure TMainForm.CompleteDbScriptStringScript;
 var
   entry, Fields, Values: string;
@@ -11697,6 +11776,18 @@ begin
   SetFieldsAndValues(Fields, Values, TableName, prefix, medbLog);
   medbScript.Text := Format('DELETE FROM `%0:s` WHERE (`id`=%1:s) AND (`delay`=%2:s) AND (`command`=%3:s);'#13#10 +
     'INSERT INTO `%0:s` (%4:s) VALUES (%5:s);'#13#10, [TableName, entry, delay, command, Fields, Values]);
+end;
+
+procedure TMainForm.CompleteDbScriptRandomTemplates(TableName: string; prefix: string; entry: string; entry_type: string; target_id: string);
+var
+  Fields, Values: string;
+begin
+  medbLog.Clear;
+  if (StrToIntDef(entry, 0) < 1) then
+    Exit;
+  SetFieldsAndValues(Fields, Values, TableName, prefix, medbLog);
+  medbScript.Text := Format('DELETE FROM `%0:s` WHERE (`id`=%1:s) AND (`type`=%2:s) AND (`target_id`=%3:s);'#13#10 +
+    'INSERT INTO `%0:s` (%4:s) VALUES (%5:s);'#13#10, [TableName, entry, entry_type, target_id, Fields, Values]);
 end;
 
 procedure TMainForm.CompleteDbScriptsOnQuestStartScript;
@@ -11747,6 +11838,11 @@ end;
 procedure TMainForm.CompleteDbScriptsOnRelayScript;
 begin
   CompleteDbScripts(SCRIPT_TABLE_RELAY, PFX_DBSCRIPTS_ON_RELAY, eddorid.Text, eddordelay.Text, eddorcommand.Text);
+end;
+
+procedure TMainForm.CompleteDbScriptRandomTemplatesScript;
+begin
+  CompleteDbScriptRandomTemplates(SCRIPT_TABLE_RND_TMPL, PFX_DBSCRIPTS_ON_RND_TMPL, edrtid.Text, edrttype.Text, edrttarget_id.Text);
 end;
 
 procedure TMainForm.btCopyToClipDBScriptsOnClick(Sender: TObject);
@@ -11946,6 +12042,33 @@ begin
   LoadDBScriptsOnRelay(TCustomEdit(Sender));
   LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
       [SCRIPT_TABLE_RELAY, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvdorRelayScript);
+end;
+
+procedure TMainForm.LoadDBScriptsOnRandomTemplates(Sender: TObject);
+begin
+  LoadDBScripts(Sender, SCRIPT_TABLE_RND_TMPL, PFX_DBSCRIPTS_ON_RND_TMPL);
+end;
+
+procedure TMainForm.edrtidButtonClick(Sender: TObject);
+begin
+  PageControl1.ActivePageIndex := 6;
+  DBScriptString.ActivePageIndex := TAB_NO_DBSCRIPT_RND_TMPL;
+  LoadDBScriptsOnRandomTemplates(TCustomEdit(Sender));
+  LoadQueryToListView(Format('SELECT * FROM `%s` WHERE (`id`=%d)',
+      [SCRIPT_TABLE_RND_TMPL, StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvrtRandomScript);
+end;
+
+procedure TMainForm.edrttarget_idButtonClick(Sender: TObject);
+begin
+  if (StrToIntDef(edrttype.Text, 0) = 0) then
+  begin
+	if (StrToIntDef(edrttarget_id.Text, 0) > 0) then
+	  eddbsentryButtonClick(TCustomEdit(Sender));
+    //else
+	  //edcatentryButtonClick(TCustomEdit(Sender));
+  end
+  else if (StrToIntDef(edrttype.Text, 0) = 1) then
+    eddoridButtonClick(TCustomEdit(Sender));
 end;
 
 procedure TMainForm.edclguidButtonClick(Sender: TObject);
@@ -12212,6 +12335,21 @@ end;
 procedure TMainForm.btdorUpdClick(Sender: TObject);
 begin
   ScriptUpd('eddor', lvdorRelayScript);
+end;
+
+procedure TMainForm.btrtAddClick(Sender: TObject);
+begin
+  RandomTemplatesScriptAdd('edrt', lvrtRandomScript);
+end;
+
+procedure TMainForm.btrtDelClick(Sender: TObject);
+begin
+  ScriptDel(lvrtRandomScript);
+end;
+
+procedure TMainForm.btrtUpdClick(Sender: TObject);
+begin
+  RandomTemplatesScriptUpd('edrt', lvrtRandomScript);
 end;
 
 procedure TMainForm.btgeCreatureGuidAddClick(Sender: TObject);
@@ -13054,6 +13192,48 @@ procedure TMainForm.ScriptDel(lvList: TJvListView);
 begin
   if Assigned(lvList.Selected) then
     lvList.DeleteSelected;
+end;
+
+procedure TMainForm.SetRandomTemplatesScriptEditFields(pfx: string; lvList: TJvListView);
+begin
+  if Assigned(lvList.Selected) then
+  begin
+    with lvList.Selected do
+    begin
+      TCustomEdit(FindComponent(pfx + 'id')).Text := Caption;
+      TCustomEdit(FindComponent(pfx + 'type')).Text := SubItems[0];
+      TCustomEdit(FindComponent(pfx + 'target_id')).Text := SubItems[1];
+      TCustomEdit(FindComponent(pfx + 'chance')).Text := SubItems[2];
+      TCustomEdit(FindComponent(pfx + 'comments')).Text := SubItems[3];
+    end;
+  end;
+end;
+
+procedure TMainForm.RandomTemplatesScriptAdd(pfx: string; lvList: TJvListView);
+begin
+  with lvList.Items.Add do
+  begin
+    Caption := TCustomEdit(FindComponent(pfx + 'id')).Text;
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'type')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'target_id')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'chance')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'comments')).Text);
+  end;
+end;
+
+procedure TMainForm.RandomTemplatesScriptUpd(pfx: string; lvList: TJvListView);
+begin
+  if Assigned(lvList.Selected) then
+  begin
+    with lvList.Selected do
+    begin
+      Caption := TCustomEdit(FindComponent(pfx + 'id')).Text;
+      SubItems[0] := TCustomEdit(FindComponent(pfx + 'type')).Text;
+      SubItems[1] := TCustomEdit(FindComponent(pfx + 'target_id')).Text;
+      SubItems[2] := TCustomEdit(FindComponent(pfx + 'chance')).Text;
+      SubItems[3] := TCustomEdit(FindComponent(pfx + 'comments')).Text;
+    end;
+  end;
 end;
 
 procedure TMainForm.btssAddClick(Sender: TObject);
