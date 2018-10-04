@@ -39,7 +39,7 @@ const
   SCRIPT_TABLE_SPELL = 'dbscripts_on_spell';
   SCRIPT_TABLE_RELAY = 'dbscripts_on_relay';
   SCRIPT_TABLE_RND_TMPL = 'dbscript_random_templates';
-  TABLE_DB_SCRIPT_STRING = 'db_script_string';
+  TABLE_DB_SCRIPT_STRING = 'dbscript_string';
 {$ELSE}
   SCRIPT_TABLE_CREATURE_MOVEMENT = 'creature_movement_scripts';
   SCRIPT_TABLE_CREATURE_DEATH = '';
@@ -11878,7 +11878,7 @@ begin
   MyTempQuery.Open;
   try
     if MyTempQuery.Eof then
-      raise Exception.Create(Format(dmMain.Text[164], [StrToInt(entry)])); // 'Error: db_script_string (entry = %d) not found'
+      raise Exception.Create(Format(dmMain.Text[164], [StrToInt(entry)])); // 'Error: dbscript_string (entry = %d) not found'
     FillFields(MyTempQuery, PFX_DB_SCRIPT_STRING);
     MyTempQuery.Close;
   except

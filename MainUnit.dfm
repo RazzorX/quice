@@ -32519,7 +32519,7 @@ object MainForm: TMainForm
         Align = alClient
         TabOrder = 1
         object tsString: TTabSheet
-          Caption = 'db_script_string'
+          Caption = 'dbscript_string'
           ImageIndex = 4
           DesignSize = (
             992
