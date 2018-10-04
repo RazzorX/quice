@@ -31108,9 +31108,9 @@ object MainForm: TMainForm
             Caption = 'condition_entry'
           end
           object edconvalue2: TLabeledEdit
-            Left = 339
+            Left = 291
             Top = 34
-            Width = 121
+            Width = 80
             Height = 21
             EditLabel.Width = 32
             EditLabel.Height = 13
@@ -31118,9 +31118,9 @@ object MainForm: TMainForm
             TabOrder = 0
           end
           object edconvalue1: TLabeledEdit
-            Left = 212
+            Left = 205
             Top = 34
-            Width = 121
+            Width = 80
             Height = 21
             EditLabel.Width = 32
             EditLabel.Height = 13
@@ -31128,7 +31128,7 @@ object MainForm: TMainForm
             TabOrder = 1
           end
           object edcontype: TJvComboEdit
-            Left = 125
+            Left = 119
             Top = 34
             Width = 80
             Height = 21
@@ -31164,10 +31164,11 @@ object MainForm: TMainForm
             TabOrder = 2
             Text = ''
             OnButtonClick = GetConditions
+            OnChange = edcontypeChange
           end
           object btScriptConditions: TButton
-            Left = 496
-            Top = 43
+            Left = 559
+            Top = 32
             Width = 75
             Height = 25
             Anchors = [akLeft, akBottom]
@@ -31228,6 +31229,16 @@ object MainForm: TMainForm
             TabOrder = 4
             Text = ''
             OnButtonClick = edconentryButtonClick
+          end
+          object edconcomments: TLabeledEdit
+            Left = 377
+            Top = 34
+            Width = 176
+            Height = 21
+            EditLabel.Width = 48
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comments'
+            TabOrder = 5
           end
         end
         object tsOtherScript: TTabSheet
@@ -32504,7 +32515,7 @@ object MainForm: TMainForm
         Top = 25
         Width = 1000
         Height = 628
-        ActivePage = tsString
+        ActivePage = tsStartScript
         Align = alClient
         TabOrder = 1
         object tsString: TTabSheet

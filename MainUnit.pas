@@ -2180,6 +2180,7 @@ type
     btrtDel: TSpeedButton;
     btrtScript: TButton;
     btrtFullScript: TButton;
+    edconcomments: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2419,6 +2420,7 @@ type
     procedure btesUpdClick(Sender: TObject);
     procedure btesDelClick(Sender: TObject);
     procedure GetCommand(Sender: TObject);
+    procedure edcontypeChange(Sender: TObject);
     procedure edsscommandChange(Sender: TObject);
     procedure edescommandChange(Sender: TObject);
     procedure edcmscommandChange(Sender: TObject);
@@ -2864,6 +2866,7 @@ type
 
     procedure RebuildSpellList;
     procedure ChangeScriptCommand(command: Integer; pfx: string);
+    procedure ChangeConditionType(condition_type: Integer; pfx: string);
     procedure SearchChar;
 
     procedure GetGuid(Sender: TObject; otype: string);
@@ -3355,8 +3358,8 @@ begin
   SetDBSpellList;
   PageControl1.ActivePageIndex := 0;
   PageControl2.ActivePageIndex := 0;
-  Application.HintPause := 300;
-  Application.HintHidePause := 50000;
+  Application.HintPause := 200;
+  Application.HintHidePause := 10000;
 
   tsNPCVendor.TabVisible := false;
   tsNPCTrainer.TabVisible := false;
@@ -11634,6 +11637,11 @@ begin
   LoadConditions(TCustomEdit(Sender));
 end;
 
+procedure TMainForm.edcontypeChange(Sender: TObject);
+begin
+  ChangeConditionType(StrToIntDef(TJvComboEdit(Sender).Text, 0), 'con');
+end;
+
 procedure TMainForm.tsDBScriptsOnShow(Sender: TObject);
 begin
   case DBScriptString.ActivePageIndex of
@@ -13408,6 +13416,224 @@ begin
 	31:
 	  begin
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong3')).Hint := 'pool_id';
+	  end;
+  end;
+end;
+
+procedure TMainForm.ChangeConditionType(condition_type: Integer; pfx: string);
+begin
+  case condition_type of
+    -3:
+      begin
+	    edconvalue1.EditLabel.Caption := 'condition_entry';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    -2:
+      begin
+	    edconvalue1.EditLabel.Caption := 'condition_entry';
+	    edconvalue2.EditLabel.Caption := 'condition_entry';
+      end;
+    -1:
+      begin
+	    edconvalue1.EditLabel.Caption := 'condition_entry';
+	    edconvalue2.EditLabel.Caption := 'condition_entry';
+      end;
+    0:
+      begin
+	    edconvalue1.EditLabel.Caption := 'value1';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'always 0';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    1,11,32:
+      begin
+	    edconvalue1.EditLabel.Caption := 'spell_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'Spell.dbc';
+	    edconvalue2.EditLabel.Caption := 'effindex';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0, 1, 2';
+      end;
+    2,16,23,24:
+      begin
+	    edconvalue1.EditLabel.Caption := 'item_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'item_template.entry';
+	    edconvalue2.EditLabel.Caption := 'count';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'required number of items';
+      end;
+    3:
+      begin
+	    edconvalue1.EditLabel.Caption := 'item_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'item_template.entry';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    4:
+      begin
+	    edconvalue1.EditLabel.Caption := 'area_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'AreaTable.dbc';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0: in (sub)area'#13#10 + '1: not in (sub)area';
+      end;
+    5:
+      begin
+	    edconvalue1.EditLabel.Caption := 'faction_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'Faction.dbc';
+	    edconvalue2.EditLabel.Caption := 'min_rank';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0-7';
+      end;
+    6:
+      begin
+	    edconvalue1.EditLabel.Caption := 'player_team';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := '469 - Alliance, 67 - Horde';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    7,29:
+      begin
+	    edconvalue1.EditLabel.Caption := 'skill_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'SkillLine.dbc';
+	    edconvalue2.EditLabel.Caption := 'skill_value';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '1-400';
+      end;
+    8,19,22:
+      begin
+	    edconvalue1.EditLabel.Caption := 'quest_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'quest_template.entry';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    9:
+      begin
+	    edconvalue1.EditLabel.Caption := 'quest_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'quest_template.entry';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0 any state'#13#10 + '1 if quest incomplete'#13#10 + '2 if quest completed';
+      end;
+    12,25:
+      begin
+	    edconvalue1.EditLabel.Caption := 'event_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'game_event.entry';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    13:
+      begin
+	    edconvalue1.EditLabel.Caption := 'area_flag';
+        edconvalue2.EditLabel.Caption := 'area_flag_not';
+      end;
+    14:
+      begin
+	    edconvalue1.EditLabel.Caption := 'race_mask';
+        edconvalue2.EditLabel.Caption := 'class_mask';
+      end;
+    15:
+      begin
+	    edconvalue1.EditLabel.Caption := 'player_level';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0: equal to'#13#10 + '1: equal or higher than'#13#10 + '2: equal or less than';
+      end;
+    17:
+      begin
+	    edconvalue1.EditLabel.Caption := 'spell_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'Spell.dbc';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0: has spell'#13#10 + '1: has not spell';
+      end;
+    18:
+      begin
+	    edconvalue1.EditLabel.Caption := 'instance_condition_id';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    20,21:
+      begin
+	    edconvalue1.EditLabel.Caption := 'achievement_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'Achievement.dbc';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0: has achievement'#13#10 + '1: has not achievement';
+      end;
+    26,27:
+      begin
+	    edconvalue1.EditLabel.Caption := 'holiday_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'Holidays.dbc';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    28:
+      begin
+	    edconvalue1.EditLabel.Caption := 'spell_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'Spell.dbc';
+		if edconvalue2.Text <> '0' then
+          edconvalue2.EditLabel.Caption := 'item_id'
+		else
+		  edconvalue2.EditLabel.Caption := 'value2';
+      end;
+    30:
+      begin
+	    edconvalue1.EditLabel.Caption := 'faction_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'Faction.dbc';
+	    edconvalue2.EditLabel.Caption := 'max_rank';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0-7';
+      end;
+    31:
+      begin
+	    edconvalue1.EditLabel.Caption := 'encounter_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'DungeonEncounter.dbc';
+	    edconvalue2.EditLabel.Caption := 'encounter_id2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'DungeonEncounter.dbc';
+      end;
+    33:
+      begin
+	    edconvalue1.EditLabel.Caption := 'waypoint_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'creature_movement.point or creature_movement_template.point';
+        edconvalue2.EditLabel.Caption := 'value2';
+	    TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0 = exact'#13#10 + '1: wp <= waypointId'#13#10 + '2: wp > waypointId';
+      end;
+    34:
+      begin
+	    edconvalue1.EditLabel.Caption := 'xp';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := '0: XP off, 1: XP on';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    35:
+      begin
+	    edconvalue1.EditLabel.Caption := 'gender';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := '0=male'#13#10 + '1=female'#13#10 + '2=none';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'always 0';
+      end;
+    36:
+      begin
+	    edconvalue1.EditLabel.Caption := 'value1';
+	    TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := '0=player dead'#13#10 +
+          '1=player is dead (with group dead)'#13#10 +
+          '2=player in instance are dead'#13#10 +
+          '3=creature is dead';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := 'if != 0 only consider players'#13#10 + 'in range of this value';
+      end;
+    37:
+      begin
+	    edconvalue1.EditLabel.Caption := 'creature_id';
+        edconvalue2.EditLabel.Caption := 'range';
+      end;
+    38:
+      begin
+	    edconvalue1.EditLabel.Caption := 'zone_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value1')).Hint := 'AreaTable.dbc';
+        edconvalue2.EditLabel.Caption := 'value2';
+        TJvComboEdit(FindComponent('ed' + pfx + 'value2')).Hint := '0: Alliance, 1: Horde';
+      end;
+    39:
+      begin
+	    edconvalue1.EditLabel.Caption := 'creature_id';
+        edconvalue2.EditLabel.Caption := 'count';
+      end;
+    else
+	  begin
+	    edconvalue1.EditLabel.Caption := 'value1';
+        edconvalue2.EditLabel.Caption := 'value2';
 	  end;
   end;
 end;
