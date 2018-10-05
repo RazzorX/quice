@@ -1,5 +1,4 @@
 [GETGUID]
-Caption=Get GUID for gameobject
 tsSearch=Search
 edID=ID
 edName=Name

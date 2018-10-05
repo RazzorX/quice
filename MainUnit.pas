@@ -2181,6 +2181,7 @@ type
     btrtScript: TButton;
     btrtFullScript: TButton;
     edconcomments: TLabeledEdit;
+    edgeEventGroup: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -4873,6 +4874,7 @@ procedure TMainForm.btClearClick(Sender: TObject);
 begin
   edgeholiday.Clear;
   edgelinkedTo.Clear;
+  edgeEventGroup.Clear;
   edgestart_time.Clear;
   edgeend_time.Clear;
   edgedescription.Clear;
@@ -8167,7 +8169,8 @@ begin
     edgelength.Text := Item.SubItems[3];
     edgeholiday.Text := Item.SubItems[4];
     edgelinkedTo.Text := Item.SubItems[5];
-    edgedescription.Text := Item.SubItems[6];
+    edgeEventGroup.Text := Item.SubItems[6];
+    edgedescription.Text := Item.SubItems[7];
     LoadCreaturesAndGOForGameEvent(Item.Caption);
   end
   else
@@ -12219,6 +12222,7 @@ begin
     SubItems.Add(edgelength.Text);
     SubItems.Add(edgeholiday.Text);
     SubItems.Add(edgelinkedTo.Text);
+    SubItems.Add(edgeEventGroup.Text);
     SubItems.Add(edgedescription.Text);
     Selected := true;
     MakeVisible(false);
@@ -12229,11 +12233,11 @@ procedure TMainForm.btGameEventDelClick(Sender: TObject);
 begin
   if Assigned(lvSearchGameEvent.Selected) then
   begin
-    PageControl6.ActivePageIndex := SCRIPT_TAB_NO_OTHER;
     meotScript.Text := Format('DELETE FROM `game_event` WHERE `entry` = %0:s;'#13#10 +
       'DELETE FROM `game_event` WHERE `linkedTo` = %0:s;'#13#10 +
       'DELETE FROM `game_event_creature` WHERE abs(`event`) = %0:s;'#13#10 +
-      'DELETE FROM `game_event_gameobject` WHERE abs(`event`) = %0:s;'#13#10, [lvSearchGameEvent.Selected.Caption])
+      'DELETE FROM `game_event_gameobject` WHERE abs(`event`) = %0:s;'#13#10, [lvSearchGameEvent.Selected.Caption]);
+    lvSearchGameEvent.DeleteSelected;
   end;
 end;
 
@@ -12250,7 +12254,8 @@ begin
       SubItems[3] := edgelength.Text;
       SubItems[4] := edgeholiday.Text;
       SubItems[5] := edgelinkedTo.Text;
-      SubItems[6] := edgedescription.Text;
+      SubItems[6] := edgeEventGroup.Text;
+      SubItems[7] := edgedescription.Text;
     end;
   end;
 end;

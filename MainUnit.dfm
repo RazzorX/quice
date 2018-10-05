@@ -30779,6 +30779,9 @@ object MainForm: TMainForm
                   Width = 60
                 end
                 item
+                  Caption = 'EventGroup'
+                end
+                item
                   Caption = 'description'
                   Width = 250
                 end>
@@ -30789,8 +30792,10 @@ object MainForm: TMainForm
               ViewStyle = vsReport
               OnChange = lvSearchGameEventChange
               OnSelectItem = lvSearchGameEventSelectItem
-              ColumnsOrder = '0=80,1=120,2=120,3=80,4=80,5=80,6=60,7=250'
+              ColumnsOrder = '0=80,1=120,2=120,3=80,4=80,5=80,6=60,7=50,8=250'
               ExtendedColumns = <
+                item
+                end
                 item
                 end
                 item
@@ -30996,9 +31001,9 @@ object MainForm: TMainForm
                 OnClick = btGameEventAddClick
               end
               object edgedescription: TLabeledEdit
-                Left = 685
+                Left = 701
                 Top = 29
-                Width = 182
+                Width = 163
                 Height = 21
                 Hint = 'Description of the event displayed in console'
                 EditLabel.Width = 51
@@ -31007,9 +31012,9 @@ object MainForm: TMainForm
                 TabOrder = 5
               end
               object edgelength: TLabeledEdit
-                Left = 416
+                Left = 417
                 Top = 29
-                Width = 80
+                Width = 65
                 Height = 21
                 Hint = 'Length in minutes of the event'
                 EditLabel.Width = 29
@@ -31020,7 +31025,7 @@ object MainForm: TMainForm
               object edgeoccurence: TLabeledEdit
                 Left = 346
                 Top = 29
-                Width = 62
+                Width = 65
                 Height = 21
                 Hint = 'Delay in minutes between occurences of the event'
                 EditLabel.Width = 51
@@ -31064,9 +31069,9 @@ object MainForm: TMainForm
                 TabOrder = 0
               end
               object edgeholiday: TLabeledEdit
-                Left = 502
+                Left = 488
                 Top = 29
-                Width = 79
+                Width = 65
                 Height = 21
                 EditLabel.Width = 33
                 EditLabel.Height = 13
@@ -31074,15 +31079,26 @@ object MainForm: TMainForm
                 TabOrder = 6
               end
               object edgelinkedTo: TLabeledEdit
-                Left = 587
+                Left = 559
                 Top = 29
-                Width = 79
+                Width = 65
                 Height = 21
                 Hint = 'This event starts only if defined LinkedTo event is started'
                 EditLabel.Width = 41
                 EditLabel.Height = 13
                 EditLabel.Caption = 'linkedTo'
                 TabOrder = 7
+              end
+              object edgeEventGroup: TLabeledEdit
+                Left = 630
+                Top = 29
+                Width = 65
+                Height = 21
+                Hint = 'Only one event from the group is triggered by chance'
+                EditLabel.Width = 57
+                EditLabel.Height = 13
+                EditLabel.Caption = 'EventGroup'
+                TabOrder = 8
               end
             end
           end
