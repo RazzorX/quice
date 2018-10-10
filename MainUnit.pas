@@ -14,10 +14,10 @@ uses
 
 const
 {$IFDEF CMANGOS}
-  REV = '13967';
+  REV = '13968';
   VERSION_1 = '1';
   VERSION_2 = '3';
-  VERSION_3 = '967';
+  VERSION_3 = '968';
 {$ENDIF}
 
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
@@ -2108,6 +2108,8 @@ type
     lbReqSpellCast2: TLabel;
     lbReqSpellCast3: TLabel;
     lbReqSpellCast4: TLabel;
+    edciSpeedWalk: TLabeledEdit;
+    edciSpeedRun: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -4463,9 +4465,11 @@ begin
       TCustomEdit(FindComponent(pfx + 'modelid')).Text := Caption;
       TCustomEdit(FindComponent(pfx + 'bounding_radius')).Text := SubItems[0];
       TCustomEdit(FindComponent(pfx + 'combat_reach')).Text := SubItems[1];
-      TCustomEdit(FindComponent(pfx + 'gender')).Text := SubItems[2];
-      TCustomEdit(FindComponent(pfx + 'modelid_other_gender')).Text := SubItems[3];
-      TCustomEdit(FindComponent(pfx + 'modelid_alternative')).Text := SubItems[4];
+      TCustomEdit(FindComponent(pfx + 'SpeedWalk')).Text := SubItems[2];
+      TCustomEdit(FindComponent(pfx + 'SpeedRun')).Text := SubItems[3];
+      TCustomEdit(FindComponent(pfx + 'gender')).Text := SubItems[4];
+      TCustomEdit(FindComponent(pfx + 'modelid_other_gender')).Text := SubItems[5];
+      TCustomEdit(FindComponent(pfx + 'modelid_alternative')).Text := SubItems[6];
     end;
   end;
 end;
@@ -7353,8 +7357,15 @@ begin
   if caguid = '' then
     Exit;
   SetFieldsAndValues(Fields, Values, 'creature_model_info', PFX_CREATURE_MODEL_INFO, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_model_info` WHERE (`modelid`=%s);'#13#10 +
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `creature_model_info` WHERE (`modelid`=%s);'#13#10 +
     'INSERT INTO `creature_model_info` (%s) VALUES (%s);'#13#10, [caguid, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `creature_model_info` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate('creature_model_info', PFX_CREATURE_MODEL_INFO, 'modelid', caguid);
+  end;
 end;
 
 procedure TMainForm.CompleteCreatureMovementScript;

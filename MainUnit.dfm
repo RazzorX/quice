@@ -11322,6 +11322,14 @@ object MainForm: TMainForm
                 Width = 120
               end
               item
+                Caption = 'SpeedWalk'
+                Width = 70
+              end
+              item
+                Caption = 'SpeedRun'
+                Width = 70
+              end
+              item
                 Caption = 'gender'
                 Width = 80
               end
@@ -11339,8 +11347,12 @@ object MainForm: TMainForm
             TabOrder = 1
             ViewStyle = vsReport
             OnSelectItem = lvCreatureModelSearchSelectItem
-            ColumnsOrder = '0=80,1=120,2=120,3=80,4=120,5=120'
+            ColumnsOrder = '0=80,1=120,2=120,3=70,4=70,5=80,6=120,7=120'
             ExtendedColumns = <
+              item
+              end
+              item
+              end
               item
               end
               item
@@ -11421,7 +11433,7 @@ object MainForm: TMainForm
               OnClick = btCreatureModelSearchClick
             end
             object edCreatureModelSearch: TLabeledEdit
-              Left = 9
+              Left = 11
               Top = 20
               Width = 73
               Height = 21
@@ -11444,49 +11456,49 @@ object MainForm: TMainForm
             OnClick = btScriptCreatureClick
           end
           object edcibounding_radius: TLabeledEdit
-            Left = 138
+            Left = 122
             Top = 296
-            Width = 121
+            Width = 105
             Height = 21
-            EditLabel.Width = 98
+            EditLabel.Width = 78
             EditLabel.Height = 13
-            EditLabel.Caption = 'edcibounding_radius'
+            EditLabel.Caption = 'bounding_radius'
             TabOrder = 2
           end
           object edcicombat_reach: TLabeledEdit
-            Left = 265
+            Left = 233
             Top = 296
-            Width = 121
+            Width = 105
             Height = 21
-            EditLabel.Width = 88
+            EditLabel.Width = 68
             EditLabel.Height = 13
-            EditLabel.Caption = 'edcicombat_reach'
+            EditLabel.Caption = 'combat_reach'
             TabOrder = 3
           end
           object edcigender: TLabeledEdit
-            Left = 392
+            Left = 566
             Top = 296
-            Width = 121
+            Width = 105
             Height = 21
-            EditLabel.Width = 53
+            EditLabel.Width = 33
             EditLabel.Height = 13
-            EditLabel.Caption = 'edcigender'
+            EditLabel.Caption = 'gender'
             TabOrder = 4
           end
           object edcimodelid_other_gender: TLabeledEdit
-            Left = 519
+            Left = 677
             Top = 296
-            Width = 132
+            Width = 105
             Height = 21
-            EditLabel.Width = 125
+            EditLabel.Width = 105
             EditLabel.Height = 13
-            EditLabel.Caption = 'edcimodelid_other_gender'
+            EditLabel.Caption = 'modelid_other_gender'
             TabOrder = 5
           end
           object edcimodelid_alternative: TLabeledEdit
-            Left = 657
+            Left = 788
             Top = 296
-            Width = 99
+            Width = 105
             Height = 21
             EditLabel.Width = 91
             EditLabel.Height = 13
@@ -11496,7 +11508,7 @@ object MainForm: TMainForm
           object edcimodelid: TJvComboEdit
             Left = 11
             Top = 296
-            Width = 121
+            Width = 105
             Height = 21
             ButtonWidth = 22
             ClickKey = 13
@@ -11546,6 +11558,26 @@ object MainForm: TMainForm
             TabOrder = 8
             Text = ''
             OnButtonClick = edcimodelidButtonClick
+          end
+          object edciSpeedWalk: TLabeledEdit
+            Left = 344
+            Top = 296
+            Width = 105
+            Height = 21
+            EditLabel.Width = 56
+            EditLabel.Height = 13
+            EditLabel.Caption = 'SpeedWalk'
+            TabOrder = 9
+          end
+          object edciSpeedRun: TLabeledEdit
+            Left = 455
+            Top = 296
+            Width = 105
+            Height = 21
+            EditLabel.Width = 51
+            EditLabel.Height = 13
+            EditLabel.Caption = 'SpeedRun'
+            TabOrder = 10
           end
         end
         object tsCreatureEquipTemplate: TTabSheet
