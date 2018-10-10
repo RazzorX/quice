@@ -7505,15 +7505,15 @@ object MainForm: TMainForm
           Caption = 'Creature Template'
           ImageIndex = 1
           object lbctmechanic_immune_mask: TLabel
-            Left = 712
-            Top = 266
+            Left = 587
+            Top = 387
             Width = 110
             Height = 13
             Caption = 'MechanicImmuneMask'
           end
           object lbctSchoolImmuneMask: TLabel
-            Left = 712
-            Top = 303
+            Left = 587
+            Top = 423
             Width = 96
             Height = 13
             Caption = 'SchoolImmuneMask'
@@ -9358,7 +9358,7 @@ object MainForm: TMainForm
             end
           end
           object btScriptCreatureTemplate: TButton
-            Left = 62
+            Left = 8
             Top = 442
             Width = 217
             Height = 25
@@ -9367,16 +9367,16 @@ object MainForm: TMainForm
             OnClick = btScriptCreatureClick
           end
           object cbctRacialLeader: TCheckBox
-            Left = 726
-            Top = 236
+            Left = 248
+            Top = 446
             Width = 81
             Height = 17
             Caption = 'RacialLeader'
             TabOrder = 7
           end
           object edctMechanicImmuneMask: TJvComboEdit
-            Left = 712
-            Top = 281
+            Left = 587
+            Top = 401
             Width = 119
             Height = 21
             ButtonWidth = 22
@@ -9412,7 +9412,7 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = GetMechanicImmuneMask
           end
-          object gbUnk: TGroupBox
+          object gbMultipliers: TGroupBox
             Left = 855
             Top = 8
             Width = 121
@@ -9550,9 +9550,9 @@ object MainForm: TMainForm
             end
           end
           object edctPetSpellDataId: TLabeledEdit
-            Left = 712
-            Top = 358
-            Width = 100
+            Left = 723
+            Top = 437
+            Width = 89
             Height = 21
             EditLabel.Width = 71
             EditLabel.Height = 13
@@ -9560,8 +9560,8 @@ object MainForm: TMainForm
             TabOrder = 12
           end
           object edctSchoolImmuneMask: TJvComboEdit
-            Left = 712
-            Top = 317
+            Left = 587
+            Top = 437
             Width = 119
             Height = 21
             ButtonWidth = 22
@@ -9596,6 +9596,74 @@ object MainForm: TMainForm
             TabOrder = 13
             Text = ''
             OnButtonClick = GetSchoolImmuneMask
+          end
+          object gbDetection: TGroupBox
+            Left = 712
+            Top = 218
+            Width = 121
+            Height = 204
+            Caption = 'Detection'
+            TabOrder = 14
+            object edctDetection: TLabeledEdit
+              Left = 11
+              Top = 28
+              Width = 89
+              Height = 21
+              Hint = 'Detection range for proximity'
+              EditLabel.Width = 46
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Detection'
+              LabelSpacing = 1
+              TabOrder = 0
+            end
+            object edctCallForHelp: TLabeledEdit
+              Left = 11
+              Top = 65
+              Width = 89
+              Height = 21
+              Hint = 'Range in which creature calls for help'
+              EditLabel.Width = 54
+              EditLabel.Height = 13
+              EditLabel.Caption = 'CallForHelp'
+              LabelSpacing = 1
+              TabOrder = 1
+            end
+            object edctPursuit: TLabeledEdit
+              Left = 11
+              Top = 102
+              Width = 89
+              Height = 21
+              Hint = 'When exceeded during pursuit creature evades'
+              EditLabel.Width = 32
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Pursuit'
+              LabelSpacing = 1
+              TabOrder = 2
+            end
+            object edctTimeout: TLabeledEdit
+              Left = 11
+              Top = 176
+              Width = 89
+              Height = 21
+              Hint = 'Time for refreshing leashing before evade'
+              EditLabel.Width = 38
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Timeout'
+              LabelSpacing = 1
+              TabOrder = 3
+            end
+            object edctLeash: TLabeledEdit
+              Left = 11
+              Top = 139
+              Width = 89
+              Height = 21
+              Hint = 'Leash range from combat start position'
+              EditLabel.Width = 29
+              EditLabel.Height = 13
+              EditLabel.Caption = 'Leash'
+              LabelSpacing = 1
+              TabOrder = 4
+            end
           end
         end
         object tsCreatureLocation: TTabSheet
@@ -10711,7 +10779,6 @@ object MainForm: TMainForm
         object tsCreatureMvmntTemplate: TTabSheet
           Caption = 'Creature Movement Template'
           ImageIndex = 23
-          ExplicitLeft = 0
           DesignSize = (
             992
             564)

@@ -14,10 +14,10 @@ uses
 
 const
 {$IFDEF CMANGOS}
-  REV = '13966';
+  REV = '13967';
   VERSION_1 = '1';
   VERSION_2 = '3';
-  VERSION_3 = '966';
+  VERSION_3 = '967';
 {$ENDIF}
 
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
@@ -2099,6 +2099,12 @@ type
     edqgText: TLabeledEdit;
     edlqgText: TLabeledEdit;
     edqgEntry: TLabeledEdit;
+    gbDetection: TGroupBox;
+    edctDetection: TLabeledEdit;
+    edctCallForHelp: TLabeledEdit;
+    edctPursuit: TLabeledEdit;
+    edctTimeout: TLabeledEdit;
+    edctLeash: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -9440,24 +9446,6 @@ begin
     edcmwaittime.Text := '0';
   if (edcmscript_id.Text = '') then
     edcmscript_id.Text := '0';
-  if (edcmtextid1.Text = '') then
-    edcmtextid1.Text := '0';
-  if (edcmtextid2.Text = '') then
-    edcmtextid2.Text := '0';
-  if (edcmtextid3.Text = '') then
-    edcmtextid3.Text := '0';
-  if (edcmtextid4.Text = '') then
-    edcmtextid4.Text := '0';
-  if (edcmtextid5.Text = '') then
-    edcmtextid5.Text := '0';
-  if (edcmemote.Text = '') then
-    edcmemote.Text := '0';
-  if (edcmspell.Text = '') then
-    edcmspell.Text := '0';
-  if (edcmmodel1.Text = '') then
-    edcmmodel1.Text := '0';
-  if (edcmmodel2.Text = '') then
-    edcmmodel2.Text := '0';
   MvmntAdd('edcm', lvcmMovement);
 end;
 
@@ -9490,24 +9478,6 @@ begin
     edcmtwaittime.Text := '0';
   if (edcmtscript_id.Text = '') then
     edcmtscript_id.Text := '0';
-  if (edcmttextid1.Text = '') then
-    edcmttextid1.Text := '0';
-  if (edcmttextid2.Text = '') then
-    edcmttextid2.Text := '0';
-  if (edcmttextid3.Text = '') then
-    edcmttextid3.Text := '0';
-  if (edcmttextid4.Text = '') then
-    edcmttextid4.Text := '0';
-  if (edcmttextid5.Text = '') then
-    edcmttextid5.Text := '0';
-  if (edcmtemote.Text = '') then
-    edcmtemote.Text := '0';
-  if (edcmtspell.Text = '') then
-    edcmtspell.Text := '0';
-  if (edcmtmodel1.Text = '') then
-    edcmtmodel1.Text := '0';
-  if (edcmtmodel2.Text = '') then
-    edcmtmodel2.Text := '0';
   MvmntAdd('edcmt', lvcmtMovement);
 end;
 
