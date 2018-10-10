@@ -10,19 +10,14 @@ uses
   JvExComCtrls, JvListView, JvExMask, JvToolEdit, DBGrids, JvExDBGrids, JvDBGrid, JvComponentBase,
   JvUrlListGrabber, JvUrlGrabbers, JvExControls, JvLinkLabel, ZAbstractRODataset, ZAbstractDataset,
   ZDataset, ZConnection, ZSqlProcessor, LocNPCFrame, ZAbstractConnection,
-  System.Actions;
+  System.Actions, System.UITypes, System.Types;
 
 const
 {$IFDEF CMANGOS}
-  REV = '12363';
-  VERSION_1 = '1';
-  VERSION_2 = '2';
-  VERSION_3 = '63';
-{$ELSE}
-  REV = '12309';
+  REV = '13964';
   VERSION_1 = '1';
   VERSION_2 = '3';
-  VERSION_3 = '2';
+  VERSION_3 = '964';
 {$ENDIF}
 
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
@@ -40,17 +35,6 @@ const
   SCRIPT_TABLE_RELAY = 'dbscripts_on_relay';
   SCRIPT_TABLE_RND_TMPL = 'dbscript_random_templates';
   TABLE_DB_SCRIPT_STRING = 'dbscript_string';
-{$ELSE}
-  SCRIPT_TABLE_CREATURE_MOVEMENT = 'creature_movement_scripts';
-  SCRIPT_TABLE_CREATURE_DEATH = '';
-  SCRIPT_TABLE_EVENT = 'event_scripts';
-  SCRIPT_TABLE_GO = 'gameobject_scripts';
-  SCRIPT_TABLE_GO_TEMPLATE = 'gameobject_template_scripts';
-  SCRIPT_TABLE_GOSSIP = 'gossip_scripts';
-  SCRIPT_TABLE_QUEST_END = 'quest_end_scripts';
-  SCRIPT_TABLE_QUEST_START =  'quest_start_scripts';
-  SCRIPT_TABLE_SPELL = 'spell_scripts';
-  TABLE_DB_SCRIPT_STRING = '';
 {$ENDIF}
 
   SCRIPT_TAB_NO_QUEST = 7;
@@ -1621,10 +1605,6 @@ type
     edqtPointY: TLabeledEdit;
     edqtPointOpt: TLabeledEdit;
     lbqtPointMapId: TLabel;
-    edlqPortraitGiverName: TLabeledEdit;
-    edlqPortraitGiverText: TLabeledEdit;
-    edlqPortraitTurnInName: TLabeledEdit;
-    edlqPortraitTurnInText: TLabeledEdit;
     editstat_unk1_1: TLabeledEdit;
     editstat_unk1_2: TLabeledEdit;
     editstat_unk1_3: TLabeledEdit;
@@ -3177,75 +3157,6 @@ begin
   editUnknown2.Visible := IsVisible;
   editUnknown400_1.Visible := IsVisible;
   editUnknown400_2.Visible := IsVisible;
-
-  // loot
-  lbcolootcondition.Visible := IsVisible;
-  edcolootcondition.Visible := IsVisible;
-  edcocondition_value1.Visible := IsVisible;
-  edcocondition_value2.Visible := IsVisible;
-
-  lbcplootcondition.Visible := IsVisible;
-  edcplootcondition.Visible := IsVisible;
-  edcpcondition_value1.Visible := IsVisible;
-  edcpcondition_value2.Visible := IsVisible;
-
-  lbcslootcondition.Visible := IsVisible;
-  edcslootcondition.Visible := IsVisible;
-  edcscondition_value1.Visible := IsVisible;
-  edcscondition_value2.Visible := IsVisible;
-
-  lbgolootcondition.Visible := IsVisible;
-  edgolootcondition.Visible := IsVisible;
-  edgocondition_value1.Visible := IsVisible;
-  edgocondition_value2.Visible := IsVisible;
-
-  lbillootcondition.Visible := IsVisible;
-  edillootcondition.Visible := IsVisible;
-  edilcondition_value1.Visible := IsVisible;
-  edilcondition_value2.Visible := IsVisible;
-
-  lbidlootcondition.Visible := IsVisible;
-  edidlootcondition.Visible := IsVisible;
-  edidcondition_value1.Visible := IsVisible;
-  edidcondition_value2.Visible := IsVisible;
-
-  lbiplootcondition.Visible := IsVisible;
-  ediplootcondition.Visible := IsVisible;
-  edipcondition_value1.Visible := IsVisible;
-  edipcondition_value2.Visible := IsVisible;
-
-  lbimlootcondition.Visible := IsVisible;
-  edimlootcondition.Visible := IsVisible;
-  edimcondition_value1.Visible := IsVisible;
-  edimcondition_value2.Visible := IsVisible;
-
-  lbirlootcondition.Visible := IsVisible;
-  edirlootcondition.Visible := IsVisible;
-  edircondition_value1.Visible := IsVisible;
-  edircondition_value2.Visible := IsVisible;
-
-  lbotlootcondition.Visible := IsVisible;
-  edotlootcondition.Visible := IsVisible;
-  edotcondition_value1.Visible := IsVisible;
-  edotcondition_value2.Visible := IsVisible;
-
-  // gossip
-  edcgmcond_1.Visible := IsVisible;
-  edcgmcond_1_val_1.Visible := IsVisible;
-  edcgmcond_1_val_2.Visible := IsVisible;
-  edcgmcond_2.Visible := IsVisible;
-  edcgmcond_2_val_1.Visible := IsVisible;
-  edcgmcond_2_val_2.Visible := IsVisible;
-
-  edcgmocond_1.Visible := IsVisible;
-  edcgmocond_1_val_1.Visible := IsVisible;
-  edcgmocond_1_val_2.Visible := IsVisible;
-  edcgmocond_2.Visible := IsVisible;
-  edcgmocond_2_val_1.Visible := IsVisible;
-  edcgmocond_2_val_2.Visible := IsVisible;
-  edcgmocond_3.Visible := IsVisible;
-  edcgmocond_3_val_1.Visible := IsVisible;
-  edcgmocond_3_val_2.Visible := IsVisible;
 end;
 
 procedure  TMainForm.SetVisibleForCMangosOnlyFields(IsVisible: Boolean);
@@ -3928,9 +3839,6 @@ begin
   MyQuery.SQL.Text := Format('SELECT Title%0:s, Details%0:s, Objectives%0:s, OfferRewardText%0:s,' +
     'RequestItemsText%0:s, EndText%0:s, CompletedText%0:s,' +
     'ObjectiveText1%0:s, ObjectiveText2%0:s, ObjectiveText3%0:s, ObjectiveText4%0:s ' +
-{$IFNDEF CMANGOS}
-   ', PortraitGiverName%0:s, PortraitGiverText%0:s, PortraitTurnInName%0:s, PortraitTurnInText%0:s ' +
-{$ENDIF}
    'FROM locales_quest WHERE entry=%1:d', [loc, QuestID]);
   MyQuery.Open;
   edlqTitle.EditLabel.Caption := 'Title' + loc;
@@ -3945,13 +3853,6 @@ begin
   edlqObjectiveText3.EditLabel.Caption := 'ObjectiveText3' + loc;
   edlqObjectiveText4.EditLabel.Caption := 'ObjectiveText4' + loc;
 
-{$IFDEF CMANGOS}
-  edlqPortraitGiverName.Visible := False;
-  edlqPortraitGiverText.Visible := False;
-  edlqPortraitTurnInName.Visible := False;
-  edlqPortraitTurnInText.Visible := False;
-{$ENDIF}
-
   if not MyQuery.Eof then
   begin
     edlqTitle.Text := MyQuery.Fields[0].AsString;
@@ -3965,12 +3866,6 @@ begin
     edlqObjectiveText2.Text := MyQuery.Fields[8].AsString;
     edlqObjectiveText3.Text := MyQuery.Fields[9].AsString;
     edlqObjectiveText4.Text := MyQuery.Fields[10].AsString;
-{$IFNDEF CMANGOS}
-    edlqPortraitGiverName.Text := MyQuery.Fields[11].AsString;
-    edlqPortraitGiverText.Text := MyQuery.Fields[12].AsString;
-    edlqPortraitTurnInName.Text := MyQuery.Fields[13].AsString;
-    edlqPortraitTurnInText.Text := MyQuery.Fields[14].AsString;
-{$ENDIF}
     MyQuery.Next;
   end;
   MyQuery.Close;
@@ -9015,7 +8910,7 @@ begin
     lvList.Items.EndUpdate;
   end;
 
-  LastColumn := {$IFDEF CMANGOS}8{$ELSE}11{$ENDIF};
+  LastColumn := 8;
 
   if lvList.Items.Count = 0 then
     Exit;
@@ -9650,11 +9545,6 @@ begin
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'groupid')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'mincountOrRef')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'maxcount')).Text);
-{$IFNDEF CMANGOS}
-    SubItems.Add(TCustomEdit(FindComponent(pfx + 'lootcondition')).Text);
-    SubItems.Add(TCustomEdit(FindComponent(pfx + 'condition_value1')).Text);
-    SubItems.Add(TCustomEdit(FindComponent(pfx + 'condition_value2')).Text);
-{$ENDIF}
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'condition_id')).Text);
   end;
 end;
@@ -9671,14 +9561,7 @@ begin
       SubItems[2] := TCustomEdit(FindComponent(pfx + 'groupid')).Text;
       SubItems[3] := TCustomEdit(FindComponent(pfx + 'mincountOrRef')).Text;
       SubItems[4] := TCustomEdit(FindComponent(pfx + 'maxcount')).Text;
-{$IFDEF CMANGOS}
       SubItems[5] := TCustomEdit(FindComponent(pfx + 'condition_id')).Text;
-{$ELSE}
-      SubItems[5] := TCustomEdit(FindComponent(pfx + 'lootcondition')).Text;
-      SubItems[6] := TCustomEdit(FindComponent(pfx + 'condition_value1')).Text;
-      SubItems[7] := TCustomEdit(FindComponent(pfx + 'condition_value2')).Text;
-      SubItems[8] := TCustomEdit(FindComponent(pfx + 'condition_id')).Text;
-{$ENDIF}
     end;
   end;
 end;
@@ -9701,14 +9584,7 @@ begin
       TCustomEdit(FindComponent(pfx + 'groupid')).Text := SubItems[2];
       TCustomEdit(FindComponent(pfx + 'mincountOrRef')).Text := SubItems[3];
       TCustomEdit(FindComponent(pfx + 'maxcount')).Text := SubItems[4];
-{$IFDEF CMANGOS}
       TCustomEdit(FindComponent(pfx + 'condition_id')).Text := SubItems[5];
-{$ELSE}
-      TCustomEdit(FindComponent(pfx + 'lootcondition')).Text := SubItems[5];
-      TCustomEdit(FindComponent(pfx + 'condition_value1')).Text := SubItems[6];
-      TCustomEdit(FindComponent(pfx + 'condition_value2')).Text := SubItems[7];
-      TCustomEdit(FindComponent(pfx + 'condition_id')).Text := SubItems[8];
-{$ENDIF}
     end;
   end;
 end;
@@ -13921,11 +13797,7 @@ begin
   end;
   JvHttpUrlGrabber.ProxyUserName := dmMain.ProxyUser;
   JvHttpUrlGrabber.ProxyPassword := dmMain.ProxyPass;
-{$IFDEF CMANGOS}
-  JvHttpUrlGrabber.Url := 'http://quice.indomit.ru/lastver.php?cmangos';
-{$ELSE}
-  JvHttpUrlGrabber.Url := 'http://quice.indomit.ru/lastver.php';
-{$ENDIF}
+  JvHttpUrlGrabber.Url := 'https://github.com/Ravie/quice/releases';
   try
     IsFirst := true;
     JvHttpUrlGrabber.Start;

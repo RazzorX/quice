@@ -2003,10 +2003,10 @@ object AboutBox: TAboutBox
       object LinkSite: TLabel
         Left = 108
         Top = 124
-        Width = 105
+        Width = 196
         Height = 13
         Cursor = crHandPoint
-        Caption = 'http://quice.indomit.ru'
+        Caption = 'https://github.com/Ravie/quice/releases'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clNavy
         Font.Height = -11

@@ -33,7 +33,8 @@ unit About;
 interface
 
 uses Windows, SysUtils, Forms,  Classes, Graphics, Dialogs, Math,
-     Controls, StdCtrls, ExtCtrls, ActnList, ExtActns, Registry, JvExControls, JvPoweredBy;
+     Controls, StdCtrls, ExtCtrls, ActnList, ExtActns, Registry, JvExControls, JvPoweredBy,
+  System.Actions;
 
 type
   TAboutBox = class(TForm)
@@ -121,7 +122,7 @@ end;
 
 procedure TAboutBox.LinkSiteClick(Sender: TObject);
 begin
-  BrowseURL1.URL:='http://quice.indomit.ru';
+  BrowseURL1.URL:='https://github.com/Ravie/quice/releases';
   BrowseURL1.Execute;
 end;
 

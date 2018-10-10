@@ -6172,7 +6172,7 @@ object MainForm: TMainForm
             Left = 3
             Top = 3
             Width = 870
-            Height = 486
+            Height = 390
             Caption = 'Locales'
             TabOrder = 0
             object l2Details: TLabel
@@ -6322,50 +6322,10 @@ object MainForm: TMainForm
               EditLabel.Caption = 'CompletedText'
               TabOrder = 10
             end
-            object edlqPortraitGiverName: TLabeledEdit
-              Left = 3
-              Top = 402
-              Width = 185
-              Height = 21
-              EditLabel.Width = 86
-              EditLabel.Height = 13
-              EditLabel.Caption = 'PortraitGiverName'
-              TabOrder = 11
-            end
-            object edlqPortraitGiverText: TLabeledEdit
-              Left = 194
-              Top = 402
-              Width = 384
-              Height = 21
-              EditLabel.Width = 79
-              EditLabel.Height = 13
-              EditLabel.Caption = 'PortraitGiverText'
-              TabOrder = 12
-            end
-            object edlqPortraitTurnInName: TLabeledEdit
-              Left = 3
-              Top = 445
-              Width = 185
-              Height = 21
-              EditLabel.Width = 92
-              EditLabel.Height = 13
-              EditLabel.Caption = 'PortraitTurnInName'
-              TabOrder = 13
-            end
-            object edlqPortraitTurnInText: TLabeledEdit
-              Left = 194
-              Top = 445
-              Width = 384
-              Height = 21
-              EditLabel.Width = 85
-              EditLabel.Height = 13
-              EditLabel.Caption = 'PortraitTurnInText'
-              TabOrder = 14
-            end
           end
           object btlqShowFullLocalesScript: TButton
             Left = 669
-            Top = 446
+            Top = 358
             Width = 193
             Height = 25
             Caption = 'Show Full Locales Script'
