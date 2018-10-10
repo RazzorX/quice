@@ -1396,7 +1396,7 @@ type
     edglphaseMask: TLabeledEdit;
     tsLocalesNPCText: TTabSheet;
     NPCTextLoc1: TNPCTextLoc;
-    gbUnk: TGroupBox;
+    gbMultipliers: TGroupBox;
     edctHealthMultiplier: TLabeledEdit;
     edctPowerMultiplier: TLabeledEdit;
     edgeholiday: TLabeledEdit;
