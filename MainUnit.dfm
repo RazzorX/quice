@@ -6774,6 +6774,105 @@ object MainForm: TMainForm
             TabOrder = 9
           end
         end
+        object tsGreetings: TTabSheet
+          Caption = 'Greetings'
+          ImageIndex = 8
+          object lbqgEmoteId: TLabel
+            Left = 212
+            Top = 22
+            Width = 39
+            Height = 13
+            Caption = 'EmoteId'
+          end
+          object edqgEmoteId: TJvComboEdit
+            Left = 212
+            Top = 37
+            Width = 60
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            TabOrder = 0
+            Text = ''
+            OnButtonClick = GetEmote
+          end
+          object edqgEmoteDelay: TLabeledEdit
+            Left = 278
+            Top = 37
+            Width = 90
+            Height = 21
+            EditLabel.Width = 57
+            EditLabel.Height = 13
+            EditLabel.Caption = 'EmoteDelay'
+            TabOrder = 1
+          end
+          object edqgType: TLabeledEdit
+            Left = 116
+            Top = 37
+            Width = 90
+            Height = 21
+            EditLabel.Width = 24
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Type'
+            TabOrder = 2
+          end
+          object edqgText: TLabeledEdit
+            Left = 20
+            Top = 77
+            Width = 348
+            Height = 21
+            EditLabel.Width = 21
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Text'
+            TabOrder = 3
+          end
+          object edlqgText: TLabeledEdit
+            Left = 20
+            Top = 117
+            Width = 348
+            Height = 21
+            EditLabel.Width = 21
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Text'
+            TabOrder = 4
+          end
+          object edqgEntry: TLabeledEdit
+            Left = 20
+            Top = 37
+            Width = 90
+            Height = 21
+            EditLabel.Width = 24
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Entry'
+            TabOrder = 5
+          end
+        end
         object tsScriptTab: TTabSheet
           Caption = 'SQL-Script Tab'
           ImageIndex = 2

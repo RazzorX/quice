@@ -323,7 +323,10 @@ TEXT185=(Boolean flag, need to be in group to use it
 TEXT186=AreaTable.dbc
 TEXT187=Unknown ID, not a spell id in dbc file, maybe server only side spell
 TEXT188=Map.dbc
-TEXT189=0, 1, 2 or 3[MAIN]
+TEXT189=0, 1, 2 or 3
+TEXT190=Error: Questgiver Greeting (Entry = %d) not found
+TEXT191=The error has occurred while loading Questgiver Greeting:
+[MAIN]
 Caption=Quice
 tsQuest=Quest
 tsSearch=Search
