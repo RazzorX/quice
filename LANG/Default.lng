@@ -326,6 +326,8 @@ TEXT188=Map.dbc
 TEXT189=0, 1, 2 or 3
 TEXT190=Error: Questgiver Greeting (Entry = %d) not found
 TEXT191=The error has occurred while loading Questgiver Greeting:
+TEXT192=Error: Taxi Shortcuts (pathid = %d) not found
+TEXT193=The error has occurred while loading Taxi Shortcuts:
 [MAIN]
 Caption=Quice
 tsQuest=Quest

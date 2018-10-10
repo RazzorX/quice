@@ -14,10 +14,10 @@ uses
 
 const
 {$IFDEF CMANGOS}
-  REV = '13968';
+  REV = '13973';
   VERSION_1 = '1';
   VERSION_2 = '3';
-  VERSION_3 = '968';
+  VERSION_3 = '973';
 {$ENDIF}
 
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
@@ -41,7 +41,7 @@ const
   SCRIPT_TAB_NO_CREATURE = 23;
   SCRIPT_TAB_NO_GAMEOBJECT = 5;
   SCRIPT_TAB_NO_ITEM = 11;
-  SCRIPT_TAB_NO_OTHER = 4;
+  SCRIPT_TAB_NO_OTHER = 5;
   SCRIPT_TAB_NO_CHARACTER = 3;
   SCRIPT_TAB_NO_DBSCRIPTS_ON = 12;
   
@@ -143,6 +143,7 @@ const
   PFX_DBSCRIPTS_ON_GO_TEMPLATE_USE = 'gtb';
   PFX_QUESTGIVER_GREETING = 'qg';
   PFX_LOC_QUESTGIVER_GREETING = 'lqg';
+  PFX_TAXI_SHORTCUTS = 'ts';
 
 type
   TSyntaxStyle = (ssInsertDelete, ssReplace, ssUpdate);
@@ -2110,6 +2111,13 @@ type
     lbReqSpellCast4: TLabel;
     edciSpeedWalk: TLabeledEdit;
     edciSpeedRun: TLabeledEdit;
+    tsTaxiShortcuts: TTabSheet;
+    edtspathid: TJvComboEdit;
+    edtstakeoff: TLabeledEdit;
+    edtslanding: TLabeledEdit;
+    edtscomments: TLabeledEdit;
+    btScriptTaxi: TButton;
+    lbtspathid: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2302,6 +2310,7 @@ type
     procedure btScriptPageTextClick(Sender: TObject);
     procedure LoadPageText(Sender: TObject);
     procedure btScriptConditionsClick(Sender: TObject);
+	procedure btScriptTaxiShortcutsClick(Sender: TObject);
     procedure btDBScriptsOnClick(Sender: TObject);
     procedure btssShowFullScriptOnClick(Sender: TObject);
     procedure btesShowFullScriptOnClick(Sender: TObject);
@@ -2315,6 +2324,7 @@ type
     procedure btdorShowFullScriptOnClick(Sender: TObject);
     procedure btrtFullScriptOnClick(Sender: TObject);
     procedure LoadConditions(Sender: TObject);
+    procedure LoadTaxiShortcuts(Sender: TObject);
     procedure LoadDBScriptString(Sender: TObject);
     procedure LoadDBScripts(Sender: TObject; TableName: string; prefix: string);
     procedure LoadDBScriptsOnQuestStart(Sender: TObject);
@@ -2487,6 +2497,7 @@ type
     procedure tsCharacterScriptShow(Sender: TObject);
     procedure edhtguidButtonClick(Sender: TObject);
     procedure edconentryButtonClick(Sender: TObject);
+    procedure edtspathidButtonClick(Sender: TObject);
     procedure eddbsentryButtonClick(Sender: TObject);
     procedure edssidButtonClick(Sender: TObject);
     procedure edesidButtonClick(Sender: TObject);
@@ -2760,6 +2771,7 @@ type
     procedure SearchGameEvent;
     procedure CompletePageTextScript;
     procedure CompleteConditionsScript;
+	procedure CompleteTaxiShortcutsScript;
     procedure CompleteDbScriptStringScript;
     procedure CompleteGameEventScript;
     procedure CompleteDbScripts(TableName: string; prefix: string; entry: string; delay: string; command: string);
@@ -11383,10 +11395,17 @@ begin
       CompleteGameEventScript;
     3:
       CompleteConditionsScript;
+    4:
+      CompleteTaxiShortcutsScript;
   end;
 end;
 
 procedure TMainForm.btScriptConditionsClick(Sender: TObject);
+begin
+  PageControl6.ActivePageIndex := SCRIPT_TAB_NO_OTHER;
+end;
+
+procedure TMainForm.btScriptTaxiShortcutsClick(Sender: TObject);
 begin
   PageControl6.ActivePageIndex := SCRIPT_TAB_NO_OTHER;
 end;
@@ -11411,6 +11430,26 @@ begin
   end;
 end;
 
+procedure TMainForm.CompleteTaxiShortcutsScript;
+var
+  entry, Fields, Values: string;
+begin
+  meotLog.Clear;
+  entry := edtspathid.Text;
+  if (entry = '') then
+    Exit;
+  SetFieldsAndValues(Fields, Values, 'taxi_shortcuts', PFX_TAXI_SHORTCUTS, meotLog);
+  case SyntaxStyle of
+    ssInsertDelete:
+      meotScript.Text := Format('DELETE FROM `taxi_shortcuts` WHERE (`pathid`=%s);'#13#10 +
+        'INSERT INTO `taxi_shortcuts` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+    ssReplace:
+      meotScript.Text := Format('REPLACE INTO `taxi_shortcuts` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meotScript.Text := MakeUpdate('taxi_shortcuts', PFX_TAXI_SHORTCUTS, 'pathid', entry);
+  end;
+end;
+
 procedure TMainForm.LoadConditions(Sender: TObject);
 var
   entry: string;
@@ -11428,6 +11467,26 @@ begin
   except
     on E: Exception do
       raise Exception.Create(dmMain.Text[162] + #10#13 + E.Message);
+  end;
+end;
+
+procedure TMainForm.LoadTaxiShortcuts(Sender: TObject);
+var
+  entry: string;
+begin
+  entry := TCustomEdit(Sender).Text;
+  if (StrToIntDef(entry, 0) < 1) then
+    Exit;
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `taxi_shortcuts` WHERE `pathid`=%s', [entry]);
+  MyTempQuery.Open;
+  try
+    if MyTempQuery.Eof then
+      raise Exception.Create(Format(dmMain.Text[192], [StrToInt(entry)])); // 'Error: Taxi Shortcuts (pathid = %d) not found'
+    FillFields(MyTempQuery, PFX_TAXI_SHORTCUTS);
+    MyTempQuery.Close;
+  except
+    on E: Exception do
+      raise Exception.Create(dmMain.Text[193] + #10#13 + E.Message);
   end;
 end;
 
@@ -11462,6 +11521,11 @@ begin
   PageControl1.ActivePageIndex := 4;
   PageControl6.ActivePageIndex := 3;
   LoadConditions(TCustomEdit(Sender));
+end;
+
+procedure TMainForm.edtspathidButtonClick(Sender: TObject);
+begin
+  LoadTaxiShortcuts(TCustomEdit(Sender));
 end;
 
 procedure TMainForm.edcontypeChange(Sender: TObject);
