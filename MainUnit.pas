@@ -2764,7 +2764,10 @@ type
     procedure ShowFullEventAiScript(TableName: string; lvList: TJvListView; memo: TMemo; entry: string);
 
     { other }
+    function MakeSetForUpdate(MyTempQuery: TZQuery; pfx: string): string;
     function MakeUpdate(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
+    function MakeUpdate2(tn: string; pfx: string; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string): string;
+    function MakeUpdate3(tn: string; pfx: string; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string; KeyName3: string; KeyValue3: string): string;
     function MakeUpdateLocales(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
     procedure CompleteFishingLootScript;
     procedure SearchPageText;
@@ -7382,31 +7385,45 @@ end;
 
 procedure TMainForm.CompleteCreatureMovementScript;
 var
-  caguid, cmpoint, Fields, Values: string;
+  id, point, Fields, Values: string;
 begin
   mectLog.Clear;
-  caguid := Trim(edcmid.Text);
-  cmpoint := Trim(edcmpoint.Text);
-  if (caguid = '') or (cmpoint = '') then
+  id := Trim(edcmid.Text);
+  point := Trim(edcmpoint.Text);
+  if (id = '') or (point = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'creature_movement', PFX_CREATURE_MOVEMENT, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_movement` WHERE (`id`=%s) AND (`point`=%s);'#13#10 +
-    'INSERT INTO `creature_movement` (%s) VALUES (%s);'#13#10, [caguid, cmpoint, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `creature_movement` WHERE (`id`=%s) AND (`point`=%s);'#13#10 +
+    'INSERT INTO `creature_movement` (%s) VALUES (%s);'#13#10, [id, point, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `creature_movement` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+	ssUpdate:
+      mectScript.Text := MakeUpdate2('creature_movement', PFX_CREATURE_MOVEMENT, 'id', id, 'point', point);
+  end;
 end;
 
 procedure TMainForm.CompleteCreatureMvmntTemplateScript;
 var
-  entry, pathId, cmtpoint, Fields, Values: string;
+  entry, pathId, point, Fields, Values: string;
 begin
   mectLog.Clear;
   entry := Trim(edcmtentry.Text);
   pathid := Trim(edcmtpathId.Text);
-  cmtpoint := Trim(edcmtpoint.Text);
-  if (entry = '') or (cmtpoint = '') then
+  point := Trim(edcmtpoint.Text);
+  if (entry = '') or (pathid = '') or (point = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'creature_movement_template', PFX_CREATURE_MOVEMENT_TEMPLATE, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_movement_template` WHERE (`entry`=%s) AND (`pathId`=%s) AND (`point`=%s);'#13#10 +
-    'INSERT INTO `creature_movement_template` (%s) VALUES (%s);'#13#10, [entry, pathid, cmtpoint, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `creature_movement_template` WHERE (`entry`=%s) AND (`pathId`=%s) AND (`point`=%s);'#13#10 +
+      'INSERT INTO `creature_movement_template` (%s) VALUES (%s);'#13#10, [entry, pathid, point, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `creature_movement_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+	ssUpdate:
+      mectScript.Text := MakeUpdate3('creature_movement_template', PFX_CREATURE_MOVEMENT_TEMPLATE, 'entry', entry, 'pathId', pathid, 'point', point);
+  end;
 end;
 
 procedure TMainForm.CompleteCreatureOnKillReputationScript;
@@ -9167,18 +9184,39 @@ begin
 end;
 
 function TMainForm.MakeUpdate(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
+begin
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `%s` = %s', [tn, KeyName, KeyValue]);
+  Result := MakeSetForUpdate(MyTempQuery, pfx);
+  if Result <> '' then
+      Result := Format('UPDATE `%s` %s WHERE `%s` = %s;', [tn, Result, KeyName, KeyValue])
+end;
+
+function TMainForm.MakeUpdate2(tn: string; pfx: string; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string): string;
+begin
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `%s` = %s AND `%s` = %s', [tn, KeyName1, KeyValue1, KeyName2, KeyValue2]);
+  Result := MakeSetForUpdate(MyTempQuery, pfx);
+  if Result <> '' then
+      Result := Format('UPDATE `%s` %s WHERE `%s` = %s AND `%s` = %s;', [tn, Result, KeyName1, KeyValue1, KeyName2, KeyValue2])
+end;
+
+function TMainForm.MakeUpdate3(tn: string; pfx: string; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string; KeyName3: string; KeyValue3: string): string;
+begin
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `%s` = %s AND `%s` = %s AND `%s` = %s', [tn, KeyName1, KeyValue1, KeyName2, KeyValue2, KeyName3, KeyValue3]);
+  Result := MakeSetForUpdate(MyTempQuery, pfx);
+  if Result <> '' then
+      Result := Format('UPDATE `%s` %s WHERE `%s` = %s AND `%s` = %s AND `%s` = %s;', [tn, Result, KeyName1, KeyValue1, KeyName2, KeyValue2, KeyName3, KeyValue3])
+end;
+
+function TMainForm.MakeSetForUpdate(MyTempQuery: TZQuery; pfx: string): string;
 var
   i: Integer;
-  sets, FieldName, ValueFromBase, ValueFromEdit: string;
+  FieldName, ValueFromBase, ValueFromEdit: string;
   c: TComponent;
 begin
   Result := '';
-  sets := '';
-  MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `%s` = %s', [tn, KeyName, KeyValue]);
   MyTempQuery.Open;
   if not MyTempQuery.Eof then
   begin
-
     for i := 0 to MyTempQuery.Fields.Count - 1 do
     begin
       FieldName := MyTempQuery.Fields[i].FieldName;
@@ -9191,10 +9229,10 @@ begin
         begin
           if not IsNumber(ValueFromEdit) then
             ValueFromEdit := QuotedStr(ValueFromEdit);
-          if sets = '' then
-            sets := Format('SET `%s` = %s', [FieldName, ValueFromEdit])
+          if Result = '' then
+            Result := Format('SET `%s` = %s', [FieldName, ValueFromEdit])
           else
-            sets := Format('%s, `%s` = %s', [sets, FieldName, ValueFromEdit]);
+            Result := Format('%s, `%s` = %s', [Result, FieldName, ValueFromEdit]);
         end;
       end
       else
@@ -9208,16 +9246,14 @@ begin
             ValueFromEdit := '0';
           if ValueFromEdit <> ValueFromBase then
           begin
-            if sets = '' then
-              sets := Format('SET `%s` = %s', [FieldName, ValueFromEdit])
+            if Result = '' then
+              Result := Format('SET `%s` = %s', [FieldName, ValueFromEdit])
             else
-              sets := Format('%s, `%s` = %s', [sets, FieldName, ValueFromEdit]);
+              Result := Format('%s, `%s` = %s', [Result, FieldName, ValueFromEdit]);
           end;
         end;
       end;
     end;
-    if sets <> '' then
-      Result := Format('UPDATE `%s` %s WHERE `%s` = %s;', [tn, sets, KeyName, KeyValue])
   end;
   MyTempQuery.Close;
 end;
