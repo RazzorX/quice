@@ -14,10 +14,10 @@ uses
 
 const
 {$IFDEF CMANGOS}
-  REV = '13965';
+  REV = '13966';
   VERSION_1 = '1';
   VERSION_2 = '3';
-  VERSION_3 = '965';
+  VERSION_3 = '966';
 {$ENDIF}
 
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
@@ -1103,22 +1103,12 @@ type
     edcmposition_y: TLabeledEdit;
     edcmposition_z: TLabeledEdit;
     edcmwaittime: TLabeledEdit;
-    edcmtextid1: TLabeledEdit;
-    edcmtextid2: TLabeledEdit;
-    edcmtextid3: TLabeledEdit;
-    edcmtextid4: TLabeledEdit;
-    edcmtextid5: TLabeledEdit;
-    edcmemote: TJvComboEdit;
-    edcmspell: TLabeledEdit;
-    edcmmodel1: TLabeledEdit;
     edcmorientation: TLabeledEdit;
-    edcmmodel2: TLabeledEdit;
     lbqtDetailsEmote1: TLabel;
     lbqtIncompleteEmote: TLabel;
     lbqtCompleteEmote: TLabel;
     lbqtOfferRewardEmote1: TLabel;
     lbcaemote: TLabel;
-    lbcmemote: TLabel;
     edctFactionHorde: TJvComboEdit;
     lbctfaction_H: TLabel;
     edctRegenerateStats: TLabeledEdit;
@@ -1960,21 +1950,11 @@ type
     lbqtCompleteScript: TLabel;
     tsCreatureMvmntTemplate: TTabSheet;
     lvcmtMovement: TJvListView;
-    edcmttextid1: TLabeledEdit;
-    edcmtemote: TJvComboEdit;
-    lbcmtemote: TLabel;
-    edcmtspell: TLabeledEdit;
-    edcmttextid2: TLabeledEdit;
     edcmtpoint: TLabeledEdit;
     edcmtposition_x: TLabeledEdit;
-    edcmttextid3: TLabeledEdit;
     edcmtorientation: TLabeledEdit;
-    edcmtmodel1: TLabeledEdit;
-    edcmttextid4: TLabeledEdit;
     edcmtposition_y: TLabeledEdit;
     edcmtposition_z: TLabeledEdit;
-    edcmttextid5: TLabeledEdit;
-    edcmtmodel2: TLabeledEdit;
     edcmtscript_id: TJvComboEdit;
     edcmtwaittime: TLabeledEdit;
     btCreatureMvmntTemplateAdd: TSpeedButton;

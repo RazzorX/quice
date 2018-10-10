@@ -10234,8 +10234,8 @@ object MainForm: TMainForm
             ParentColor = False
           end
           object btCreatureMvmntAdd: TSpeedButton
-            Left = 651
-            Top = 491
+            Left = 856
+            Top = 408
             Width = 23
             Height = 22
             Glyph.Data = {
@@ -10284,8 +10284,8 @@ object MainForm: TMainForm
             OnClick = btCreatureMvmntAddClick
           end
           object btCreatureMvmntUpd: TSpeedButton
-            Left = 683
-            Top = 491
+            Left = 885
+            Top = 408
             Width = 23
             Height = 22
             Enabled = False
@@ -10344,8 +10344,8 @@ object MainForm: TMainForm
             OnClick = btCreatureMvmntUpdClick
           end
           object btCreatureMvmntDel: TSpeedButton
-            Left = 715
-            Top = 491
+            Left = 914
+            Top = 408
             Width = 23
             Height = 22
             Enabled = False
@@ -10403,23 +10403,16 @@ object MainForm: TMainForm
             NumGlyphs = 2
             OnClick = btCreatureMvmntDelClick
           end
-          object lbcmemote: TLabel
-            Left = 16
-            Top = 477
-            Width = 29
-            Height = 13
-            Caption = 'emote'
-          end
           object lbcmscript_id: TLabel
-            Left = 651
-            Top = 435
+            Left = 750
+            Top = 393
             Width = 39
             Height = 13
             Caption = 'script_id'
           end
           object lbcmid: TLabel
-            Left = 16
-            Top = 391
+            Left = 8
+            Top = 393
             Width = 8
             Height = 13
             Caption = 'id'
@@ -10529,27 +10522,27 @@ object MainForm: TMainForm
               end>
           end
           object btShowCreatureMovementScript: TButton
-            Left = 792
+            Left = 538
             Top = 450
             Width = 169
             Height = 25
             Caption = 'Show Creature Movement Script'
-            TabOrder = 16
+            TabOrder = 7
             OnClick = btScriptCreatureClick
           end
           object btFullCreatureMovementScript: TButton
-            Left = 752
-            Top = 490
+            Left = 728
+            Top = 450
             Width = 209
             Height = 25
             Caption = 'Show FULL Creature Movement Script'
-            TabOrder = 17
+            TabOrder = 8
             OnClick = btFullCreatureMovementScriptClick
           end
           object edcmpoint: TLabeledEdit
-            Left = 143
+            Left = 114
             Top = 408
-            Width = 121
+            Width = 100
             Height = 21
             EditLabel.Width = 49
             EditLabel.Height = 13
@@ -10557,9 +10550,9 @@ object MainForm: TMainForm
             TabOrder = 1
           end
           object edcmposition_x: TLabeledEdit
-            Left = 270
-            Top = 409
-            Width = 121
+            Left = 220
+            Top = 408
+            Width = 100
             Height = 21
             EditLabel.Width = 73
             EditLabel.Height = 13
@@ -10567,9 +10560,9 @@ object MainForm: TMainForm
             TabOrder = 2
           end
           object edcmposition_y: TLabeledEdit
-            Left = 397
+            Left = 326
             Top = 408
-            Width = 121
+            Width = 100
             Height = 21
             EditLabel.Width = 73
             EditLabel.Height = 13
@@ -10577,9 +10570,9 @@ object MainForm: TMainForm
             TabOrder = 3
           end
           object edcmposition_z: TLabeledEdit
-            Left = 524
+            Left = 432
             Top = 408
-            Width = 121
+            Width = 100
             Height = 21
             EditLabel.Width = 73
             EditLabel.Height = 13
@@ -10587,147 +10580,29 @@ object MainForm: TMainForm
             TabOrder = 4
           end
           object edcmwaittime: TLabeledEdit
-            Left = 651
+            Left = 644
             Top = 408
-            Width = 121
+            Width = 100
             Height = 21
             EditLabel.Width = 64
             EditLabel.Height = 13
             EditLabel.Caption = 'edcmwaittime'
             TabOrder = 5
           end
-          object edcmtextid1: TLabeledEdit
-            Left = 16
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid1'
-            TabOrder = 6
-          end
-          object edcmtextid2: TLabeledEdit
-            Left = 143
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid2'
-            TabOrder = 7
-          end
-          object edcmtextid3: TLabeledEdit
-            Left = 270
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid3'
-            TabOrder = 8
-          end
-          object edcmtextid4: TLabeledEdit
-            Left = 397
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid4'
-            TabOrder = 9
-          end
-          object edcmtextid5: TLabeledEdit
-            Left = 524
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid5'
-            TabOrder = 10
-          end
-          object edcmemote: TJvComboEdit
-            Left = 16
-            Top = 493
-            Width = 121
-            Height = 21
-            ButtonWidth = 22
-            ClickKey = 13
-            Glyph.Data = {
-              36030000424D3603000000000000360000002800000010000000100000000100
-              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
-              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
-              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
-              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
-              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
-              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
-              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-            TabOrder = 11
-            Text = ''
-            OnButtonClick = GetEmote
-          end
-          object edcmspell: TLabeledEdit
-            Left = 143
-            Top = 492
-            Width = 121
-            Height = 21
-            EditLabel.Width = 47
-            EditLabel.Height = 13
-            EditLabel.Caption = 'edcmspell'
-            TabOrder = 12
-          end
-          object edcmmodel1: TLabeledEdit
-            Left = 397
-            Top = 492
-            Width = 121
-            Height = 21
-            EditLabel.Width = 60
-            EditLabel.Height = 13
-            EditLabel.Caption = 'edcmmodel1'
-            TabOrder = 14
-          end
           object edcmorientation: TLabeledEdit
-            Left = 270
-            Top = 492
-            Width = 121
+            Left = 538
+            Top = 408
+            Width = 100
             Height = 21
             EditLabel.Width = 75
             EditLabel.Height = 13
             EditLabel.Caption = 'edcmorientation'
-            TabOrder = 13
-          end
-          object edcmmodel2: TLabeledEdit
-            Left = 524
-            Top = 492
-            Width = 121
-            Height = 21
-            EditLabel.Width = 60
-            EditLabel.Height = 13
-            EditLabel.Caption = 'edcmmodel2'
-            TabOrder = 15
+            TabOrder = 6
           end
           object edcmscript_id: TJvComboEdit
-            Left = 651
-            Top = 452
-            Width = 121
+            Left = 750
+            Top = 408
+            Width = 100
             Height = 21
             ButtonWidth = 22
             ClickKey = 13
@@ -10774,14 +10649,14 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 18
+            TabOrder = 9
             Text = ''
             OnButtonClick = edcmsidButtonClick
           end
           object edcmid: TJvComboEdit
-            Left = 16
+            Left = 8
             Top = 408
-            Width = 121
+            Width = 100
             Height = 21
             ButtonWidth = 22
             ClickKey = 13
@@ -10828,7 +10703,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 19
+            TabOrder = 10
             Text = ''
             OnButtonClick = edcmidButtonClick
           end
@@ -10836,19 +10711,13 @@ object MainForm: TMainForm
         object tsCreatureMvmntTemplate: TTabSheet
           Caption = 'Creature Movement Template'
           ImageIndex = 23
+          ExplicitLeft = 0
           DesignSize = (
             992
             564)
-          object lbcmtemote: TLabel
-            Left = 16
-            Top = 477
-            Width = 29
-            Height = 13
-            Caption = 'emote'
-          end
           object btCreatureMvmntTemplateAdd: TSpeedButton
-            Left = 651
-            Top = 491
+            Left = 485
+            Top = 438
             Width = 23
             Height = 22
             Glyph.Data = {
@@ -10897,8 +10766,8 @@ object MainForm: TMainForm
             OnClick = btCreatureMvmntTemplateAddClick
           end
           object btCreatureMvmntTemplateUpd: TSpeedButton
-            Left = 683
-            Top = 491
+            Left = 514
+            Top = 438
             Width = 23
             Height = 22
             Enabled = False
@@ -10957,8 +10826,8 @@ object MainForm: TMainForm
             OnClick = btCreatureMvmntTemplateUpdClick
           end
           object btCreatureMvmntTemplateDel: TSpeedButton
-            Left = 715
-            Top = 491
+            Left = 543
+            Top = 438
             Width = 23
             Height = 22
             Enabled = False
@@ -11017,15 +10886,15 @@ object MainForm: TMainForm
             OnClick = btCreatureMvmntTemplateDelClick
           end
           object lbcmtscript_id: TLabel
-            Left = 651
-            Top = 435
+            Left = 856
+            Top = 387
             Width = 39
             Height = 13
             Caption = 'script_id'
           end
           object lbcmtentry: TLabel
-            Left = 16
-            Top = 391
+            Left = 8
+            Top = 387
             Width = 23
             Height = 13
             Caption = 'entry'
@@ -11134,178 +11003,60 @@ object MainForm: TMainForm
               item
               end>
           end
-          object edcmttextid1: TLabeledEdit
-            Left = 16
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid1'
-            TabOrder = 1
-          end
-          object edcmtemote: TJvComboEdit
-            Left = 16
-            Top = 493
-            Width = 121
-            Height = 21
-            ButtonWidth = 22
-            ClickKey = 13
-            Glyph.Data = {
-              36030000424D3603000000000000360000002800000010000000100000000100
-              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
-              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
-              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
-              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
-              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
-              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
-              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-            TabOrder = 2
-            Text = ''
-            OnButtonClick = GetEmote
-          end
-          object edcmtspell: TLabeledEdit
-            Left = 143
-            Top = 492
-            Width = 121
-            Height = 21
-            EditLabel.Width = 21
-            EditLabel.Height = 13
-            EditLabel.Caption = 'spell'
-            TabOrder = 3
-          end
-          object edcmttextid2: TLabeledEdit
-            Left = 143
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid2'
-            TabOrder = 4
-          end
           object edcmtpoint: TLabeledEdit
-            Left = 270
-            Top = 408
-            Width = 121
+            Left = 220
+            Top = 402
+            Width = 100
             Height = 21
             EditLabel.Width = 23
             EditLabel.Height = 13
             EditLabel.Caption = 'point'
-            TabOrder = 5
+            TabOrder = 1
           end
           object edcmtposition_x: TLabeledEdit
-            Left = 397
-            Top = 408
-            Width = 121
+            Left = 326
+            Top = 402
+            Width = 100
             Height = 21
             EditLabel.Width = 47
             EditLabel.Height = 13
             EditLabel.Caption = 'position_x'
-            TabOrder = 6
-          end
-          object edcmttextid3: TLabeledEdit
-            Left = 270
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid3'
-            TabOrder = 7
+            TabOrder = 2
           end
           object edcmtorientation: TLabeledEdit
-            Left = 270
-            Top = 492
-            Width = 121
+            Left = 644
+            Top = 402
+            Width = 100
             Height = 21
             EditLabel.Width = 49
             EditLabel.Height = 13
             EditLabel.Caption = 'orientation'
-            TabOrder = 8
-          end
-          object edcmtmodel1: TLabeledEdit
-            Left = 397
-            Top = 492
-            Width = 121
-            Height = 21
-            EditLabel.Width = 34
-            EditLabel.Height = 13
-            EditLabel.Caption = 'model1'
-            TabOrder = 9
-          end
-          object edcmttextid4: TLabeledEdit
-            Left = 397
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid4'
-            TabOrder = 10
+            TabOrder = 3
           end
           object edcmtposition_y: TLabeledEdit
-            Left = 524
-            Top = 408
-            Width = 121
+            Left = 432
+            Top = 402
+            Width = 100
             Height = 21
             EditLabel.Width = 47
             EditLabel.Height = 13
             EditLabel.Caption = 'position_y'
-            TabOrder = 11
+            TabOrder = 4
           end
           object edcmtposition_z: TLabeledEdit
-            Left = 651
-            Top = 408
-            Width = 121
+            Left = 538
+            Top = 402
+            Width = 100
             Height = 21
             EditLabel.Width = 47
             EditLabel.Height = 13
             EditLabel.Caption = 'position_z'
-            TabOrder = 12
-          end
-          object edcmttextid5: TLabeledEdit
-            Left = 524
-            Top = 452
-            Width = 121
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'textid5'
-            TabOrder = 13
-          end
-          object edcmtmodel2: TLabeledEdit
-            Left = 524
-            Top = 492
-            Width = 121
-            Height = 21
-            EditLabel.Width = 34
-            EditLabel.Height = 13
-            EditLabel.Caption = 'model2'
-            TabOrder = 14
+            TabOrder = 5
           end
           object edcmtscript_id: TJvComboEdit
-            Left = 651
-            Top = 452
-            Width = 121
+            Left = 856
+            Top = 402
+            Width = 100
             Height = 21
             ButtonWidth = 22
             ClickKey = 13
@@ -11352,42 +11103,42 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 15
+            TabOrder = 6
             Text = ''
             OnButtonClick = edcmsidButtonClick
           end
           object edcmtwaittime: TLabeledEdit
-            Left = 778
-            Top = 408
-            Width = 121
+            Left = 750
+            Top = 402
+            Width = 100
             Height = 21
             EditLabel.Width = 38
             EditLabel.Height = 13
             EditLabel.Caption = 'waittime'
-            TabOrder = 16
+            TabOrder = 7
           end
           object btFullCreatureMvmntTemplateScript: TButton
-            Left = 752
-            Top = 490
+            Left = 747
+            Top = 437
             Width = 209
             Height = 25
             Caption = 'Show FULL Creature Movement Template'
-            TabOrder = 17
+            TabOrder = 8
             OnClick = btFullCreatureMvmntTemplateScriptClick
           end
           object btShowCreatureMvmntTemplateScript: TButton
-            Left = 792
-            Top = 450
+            Left = 572
+            Top = 437
             Width = 169
             Height = 25
             Caption = 'Show Creature Mvmnt Template'
-            TabOrder = 18
+            TabOrder = 9
             OnClick = btScriptCreatureClick
           end
           object edcmtentry: TJvComboEdit
-            Left = 16
-            Top = 408
-            Width = 121
+            Left = 8
+            Top = 402
+            Width = 100
             Height = 21
             ButtonWidth = 22
             ClickKey = 13
@@ -11434,19 +11185,19 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 19
+            TabOrder = 10
             Text = ''
             OnButtonClick = edcmtentryButtonClick
           end
           object edcmtpathId: TLabeledEdit
-            Left = 143
-            Top = 408
-            Width = 121
+            Left = 114
+            Top = 402
+            Width = 100
             Height = 21
             EditLabel.Width = 30
             EditLabel.Height = 13
             EditLabel.Caption = 'pathId'
-            TabOrder = 20
+            TabOrder = 11
           end
         end
         object tsCreatureModelInfo: TTabSheet
