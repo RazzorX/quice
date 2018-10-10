@@ -2105,6 +2105,9 @@ type
     edctPursuit: TLabeledEdit;
     edctTimeout: TLabeledEdit;
     edctLeash: TLabeledEdit;
+    lbReqSpellCast2: TLabel;
+    lbReqSpellCast3: TLabel;
+    lbReqSpellCast4: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);

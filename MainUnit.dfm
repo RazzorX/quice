@@ -2152,7 +2152,7 @@ object MainForm: TMainForm
             Left = 8
             Top = 8
             Width = 442
-            Height = 423
+            Height = 357
             Caption = 'Requirements for finish quest'
             TabOrder = 0
             object lbReqItemId1: TLabel
@@ -2178,10 +2178,10 @@ object MainForm: TMainForm
             end
             object lbReqSpellCast1: TLabel
               Left = 8
-              Top = 300
-              Width = 79
+              Top = 306
+              Width = 70
               Height = 13
-              Caption = 'ReqSpellCast1-4'
+              Caption = 'ReqSpellCast1'
             end
             object lbqtRepObjectiveFaction: TLabel
               Left = 192
@@ -2191,8 +2191,8 @@ object MainForm: TMainForm
               Caption = 'RepObjectiveFaction'
             end
             object lbReqSpellLearned: TLabel
-              Left = 103
-              Top = 374
+              Left = 356
+              Top = 306
               Width = 82
               Height = 13
               Caption = 'ReqSpellLearned'
@@ -2203,6 +2203,27 @@ object MainForm: TMainForm
               Width = 86
               Height = 13
               Caption = 'ReqCurrencyId1-4'
+            end
+            object lbReqSpellCast2: TLabel
+              Left = 95
+              Top = 306
+              Width = 70
+              Height = 13
+              Caption = 'ReqSpellCast2'
+            end
+            object lbReqSpellCast3: TLabel
+              Left = 182
+              Top = 306
+              Width = 70
+              Height = 13
+              Caption = 'ReqSpellCast3'
+            end
+            object lbReqSpellCast4: TLabel
+              Left = 269
+              Top = 306
+              Width = 70
+              Height = 13
+              Caption = 'ReqSpellCast4'
             end
             object edqtReqItemCount1: TLabeledEdit
               Left = 102
@@ -2870,7 +2891,7 @@ object MainForm: TMainForm
             end
             object edqtReqSpellCast1: TJvComboEdit
               Left = 8
-              Top = 316
+              Top = 323
               Width = 81
               Height = 21
               Hint = 
@@ -2912,8 +2933,8 @@ object MainForm: TMainForm
               OnButtonClick = GetSpell
             end
             object edqtReqSpellCast2: TJvComboEdit
-              Left = 8
-              Top = 342
+              Left = 95
+              Top = 322
               Width = 81
               Height = 21
               Hint = 
@@ -2955,8 +2976,8 @@ object MainForm: TMainForm
               OnButtonClick = GetSpell
             end
             object edqtReqSpellCast3: TJvComboEdit
-              Left = 8
-              Top = 368
+              Left = 182
+              Top = 322
               Width = 81
               Height = 21
               Hint = 
@@ -2998,8 +3019,8 @@ object MainForm: TMainForm
               OnButtonClick = GetSpell
             end
             object edqtReqSpellCast4: TJvComboEdit
-              Left = 8
-              Top = 394
+              Left = 269
+              Top = 322
               Width = 81
               Height = 21
               Hint = 
@@ -3191,9 +3212,9 @@ object MainForm: TMainForm
               OnButtonClick = GetItem
             end
             object edqtReqSpellLearned: TJvComboEdit
-              Left = 103
-              Top = 390
-              Width = 89
+              Left = 356
+              Top = 322
+              Width = 81
               Height = 21
               ButtonWidth = 22
               ClickKey = 13
@@ -3441,7 +3462,7 @@ object MainForm: TMainForm
             Left = 455
             Top = 8
             Width = 534
-            Height = 423
+            Height = 409
             Caption = 'Rewards for quest'
             TabOrder = 1
             object lbRewChoiceItemId1: TLabel
@@ -4776,7 +4797,7 @@ object MainForm: TMainForm
           end
           object gbOther: TGroupBox
             Left = 8
-            Top = 431
+            Top = 364
             Width = 442
             Height = 186
             Caption = 'Emotions'
@@ -5314,9 +5335,9 @@ object MainForm: TMainForm
           end
           object gbAreatrigger: TGroupBox
             Left = 455
-            Top = 431
+            Top = 416
             Width = 534
-            Height = 186
+            Height = 150
             Caption = 'Other'
             TabOrder = 3
             object lbAreatrigger: TLabel
