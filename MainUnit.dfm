@@ -10796,6 +10796,16 @@ object MainForm: TMainForm
             Text = ''
             OnButtonClick = edcmidButtonClick
           end
+          object edcmcomment: TLabeledEdit
+            Left = 8
+            Top = 450
+            Width = 312
+            Height = 21
+            EditLabel.Width = 43
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comment'
+            TabOrder = 11
+          end
         end
         object tsCreatureMvmntTemplate: TTabSheet
           Caption = 'Creature Movement Template'
@@ -11286,6 +11296,16 @@ object MainForm: TMainForm
             EditLabel.Height = 13
             EditLabel.Caption = 'pathId'
             TabOrder = 11
+          end
+          object edcmtcomment: TLabeledEdit
+            Left = 8
+            Top = 439
+            Width = 312
+            Height = 21
+            EditLabel.Width = 43
+            EditLabel.Height = 13
+            EditLabel.Caption = 'comment'
+            TabOrder = 12
           end
         end
         object tsCreatureModelInfo: TTabSheet
