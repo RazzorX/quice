@@ -14,10 +14,10 @@ uses
 
 const
 {$IFDEF CMANGOS}
-  REV = '13975';
+  REV = '13976';
   VERSION_1 = '1';
   VERSION_2 = '3';
-  VERSION_3 = '975';
+  VERSION_3 = '976';
 {$ENDIF}
 
   VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
@@ -1560,8 +1560,6 @@ type
     edctTrainerTemplateId: TJvComboEdit;
     lbcttrainer_id: TLabel;
     edctVehicleTemplateId: TLabeledEdit;
-    edqtReqSpellLearned: TJvComboEdit;
-    lbReqSpellLearned: TLabel;
     edqtPortraitGiverName: TLabeledEdit;
     edqtPortraitGiverText: TLabeledEdit;
     edqtPortraitTurnInName: TLabeledEdit;
@@ -1570,29 +1568,8 @@ type
     lbqtPortraitGiver: TLabel;
     edqtPortraitTurnIn: TJvComboEdit;
     lbqtPortraitTurnIn: TLabel;
-    edqtRewSkill: TJvComboEdit;
-    lbqtRewSkill: TLabel;
-    edqtRewSkillValue: TLabeledEdit;
     edqtSoundAccept: TLabeledEdit;
     edqtSoundTurnIn: TLabeledEdit;
-    lbqtReqCurrencyId1: TLabel;
-    edqtReqCurrencyCount1: TLabeledEdit;
-    edqtReqCurrencyCount2: TLabeledEdit;
-    edqtReqCurrencyCount3: TLabeledEdit;
-    edqtReqCurrencyCount4: TLabeledEdit;
-    edqtReqCurrencyId1: TJvComboEdit;
-    edqtReqCurrencyId2: TJvComboEdit;
-    edqtReqCurrencyId3: TJvComboEdit;
-    edqtReqCurrencyId4: TJvComboEdit;
-    lbqtRewCurrencyId1: TLabel;
-    edqtRewCurrencyCount1: TLabeledEdit;
-    edqtRewCurrencyCount2: TLabeledEdit;
-    edqtRewCurrencyCount3: TLabeledEdit;
-    edqtRewCurrencyCount4: TLabeledEdit;
-    edqtRewCurrencyId1: TJvComboEdit;
-    edqtRewCurrencyId2: TJvComboEdit;
-    edqtRewCurrencyId3: TJvComboEdit;
-    edqtRewCurrencyId4: TJvComboEdit;
     edqtPointMapId: TJvComboEdit;
     edqtPointX: TLabeledEdit;
     edqtPointY: TLabeledEdit;
@@ -2120,6 +2097,11 @@ type
     lbtspathid: TLabel;
     edcmcomment: TLabeledEdit;
     edcmtcomment: TLabeledEdit;
+    edqtRewMaxRepValue5: TLabeledEdit;
+    edqtRewMaxRepValue4: TLabeledEdit;
+    edqtRewMaxRepValue3: TLabeledEdit;
+    edqtRewMaxRepValue2: TLabeledEdit;
+    edqtRewMaxRepValue1: TLabeledEdit;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -3110,30 +3092,6 @@ begin
   lbqtPortraitGiver.Visible := IsVisible;
   lbqtPortraitTurnIn.Visible := IsVisible;
 
-  edqtReqCurrencyId1.Visible := IsVisible;
-  edqtReqCurrencyId2.Visible := IsVisible;
-  edqtReqCurrencyId3.Visible := IsVisible;
-  edqtReqCurrencyId4.Visible := IsVisible;
-  edqtReqCurrencyCount1.Visible := IsVisible;
-  edqtReqCurrencyCount2.Visible := IsVisible;
-  edqtReqCurrencyCount3.Visible := IsVisible;
-  edqtReqCurrencyCount4.Visible := IsVisible;
-  lbqtReqCurrencyId1.Visible := IsVisible;
-
-  edqtRewCurrencyId1.Visible := IsVisible;
-  edqtRewCurrencyId2.Visible := IsVisible;
-  edqtRewCurrencyId3.Visible := IsVisible;
-  edqtRewCurrencyId4.Visible := IsVisible;
-  edqtRewCurrencyCount1.Visible := IsVisible;
-  edqtRewCurrencyCount2.Visible := IsVisible;
-  edqtRewCurrencyCount3.Visible := IsVisible;
-  edqtRewCurrencyCount4.Visible := IsVisible;
-  lbqtRewCurrencyId1.Visible := IsVisible;
-
-  edqtRewSkill.Visible := IsVisible;
-  edqtRewSkillValue.Visible := IsVisible;
-  lbqtRewSkill.Visible := IsVisible;
-
   edqtSoundAccept.Visible := IsVisible;
   edqtSoundTurnIn.Visible := IsVisible;
 
@@ -3908,6 +3866,8 @@ begin
       SubItems.Add(MyQuery.Fields[5].AsString);
       lvmlMailLoot.Columns[6].Caption := 'condition_id';
       SubItems.Add(MyQuery.Fields[6].AsString);
+      lvmlMailLoot.Columns[7].Caption := 'comments';
+      SubItems.Add(MyQuery.Fields[7].AsString);
     end;
     MyQuery.Next;
   end;
@@ -3957,17 +3917,17 @@ end;
 procedure TMainForm.LoadQuestGivers(QuestID: Integer);
 begin
   // search for quest starter
-  MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.NpcFlags FROM `creature_questrelation` q ' +
-    'INNER JOIN `creature_template` t ON t.entry = q.id ' + 'WHERE q.quest = %d', [QuestID]);
+  MyQuery.SQL.Text := Format('SELECT t.Entry, t.Name, t.NpcFlags FROM `creature_questrelation` q ' +
+    'INNER JOIN `creature_template` t ON t.Entry = q.id ' + 'WHERE q.quest = %d', [QuestID]);
   MyQuery.Open;
   while not MyQuery.Eof do
   begin
     with lvqtGiverTemplate.Items.Add do
     begin
       Caption := 'creature';
-      lvqtGiverTemplate.Columns[1].Caption := 'entry';
+      lvqtGiverTemplate.Columns[1].Caption := 'Entry';
       SubItems.Add(MyQuery.Fields[0].AsString);
-      lvqtGiverTemplate.Columns[2].Caption := 'name';
+      lvqtGiverTemplate.Columns[2].Caption := 'Name';
       SubItems.Add(MyQuery.Fields[1].AsString);
       lvqtGiverTemplate.Columns[3].Caption := 'NpcFlags';
       SubItems.Add(MyQuery.Fields[2].AsString);
@@ -4045,17 +4005,17 @@ end;
 procedure TMainForm.LoadQuestTakers(QuestID: Integer);
 begin
   // search for quest starter
-  MyQuery.SQL.Text := Format('SELECT t.entry, t.name, t.NpcFlags FROM `creature_involvedrelation` q ' +
-    'INNER JOIN `creature_template` t ON t.entry = q.id ' + 'WHERE q.quest = %d', [QuestID]);
+  MyQuery.SQL.Text := Format('SELECT t.Entry, t.Name, t.NpcFlags FROM `creature_involvedrelation` q ' +
+    'INNER JOIN `creature_template` t ON t.Entry = q.id ' + 'WHERE q.quest = %d', [QuestID]);
   MyQuery.Open;
   while not MyQuery.Eof do
   begin
     with lvqtTakerTemplate.Items.Add do
     begin
       Caption := 'creature';
-      lvqtTakerTemplate.Columns[1].Caption := 'entry';
+      lvqtTakerTemplate.Columns[1].Caption := 'Entry';
       SubItems.Add(MyQuery.Fields[0].AsString);
-      lvqtTakerTemplate.Columns[2].Caption := 'name';
+      lvqtTakerTemplate.Columns[2].Caption := 'Name';
       SubItems.Add(MyQuery.Fields[1].AsString);
       lvqtTakerTemplate.Columns[3].Caption := 'NpcFlags';
       SubItems.Add(MyQuery.Fields[2].AsString);
@@ -9009,27 +8969,27 @@ begin
     // load npc_vendor
     MyQuery.SQL.Text := Format('SELECT `entry`, `item`,  '''' as `ChanceOrQuestChance`, ' +
       ''''' as `groupid`, '''' as `mincountOrRef`, `maxcount`, ' +
-      '`condition_id`, ''npc_vendor'' as `table` '
+      '`condition_id`, `comments`, ''npc_vendor'' as `table` '
       + 'FROM `npc_vendor` WHERE (`item`=%s)', [Key]);
     QueryResult_AddToList;
   finally
     lvList.Items.EndUpdate;
   end;
 
-  LastColumn := 8;
+  LastColumn := 9;
 
   if lvList.Items.Count = 0 then
     Exit;
   lvList.Columns[LastColumn].Caption := 'name';
   lvList.Columns[LastColumn].Width := 150;
   lvList.Columns[LastColumn-1].Width := 150;
-  for i := 0 to LastColumn do
+  for i := 0 to lvList.Items.Count - 1 do
   begin
     id := lvList.Items[i].Caption;
     table := lvList.Items[i].SubItems[LastColumn-2];
     MyQuery.SQL.Text := '';
     if table = 'creature_loot_template' then
-      MyQuery.SQL.Text := Format('SELECT `name` FROM `creature_template` WHERE `LootId` = %s', [id]);
+      MyQuery.SQL.Text := Format('SELECT `Name` FROM `creature_template` WHERE `LootId` = %s', [id]);
     if table = 'item_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s', [id]);
     if table = 'prospecting_loot_template' then
@@ -9041,15 +9001,15 @@ begin
     if table = 'spell_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s', [id]);
     if table = 'npc_vendor' then
-      MyQuery.SQL.Text := Format('SELECT `name` FROM `creature_template` WHERE `Entry` = %s', [id]);
+      MyQuery.SQL.Text := Format('SELECT `Name` FROM `creature_template` WHERE `Entry` = %s', [id]);
     if table = 'gameobject_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `name` FROM `gameobject_template` WHERE `data1` = %s', [id]);
     if table = 'mail_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `Title` FROM `quest_template` WHERE `RewMailTemplateId` = %s', [id]);
     if table = 'pickpocketing_loot_template' then
-      MyQuery.SQL.Text := Format('SELECT `name` FROM `creature_template` WHERE `PickpocketLootId` = %s', [id]);
+      MyQuery.SQL.Text := Format('SELECT `Name` FROM `creature_template` WHERE `PickpocketLootId` = %s', [id]);
     if table = 'skinning_loot_template' then
-      MyQuery.SQL.Text := Format('SELECT `name` FROM `creature_template` WHERE `SkinningLootId` = %s', [id]);
+      MyQuery.SQL.Text := Format('SELECT `Name` FROM `creature_template` WHERE `SkinningLootId` = %s', [id]);
     if (MyQuery.SQL.Text <> '') then
     begin
       MyQuery.Open;
@@ -9185,6 +9145,7 @@ begin
       edcvincrtime.Text := SubItems[2];
       edcvExtendedCost.Text := SubItems[3];
       edcvcondition_id.Text := SubItems[4];
+      edcvcomments.Text := SubItems[5];
     end;
   end;
 end;
@@ -9207,6 +9168,7 @@ begin
       edcvtincrtime.Text := SubItems[2];
       edcvtExtendedCost.Text := SubItems[3];
       edcvtcondition_id.Text := SubItems[4];
+      edcvtcomments.Text := SubItems[5];
     end;
   end;
 end;
@@ -9223,6 +9185,7 @@ begin
       edcrreqskill.Text := SubItems[2];
       edcrreqskillvalue.Text := SubItems[3];
       edcrreqlevel.Text := SubItems[4];
+      edcrcondition_id.Text := SubItems[5];
     end;
   end;
 end;
@@ -9245,6 +9208,7 @@ begin
       edcrtreqskill.Text := SubItems[2];
       edcrtreqskillvalue.Text := SubItems[3];
       edcrtreqlevel.Text := SubItems[4];
+      edcrtcondition_id.Text := SubItems[5];
     end;
   end;
 end;
@@ -9611,6 +9575,7 @@ begin
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'mincountOrRef')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'maxcount')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'condition_id')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'comments')).Text);
   end;
 end;
 
@@ -9627,6 +9592,7 @@ begin
       SubItems[3] := TCustomEdit(FindComponent(pfx + 'mincountOrRef')).Text;
       SubItems[4] := TCustomEdit(FindComponent(pfx + 'maxcount')).Text;
       SubItems[5] := TCustomEdit(FindComponent(pfx + 'condition_id')).Text;
+      SubItems[6] := TCustomEdit(FindComponent(pfx + 'comments')).Text;
     end;
   end;
 end;
@@ -9650,6 +9616,7 @@ begin
       TCustomEdit(FindComponent(pfx + 'mincountOrRef')).Text := SubItems[3];
       TCustomEdit(FindComponent(pfx + 'maxcount')).Text := SubItems[4];
       TCustomEdit(FindComponent(pfx + 'condition_id')).Text := SubItems[5];
+      TCustomEdit(FindComponent(pfx + 'comments')).Text := SubItems[6];
     end;
   end;
 end;
@@ -10256,6 +10223,7 @@ begin
     SubItems.Add(edcrreqskill.Text);
     SubItems.Add(edcrreqskillvalue.Text);
     SubItems.Add(edcrreqlevel.Text);
+    SubItems.Add(edcrcondition_id.Text);
   end;
 end;
 
@@ -10271,6 +10239,7 @@ begin
       SubItems[2] := edcrreqskill.Text;
       SubItems[3] := edcrreqskillvalue.Text;
       SubItems[4] := edcrreqlevel.Text;
+      SubItems[5] := edcrcondition_id.Text;
     end;
   end;
 end;
@@ -10291,6 +10260,7 @@ begin
     SubItems.Add(edcrtreqskill.Text);
     SubItems.Add(edcrtreqskillvalue.Text);
     SubItems.Add(edcrtreqlevel.Text);
+    SubItems.Add(edcrtcondition_id.Text);
   end;
 end;
 
@@ -10312,6 +10282,7 @@ begin
       SubItems[2] := edcrtreqskill.Text;
       SubItems[3] := edcrtreqskillvalue.Text;
       SubItems[4] := edcrtreqlevel.Text;
+      SubItems[4] := edcrtcondition_id.Text;
     end;
   end;
 end;
@@ -13068,7 +13039,7 @@ begin
   if Selected then
   begin
     LoadQuestGiverInfo(Item.Caption, Item.SubItems[0]);
-    LoadQuestGiverGreeting(Item.Caption, Item.SubItems[0]);
+    //LoadQuestGiverGreeting(Item.Caption, Item.SubItems[0]);
   end;
 end;
 
