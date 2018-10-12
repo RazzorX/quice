@@ -5262,8 +5262,15 @@ begin
   if entry = '' then
     Exit;
   SetFieldsAndValues(Fields, Values, 'creature_template_addon', PFX_CREATURE_TEMPLATE_ADDON, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_template_addon` WHERE (`entry`=%s);'#13#10 +
-    'INSERT INTO `creature_template_addon` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `creature_template_addon` WHERE (`entry`=%s);'#13#10 +
+      'INSERT INTO `creature_template_addon` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `creature_template_addon` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate('creature_template_addon', PFX_CREATURE_TEMPLATE_ADDON, 'entry', entry);
+  end;
 end;
 
 procedure TMainForm.CompleteCreatureTemplateSpellsScript;
@@ -7293,10 +7300,16 @@ begin
   GUID := edhiitem.Text;
   if Trim(GUID) = '' then
     Exit;
-  SetFieldsAndValues(MyQuery, Fields, Values, '' + CharDBName + '`.`character_inventory',
-    PFX_CHARACTER_INVENTORY, mehtLog);
-  mehtScript.Text := Format('DELETE FROM `' + CharDBName + '`.`character_inventory` WHERE (`item`=%s);'#13#10 +
-    'INSERT INTO `' + CharDBName + '`.`character_inventory` (%s) VALUES (%s);'#13#10, [GUID, Fields, Values]);
+  SetFieldsAndValues(MyQuery, Fields, Values, '' + CharDBName + '`.`character_inventory', PFX_CHARACTER_INVENTORY, mehtLog);
+  case SyntaxStyle of
+    ssInsertDelete:
+      mehtScript.Text := Format('DELETE FROM `' + CharDBName + '`.`character_inventory` WHERE (`item`=%s);'#13#10 +
+      'INSERT INTO `' + CharDBName + '`.`character_inventory` (%s) VALUES (%s);'#13#10, [GUID, Fields, Values]);
+    ssReplace:
+      mehtScript.Text := Format('REPLACE INTO `' + CharDBName + '`.`character_inventory` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mehtScript.Text := MakeUpdate('' + CharDBName + '`.`character_inventory', PFX_CHARACTER_INVENTORY, 'item', GUID);
+  end;
 end;
 
 procedure TMainForm.CompleteCharacterScript;
@@ -7313,8 +7326,7 @@ begin
       mehtScript.Text := Format('DELETE FROM `' + CharDBName + '`.`characters` WHERE (`guid`=%s);'#13#10 +
         'INSERT INTO `' + CharDBName + '`.`characters` (%s) VALUES (%s);'#13#10, [GUID, Fields, Values]);
     ssReplace:
-      mehtScript.Text := Format('REPLACE INTO `' + CharDBName + '`.`characters` (%s) VALUES (%s);'#13#10,
-        [Fields, Values]);
+      mehtScript.Text := Format('REPLACE INTO `' + CharDBName + '`.`characters` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
       mehtScript.Text := MakeUpdate('' + CharDBName + '`.`characters', PFX_CHARACTER, 'guid', GUID);
   end;
@@ -7329,8 +7341,15 @@ begin
   if caguid = '' then
     Exit;
   SetFieldsAndValues(Fields, Values, 'creature_addon', PFX_CREATURE_ADDON, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_addon` WHERE (`guid`=%s);'#13#10 +
-    'INSERT INTO `creature_addon` (%s) VALUES (%s);'#13#10, [caguid, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `creature_addon` WHERE (`guid`=%s);'#13#10 +
+      'INSERT INTO `creature_addon` (%s) VALUES (%s);'#13#10, [caguid, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `creature_addon` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate('creature_addon', PFX_CREATURE_ADDON, 'guid', caguid);
+  end;
 end;
 
 procedure TMainForm.CompleteCreatureEquipTemplateScript;
@@ -7342,8 +7361,15 @@ begin
   if caguid = '' then
     Exit;
   SetFieldsAndValues(Fields, Values, 'creature_equip_template', PFX_CREATURE_EQUIP_TEMPLATE, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_equip_template` WHERE (`entry`=%s);'#13#10 +
-    'INSERT INTO `creature_equip_template` (%s) VALUES (%s);'#13#10, [caguid, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `creature_equip_template` WHERE (`entry`=%s);'#13#10 +
+      'INSERT INTO `creature_equip_template` (%s) VALUES (%s);'#13#10, [caguid, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `creature_equip_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate('creature_equip_template', PFX_CREATURE_EQUIP_TEMPLATE, 'entry', caguid);
+  end;
 end;
 
 procedure TMainForm.CompleteGossipMenuScript;
@@ -7355,8 +7381,15 @@ begin
   if entry = '' then
     Exit;
   SetFieldsAndValues(Fields, Values, 'gossip_menu', PFX_CREATURE_GOSSIP_MENU, mectLog);
-  mectScript.Text := Format('DELETE FROM `gossip_menu` WHERE (`entry`=%s);'#13#10 +
-    'INSERT INTO `gossip_menu` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `gossip_menu` WHERE (`entry`=%s);'#13#10 +
+      'INSERT INTO `gossip_menu` (%s) VALUES (%s);'#13#10, [entry, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `gossip_menu` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate('gossip_menu', PFX_CREATURE_GOSSIP_MENU, 'entry', entry);
+  end;
 end;
 
 procedure TMainForm.CompleteLocalesQuest;
@@ -7503,8 +7536,15 @@ begin
   if (coentry = '') or (coitem = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'creature_loot_template', PFX_CREATURE_LOOT_TEMPLATE, mectLog);
-  mectScript.Text := Format('DELETE FROM `creature_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `creature_loot_template` (%s) VALUES (%s);'#13#10, [coentry, coitem, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `creature_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `creature_loot_template` (%s) VALUES (%s);'#13#10, [coentry, coitem, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `creature_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate2('creature_loot_template', PFX_CREATURE_LOOT_TEMPLATE, 'entry', coentry, 'item', coitem);
+  end;
 end;
 
 procedure TMainForm.CompletePickpocketLootScript;
@@ -7517,8 +7557,15 @@ begin
   if (cpentry = '') or (cpitem = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'pickpocketing_loot_template', PFX_PICKPOCKETING_LOOT_TEMPLATE, mectLog);
-  mectScript.Text := Format('DELETE FROM `pickpocketing_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `pickpocketing_loot_template` (%s) VALUES (%s);'#13#10, [cpentry, cpitem, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `pickpocketing_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `pickpocketing_loot_template` (%s) VALUES (%s);'#13#10, [cpentry, cpitem, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `pickpocketing_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate2('pickpocketing_loot_template', PFX_PICKPOCKETING_LOOT_TEMPLATE, 'entry', cpentry, 'item', cpitem);
+  end;
 end;
 
 procedure TMainForm.CompleteSkinLootScript;
@@ -7531,8 +7578,15 @@ begin
   if (csentry = '') or (csitem = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'skinning_loot_template', PFX_SKINNING_LOOT_TEMPLATE, mectLog);
-  mectScript.Text := Format('DELETE FROM `skinning_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `skinning_loot_template` (%s) VALUES (%s);'#13#10, [csentry, csitem, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `skinning_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `skinning_loot_template` (%s) VALUES (%s);'#13#10, [csentry, csitem, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `skinning_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate2('skinning_loot_template', PFX_SKINNING_LOOT_TEMPLATE, 'entry', csentry, 'item', csitem);
+  end;
 end;
 
 function TMainForm.Connect: Boolean;
@@ -7706,8 +7760,15 @@ begin
   if (cventry = '') or (cvitem = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'npc_vendor', PFX_NPC_VENDOR, mectLog);
-  mectScript.Text := Format('DELETE FROM `npc_vendor` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `npc_vendor` (%s) VALUES (%s);'#13#10, [cventry, cvitem, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `npc_vendor` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+    'INSERT INTO `npc_vendor` (%s) VALUES (%s);'#13#10, [cventry, cvitem, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `npc_vendor` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate2('npc_vendor', PFX_NPC_VENDOR, 'entry', cventry, 'item', cvitem);
+  end;
 end;
 
 procedure TMainForm.CompleteNPCVendorTemplateScript;
@@ -7720,8 +7781,15 @@ begin
   if (cvtentry = '') or (cvtitem = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'npc_vendor_template', PFX_NPC_VENDOR_TEMPLATE, mectLog);
-  mectScript.Text := Format('DELETE FROM `npc_vendor_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `npc_vendor_template` (%s) VALUES (%s);'#13#10, [cvtentry, cvtitem, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `npc_vendor_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `npc_vendor_template` (%s) VALUES (%s);'#13#10, [cvtentry, cvtitem, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `npc_vendor_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate2('npc_vendor_template', PFX_NPC_VENDOR_TEMPLATE, 'entry', cvtentry, 'item', cvtitem);
+  end;
 end;
 
 procedure TMainForm.CompleteNPCgossipScript;
@@ -7737,8 +7805,15 @@ begin
 
   Values := StringReplace(Values, '''''', 'NULL', [rfReplaceAll]);
 
-  mectScript.Text := Format('DELETE FROM `npc_gossip` WHERE (`npc_guid`=%s);'#13#10 +
-    'INSERT INTO `npc_gossip` (%s) VALUES (%s);'#13#10, [GUID, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `npc_gossip` WHERE (`npc_guid`=%s);'#13#10 +
+      'INSERT INTO `npc_gossip` (%s) VALUES (%s);'#13#10, [GUID, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `npc_gossip` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate('npc_gossip', PFX_NPC_GOSSIP, 'npc_guid', GUID);
+  end;
 end;
 
 procedure TMainForm.CompleteNPCtextScript;
@@ -7750,8 +7825,15 @@ begin
   if Trim(id) = '' then
     Exit;
   SetFieldsAndValues(Fields, Values, 'npc_text', PFX_NPC_TEXT, mectLog);
-  mectScript.Text := Format('DELETE FROM `npc_text` WHERE (`ID`=%s);'#13#10 +
-    'INSERT INTO `npc_text` (%s) VALUES (%s);'#13#10, [id, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `npc_text` WHERE (`ID`=%s);'#13#10 +
+      'INSERT INTO `npc_text` (%s) VALUES (%s);'#13#10, [id, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `npc_text` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate('npc_text', PFX_NPC_TEXT, 'ID', id);
+  end;
 end;
 
 procedure TMainForm.CompleteNPCTrainerScript;
@@ -7764,8 +7846,15 @@ begin
   if (crentry = '') or (crspell = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'npc_trainer', PFX_NPC_TRAINER, mectLog);
-  mectScript.Text := Format('DELETE FROM `npc_trainer` WHERE (`entry`=%s) AND (`spell`=%s);'#13#10 +
-    'INSERT INTO `npc_trainer` (%s) VALUES (%s);'#13#10, [crentry, crspell, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      mectScript.Text := Format('DELETE FROM `npc_trainer` WHERE (`entry`=%s) AND (`spell`=%s);'#13#10 +
+      'INSERT INTO `npc_trainer` (%s) VALUES (%s);'#13#10, [crentry, crspell, Fields, Values]);
+    ssReplace:
+      mectScript.Text := Format('REPLACE INTO `npc_trainer` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      mectScript.Text := MakeUpdate2('npc_trainer', PFX_NPC_TRAINER, 'entry', crentry, 'spell', crspell);
+  end;
 end;
 
 procedure TMainForm.lvcoCreatureLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
@@ -8480,8 +8569,15 @@ begin
   if (goentry = '') or (goitem = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'gameobject_loot_template', PFX_GAMEOBJECT_LOOT_TEMPLATE, megoLog);
-  megoScript.Text := Format('DELETE FROM `gameobject_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `gameobject_loot_template` (%s) VALUES (%s);'#13#10, [goentry, goitem, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      megoScript.Text := Format('DELETE FROM `gameobject_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `gameobject_loot_template` (%s) VALUES (%s);'#13#10, [goentry, goitem, Fields, Values]);
+    ssReplace:
+      megoScript.Text := Format('REPLACE INTO `gameobject_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      megoScript.Text := MakeUpdate2('gameobject_loot_template', PFX_GAMEOBJECT_LOOT_TEMPLATE, 'entry', goentry, 'item', goitem);
+  end;
 end;
 
 procedure TMainForm.CompleteMailLootScript;
@@ -8494,8 +8590,15 @@ begin
   if (mlentry = '') or (mlitem = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'mail_loot_template', PFX_MAIL_LOOT_TEMPLATE, meqtLog);
-  meqtScript.Text := Format('DELETE FROM `mail_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `mail_loot_template` (%s) VALUES (%s);'#13#10, [mlentry, mlitem, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      meqtScript.Text := Format('DELETE FROM `mail_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `mail_loot_template` (%s) VALUES (%s);'#13#10, [mlentry, mlitem, Fields, Values]);
+    ssReplace:
+      meqtScript.Text := Format('REPLACE INTO `mail_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meqtScript.Text := MakeUpdate2('mail_loot_template', PFX_MAIL_LOOT_TEMPLATE, 'entry', mlentry, 'item', mlitem);
+  end;
 end;
 
 procedure TMainForm.lvgoGOLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
@@ -10551,8 +10654,15 @@ begin
   if (entry = '') or (Item = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'item_loot_template', PFX_ITEM_LOOT_TEMPLATE, meitLog);
-  meitScript.Text := Format('DELETE FROM `item_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `item_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      meitScript.Text := Format('DELETE FROM `item_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `item_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values]);
+    ssReplace:
+      meitScript.Text := Format('REPLACE INTO `item_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meitScript.Text := MakeUpdate2('item_loot_template', PFX_ITEM_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+  end;
 end;
 
 procedure TMainForm.CompleteDisLootScript;
@@ -10565,8 +10675,15 @@ begin
   if (entry = '') or (Item = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'disenchant_loot_template', PFX_DISENCHANT_LOOT_TEMPLATE, meitLog);
-  meitScript.Text := Format('DELETE FROM `disenchant_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `disenchant_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      meitScript.Text := Format('DELETE FROM `disenchant_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `disenchant_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values]);
+    ssReplace:
+      meitScript.Text := Format('REPLACE INTO `disenchant_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meitScript.Text := MakeUpdate2('disenchant_loot_template', PFX_DISENCHANT_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+  end;
 end;
 
 procedure TMainForm.CompleteProsLootScript;
@@ -10579,8 +10696,15 @@ begin
   if (entry = '') or (Item = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'prospecting_loot_template', PFX_PROSPECTING_LOOT_TEMPLATE, meitLog);
-  meitScript.Text := Format('DELETE FROM `prospecting_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `prospecting_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      meitScript.Text := Format('DELETE FROM `prospecting_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `prospecting_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values]);
+    ssReplace:
+      meitScript.Text := Format('REPLACE INTO `prospecting_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meitScript.Text := MakeUpdate2('prospecting_loot_template', PFX_PROSPECTING_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+  end;
 end;
 
 procedure TMainForm.CompleteMillingLootScript;
@@ -10593,8 +10717,15 @@ begin
   if (entry = '') or (Item = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'milling_loot_template', PFX_MILLING_LOOT_TEMPLATE, meitLog);
-  meitScript.Text := Format('DELETE FROM `milling_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `milling_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      meitScript.Text := Format('DELETE FROM `milling_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `milling_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values]);
+    ssReplace:
+      meitScript.Text := Format('REPLACE INTO `milling_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meitScript.Text := MakeUpdate2('milling_loot_template', PFX_MILLING_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+  end;
 end;
 
 procedure TMainForm.CompleteReferenceLootScript;
@@ -10607,8 +10738,15 @@ begin
   if (entry = '') or (Item = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'reference_loot_template', PFX_REFERENCE_LOOT_TEMPLATE, meitLog);
-  meitScript.Text := Format('DELETE FROM `reference_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `reference_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      meitScript.Text := Format('DELETE FROM `reference_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `reference_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values]);
+    ssReplace:
+      meitScript.Text := Format('REPLACE INTO `reference_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meitScript.Text := MakeUpdate2('reference_loot_template', PFX_REFERENCE_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+  end;
 end;
 
 procedure TMainForm.CompleteSpellLootScript;
@@ -10621,8 +10759,15 @@ begin
   if (entry = '') or (Item = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'spell_loot_template', PFX_SPELL_LOOT_TEMPLATE, meitLog);
-  meitScript.Text := Format('DELETE FROM `spell_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `spell_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      meitScript.Text := Format('DELETE FROM `spell_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `spell_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values]);
+    ssReplace:
+      meitScript.Text := Format('REPLACE INTO `spell_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meitScript.Text := MakeUpdate2('spell_loot_template', PFX_SPELL_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+  end;
 end;
 
 procedure TMainForm.CompleteItemScript;
@@ -10642,9 +10787,6 @@ begin
       meitScript.Text := Format('REPLACE INTO `item_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
       meitScript.Text := MakeUpdate('item_template', PFX_ITEM_TEMPLATE, 'entry', entry)
-  else
-    meitScript.Text := Format('REPLACE INTO `item_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
-
   end;
 end;
 
@@ -11720,8 +11862,15 @@ begin
   if (StrToIntDef(entry, 0) < 1) then
     Exit;
   SetFieldsAndValues(Fields, Values, TableName, prefix, medbLog);
-  medbScript.Text := Format('DELETE FROM `%0:s` WHERE (`id`=%1:s) AND (`delay`=%2:s) AND (`command`=%3:s);'#13#10 +
-    'INSERT INTO `%0:s` (%4:s) VALUES (%5:s);'#13#10, [TableName, entry, delay, command, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      medbScript.Text := Format('DELETE FROM `%0:s` WHERE (`id`=%1:s) AND (`delay`=%2:s) AND (`command`=%3:s);'#13#10 +
+      'INSERT INTO `%0:s` (%4:s) VALUES (%5:s);'#13#10, [TableName, entry, delay, command, Fields, Values]);
+    ssReplace:
+      medbScript.Text := Format('REPLACE INTO `%s` (%s) VALUES (%s);'#13#10, [TableName, Fields, Values]);
+    ssUpdate:
+      medbScript.Text := MakeUpdate3(TableName, prefix, 'id', entry, 'delay', delay, 'command', command);
+  end;
 end;
 
 procedure TMainForm.CompleteDbScriptRandomTemplates(TableName: string; prefix: string; entry: string; entry_type: string; target_id: string);
@@ -11732,8 +11881,15 @@ begin
   if (StrToIntDef(entry, 0) < 1) then
     Exit;
   SetFieldsAndValues(Fields, Values, TableName, prefix, medbLog);
-  medbScript.Text := Format('DELETE FROM `%0:s` WHERE (`id`=%1:s) AND (`type`=%2:s) AND (`target_id`=%3:s);'#13#10 +
-    'INSERT INTO `%0:s` (%4:s) VALUES (%5:s);'#13#10, [TableName, entry, entry_type, target_id, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      medbScript.Text := Format('DELETE FROM `%0:s` WHERE (`id`=%1:s) AND (`type`=%2:s) AND (`target_id`=%3:s);'#13#10 +
+      'INSERT INTO `%0:s` (%4:s) VALUES (%5:s);'#13#10, [TableName, entry, entry_type, target_id, Fields, Values]);
+    ssReplace:
+      medbScript.Text := Format('REPLACE INTO `%s` (%s) VALUES (%s);'#13#10, [TableName, Fields, Values]);
+    ssUpdate:
+      medbScript.Text := MakeUpdate3(TableName, prefix, 'id', entry, 'type', entry_type, 'target_id', target_id);
+  end;
 end;
 
 procedure TMainForm.CompleteDbScriptsOnQuestStartScript;
@@ -12116,8 +12272,15 @@ begin
   if (entry = '') or (Item = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'fishing_loot_template', PFX_FISHING_LOOT_TEMPLATE, meotLog);
-  meotScript.Text := Format('DELETE FROM `fishing_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
-    'INSERT INTO `fishing_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values])
+  case SyntaxStyle of
+    ssInsertDelete:
+      meotScript.Text := Format('DELETE FROM `fishing_loot_template` WHERE (`entry`=%s) AND (`item`=%s);'#13#10 +
+      'INSERT INTO `fishing_loot_template` (%s) VALUES (%s);'#13#10, [entry, Item, Fields, Values]);
+    ssReplace:
+      meotScript.Text := Format('REPLACE INTO `fishing_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meotScript.Text := MakeUpdate2('fishing_loot_template', PFX_FISHING_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+  end;
 end;
 
 procedure TMainForm.btCopyToClipboardOtherClick(Sender: TObject);
@@ -13747,8 +13910,15 @@ begin
   if (entry = '') or (ench = '') then
     Exit;
   SetFieldsAndValues(Fields, Values, 'item_enchantment_template', PFX_ITEM_ENCHANTMENT_TEMPLATE, meitLog);
-  meitScript.Text := Format('DELETE FROM `item_enchantment_template` WHERE (`entry`=%s) AND (`ench`=%s);'#13#10 +
-    'INSERT INTO `item_enchantment_template` (%s) VALUES (%s);'#13#10, [entry, ench, Fields, Values]);
+  case SyntaxStyle of
+    ssInsertDelete:
+      meitScript.Text := Format('DELETE FROM `item_enchantment_template` WHERE (`entry`=%s) AND (`ench`=%s);'#13#10 +
+      'INSERT INTO `item_enchantment_template` (%s) VALUES (%s);'#13#10, [entry, ench, Fields, Values]);
+    ssReplace:
+      meitScript.Text := Format('REPLACE INTO `item_enchantment_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meitScript.Text := MakeUpdate2('item_enchantment_template', PFX_ITEM_ENCHANTMENT_TEMPLATE, 'entry', entry, 'ench', ench);
+  end;
 end;
 
 // Characters
