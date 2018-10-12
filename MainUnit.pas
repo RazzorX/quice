@@ -2635,6 +2635,7 @@ type
     procedure LoadQuestLocales(QuestID: Integer);
     procedure LoadQuestMailLoot(edqtRewMailTemplateId: Integer);
     procedure LoadQuestGiverInfo(objtype: string; entry: string);
+    procedure ClearQuestGiverGreeting;
     procedure LoadQuestGiverGreeting(objtype: string; entry: string);
     procedure LoadQuestTakerInfo(objtype: string; entry: string);
     procedure LoadQuestStartScript(Sender: TObject);
@@ -11522,30 +11523,44 @@ begin
   end;
 end;
 
+procedure TMainForm.ClearQuestGiverGreeting;
+begin
+  edqgEntry.Clear;
+  edqgType.Clear;
+  edqgEmoteId.Clear;
+  edqgEmoteDelay.Clear;
+  edqgText.Clear;
+  edlqgText.Clear;
+end;
+
 procedure TMainForm.LoadQuestGiverGreeting(objtype: string; entry: string);
 var
   loc: string;
 begin
   loc := LoadLocales();
   edlqgText.EditLabel.Caption := 'Text' + loc;
-  edlqgText.Name := edlqgText.Name + loc;
   if (StrToIntDef(entry, 0) < 1) then
     Exit;
+  MyTempQuery.SQL.Text := '';
   if objtype = 'creature' then
     MyTempQuery.SQL.Text := Format('SELECT lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=0', [loc, entry])
   else if objtype = 'gameobject' then
-    MyTempQuery.SQL.Text := Format('SELECT lqg.Text%0:s qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=1', [loc, entry]);
-  MyTempQuery.Open;
-  try
-    if MyTempQuery.Eof then
-      raise Exception.Create(Format(dmMain.Text[190], [StrToInt(entry)])); // 'Error: Questgiver Greeting (Entry = %d) not found'
-    FillFields(MyTempQuery, PFX_QUESTGIVER_GREETING);
-    FillFields(MyTempQuery, PFX_LOC_QUESTGIVER_GREETING);
-    MyTempQuery.Close;
-  except
-    on E: Exception do
-      raise Exception.Create(dmMain.Text[191] + #10#13 + E.Message);
+    MyTempQuery.SQL.Text := Format('SELECT lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=1', [loc, entry]);
+  if MyTempQuery.SQL.Text = '' then
+  begin
+    ClearQuestGiverGreeting;
+	Exit;
   end;
+  MyTempQuery.Open;
+  if MyTempQuery.IsEmpty then
+  begin
+    ClearQuestGiverGreeting;
+    MyTempQuery.Close;
+    Exit;
+  end;
+  edlqgText.Text := MyTempQuery.Fields[0].AsString;
+  FillFields(MyTempQuery, PFX_QUESTGIVER_GREETING);
+  MyTempQuery.Close;
 end;
 
 procedure TMainForm.edconentryButtonClick(Sender: TObject);
@@ -13039,7 +13054,7 @@ begin
   if Selected then
   begin
     LoadQuestGiverInfo(Item.Caption, Item.SubItems[0]);
-    //LoadQuestGiverGreeting(Item.Caption, Item.SubItems[0]);
+    LoadQuestGiverGreeting(Item.Caption, Item.SubItems[0]);
   end;
 end;
 
