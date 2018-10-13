@@ -77,32 +77,6 @@ uses StrUtils, Functions, MyDataModule;
 
 {$R *.dfm}
 
-function GetFileVersion(FileName: string; var Major, Minor, Release, Build: Word): Boolean;
-var
-  Size, Size2: DWORD;
-  Pt, Pt2: Pointer;
-begin
-  Result:= False;
-  (*** Get version information size in exe ***)
-  Size:= GetFileVersionInfoSize(PChar(FileName),Size2);
-  (*** Make sure that version information are included in exe file ***)
-  if Size > 0 then
-  begin
-    GetMem(Pt, Size);
-    GetFileVersionInfo(PChar(FileName), 0, Size, Pt);
-    VerQueryValue(Pt, '\', Pt2, Size2);
-    with TVSFixedFileInfo(Pt2^) do
-    begin
-      Major:= HiWord(dwFileVersionMS);
-      Minor:= LoWord(dwFileVersionMS);
-      Release:= HiWord(dwFileVersionLS);
-      Build:= LoWord(dwFileVersionLS);
-    end;
-    FreeMem(Pt, Size);
-    Result:= True;
-  end;
-end;
-
 procedure TAboutBox.InitializeCaptions;
 var
   Major, Minor, Release, Build: Word;

@@ -14,15 +14,6 @@ uses
 
 const
 {$IFDEF CMANGOS}
-  REV = '13976';
-  VERSION_1 = '1';
-  VERSION_2 = '3';
-  VERSION_3 = '976';
-{$ENDIF}
-
-  VERSION_EXE = VERSION_1 + '.' + VERSION_2 + '.' + VERSION_3;
-
-{$IFDEF CMANGOS}
   SCRIPT_TABLE_CREATURE_MOVEMENT = 'dbscripts_on_creature_movement';
   SCRIPT_TABLE_CREATURE_DEATH = 'dbscripts_on_creature_death';
   SCRIPT_TABLE_EVENT = 'dbscripts_on_event';
@@ -7700,8 +7691,13 @@ begin
 end;
 
 function TMainForm.CurVer: Integer;
+var
+  Major, Minor, Release, Build: Word;
 begin
-  Result := StrToInt(VERSION_1) * 10000 + StrToInt(VERSION_2) * 100 + StrToInt(VERSION_3);
+  if GetFileVersion(Application.ExeName, Major, Minor, Release, Build) then
+    Result := Major * 10000 + Minor * 100 + Release
+  else
+    Result := 0;
 end;
 
 procedure TMainForm.lvGameEventCreatureChange(Sender: TObject; Item: TListItem; Change: TItemChange);
@@ -13819,6 +13815,8 @@ end;
 
 procedure TMainForm.ExecuteScript(script: string; memo: TMemo);
 var
+  Major, Minor, Release, Build: Word;
+var
   Log: TStringList;
   FN: string;
 begin
@@ -13839,7 +13837,10 @@ begin
   memo.Text := dmMain.Text[10]; // 'Script executed successfully.'
   Log := TStringList.Create;
   try
-    FN := Format('%sLog_%s_%s_%s.sql', [dmMain.ProgramDir, VERSION_1, VERSION_2, VERSION_3]);
+    if GetFileVersion(Application.ExeName, Major, Minor, Release, Build) then
+      FN := Format('%sLog_%d_%d_%d.sql', [dmMain.ProgramDir, Major, Minor, Release])
+    else
+      FN := Format('%sLog_unknown_version.sql', [dmMain.ProgramDir]);
     if FileExists(FN) then
       Log.LoadFromFile(FN);
     Log.Add('-- ' + DateTimeToStr(Now));
