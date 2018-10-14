@@ -1,6 +1,6 @@
-0;No Bind
-1;Binds when Picked Up
-2;Binds when Equipped
-3;Binds when Used
-4;Quest Item
-5;Quest Item1
+0;NO_BIND
+1;BIND_WHEN_PICKED_UP
+2;BIND_WHEN_EQUIPPED
+3;BIND_WHEN_USE
+4;BIND_QUEST_ITEM
+5;BIND_QUEST_ITEM1

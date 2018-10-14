@@ -1,5 +1,5 @@
-0;NORMAL 
-1;Difficulty_1
-2;Difficulty_2
-3;Difficulty_3
-4;ALL
+0;REGULAR 
+1;DUNGEON_ALL
+2;RAID_NORMAL_ALL
+3;RAID_HEROIC_ALL
+4;RAID_ALL

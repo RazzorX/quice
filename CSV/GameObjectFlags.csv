@@ -5,7 +5,7 @@
 4;NO_INTERACT (players cannot interact with this go)
 5;NODESPAWN (never despawn, typically for doors, they just change state)
 6;TRIGGERED (typically, summoned objects. Triggered by spell or other events)
-7;UNK_00000080
-8;UNK_00000100
-9;UNK_00000200
-10;UNK_00000400
+7;UNK_8
+8;UNK_9
+9;UNK_10
+10;UNK_11
