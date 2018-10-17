@@ -135,6 +135,8 @@ const
   PFX_QUESTGIVER_GREETING = 'qg';
   PFX_LOC_QUESTGIVER_GREETING = 'lqg';
   PFX_TAXI_SHORTCUTS = 'ts';
+  PFX_TRAINER_GREETING = 'tg';
+  PFX_LOCALES_TRAINER_GREETING = 'ltg';
 
 type
   TSyntaxStyle = (ssInsertDelete, ssReplace, ssUpdate);
@@ -2092,6 +2094,9 @@ type
     edqtRewMaxRepValue3: TLabeledEdit;
     edqtRewMaxRepValue2: TLabeledEdit;
     edqtRewMaxRepValue1: TLabeledEdit;
+    edtgText: TLabeledEdit;
+    edltgText: TLabeledEdit;
+    btGreetingScript: TButton;
     editFlags2: TJvComboEdit;
     lbitFlags2: TLabel;
     procedure FormActivate(Sender: TObject);
@@ -2202,6 +2207,7 @@ type
     procedure btMailLootDelClick(Sender: TObject);
     procedure btFullScriptGOLootClick(Sender: TObject);
     procedure btFullScriptMailLootClick(Sender: TObject);
+    procedure btGreetingScriptClick(Sender: TObject);
     procedure btVendorAddClick(Sender: TObject);
     procedure btVendorUpdClick(Sender: TObject);
     procedure btVendorDelClick(Sender: TObject);
@@ -2622,6 +2628,7 @@ type
     procedure CompleteScript;
     procedure CompleteLocalesQuest;
     procedure CompleteMailLootScript;
+    procedure CompleteGreetingScript;
     procedure ExecuteScript(script: string; memo: TMemo); overload;
     procedure LoadQuestGivers(QuestID: Integer);
     procedure LoadQuestTakers(QuestID: Integer);
@@ -3655,6 +3662,13 @@ begin
   meqtScript.Clear;
   CompleteMailLootScript;
   ShowFullLootScript('mail_loot_template', lvmlMailLoot, meqtScript, edqtRewMailTemplateId.Text);
+end;
+
+procedure TMainForm.btGreetingScriptClick(Sender: TObject);
+begin
+  PageControl2.ActivePageIndex := SCRIPT_TAB_NO_QUEST;
+  meqtScript.Clear;
+  CompleteGreetingScript;
 end;
 
 procedure TMainForm.btMillingLootAddClick(Sender: TObject);
@@ -8623,6 +8637,28 @@ begin
     ssUpdate:
       meqtScript.Text := MakeUpdate2('mail_loot_template', PFX_MAIL_LOOT_TEMPLATE, false, 'entry', mlentry, 'item', mlitem);
   end;
+end;
+
+procedure TMainForm.CompleteGreetingScript;
+var
+  entry, gr_type, Fields, Values: string;
+begin
+  entry := edqgEntry.Text;
+  gr_type := edqgType.Text;
+  if (entry = '') or (gr_type = '') then
+    Exit;
+  SetFieldsAndValues(Fields, Values, 'questgiver_greeting', PFX_QUESTGIVER_GREETING, meqtLog);
+  case SyntaxStyle of
+    ssInsertDelete:
+      meqtScript.Text := Format('DELETE FROM `questgiver_greeting` WHERE (`Entry`=%s) AND (`Type`=%s);'#13#10 +
+      'INSERT INTO `questgiver_greeting` (%s) VALUES (%s);'#13#10, [entry, gr_type, Fields, Values]);
+    ssReplace:
+      meqtScript.Text := Format('REPLACE INTO `questgiver_greeting` (%s) VALUES (%s);'#13#10, [Fields, Values]);
+    ssUpdate:
+      meqtScript.Text := MakeUpdate2('questgiver_greeting', PFX_QUESTGIVER_GREETING, false, 'Entry', entry, 'Type', gr_type);
+  end;
+  if edlqgText.Visible then
+    meqtScript.Lines.Add(MakeUpdate2('locales_questgiver_greeting', PFX_LOC_QUESTGIVER_GREETING, true, 'Entry', entry, 'Type', gr_type));
 end;
 
 procedure TMainForm.lvgoGOLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);

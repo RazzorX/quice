@@ -6441,6 +6441,15 @@ object MainForm: TMainForm
             EditLabel.Caption = 'Entry'
             TabOrder = 5
           end
+          object btGreetingScript: TButton
+            Left = 374
+            Top = 35
+            Width = 90
+            Height = 25
+            Caption = 'Show Script'
+            TabOrder = 6
+            OnClick = btGreetingScriptClick
+          end
         end
         object tsScriptTab: TTabSheet
           Caption = 'SQL-Script Tab'
@@ -6451,8 +6460,8 @@ object MainForm: TMainForm
             600)
           object btCopyToClipboard: TButton
             Left = 852
-            Top = 555
-            Width = 137
+            Top = 482
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Copy script to clipboard'
@@ -6461,8 +6470,8 @@ object MainForm: TMainForm
           end
           object btExecuteScript: TButton
             Left = 852
-            Top = 586
-            Width = 137
+            Top = 513
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Execute script'
@@ -6470,19 +6479,19 @@ object MainForm: TMainForm
             OnClick = btExecuteScriptClick
           end
           object meqtLog: TMemo
-            Left = 3
-            Top = 504
-            Width = 823
-            Height = 123
+            Left = 6
+            Top = 482
+            Width = 840
+            Height = 115
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
             TabOrder = 1
           end
           object meqtScript: TMemo
-            Left = 3
-            Top = 9
-            Width = 976
-            Height = 489
+            Left = 6
+            Top = 6
+            Width = 980
+            Height = 470
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
@@ -13057,7 +13066,7 @@ object MainForm: TMainForm
             Caption = 'spell'
           end
           object btTrainerAdd: TSpeedButton
-            Left = 736
+            Left = 624
             Top = 495
             Width = 23
             Height = 22
@@ -13107,7 +13116,7 @@ object MainForm: TMainForm
             OnClick = btTrainerAddClick
           end
           object btTrainerUpd: TSpeedButton
-            Left = 768
+            Left = 653
             Top = 495
             Width = 23
             Height = 22
@@ -13167,7 +13176,7 @@ object MainForm: TMainForm
             OnClick = btTrainerUpdClick
           end
           object btTrainerDel: TSpeedButton
-            Left = 800
+            Left = 682
             Top = 495
             Width = 23
             Height = 22
@@ -13275,6 +13284,9 @@ object MainForm: TMainForm
                 Width = 80
               end
               item
+                Width = 80
+              end
+              item
                 Width = 200
               end>
             HideSelection = False
@@ -13284,8 +13296,10 @@ object MainForm: TMainForm
             ViewStyle = vsReport
             OnChange = lvcrNPCTrainerChange
             OnSelectItem = lvcrNPCTrainerSelectItem
-            ColumnsOrder = '0=80,1=80,2=80,3=80,4=80,5=80,6=200'
+            ColumnsOrder = '0=80,1=80,2=80,3=80,4=80,5=80,6=80,7=200'
             ExtendedColumns = <
+              item
+              end
               item
               end
               item
@@ -13360,9 +13374,9 @@ object MainForm: TMainForm
             TabOrder = 3
           end
           object btScriptNPCTrainer: TButton
-            Left = 8
-            Top = 535
-            Width = 169
+            Left = 524
+            Top = 533
+            Width = 134
             Height = 25
             Caption = 'Show NPC Trainer Script'
             TabOrder = 7
@@ -13389,9 +13403,9 @@ object MainForm: TMainForm
             TabOrder = 6
           end
           object btFullScriptTrainer: TButton
-            Left = 640
-            Top = 535
-            Width = 185
+            Left = 664
+            Top = 533
+            Width = 138
             Height = 25
             Caption = 'Show FULL Trainer Script'
             TabOrder = 8
@@ -13489,6 +13503,26 @@ object MainForm: TMainForm
             TabOrder = 9
             Text = ''
             OnButtonClick = edconentryButtonClick
+          end
+          object edtgText: TLabeledEdit
+            Left = 8
+            Top = 535
+            Width = 252
+            Height = 21
+            EditLabel.Width = 21
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Text'
+            TabOrder = 10
+          end
+          object edltgText: TLabeledEdit
+            Left = 266
+            Top = 535
+            Width = 252
+            Height = 21
+            EditLabel.Width = 21
+            EditLabel.Height = 13
+            EditLabel.Caption = 'Text'
+            TabOrder = 11
           end
         end
         object tsCreatureTemplateAddon: TTabSheet
@@ -17800,10 +17834,10 @@ object MainForm: TMainForm
             992
             564)
           object mectScript: TMemo
-            Left = 8
-            Top = 9
+            Left = 6
+            Top = 6
             Width = 980
-            Height = 481
+            Height = 470
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
@@ -17815,18 +17849,18 @@ object MainForm: TMainForm
             TabOrder = 0
           end
           object mectLog: TMemo
-            Left = 8
-            Top = 496
-            Width = 823
-            Height = 112
+            Left = 6
+            Top = 482
+            Width = 840
+            Height = 79
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
             TabOrder = 1
           end
           object btCopyToClipboardCreature: TButton
             Left = 852
-            Top = 529
-            Width = 137
+            Top = 482
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Copy script to clipboard'
@@ -17835,8 +17869,8 @@ object MainForm: TMainForm
           end
           object btExecuteCreatureScript: TButton
             Left = 852
-            Top = 560
-            Width = 137
+            Top = 513
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Execute script'
@@ -20162,10 +20196,10 @@ object MainForm: TMainForm
             992
             600)
           object megoScript: TMemo
-            Left = 8
-            Top = 8
-            Width = 976
-            Height = 498
+            Left = 6
+            Top = 6
+            Width = 980
+            Height = 470
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
             Font.Color = clNavy
@@ -20177,18 +20211,18 @@ object MainForm: TMainForm
             TabOrder = 0
           end
           object megoLog: TMemo
-            Left = 8
-            Top = 512
-            Width = 823
-            Height = 114
+            Left = 6
+            Top = 482
+            Width = 840
+            Height = 115
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
             TabOrder = 1
           end
           object btCopyToClipboardGO: TButton
             Left = 852
-            Top = 539
-            Width = 137
+            Top = 482
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Copy script to clipboard'
@@ -20197,8 +20231,8 @@ object MainForm: TMainForm
           end
           object btExecuteGOScript: TButton
             Left = 852
-            Top = 570
-            Width = 137
+            Top = 513
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Execute script'
@@ -27894,9 +27928,9 @@ object MainForm: TMainForm
             992
             600)
           object meitScript: TMemo
-            Left = 8
-            Top = 8
-            Width = 976
+            Left = 6
+            Top = 6
+            Width = 980
             Height = 506
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
@@ -27909,18 +27943,18 @@ object MainForm: TMainForm
             TabOrder = 0
           end
           object meitLog: TMemo
-            Left = 8
-            Top = 520
-            Width = 823
-            Height = 104
+            Left = 6
+            Top = 518
+            Width = 840
+            Height = 79
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
             TabOrder = 1
           end
           object btCopyToClipboardItem: TButton
             Left = 852
-            Top = 539
-            Width = 137
+            Top = 518
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Copy script to clipboard'
@@ -27929,8 +27963,8 @@ object MainForm: TMainForm
           end
           object btExecuteItemScript: TButton
             Left = 852
-            Top = 570
-            Width = 137
+            Top = 549
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Execute script'
@@ -30100,9 +30134,9 @@ object MainForm: TMainForm
             992
             600)
           object meotScript: TMemo
-            Left = 8
-            Top = 8
-            Width = 976
+            Left = 6
+            Top = 6
+            Width = 980
             Height = 506
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
@@ -30115,18 +30149,18 @@ object MainForm: TMainForm
             TabOrder = 0
           end
           object meotLog: TMemo
-            Left = 8
-            Top = 520
-            Width = 823
-            Height = 105
+            Left = 6
+            Top = 518
+            Width = 840
+            Height = 79
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
             TabOrder = 1
           end
           object btCopyToClipboardOther: TButton
             Left = 852
-            Top = 547
-            Width = 137
+            Top = 518
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Copy script to clipboard'
@@ -30135,8 +30169,8 @@ object MainForm: TMainForm
           end
           object btExecuteOtherScript: TButton
             Left = 852
-            Top = 578
-            Width = 137
+            Top = 549
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Execute script'
@@ -31303,9 +31337,9 @@ object MainForm: TMainForm
             992
             600)
           object mehtScript: TMemo
-            Left = 8
-            Top = 8
-            Width = 976
+            Left = 6
+            Top = 6
+            Width = 980
             Height = 506
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
@@ -31318,18 +31352,18 @@ object MainForm: TMainForm
             TabOrder = 0
           end
           object mehtLog: TMemo
-            Left = 8
-            Top = 520
-            Width = 823
-            Height = 107
+            Left = 6
+            Top = 518
+            Width = 840
+            Height = 79
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
             TabOrder = 1
           end
           object btCopyToClipboardChar: TButton
             Left = 852
-            Top = 539
-            Width = 137
+            Top = 518
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Copy script to clipboard'
@@ -31338,8 +31372,8 @@ object MainForm: TMainForm
           end
           object btExecuteScriptChar: TButton
             Left = 852
-            Top = 570
-            Width = 137
+            Top = 549
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Execute script'
@@ -38329,9 +38363,9 @@ object MainForm: TMainForm
             992
             600)
           object medbScript: TMemo
-            Left = 8
-            Top = 8
-            Width = 976
+            Left = 6
+            Top = 6
+            Width = 980
             Height = 506
             Anchors = [akLeft, akTop, akRight]
             Font.Charset = DEFAULT_CHARSET
@@ -38344,18 +38378,18 @@ object MainForm: TMainForm
             TabOrder = 0
           end
           object medbLog: TMemo
-            Left = 8
-            Top = 520
-            Width = 823
-            Height = 105
+            Left = 6
+            Top = 518
+            Width = 840
+            Height = 79
             Anchors = [akLeft, akTop, akRight]
             ScrollBars = ssVertical
             TabOrder = 1
           end
           object btCopyToClipDBScriptsOn: TButton
             Left = 852
-            Top = 547
-            Width = 137
+            Top = 518
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Copy script to clipboard'
@@ -38364,8 +38398,8 @@ object MainForm: TMainForm
           end
           object btExecuteDBScriptsOn: TButton
             Left = 852
-            Top = 578
-            Width = 137
+            Top = 549
+            Width = 135
             Height = 25
             Anchors = [akTop, akRight]
             Caption = 'Execute script'
