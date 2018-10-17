@@ -3287,7 +3287,7 @@ begin
     Exit;
 
   // load full description for quest
-  MyQuery.SQL.Text := Format('SELECT * FROM `quest_template` WHERE `entry`=%d', [QuestID]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `quest_template` WHERE `entry`=%d LIMIT 1', [QuestID]);
   MyQuery.Open;
   try
     if MyQuery.Eof then
@@ -3889,7 +3889,7 @@ begin
   MyQuery.SQL.Text := Format('SELECT Title%0:s, Details%0:s, Objectives%0:s, OfferRewardText%0:s,' +
     'RequestItemsText%0:s, EndText%0:s, CompletedText%0:s,' +
     'ObjectiveText1%0:s, ObjectiveText2%0:s, ObjectiveText3%0:s, ObjectiveText4%0:s ' +
-   'FROM locales_quest WHERE entry=%1:d', [loc, QuestID]);
+   'FROM locales_quest WHERE entry=%1:d LIMIT 1', [loc, QuestID]);
   MyQuery.Open;
   edlqTitle.EditLabel.Caption := 'Title' + loc;
   l2Details.Caption := 'Details' + loc;
@@ -5064,7 +5064,7 @@ begin
   ClearFields(ttChar);
   if GUID < 1 then
     Exit;
-  MyQuery.SQL.Text := Format('SELECT * FROM `' + CharDBName + '`.`characters` WHERE `guid`=%d', [GUID]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `' + CharDBName + '`.`characters` WHERE `guid`=%d LIMIT 1', [GUID]);
   MyQuery.Open;
   try
     if MyQuery.Eof then
@@ -5082,7 +5082,7 @@ procedure TMainForm.LoadCharacterInventory(GUID: Integer);
 begin
   LoadCharQueryToListView(Format('SELECT ci.*, i.name FROM `' + CharDBName + '`.`character_inventory` ci ' +
     'LEFT OUTER JOIN `item_template` i ON i.entry = ci.item_template ' +
-    'WHERE ci.`guid` = %d ORDER BY ci.`bag`, ci.`slot`', [GUID]), lvCharacterInventory);
+    'WHERE ci.`guid` = %d ORDER BY ci.`bag`, ci.`slot` LIMIT 1', [GUID]), lvCharacterInventory);
 end;
 
 procedure TMainForm.LoadCharQueryToListView(strQuery: string; ListView: TJvListView);
@@ -5135,7 +5135,7 @@ begin
   if entry < 1 then
     Exit;
   // load full description for creature
-  MyQuery.SQL.Text := Format('SELECT * FROM `creature_template` WHERE `entry`=%d', [entry]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_template` WHERE `entry`=%d LIMIT 1', [entry]);
   MyQuery.Open;
   try
     if MyQuery.Eof then
@@ -7106,7 +7106,7 @@ procedure TMainForm.LoadCreatureLocation(GUID: Integer);
 begin
   if GUID < 1 then
     Exit;
-  MyQuery.SQL.Text := Format('SELECT * FROM `creature` WHERE (`guid`=%d)', [GUID]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature` WHERE (`guid`=%d) LIMIT 1', [GUID]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_CREATURE);
@@ -7164,7 +7164,7 @@ end;
 
 procedure TMainForm.LoadCreatureOnKillReputation(id: string);
 begin
-  MyQuery.SQL.Text := Format('SELECT * FROM `creature_onkill_reputation` WHERE (`creature_id`=%s)', [QuotedStr(id)]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_onkill_reputation` WHERE (`creature_id`=%s) LIMIT 1', [QuotedStr(id)]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_CREATURE_ONKILL_REPUTATION);
@@ -7228,7 +7228,7 @@ procedure TMainForm.LoadCreatureTemplateAddon(entry: Integer);
 begin
   if entry < 1 then
     Exit;
-  MyQuery.SQL.Text := Format('SELECT * FROM `creature_template_addon` WHERE (`entry`=%d)', [entry]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_template_addon` WHERE (`entry`=%d) LIMIT 1', [entry]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_CREATURE_TEMPLATE_ADDON);
@@ -7243,7 +7243,7 @@ procedure TMainForm.LoadCreatureTemplateSpells(entry: Integer);
 begin
   if entry < 1 then
     Exit;
-  MyQuery.SQL.Text := Format('SELECT * FROM `creature_template_spells` WHERE (`entry`=%d)', [entry]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_template_spells` WHERE (`entry`=%d) LIMIT 1', [entry]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_CREATURE_TEMPLATE_SPELLS);
@@ -7258,7 +7258,7 @@ procedure TMainForm.LoadCreatureAddon(GUID: Integer);
 begin
   if GUID < 1 then
     Exit;
-  MyQuery.SQL.Text := Format('SELECT * FROM `creature_addon` WHERE (`guid`=%d)', [GUID]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_addon` WHERE (`guid`=%d) LIMIT 1', [GUID]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_CREATURE_ADDON);
@@ -7273,7 +7273,7 @@ procedure TMainForm.LoadCreatureEquip(entry: Integer);
 begin
   if entry < 1 then
     Exit;
-  MyQuery.SQL.Text := Format('SELECT * FROM `creature_equip_template` WHERE (`entry`=%d)', [entry]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `creature_equip_template` WHERE (`entry`=%d) LIMIT 1', [entry]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_CREATURE_EQUIP_TEMPLATE);
@@ -8265,7 +8265,7 @@ begin
   if entry < 1 then
     Exit;
   // load full description for GO
-  MyQuery.SQL.Text := Format('SELECT * FROM `gameobject_template` WHERE `entry`=%d', [entry]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `gameobject_template` WHERE `entry`=%d LIMIT 1', [entry]);
   MyQuery.Open;
   try
     if MyQuery.Eof then
@@ -8504,7 +8504,7 @@ procedure TMainForm.LoadGOLocation(GUID: Integer);
 begin
   if GUID < 1 then
     Exit;
-  MyQuery.SQL.Text := Format('SELECT * FROM `gameobject` WHERE (`guid`=%d)', [GUID]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `gameobject` WHERE (`guid`=%d) LIMIT 1', [GUID]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_GAMEOBJECT);
@@ -9155,17 +9155,17 @@ begin
     if table = 'creature_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `Name` FROM `creature_template` WHERE `LootId` = %s', [id]);
     if table = 'item_loot_template' then
-      MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s', [id]);
+      MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s LIMIT 1', [id]);
     if table = 'prospecting_loot_template' then
-      MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s', [id]);
+      MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s LIMIT 1', [id]);
     if table = 'milling_loot_template' then
-      MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s', [id]);
+      MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s LIMIT 1', [id]);
     if table = 'disenchant_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `DisenchantID` = %s', [id]);
     if table = 'spell_loot_template' then
-      MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s', [id]);
+      MyQuery.SQL.Text := Format('SELECT `name` FROM `item_template` WHERE `entry` = %s LIMIT 1', [id]);
     if table = 'npc_vendor' then
-      MyQuery.SQL.Text := Format('SELECT `Name` FROM `creature_template` WHERE `Entry` = %s', [id]);
+      MyQuery.SQL.Text := Format('SELECT `Name` FROM `creature_template` WHERE `Entry` = %s LIMIT 1', [id]);
     if table = 'gameobject_loot_template' then
       MyQuery.SQL.Text := Format('SELECT `name` FROM `gameobject_template` WHERE `data1` = %s', [id]);
     if table = 'mail_loot_template' then
@@ -9196,7 +9196,7 @@ procedure TMainForm.LoadNPCgossip(GUID: Integer);
 begin
   if GUID < 1 then
     Exit;
-  MyQuery.SQL.Text := Format('SELECT * FROM `npc_gossip` WHERE (`npc_guid` = %d)', [GUID]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `npc_gossip` WHERE (`npc_guid` = %d) LIMIT 1', [GUID]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_NPC_GOSSIP);
@@ -9211,7 +9211,7 @@ procedure TMainForm.LoadNPCText(TextId: string);
 begin
   if Trim(TextId) = '' then
     TextId := '-1';
-  MyQuery.SQL.Text := Format('SELECT * FROM `npc_text` WHERE (`ID` = %s)', [TextId]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `npc_text` WHERE (`ID` = %s) LIMIT 1', [TextId]);
   MyQuery.Open;
   try
     FillFields(MyQuery, PFX_NPC_TEXT);
@@ -10808,7 +10808,7 @@ begin
   if entry < 1 then
     Exit;
   // load full description for item
-  MyQuery.SQL.Text := Format('SELECT * FROM `item_template` WHERE `entry`=%d', [entry]);
+  MyQuery.SQL.Text := Format('SELECT * FROM `item_template` WHERE `entry`=%d LIMIT 1', [entry]);
   MyQuery.Open;
   try
     if MyQuery.Eof then
@@ -11056,20 +11056,20 @@ begin
   end;
   if table = 'npc_vendor' then
   begin
-    QueryStr := Format('SELECT * FROM `creature_template` WHERE `Entry` = %s', [id]);
+    QueryStr := Format('SELECT * FROM `creature_template` WHERE `Entry` = %s LIMIT 1', [id]);
     lvList := lvSearchCreature;
     PageControl1.ActivePageIndex := 1;
   end;
 
   if table = 'item_loot_template' then
   begin
-    QueryStr := Format('SELECT * FROM `item_template` WHERE `entry` = %s', [id]);
+    QueryStr := Format('SELECT * FROM `item_template` WHERE `entry` = %s LIMIT 1', [id]);
     lvList := lvSearchItem;
     PageControl5.ActivePageIndex := 0;
   end;
   if table = 'prospecting_loot_template' then
   begin
-    QueryStr := Format('SELECT * FROM `item_template` WHERE `entry` = %s', [id]);
+    QueryStr := Format('SELECT * FROM `item_template` WHERE `entry` = %s LIMIT 1', [id]);
     lvList := lvSearchItem;
     PageControl5.ActivePageIndex := 0;
   end;
@@ -11648,7 +11648,7 @@ begin
   entry := TCustomEdit(Sender).Text;
   if (StrToIntDef(entry, 0) < 1) then
     Exit;
-  MyTempQuery.SQL.Text := Format('SELECT * FROM `conditions` WHERE `condition_entry`=%s', [entry]);
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `conditions` WHERE `condition_entry`=%s LIMIT 1', [entry]);
   MyTempQuery.Open;
   try
     if MyTempQuery.Eof then
@@ -11668,7 +11668,7 @@ begin
   entry := TCustomEdit(Sender).Text;
   if (StrToIntDef(entry, 0) < 1) then
     Exit;
-  MyTempQuery.SQL.Text := Format('SELECT * FROM `taxi_shortcuts` WHERE `pathid`=%s', [entry]);
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `taxi_shortcuts` WHERE `pathid`=%s LIMIT 1', [entry]);
   MyTempQuery.Open;
   try
     if MyTempQuery.Eof then
@@ -11700,9 +11700,9 @@ begin
     Exit;
   MyTempQuery.SQL.Text := '';
   if objtype = 'creature' then
-    MyTempQuery.SQL.Text := Format('SELECT lqg.Entry as loc_entry, lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=0', [loc, entry])
+    MyTempQuery.SQL.Text := Format('SELECT lqg.Entry as loc_entry, lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=0 LIMIT 1', [loc, entry])
   else if objtype = 'gameobject' then
-    MyTempQuery.SQL.Text := Format('SELECT lqg.Entry as loc_entry, lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=1', [loc, entry]);
+    MyTempQuery.SQL.Text := Format('SELECT lqg.Entry as loc_entry, lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=1 LIMIT 1', [loc, entry]);
   if MyTempQuery.SQL.Text = '' then
   begin
     ClearQuestGiverGreeting;
@@ -11991,7 +11991,7 @@ begin
   entry := TCustomEdit(Sender).Text;
   if (StrToIntDef(entry, 0) < 1) then
     Exit;
-  MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `entry`=%s', [TABLE_DB_SCRIPT_STRING, entry]);
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `entry`=%s LIMIT 1', [TABLE_DB_SCRIPT_STRING, entry]);
   MyTempQuery.Open;
   try
     if MyTempQuery.Eof then
@@ -12221,7 +12221,7 @@ begin
   entry := TCustomEdit(Sender).Text;
   if (StrToIntDef(entry, 0) < 1) then
     Exit;
-  MyTempQuery.SQL.Text := Format('SELECT * FROM `creature_model_info` WHERE `modelid`=%s', [entry]);
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `creature_model_info` WHERE `modelid`=%s LIMIT 1', [entry]);
   MyTempQuery.Open;
   try
     if MyTempQuery.Eof then
@@ -12239,7 +12239,7 @@ begin
   PageControl1.ActivePageIndex := 1;
   PageControl3.ActivePageIndex := TAB_NO_NPC_CREATURE_MODEL_INFO;
   LoadCreatureModelInfo(TCustomEdit(Sender));
-  LoadQueryToListView(Format('SELECT * FROM `creature_model_info` WHERE (`modelid`=%d)',
+  LoadQueryToListView(Format('SELECT * FROM `creature_model_info` WHERE (`modelid`=%d) LIMIT 1',
       [StrToIntDef(TCustomEdit(Sender).Text, 0)]), lvCreatureModelSearch);
 end;
 
@@ -12716,7 +12716,7 @@ var
   entry: string;
 begin
   entry := TCustomEdit(Sender).Text;
-  MyTempQuery.SQL.Text := Format('SELECT * FROM `page_text` WHERE `entry`=%s', [entry]);
+  MyTempQuery.SQL.Text := Format('SELECT * FROM `page_text` WHERE `entry`=%s LIMIT 1', [entry]);
   MyTempQuery.Open;
   if not MyTempQuery.Eof then
     FillFields(MyTempQuery, PFX_PAGE_TEXT);
