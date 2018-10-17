@@ -20998,14 +20998,14 @@ object MainForm: TMainForm
           end
           object lbitQuality: TLabel
             Left = 94
-            Top = 43
+            Top = 42
             Width = 32
             Height = 13
             Caption = 'Quality'
           end
           object lbitInventoryType: TLabel
-            Left = 546
-            Top = 41
+            Left = 558
+            Top = 42
             Width = 68
             Height = 13
             Caption = 'InventoryType'
@@ -21026,10 +21026,17 @@ object MainForm: TMainForm
           end
           object lbitFlags: TLabel
             Left = 182
-            Top = 44
+            Top = 42
             Width = 25
             Height = 13
             Caption = 'Flags'
+          end
+          object lbitFlags2: TLabel
+            Left = 268
+            Top = 42
+            Width = 31
+            Height = 13
+            Caption = 'Flags2'
           end
           object btScriptItem: TButton
             Left = 708
@@ -21116,9 +21123,9 @@ object MainForm: TMainForm
             TabOrder = 5
           end
           object editBuyCount: TLabeledEdit
-            Left = 313
+            Left = 354
             Top = 58
-            Width = 68
+            Width = 62
             Height = 21
             Hint = 'Size of the stack in which the item is sold by vendors.'
             EditLabel.Width = 46
@@ -21127,9 +21134,9 @@ object MainForm: TMainForm
             TabOrder = 8
           end
           object editBuyPrice: TLabeledEdit
-            Left = 389
+            Left = 422
             Top = 58
-            Width = 80
+            Width = 62
             Height = 21
             Hint = 'Price (in copper) of a stack of #BuyCount items.'
             EditLabel.Width = 42
@@ -21138,9 +21145,9 @@ object MainForm: TMainForm
             TabOrder = 9
           end
           object editSellPrice: TLabeledEdit
-            Left = 475
+            Left = 490
             Top = 58
-            Width = 80
+            Width = 62
             Height = 21
             Hint = 
               'How much a vendor will buy this item for from the player. If omi' +
@@ -21151,9 +21158,9 @@ object MainForm: TMainForm
             TabOrder = 10
           end
           object editmaxcount: TLabeledEdit
-            Left = 620
+            Left = 644
             Top = 58
-            Width = 80
+            Width = 70
             Height = 21
             Hint = 
               'Maximum number of this item that the player can have.'#13#10#13#10'ant009 ' +
@@ -21167,9 +21174,9 @@ object MainForm: TMainForm
             TabOrder = 12
           end
           object editstackable: TLabeledEdit
-            Left = 708
+            Left = 720
             Top = 58
-            Width = 80
+            Width = 70
             Height = 21
             Hint = 
               'The amount of this item that a player can carry in the same slot' +
@@ -21182,7 +21189,7 @@ object MainForm: TMainForm
           object editContainerSlots: TLabeledEdit
             Left = 796
             Top = 58
-            Width = 75
+            Width = 70
             Height = 21
             Hint = 'Number of slots that this bag holds.'
             EditLabel.Width = 68
@@ -24192,7 +24199,7 @@ object MainForm: TMainForm
           object editInventoryType: TJvComboEdit
             Left = 558
             Top = 58
-            Width = 54
+            Width = 80
             Height = 21
             Hint = 'Where an item can be equipped.'
             ButtonWidth = 22
@@ -24308,7 +24315,7 @@ object MainForm: TMainForm
           end
           object editFlags: TJvComboEdit
             Left = 182
-            Top = 59
+            Top = 58
             Width = 80
             Height = 21
             ButtonWidth = 22
@@ -24345,16 +24352,6 @@ object MainForm: TMainForm
             OnButtonClick = GetItemFlags
             OnChange = edflagsChange
           end
-          object editFlags2: TLabeledEdit
-            Left = 268
-            Top = 58
-            Width = 39
-            Height = 21
-            EditLabel.Width = 31
-            EditLabel.Height = 13
-            EditLabel.Caption = 'Flags2'
-            TabOrder = 22
-          end
           object editUnknown: TLabeledEdit
             Left = 534
             Top = 295
@@ -24363,7 +24360,7 @@ object MainForm: TMainForm
             EditLabel.Width = 46
             EditLabel.Height = 13
             EditLabel.Caption = 'Unknown'
-            TabOrder = 23
+            TabOrder = 22
           end
           object editUnknown1: TLabeledEdit
             Left = 534
@@ -24373,7 +24370,7 @@ object MainForm: TMainForm
             EditLabel.Width = 52
             EditLabel.Height = 13
             EditLabel.Caption = 'Unknown1'
-            TabOrder = 24
+            TabOrder = 23
           end
           object editUnknown2: TLabeledEdit
             Left = 534
@@ -24383,7 +24380,7 @@ object MainForm: TMainForm
             EditLabel.Width = 52
             EditLabel.Height = 13
             EditLabel.Caption = 'Unknown2'
-            TabOrder = 25
+            TabOrder = 24
           end
           object editUnknown400_1: TLabeledEdit
             Left = 620
@@ -24393,7 +24390,7 @@ object MainForm: TMainForm
             EditLabel.Width = 76
             EditLabel.Height = 13
             EditLabel.Caption = 'Unknown400_1'
-            TabOrder = 26
+            TabOrder = 25
           end
           object editUnknown400_2: TLabeledEdit
             Left = 620
@@ -24403,7 +24400,7 @@ object MainForm: TMainForm
             EditLabel.Width = 76
             EditLabel.Height = 13
             EditLabel.Caption = 'Unknown400_2'
-            TabOrder = 27
+            TabOrder = 26
           end
           object gbitResistance: TGroupBox
             Left = 522
@@ -24411,7 +24408,7 @@ object MainForm: TMainForm
             Width = 190
             Height = 151
             Caption = 'resistance'
-            TabOrder = 28
+            TabOrder = 27
             Visible = False
             object editholy_res: TLabeledEdit
               Left = 12
@@ -24481,14 +24478,53 @@ object MainForm: TMainForm
             end
           end
           object editStatsCount: TLabeledEdit
-            Left = 880
+            Left = 872
             Top = 58
-            Width = 75
+            Width = 70
             Height = 21
             EditLabel.Width = 52
             EditLabel.Height = 13
             EditLabel.Caption = 'StatsCount'
+            TabOrder = 28
+          end
+          object editFlags2: TJvComboEdit
+            Left = 268
+            Top = 58
+            Width = 80
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             TabOrder = 29
+            Text = ''
+            OnButtonClick = GetItemFlags2
+            OnChange = edflagsChange
           end
         end
         object tsItemLoot: TTabSheet

@@ -1421,7 +1421,6 @@ type
     edgtquestItem4: TLabeledEdit;
     edgtquestItem5: TLabeledEdit;
     edgtquestItem6: TLabeledEdit;
-    editFlags2: TLabeledEdit;
     edqtReqItemId5: TJvComboEdit;
     edqtReqItemCount5: TLabeledEdit;
     edqtReqItemCount6: TLabeledEdit;
@@ -2093,6 +2092,8 @@ type
     edqtRewMaxRepValue3: TLabeledEdit;
     edqtRewMaxRepValue2: TLabeledEdit;
     edqtRewMaxRepValue1: TLabeledEdit;
+    editFlags2: TJvComboEdit;
+    lbitFlags2: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2260,6 +2261,7 @@ type
     procedure GetPage(Sender: TObject);
     procedure GetMap(Sender: TObject);
     procedure GetItemFlags(Sender: TObject);
+    procedure GetItemFlags2(Sender: TObject);
     procedure nRebuildSpellListClick(Sender: TObject);
     procedure edotentryButtonClick(Sender: TObject);
     procedure btScriptFishingLootClick(Sender: TObject);
@@ -11464,6 +11466,11 @@ end;
 procedure TMainForm.GetItemFlags(Sender: TObject);
 begin
   GetSomeFlags(Sender, 'ItemFlags');
+end;
+
+procedure TMainForm.GetItemFlags2(Sender: TObject);
+begin
+  GetSomeFlags(Sender, 'ItemFlags2');
 end;
 
 procedure TMainForm.editFoodTypeButtonClick(Sender: TObject);
