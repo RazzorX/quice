@@ -2742,11 +2742,10 @@ type
     procedure ShowFullEventAiScript(TableName: string; lvList: TJvListView; memo: TMemo; entry: string);
 
     { other }
-    function MakeSetForUpdate(MyTempQuery: TZQuery; pfx: string): string;
-    function MakeUpdate(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
-    function MakeUpdate2(tn: string; pfx: string; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string): string;
-    function MakeUpdate3(tn: string; pfx: string; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string; KeyName3: string; KeyValue3: string): string;
-    function MakeUpdateLocales(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
+    function MakeSetForUpdate(MyTempQuery: TZQuery; pfx: string; IsLocale : boolean): string;
+    function MakeUpdate(tn: string; pfx: string; IsLocale : boolean; KeyName: string; KeyValue: string): string;
+    function MakeUpdate2(tn: string; pfx: string; IsLocale : boolean; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string): string;
+    function MakeUpdate3(tn: string; pfx: string; IsLocale : boolean; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string; KeyName3: string; KeyValue3: string): string;
     procedure CompleteFishingLootScript;
     procedure SearchPageText;
     procedure SearchGameEvent;
@@ -3586,7 +3585,7 @@ begin
     ssReplace:
       s3 := Format('REPLACE INTO `quest_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      s3 := MakeUpdate('quest_template', PFX_QUEST_TEMPLATE, 'entry', quest);
+      s3 := MakeUpdate('quest_template', PFX_QUEST_TEMPLATE, false, 'entry', quest);
   end;
 
   if edqtAreatrigger.Text <> '' then
@@ -3646,7 +3645,7 @@ begin
   PageControl2.ActivePageIndex := SCRIPT_TAB_NO_QUEST;
   meqtScript.Clear;
   // SetFieldsAndValues(MyQuery,Fields, Values, 'locales_quest', PFX_LOCALES_QUEST, meqtLog);
-  // meqtScript.Lines.Add(MakeUpdate('locales_quest', PFX_LOCALES_QUEST, 'entry', edqtEntry.Text));
+  // meqtScript.Lines.Add(MakeUpdate('locales_quest', PFX_LOCALES_QUEST, true, 'entry', edqtEntry.Text));
   CompleteLocalesQuest;
 end;
 
@@ -5113,7 +5112,10 @@ var
   i: Integer;
   isvendor, istrainer, isEventAI, isEquip, isGossipMenu: Boolean;
   npcflag: Integer;
+  loc : string;
+  ltg_entry : string;
 begin
+  loc := LoadLocales();
   ShowHourGlassCursor;
   ClearFields(ttNPC);
   if entry < 1 then
@@ -5188,16 +5190,37 @@ begin
 
     if istrainer then
     begin
-      LoadQueryToListView(Format('SELECT `entry`, `spell`,' + ' `spellcost`, `reqskill`, `reqskillvalue`, `reqlevel`' +
+      LoadQueryToListView(Format('SELECT `entry`, `spell`,' + ' `spellcost`, `reqskill`, `reqskillvalue`, `reqlevel`, `condition_id`' +
         ' FROM `npc_trainer` WHERE (`entry`=%d)', [entry]), lvcrNPCTrainer);
       // set spellnames in list view
       lvcrNPCTrainer.Columns[lvcrNPCTrainer.Columns.Count - 1].Caption := 'Spell Name';
       for i := 0 to lvcrNPCTrainer.Items.Count - 1 do
         lvcrNPCTrainer.Items[i].SubItems.Add
           (SpellsForm.GetSpellName(StrToIntDef(lvcrNPCTrainer.Items[i].SubItems[0], 0)));
+      if MyTempQuery.Active then
+        MyTempQuery.Close;
+      MyTempQuery.SQL.Text := Format('SELECT tg.Text, ltg.Entry, ltg.Text%s FROM `trainer_greeting` tg' + 
+        ' LEFT JOIN `locales_trainer_greeting` ltg ON tg.`Entry` = ltg.`Entry`' + 
+        ' WHERE (tg.`Entry`=%d) LIMIT 1', [loc, entry]);
+      MyTempQuery.Open;
+      while not MyTempQuery.Eof do
+      begin
+        edtgText.Text := MyTempQuery.Fields[0].AsString;
+		ltg_entry := MyTempQuery.Fields[1].AsString;
+		if ltg_entry <> '' then
+		begin
+		  edltgText.Visible := true;
+		  edltgText.EditLabel.Caption := MyTempQuery.Fields[2].FieldName;
+          edltgText.Text := MyTempQuery.Fields[2].AsString;
+		end
+		else
+		  edltgText.Visible := false;
+        MyTempQuery.Next;
+      end;
+      MyTempQuery.Close;
     end;
 
-    LoadQueryToListView(Format('SELECT `entry`, `spell`,' + ' `spellcost`, `reqskill`, `reqskillvalue`, `reqlevel`' +
+    LoadQueryToListView(Format('SELECT `entry`, `spell`,' + ' `spellcost`, `reqskill`, `reqskillvalue`, `reqlevel`, `condition_id`' +
       ' FROM `npc_trainer_template` WHERE (`entry`=%d)', [entry]), lvcrtNPCTrainer);
     // set spellnames in list view
     lvcrtNPCTrainer.Columns[lvcrtNPCTrainer.Columns.Count - 1].Caption := 'Spell Name';
@@ -5242,7 +5265,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('creature_template', PFX_CREATURE_TEMPLATE, 'entry', ctentry);
+      mectScript.Text := MakeUpdate('creature_template', PFX_CREATURE_TEMPLATE, false, 'entry', ctentry);
   end;
 end;
 
@@ -5262,7 +5285,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_template_addon` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('creature_template_addon', PFX_CREATURE_TEMPLATE_ADDON, 'entry', entry);
+      mectScript.Text := MakeUpdate('creature_template_addon', PFX_CREATURE_TEMPLATE_ADDON, false, 'entry', entry);
   end;
 end;
 
@@ -5282,7 +5305,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_template_spells` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('creature_template_spells', PFX_CREATURE_TEMPLATE_SPELLS, 'entry', entry);
+      mectScript.Text := MakeUpdate('creature_template_spells', PFX_CREATURE_TEMPLATE_SPELLS, false, 'entry', entry);
   end;
 end;
 
@@ -7301,7 +7324,7 @@ begin
     ssReplace:
       mehtScript.Text := Format('REPLACE INTO `' + CharDBName + '`.`character_inventory` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mehtScript.Text := MakeUpdate('' + CharDBName + '`.`character_inventory', PFX_CHARACTER_INVENTORY, 'item', GUID);
+      mehtScript.Text := MakeUpdate('' + CharDBName + '`.`character_inventory', PFX_CHARACTER_INVENTORY, false, 'item', GUID);
   end;
 end;
 
@@ -7321,7 +7344,7 @@ begin
     ssReplace:
       mehtScript.Text := Format('REPLACE INTO `' + CharDBName + '`.`characters` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mehtScript.Text := MakeUpdate('' + CharDBName + '`.`characters', PFX_CHARACTER, 'guid', GUID);
+      mehtScript.Text := MakeUpdate('' + CharDBName + '`.`characters', PFX_CHARACTER, false, 'guid', GUID);
   end;
 end;
 
@@ -7341,7 +7364,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_addon` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('creature_addon', PFX_CREATURE_ADDON, 'guid', caguid);
+      mectScript.Text := MakeUpdate('creature_addon', PFX_CREATURE_ADDON, false, 'guid', caguid);
   end;
 end;
 
@@ -7361,7 +7384,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_equip_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('creature_equip_template', PFX_CREATURE_EQUIP_TEMPLATE, 'entry', caguid);
+      mectScript.Text := MakeUpdate('creature_equip_template', PFX_CREATURE_EQUIP_TEMPLATE, false, 'entry', caguid);
   end;
 end;
 
@@ -7381,7 +7404,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `gossip_menu` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('gossip_menu', PFX_CREATURE_GOSSIP_MENU, 'entry', entry);
+      mectScript.Text := MakeUpdate('gossip_menu', PFX_CREATURE_GOSSIP_MENU, false, 'entry', entry);
   end;
 end;
 
@@ -7393,7 +7416,7 @@ begin
   lqentry := edqtEntry.Text;
   if lqentry = '' then
     Exit;
-  meqtScript.Text := MakeUpdateLocales('locales_quest', PFX_LOCALES_QUEST, 'entry', lqentry);
+  meqtScript.Text := MakeUpdate('locales_quest', PFX_LOCALES_QUEST, true, 'entry', lqentry);
 end;
 
 procedure TMainForm.CompleteCreatureEventAIScript;
@@ -7412,7 +7435,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_ai_scripts` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('creature_ai_scripts', PFX_CREATURE_EVENTAI, 'id', id);
+      mectScript.Text := MakeUpdate('creature_ai_scripts', PFX_CREATURE_EVENTAI, false, 'id', id);
   end;
 end;
 
@@ -7432,7 +7455,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_model_info` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('creature_model_info', PFX_CREATURE_MODEL_INFO, 'modelid', caguid);
+      mectScript.Text := MakeUpdate('creature_model_info', PFX_CREATURE_MODEL_INFO, false, 'modelid', caguid);
   end;
 end;
 
@@ -7453,7 +7476,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_movement` (%s) VALUES (%s);'#13#10, [Fields, Values]);
 	ssUpdate:
-      mectScript.Text := MakeUpdate2('creature_movement', PFX_CREATURE_MOVEMENT, 'id', id, 'point', point);
+      mectScript.Text := MakeUpdate2('creature_movement', PFX_CREATURE_MOVEMENT, false, 'id', id, 'point', point);
   end;
 end;
 
@@ -7475,7 +7498,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_movement_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
 	ssUpdate:
-      mectScript.Text := MakeUpdate3('creature_movement_template', PFX_CREATURE_MOVEMENT_TEMPLATE, 'entry', entry, 'pathId', pathid, 'point', point);
+      mectScript.Text := MakeUpdate3('creature_movement_template', PFX_CREATURE_MOVEMENT_TEMPLATE, false, 'entry', entry, 'pathId', pathid, 'point', point);
   end;
 end;
 
@@ -7495,7 +7518,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_onkill_reputation` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('creature_onkill_reputation', PFX_CREATURE_ONKILL_REPUTATION, 'creature_id', entry);
+      mectScript.Text := MakeUpdate('creature_onkill_reputation', PFX_CREATURE_ONKILL_REPUTATION, false, 'creature_id', entry);
   end;
 end;
 
@@ -7515,7 +7538,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('creature', PFX_CREATURE, 'guid', clguid);
+      mectScript.Text := MakeUpdate('creature', PFX_CREATURE, false, 'guid', clguid);
   end;
 end;
 
@@ -7536,7 +7559,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `creature_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate2('creature_loot_template', PFX_CREATURE_LOOT_TEMPLATE, 'entry', coentry, 'item', coitem);
+      mectScript.Text := MakeUpdate2('creature_loot_template', PFX_CREATURE_LOOT_TEMPLATE, false, 'entry', coentry, 'item', coitem);
   end;
 end;
 
@@ -7557,7 +7580,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `pickpocketing_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate2('pickpocketing_loot_template', PFX_PICKPOCKETING_LOOT_TEMPLATE, 'entry', cpentry, 'item', cpitem);
+      mectScript.Text := MakeUpdate2('pickpocketing_loot_template', PFX_PICKPOCKETING_LOOT_TEMPLATE, false, 'entry', cpentry, 'item', cpitem);
   end;
 end;
 
@@ -7578,7 +7601,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `skinning_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate2('skinning_loot_template', PFX_SKINNING_LOOT_TEMPLATE, 'entry', csentry, 'item', csitem);
+      mectScript.Text := MakeUpdate2('skinning_loot_template', PFX_SKINNING_LOOT_TEMPLATE, false, 'entry', csentry, 'item', csitem);
   end;
 end;
 
@@ -7765,7 +7788,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `npc_vendor` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate2('npc_vendor', PFX_NPC_VENDOR, 'entry', cventry, 'item', cvitem);
+      mectScript.Text := MakeUpdate2('npc_vendor', PFX_NPC_VENDOR, false, 'entry', cventry, 'item', cvitem);
   end;
 end;
 
@@ -7786,7 +7809,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `npc_vendor_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate2('npc_vendor_template', PFX_NPC_VENDOR_TEMPLATE, 'entry', cvtentry, 'item', cvtitem);
+      mectScript.Text := MakeUpdate2('npc_vendor_template', PFX_NPC_VENDOR_TEMPLATE, false, 'entry', cvtentry, 'item', cvtitem);
   end;
 end;
 
@@ -7810,7 +7833,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `npc_gossip` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('npc_gossip', PFX_NPC_GOSSIP, 'npc_guid', GUID);
+      mectScript.Text := MakeUpdate('npc_gossip', PFX_NPC_GOSSIP, false, 'npc_guid', GUID);
   end;
 end;
 
@@ -7830,7 +7853,7 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `npc_text` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate('npc_text', PFX_NPC_TEXT, 'ID', id);
+      mectScript.Text := MakeUpdate('npc_text', PFX_NPC_TEXT, false, 'ID', id);
   end;
 end;
 
@@ -7851,8 +7874,11 @@ begin
     ssReplace:
       mectScript.Text := Format('REPLACE INTO `npc_trainer` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      mectScript.Text := MakeUpdate2('npc_trainer', PFX_NPC_TRAINER, 'entry', crentry, 'spell', crspell);
+      mectScript.Text := MakeUpdate2('npc_trainer', PFX_NPC_TRAINER, false, 'entry', crentry, 'spell', crspell);
   end;
+  mectScript.Lines.Add(MakeUpdate('trainer_greeting', PFX_TRAINER_GREETING, false, 'Entry', crentry));
+  if edltgText.Visible then
+    mectScript.Lines.Add(MakeUpdate('locales_trainer_greeting', PFX_LOCALES_TRAINER_GREETING, true, 'Entry', crentry));
 end;
 
 procedure TMainForm.lvcoCreatureLootSelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
@@ -8264,7 +8290,7 @@ begin
     ssReplace:
       megoScript.Text := Format('REPLACE INTO `gameobject_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      megoScript.Text := MakeUpdate('gameobject_template', PFX_GAMEOBJECT_TEMPLATE, 'entry', gtentry);
+      megoScript.Text := MakeUpdate('gameobject_template', PFX_GAMEOBJECT_TEMPLATE, false, 'entry', gtentry);
   end;
 end;
 
@@ -8500,7 +8526,7 @@ begin
     ssReplace:
       s1 := Format('REPLACE INTO `game_event` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      s1 := MakeUpdate('game_event', PFX_GAME_EVENT, 'entry', entry);
+      s1 := MakeUpdate('game_event', PFX_GAME_EVENT, false, 'entry', entry);
   end;
 
   s2 := Format('DELETE FROM `game_event_creature` WHERE abs(`event`) = %s;'#13#10, [entry]);
@@ -8553,7 +8579,7 @@ begin
     ssReplace:
       megoScript.Text := Format('REPLACE INTO `gameobject` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      megoScript.Text := MakeUpdate('gameobject', PFX_GAMEOBJECT, 'guid', glguid);
+      megoScript.Text := MakeUpdate('gameobject', PFX_GAMEOBJECT, false, 'guid', glguid);
   end;
 end;
 
@@ -8574,7 +8600,7 @@ begin
     ssReplace:
       megoScript.Text := Format('REPLACE INTO `gameobject_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      megoScript.Text := MakeUpdate2('gameobject_loot_template', PFX_GAMEOBJECT_LOOT_TEMPLATE, 'entry', goentry, 'item', goitem);
+      megoScript.Text := MakeUpdate2('gameobject_loot_template', PFX_GAMEOBJECT_LOOT_TEMPLATE, false, 'entry', goentry, 'item', goitem);
   end;
 end;
 
@@ -8595,7 +8621,7 @@ begin
     ssReplace:
       meqtScript.Text := Format('REPLACE INTO `mail_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meqtScript.Text := MakeUpdate2('mail_loot_template', PFX_MAIL_LOOT_TEMPLATE, 'entry', mlentry, 'item', mlitem);
+      meqtScript.Text := MakeUpdate2('mail_loot_template', PFX_MAIL_LOOT_TEMPLATE, false, 'entry', mlentry, 'item', mlitem);
   end;
 end;
 
@@ -9315,36 +9341,40 @@ begin
   end;
 end;
 
-function TMainForm.MakeUpdate(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
+function TMainForm.MakeUpdate(tn: string; pfx: string; IsLocale : boolean; KeyName: string; KeyValue: string): string;
 begin
   MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `%s` = %s', [tn, KeyName, KeyValue]);
-  Result := MakeSetForUpdate(MyTempQuery, pfx);
+  Result := MakeSetForUpdate(MyTempQuery, pfx, IsLocale);
   if Result <> '' then
       Result := Format('UPDATE `%s` %s WHERE `%s` = %s;', [tn, Result, KeyName, KeyValue])
 end;
 
-function TMainForm.MakeUpdate2(tn: string; pfx: string; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string): string;
+function TMainForm.MakeUpdate2(tn: string; pfx: string; IsLocale : boolean; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string): string;
 begin
   MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `%s` = %s AND `%s` = %s', [tn, KeyName1, KeyValue1, KeyName2, KeyValue2]);
-  Result := MakeSetForUpdate(MyTempQuery, pfx);
+  Result := MakeSetForUpdate(MyTempQuery, pfx, IsLocale);
   if Result <> '' then
       Result := Format('UPDATE `%s` %s WHERE `%s` = %s AND `%s` = %s;', [tn, Result, KeyName1, KeyValue1, KeyName2, KeyValue2])
 end;
 
-function TMainForm.MakeUpdate3(tn: string; pfx: string; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string; KeyName3: string; KeyValue3: string): string;
+function TMainForm.MakeUpdate3(tn: string; pfx: string; IsLocale : boolean; KeyName1: string; KeyValue1: string; KeyName2: string; KeyValue2: string; KeyName3: string; KeyValue3: string): string;
 begin
   MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `%s` = %s AND `%s` = %s AND `%s` = %s', [tn, KeyName1, KeyValue1, KeyName2, KeyValue2, KeyName3, KeyValue3]);
-  Result := MakeSetForUpdate(MyTempQuery, pfx);
+  Result := MakeSetForUpdate(MyTempQuery, pfx, IsLocale);
   if Result <> '' then
       Result := Format('UPDATE `%s` %s WHERE `%s` = %s AND `%s` = %s AND `%s` = %s;', [tn, Result, KeyName1, KeyValue1, KeyName2, KeyValue2, KeyName3, KeyValue3])
 end;
 
-function TMainForm.MakeSetForUpdate(MyTempQuery: TZQuery; pfx: string): string;
+function TMainForm.MakeSetForUpdate(MyTempQuery: TZQuery; pfx: string; IsLocale : boolean): string;
 var
   i: Integer;
-  FieldName, ValueFromBase, ValueFromEdit: string;
+  FieldName, ValueFromBase, ValueFromEdit, loc, FN: string;
   c: TComponent;
 begin
+  if IsLocale then
+    loc := LoadLocales()
+  else
+    loc := '';
   Result := '';
   MyTempQuery.Open;
   if not MyTempQuery.Eof then
@@ -9353,7 +9383,8 @@ begin
     begin
       FieldName := MyTempQuery.Fields[i].FieldName;
       ValueFromBase := MyTempQuery.Fields[i].AsString;
-      c := FindComponent('ed' + pfx + FieldName);
+      FN := StringReplace(FieldName, loc, '', [rfReplaceAll]);
+      c := FindComponent('ed' + pfx + FN);
       if Assigned(c) and (c is TCustomEdit) then
       begin
         ValueFromEdit := SymToDoll(TCustomEdit(c).Text);
@@ -9369,7 +9400,7 @@ begin
       end
       else
       begin
-        c := FindComponent('cb' + pfx + FieldName);
+        c := FindComponent('cb' + pfx + FN);
         if Assigned(c) and (c is TCheckBox) then
         begin
           if TCheckBox(c).Checked then
@@ -9386,64 +9417,6 @@ begin
         end;
       end;
     end;
-  end;
-  MyTempQuery.Close;
-end;
-
-function TMainForm.MakeUpdateLocales(tn: string; pfx: string; KeyName: string; KeyValue: string): string;
-var
-  i: Integer;
-  sets, FieldName, ValueFromBase, ValueFromEdit, loc, FN: string;
-  c: TComponent;
-begin
-  loc := LoadLocales();
-  Result := '';
-  sets := '';
-  MyTempQuery.SQL.Text := Format('SELECT * FROM `%s` WHERE `%s` = %s', [tn, KeyName, KeyValue]);
-  MyTempQuery.Open;
-  if not MyTempQuery.Eof then
-  begin
-
-    for i := 0 to MyTempQuery.Fields.Count - 1 do
-    begin
-      FieldName := MyTempQuery.Fields[i].FieldName;
-      ValueFromBase := MyTempQuery.Fields[i].AsString;
-      FN := StringReplace(FieldName, loc, '', [rfReplaceAll]);
-      c := FindComponent('ed' + pfx + FN);
-      if Assigned(c) and (c is TCustomEdit) then
-      begin
-        ValueFromEdit := SymToDoll(TCustomEdit(c).Text);
-        if ValueFromEdit <> ValueFromBase then
-        begin
-          if not IsNumber(ValueFromEdit) then
-            ValueFromEdit := QuotedStr(ValueFromEdit);
-          if sets = '' then
-            sets := Format('SET `%s` = %s', [FieldName, ValueFromEdit])
-          else
-            sets := Format('%s, `%s` = %s', [sets, FieldName, ValueFromEdit]);
-        end;
-      end
-      else
-      begin
-        c := FindComponent('cb' + pfx + FN);
-        if Assigned(c) and (c is TCheckBox) then
-        begin
-          if TCheckBox(c).Checked then
-            ValueFromEdit := '1'
-          else
-            ValueFromEdit := '0';
-          if ValueFromEdit <> ValueFromBase then
-          begin
-            if sets = '' then
-              sets := Format('SET `%s` = %s', [FN + loc, ValueFromEdit])
-            else
-              sets := Format('%s, `%s` = %s', [sets, FN + loc, ValueFromEdit]);
-          end;
-        end;
-      end;
-    end;
-    if sets <> '' then
-      Result := Format('UPDATE `%s` %s WHERE `%s` = %s;', [tn, sets, KeyName, KeyValue])
   end;
   MyTempQuery.Close;
 end;
@@ -10663,7 +10636,7 @@ begin
     ssReplace:
       meitScript.Text := Format('REPLACE INTO `item_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meitScript.Text := MakeUpdate2('item_loot_template', PFX_ITEM_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+      meitScript.Text := MakeUpdate2('item_loot_template', PFX_ITEM_LOOT_TEMPLATE, false, 'entry', entry, 'item', Item);
   end;
 end;
 
@@ -10684,7 +10657,7 @@ begin
     ssReplace:
       meitScript.Text := Format('REPLACE INTO `disenchant_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meitScript.Text := MakeUpdate2('disenchant_loot_template', PFX_DISENCHANT_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+      meitScript.Text := MakeUpdate2('disenchant_loot_template', PFX_DISENCHANT_LOOT_TEMPLATE, false, 'entry', entry, 'item', Item);
   end;
 end;
 
@@ -10705,7 +10678,7 @@ begin
     ssReplace:
       meitScript.Text := Format('REPLACE INTO `prospecting_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meitScript.Text := MakeUpdate2('prospecting_loot_template', PFX_PROSPECTING_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+      meitScript.Text := MakeUpdate2('prospecting_loot_template', PFX_PROSPECTING_LOOT_TEMPLATE, false, 'entry', entry, 'item', Item);
   end;
 end;
 
@@ -10726,7 +10699,7 @@ begin
     ssReplace:
       meitScript.Text := Format('REPLACE INTO `milling_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meitScript.Text := MakeUpdate2('milling_loot_template', PFX_MILLING_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+      meitScript.Text := MakeUpdate2('milling_loot_template', PFX_MILLING_LOOT_TEMPLATE, false, 'entry', entry, 'item', Item);
   end;
 end;
 
@@ -10747,7 +10720,7 @@ begin
     ssReplace:
       meitScript.Text := Format('REPLACE INTO `reference_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meitScript.Text := MakeUpdate2('reference_loot_template', PFX_REFERENCE_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+      meitScript.Text := MakeUpdate2('reference_loot_template', PFX_REFERENCE_LOOT_TEMPLATE, false, 'entry', entry, 'item', Item);
   end;
 end;
 
@@ -10768,7 +10741,7 @@ begin
     ssReplace:
       meitScript.Text := Format('REPLACE INTO `spell_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meitScript.Text := MakeUpdate2('spell_loot_template', PFX_SPELL_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+      meitScript.Text := MakeUpdate2('spell_loot_template', PFX_SPELL_LOOT_TEMPLATE, false, 'entry', entry, 'item', Item);
   end;
 end;
 
@@ -10788,7 +10761,7 @@ begin
     ssReplace:
       meitScript.Text := Format('REPLACE INTO `item_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meitScript.Text := MakeUpdate('item_template', PFX_ITEM_TEMPLATE, 'entry', entry)
+      meitScript.Text := MakeUpdate('item_template', PFX_ITEM_TEMPLATE, false, 'entry', entry)
   end;
 end;
 
@@ -11608,7 +11581,7 @@ begin
     ssReplace:
       meotScript.Text := Format('REPLACE INTO `conditions` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meotScript.Text := MakeUpdate('conditions', PFX_CONDITIONS, 'condition_entry', entry);
+      meotScript.Text := MakeUpdate('conditions', PFX_CONDITIONS, false, 'condition_entry', entry);
   end;
 end;
 
@@ -11628,7 +11601,7 @@ begin
     ssReplace:
       meotScript.Text := Format('REPLACE INTO `taxi_shortcuts` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meotScript.Text := MakeUpdate('taxi_shortcuts', PFX_TAXI_SHORTCUTS, 'pathid', entry);
+      meotScript.Text := MakeUpdate('taxi_shortcuts', PFX_TAXI_SHORTCUTS, false, 'pathid', entry);
   end;
 end;
 
@@ -11864,7 +11837,7 @@ begin
     ssReplace:
       medbScript.Text := Format('REPLACE INTO `%s` (%s) VALUES (%s);'#13#10, [TABLE_DB_SCRIPT_STRING, Fields, Values]);
     ssUpdate:
-      medbScript.Text := MakeUpdate(TABLE_DB_SCRIPT_STRING, PFX_DB_SCRIPT_STRING, 'entry', entry);
+      medbScript.Text := MakeUpdate(TABLE_DB_SCRIPT_STRING, PFX_DB_SCRIPT_STRING, false, 'entry', entry);
   end;
 end;
 
@@ -11883,7 +11856,7 @@ begin
     ssReplace:
       medbScript.Text := Format('REPLACE INTO `%s` (%s) VALUES (%s);'#13#10, [TableName, Fields, Values]);
     ssUpdate:
-      medbScript.Text := MakeUpdate3(TableName, prefix, 'id', entry, 'delay', delay, 'command', command);
+      medbScript.Text := MakeUpdate3(TableName, prefix, false, 'id', entry, 'delay', delay, 'command', command);
   end;
 end;
 
@@ -11902,7 +11875,7 @@ begin
     ssReplace:
       medbScript.Text := Format('REPLACE INTO `%s` (%s) VALUES (%s);'#13#10, [TableName, Fields, Values]);
     ssUpdate:
-      medbScript.Text := MakeUpdate3(TableName, prefix, 'id', entry, 'type', entry_type, 'target_id', target_id);
+      medbScript.Text := MakeUpdate3(TableName, prefix, false, 'id', entry, 'type', entry_type, 'target_id', target_id);
   end;
 end;
 
@@ -12293,7 +12266,7 @@ begin
     ssReplace:
       meotScript.Text := Format('REPLACE INTO `fishing_loot_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meotScript.Text := MakeUpdate2('fishing_loot_template', PFX_FISHING_LOOT_TEMPLATE, 'entry', entry, 'item', Item);
+      meotScript.Text := MakeUpdate2('fishing_loot_template', PFX_FISHING_LOOT_TEMPLATE, false, 'entry', entry, 'item', Item);
   end;
 end;
 
@@ -12620,7 +12593,7 @@ begin
     ssReplace:
       meotScript.Text := Format('REPLACE INTO `page_text` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meotScript.Text := MakeUpdate('page_text', PFX_PAGE_TEXT, 'entry', entry);
+      meotScript.Text := MakeUpdate('page_text', PFX_PAGE_TEXT, false, 'entry', entry);
   end;
 end;
 
@@ -13936,7 +13909,7 @@ begin
     ssReplace:
       meitScript.Text := Format('REPLACE INTO `item_enchantment_template` (%s) VALUES (%s);'#13#10, [Fields, Values]);
     ssUpdate:
-      meitScript.Text := MakeUpdate2('item_enchantment_template', PFX_ITEM_ENCHANTMENT_TEMPLATE, 'entry', entry, 'ench', ench);
+      meitScript.Text := MakeUpdate2('item_enchantment_template', PFX_ITEM_ENCHANTMENT_TEMPLATE, false, 'entry', entry, 'ench', ench);
   end;
 end;
 
