@@ -28,7 +28,7 @@ const
   TABLE_DB_SCRIPT_STRING = 'dbscript_string';
 {$ENDIF}
 
-  SCRIPT_TAB_NO_QUEST = 7;
+  SCRIPT_TAB_NO_QUEST = 8;
   SCRIPT_TAB_NO_CREATURE = 23;
   SCRIPT_TAB_NO_GAMEOBJECT = 5;
   SCRIPT_TAB_NO_ITEM = 11;
@@ -10053,6 +10053,7 @@ begin
     SubItems.Add(edcvincrtime.Text);
     SubItems.Add(edcvExtendedCost.Text);
     SubItems.Add(edcvcondition_id.Text);
+    SubItems.Add(edcvcomments.Text);
   end;
 end;
 
@@ -10068,6 +10069,7 @@ begin
       SubItems[2] := edcvincrtime.Text;
       SubItems[3] := edcvExtendedCost.Text;
       SubItems[4] := edcvcondition_id.Text;
+      SubItems[5] := edcvcomments.Text;
     end;
   end;
 end;
@@ -10184,6 +10186,7 @@ begin
     SubItems.Add(edcvtincrtime.Text);
     SubItems.Add(edcvtExtendedCost.Text);
     SubItems.Add(edcvtcondition_id.Text);
+    SubItems.Add(edcvtcomments.Text);
   end;
 end;
 
@@ -10205,6 +10208,7 @@ begin
       SubItems[2] := edcvtincrtime.Text;
       SubItems[3] := edcvtExtendedCost.Text;
       SubItems[4] := edcvtcondition_id.Text;
+      SubItems[5] := edcvtcomments.Text;
     end;
   end;
 end;
@@ -10222,19 +10226,19 @@ begin
   begin
     for i := 0 to lvcvNPCVendor.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s, %s),'#13#10, [lvcvNPCVendor.Items[i].Caption,
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s),'#13#10, [lvcvNPCVendor.Items[i].Caption,
         lvcvNPCVendor.Items[i].SubItems[0], lvcvNPCVendor.Items[i].SubItems[1], lvcvNPCVendor.Items[i].SubItems[2],
-        lvcvNPCVendor.Items[i].SubItems[3], lvcvNPCVendor.Items[i].SubItems[4]]);
+        lvcvNPCVendor.Items[i].SubItems[3], lvcvNPCVendor.Items[i].SubItems[4], lvcvNPCVendor.Items[i].SubItems[5]]);
     end;
     i := lvcvNPCVendor.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s, %s);', [lvcvNPCVendor.Items[i].Caption,
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s);', [lvcvNPCVendor.Items[i].Caption,
       lvcvNPCVendor.Items[i].SubItems[0], lvcvNPCVendor.Items[i].SubItems[1], lvcvNPCVendor.Items[i].SubItems[2],
-      lvcvNPCVendor.Items[i].SubItems[3], lvcvNPCVendor.Items[i].SubItems[4]]);
+      lvcvNPCVendor.Items[i].SubItems[3], lvcvNPCVendor.Items[i].SubItems[4], lvcvNPCVendor.Items[i].SubItems[5]]);
   end;
   if Values <> '' then
   begin
     mectScript.Text := Format('DELETE FROM `npc_vendor` WHERE (`entry`=%s);'#13#10 +
-      'INSERT INTO `npc_vendor` (entry, item, maxcount, incrtime, ExtendedCost, condition_id) VALUES '#13#10'%s', [entry, Values])
+      'INSERT INTO `npc_vendor` (entry, item, maxcount, incrtime, ExtendedCost, condition_id, comments) VALUES '#13#10'%s', [entry, Values])
   end
   else
     mectScript.Text := Format('DELETE FROM `npc_vendor` WHERE (`entry`=%s);', [entry]);
@@ -10253,19 +10257,19 @@ begin
   begin
     for i := 0 to lvcvtNPCVendor.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s, %s),'#13#10, [lvcvtNPCVendor.Items[i].Caption,
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s),'#13#10, [lvcvtNPCVendor.Items[i].Caption,
         lvcvtNPCVendor.Items[i].SubItems[0], lvcvtNPCVendor.Items[i].SubItems[1], lvcvtNPCVendor.Items[i].SubItems[2],
-        lvcvtNPCVendor.Items[i].SubItems[3], lvcvtNPCVendor.Items[i].SubItems[4]]);
+        lvcvtNPCVendor.Items[i].SubItems[3], lvcvtNPCVendor.Items[i].SubItems[4], lvcvtNPCVendor.Items[i].SubItems[5]]);
     end;
     i := lvcvtNPCVendor.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s, %s);', [lvcvtNPCVendor.Items[i].Caption,
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s);', [lvcvtNPCVendor.Items[i].Caption,
       lvcvtNPCVendor.Items[i].SubItems[0], lvcvtNPCVendor.Items[i].SubItems[1], lvcvtNPCVendor.Items[i].SubItems[2],
-      lvcvtNPCVendor.Items[i].SubItems[3], lvcvtNPCVendor.Items[i].SubItems[4]]);
+      lvcvtNPCVendor.Items[i].SubItems[3], lvcvtNPCVendor.Items[i].SubItems[4], lvcvtNPCVendor.Items[i].SubItems[5]]);
   end;
   if Values <> '' then
   begin
     mectScript.Text := Format('DELETE FROM `npc_vendor_template` WHERE (`entry`=%s);'#13#10 +
-      'INSERT INTO `npc_vendor_template` (entry, item, maxcount, incrtime, ExtendedCost, condition_id) VALUES '#13#10'%s',
+      'INSERT INTO `npc_vendor_template` (entry, item, maxcount, incrtime, ExtendedCost, condition_id, comments) VALUES '#13#10'%s',
       [entry, Values])
   end
   else
@@ -10402,19 +10406,19 @@ begin
   begin
     for i := 0 to lvcrNPCTrainer.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s, %s),'#13#10, [lvcrNPCTrainer.Items[i].Caption,
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s),'#13#10, [lvcrNPCTrainer.Items[i].Caption,
         lvcrNPCTrainer.Items[i].SubItems[0], lvcrNPCTrainer.Items[i].SubItems[1], lvcrNPCTrainer.Items[i].SubItems[2],
-        lvcrNPCTrainer.Items[i].SubItems[3], lvcrNPCTrainer.Items[i].SubItems[4]]);
+        lvcrNPCTrainer.Items[i].SubItems[3], lvcrNPCTrainer.Items[i].SubItems[4], lvcrNPCTrainer.Items[i].SubItems[5]]);
     end;
     i := lvcrNPCTrainer.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s, %s);', [lvcrNPCTrainer.Items[i].Caption,
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s);', [lvcrNPCTrainer.Items[i].Caption,
       lvcrNPCTrainer.Items[i].SubItems[0], lvcrNPCTrainer.Items[i].SubItems[1], lvcrNPCTrainer.Items[i].SubItems[2],
-      lvcrNPCTrainer.Items[i].SubItems[3], lvcrNPCTrainer.Items[i].SubItems[4]]);
+      lvcrNPCTrainer.Items[i].SubItems[3], lvcrNPCTrainer.Items[i].SubItems[4], lvcrNPCTrainer.Items[i].SubItems[5]]);
   end;
   if Values <> '' then
   begin
     mectScript.Text := Format('DELETE FROM `npc_trainer` WHERE (`entry`=%s);'#13#10 +
-      'INSERT INTO `npc_trainer` (entry, spell, spellcost, reqskill, reqskillvalue, reqlevel) VALUES '#13#10'%s',
+      'INSERT INTO `npc_trainer` (entry, spell, spellcost, reqskill, reqskillvalue, reqlevel, condition_id) VALUES '#13#10'%s',
       [entry, Values])
   end
   else
@@ -10434,20 +10438,20 @@ begin
   begin
     for i := 0 to lvcrtNPCTrainer.Items.Count - 2 do
     begin
-      Values := Values + Format('(%s, %s, %s, %s, %s, %s),'#13#10, [lvcrtNPCTrainer.Items[i].Caption,
+      Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s),'#13#10, [lvcrtNPCTrainer.Items[i].Caption,
         lvcrtNPCTrainer.Items[i].SubItems[0], lvcrtNPCTrainer.Items[i].SubItems[1],
         lvcrtNPCTrainer.Items[i].SubItems[2], lvcrtNPCTrainer.Items[i].SubItems[3],
-        lvcrtNPCTrainer.Items[i].SubItems[4]]);
+        lvcrtNPCTrainer.Items[i].SubItems[4], lvcrtNPCTrainer.Items[i].SubItems[5]]);
     end;
     i := lvcrtNPCTrainer.Items.Count - 1;
-    Values := Values + Format('(%s, %s, %s, %s, %s, %s);', [lvcrtNPCTrainer.Items[i].Caption,
+    Values := Values + Format('(%s, %s, %s, %s, %s, %s, %s);', [lvcrtNPCTrainer.Items[i].Caption,
       lvcrtNPCTrainer.Items[i].SubItems[0], lvcrtNPCTrainer.Items[i].SubItems[1], lvcrtNPCTrainer.Items[i].SubItems[2],
-      lvcrtNPCTrainer.Items[i].SubItems[3], lvcrtNPCTrainer.Items[i].SubItems[4]]);
+      lvcrtNPCTrainer.Items[i].SubItems[3], lvcrtNPCTrainer.Items[i].SubItems[4], lvcrtNPCTrainer.Items[i].SubItems[5]]);
   end;
   if Values <> '' then
   begin
     mectScript.Text := Format('DELETE FROM `npc_trainer_template` WHERE (`entry`=%s);'#13#10 +
-      'INSERT INTO `npc_trainer_template` (entry, spell, spellcost, reqskill, reqskillvalue, reqlevel) VALUES '#13#10'%s',
+      'INSERT INTO `npc_trainer_template` (entry, spell, spellcost, reqskill, reqskillvalue, reqlevel, condition_id) VALUES '#13#10'%s',
       [entry, Values])
   end
   else
@@ -11680,17 +11684,16 @@ end;
 
 procedure TMainForm.LoadQuestGiverGreeting(objtype: string; entry: string);
 var
-  loc: string;
+  lqg_Entry, loc: string;
 begin
   loc := LoadLocales();
-  edlqgText.EditLabel.Caption := 'Text' + loc;
   if (StrToIntDef(entry, 0) < 1) then
     Exit;
   MyTempQuery.SQL.Text := '';
   if objtype = 'creature' then
-    MyTempQuery.SQL.Text := Format('SELECT lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=0', [loc, entry])
+    MyTempQuery.SQL.Text := Format('SELECT lqg.Entry as loc_entry, lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=0', [loc, entry])
   else if objtype = 'gameobject' then
-    MyTempQuery.SQL.Text := Format('SELECT lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=1', [loc, entry]);
+    MyTempQuery.SQL.Text := Format('SELECT lqg.Entry as loc_entry, lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=1', [loc, entry]);
   if MyTempQuery.SQL.Text = '' then
   begin
     ClearQuestGiverGreeting;
@@ -11703,7 +11706,15 @@ begin
     MyTempQuery.Close;
     Exit;
   end;
-  edlqgText.Text := MyTempQuery.Fields[0].AsString;
+  lqg_Entry := MyTempQuery.Fields[0].AsString;
+  if lqg_Entry <> '' then
+  begin
+    edlqgText.Visible := true;
+    edlqgText.EditLabel.Caption := MyTempQuery.Fields[1].FieldName;
+    edlqgText.Text := MyTempQuery.Fields[1].AsString;
+  end
+  else
+    edlqgText.Visible := false;
   FillFields(MyTempQuery, PFX_QUESTGIVER_GREETING);
   MyTempQuery.Close;
 end;
