@@ -11694,6 +11694,7 @@ end;
 
 procedure TMainForm.ClearQuestGiverGreeting;
 begin
+  tsGreetings.TabVisible := false;
   edqgEntry.Clear;
   edqgType.Clear;
   edqgEmoteId.Clear;
@@ -11704,30 +11705,27 @@ end;
 
 procedure TMainForm.LoadQuestGiverGreeting(objtype: string; entry: string);
 var
-  lqg_Entry, loc: string;
+  loc_Entry, loc: string;
 begin
+  ClearQuestGiverGreeting;
   loc := LoadLocales();
   if (StrToIntDef(entry, 0) < 1) then
     Exit;
-  MyTempQuery.SQL.Text := '';
   if objtype = 'creature' then
     MyTempQuery.SQL.Text := Format('SELECT lqg.Entry as loc_entry, lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=0 LIMIT 1', [loc, entry])
   else if objtype = 'gameobject' then
-    MyTempQuery.SQL.Text := Format('SELECT lqg.Entry as loc_entry, lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=1 LIMIT 1', [loc, entry]);
-  if MyTempQuery.SQL.Text = '' then
-  begin
-    ClearQuestGiverGreeting;
+    MyTempQuery.SQL.Text := Format('SELECT lqg.Entry as loc_entry, lqg.Text%0:s, qg.* FROM `questgiver_greeting` qg LEFT JOIN `locales_questgiver_greeting` lqg ON lqg.`Entry` = qg.`Entry` AND lqg.`Type` = qg.`Type` WHERE qg.`Entry`=%1:s AND qg.`Type`=1 LIMIT 1', [loc, entry])
+  else
 	Exit;
-  end;
   MyTempQuery.Open;
   if MyTempQuery.IsEmpty then
   begin
-    ClearQuestGiverGreeting;
     MyTempQuery.Close;
     Exit;
   end;
-  lqg_Entry := MyTempQuery.Fields[0].AsString;
-  if lqg_Entry <> '' then
+  tsGreetings.TabVisible := true;
+  loc_Entry := MyTempQuery.Fields[0].AsString;
+  if (StrToIntDef(loc_Entry, 0) > 0) then
   begin
     edlqgText.Visible := true;
     edlqgText.EditLabel.Caption := MyTempQuery.Fields[1].FieldName;
