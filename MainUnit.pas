@@ -6836,7 +6836,7 @@ begin
   S[4] := 'RepeatMax';
 
   case StrToIntDef(edcnevent_type.Text, -1) of
-    0, 1:
+    0, 1, 29:
       begin
         S[1] := 'InitialMin';
         S[2] := 'InitialMax';
@@ -6846,12 +6846,12 @@ begin
         S[1] := 'HPMax%';
         S[2] := 'HPMin%';
       end;
-    3:
+    3, 18:
       begin
         S[1] := 'ManaMax%';
         S[2] := 'ManaMin%';
       end;
-    4, 6, 7, 11:
+    4, 7, 21:
       begin
         S[1] := 'n/a';
         S[2] := 'n/a';
@@ -6865,10 +6865,17 @@ begin
         S[3] := 'n/a';
         S[4] := 'n/a';
       end;
+	6:
+	  begin
+        S[1] := 'ConditionId';
+        S[2] := 'n/a';
+        S[3] := 'n/a';
+        S[4] := 'n/a';
+	  end;
     8:
       begin
         S[1] := 'SpellID';
-        S[2] := 'School';
+        S[2] := 'Schoolmask';
       end;
     9:
       begin
@@ -6877,9 +6884,16 @@ begin
       end;
     10:
       begin
-        S[1] := 'NoHostile';
-        S[2] := 'NoFriendly';
+        S[1] := 'Hostile-or-Not';
+        S[2] := 'MaxAllowedRange';
       end;
+	11:
+	  begin
+        S[1] := 'Condition';
+        S[2] := 'CondValue1';
+        S[3] := 'n/a';
+        S[4] := 'n/a';
+	  end;
     14:
       begin
         S[1] := 'HPDeficit';
@@ -6895,12 +6909,46 @@ begin
         S[1] := 'SpellId';
         S[2] := 'Radius';
       end;
-    17:
+    17, 25, 26:
       begin
         S[1] := 'CreatureId';
         S[2] := 'RepeatMin';
         S[3] := 'RepeatMax';
         S[4] := 'n/a';
+      end;
+    22:
+      begin
+        S[1] := 'EmoteId';
+        S[2] := 'Condition';
+        S[3] := 'CondValue1';
+        S[4] := 'CondValue2';
+      end;
+    23, 24, 27, 28:
+      begin
+        S[1] := 'SpellId';
+        S[2] := 'AmmountInStack';
+      end;
+    30:
+      begin
+        S[1] := 'AIEventType';
+        S[2] := 'Sender-Entry';
+        S[3] := 'n/a';
+        S[4] := 'n/a';
+      end;
+    31:
+      begin
+        S[1] := 'EnergyMax%';
+        S[2] := 'EnergyMin%';
+      end;
+    32:
+      begin
+        S[1] := 'MinRange';
+        S[2] := 'MaxRange';
+      end;
+    33:
+      begin
+        S[1] := 'BackOrFront';
+        S[2] := 'unused';
       end;
   else
     begin
