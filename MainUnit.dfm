@@ -32023,6 +32023,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'id'
           end
+          object lbssdata_flags: TLabel
+            Left = 677
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
+          end
           object lvssStartScript: TJvListView
             Left = 8
             Top = 32
@@ -32274,18 +32281,6 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 10
           end
-          object edssdata_flags: TLabeledEdit
-            Left = 677
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 11
-          end
           object edsscomments: TLabeledEdit
             Left = 598
             Top = 492
@@ -32296,7 +32291,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'comments'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 12
+            TabOrder = 11
           end
           object btssShowFullScript: TButton
             Left = 692
@@ -32304,7 +32299,7 @@ object MainForm: TMainForm
             Width = 193
             Height = 25
             Caption = 'Show Full Script'
-            TabOrder = 13
+            TabOrder = 12
             OnClick = btssShowFullScriptOnClick
           end
           object edssid: TJvComboEdit
@@ -32357,7 +32352,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = edssidButtonClick
           end
@@ -32371,7 +32366,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object edssdataint: TLabeledEdit
             Left = 280
@@ -32383,7 +32378,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object edssdataint2: TLabeledEdit
             Left = 380
@@ -32395,7 +32390,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object edssdataint3: TLabeledEdit
             Left = 480
@@ -32407,7 +32402,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object edssdataint4: TLabeledEdit
             Left = 580
@@ -32419,7 +32414,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btssScript: TButton
             Left = 752
@@ -32427,8 +32422,49 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object edssdata_flags: TJvComboEdit
+            Left = 677
+            Top = 456
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsCompleteScript: TTabSheet
@@ -32631,6 +32667,13 @@ object MainForm: TMainForm
             Width = 8
             Height = 13
             Caption = 'id'
+          end
+          object lbesdata_flags: TLabel
+            Left = 681
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
           end
           object lvesEndScript: TJvListView
             Left = 8
@@ -32883,18 +32926,6 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 10
           end
-          object edesdata_flags: TLabeledEdit
-            Left = 681
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 11
-          end
           object edescomments: TLabeledEdit
             Left = 602
             Top = 495
@@ -32905,7 +32936,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'comments'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 12
+            TabOrder = 11
           end
           object btesShowFullScript: TButton
             Left = 692
@@ -32913,7 +32944,7 @@ object MainForm: TMainForm
             Width = 193
             Height = 25
             Caption = 'Show Full Script'
-            TabOrder = 13
+            TabOrder = 12
             OnClick = btesShowFullScriptOnClick
           end
           object edesid: TJvComboEdit
@@ -32966,7 +32997,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = edesidButtonClick
           end
@@ -32980,7 +33011,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object edesdataint: TLabeledEdit
             Left = 280
@@ -32992,7 +33023,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object edesdataint2: TLabeledEdit
             Left = 380
@@ -33004,7 +33035,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object edesdataint3: TLabeledEdit
             Left = 480
@@ -33016,7 +33047,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object edesdataint4: TLabeledEdit
             Left = 580
@@ -33028,7 +33059,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btesScript: TButton
             Left = 752
@@ -33036,8 +33067,49 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object edesdata_flags: TJvComboEdit
+            Left = 681
+            Top = 456
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsCreatureMovementScript: TTabSheet
@@ -33239,6 +33311,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'id'
           end
+          object lbcmsdata_flags: TLabel
+            Left = 679
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
+          end
           object btcmsShowFullScript: TButton
             Left = 680
             Top = 536
@@ -33289,18 +33368,6 @@ object MainForm: TMainForm
             OnButtonClick = GetCommand
             OnChange = edcmscommandChange
           end
-          object edcmsdata_flags: TLabeledEdit
-            Left = 679
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 2
-          end
           object edcmsdatalong: TLabeledEdit
             Left = 280
             Top = 456
@@ -33311,7 +33378,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 3
+            TabOrder = 2
           end
           object edcmsdatalong2: TLabeledEdit
             Left = 360
@@ -33323,7 +33390,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 4
+            TabOrder = 3
           end
           object edcmsbuddy_entry: TLabeledEdit
             Left = 520
@@ -33335,7 +33402,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'buddy_entry'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 5
+            TabOrder = 4
           end
           object edcmssearch_radius: TLabeledEdit
             Left = 600
@@ -33347,7 +33414,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'search_radius'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 6
+            TabOrder = 5
           end
           object edcmsdelay: TLabeledEdit
             Left = 104
@@ -33360,7 +33427,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'delay'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 7
+            TabOrder = 6
           end
           object edcmso: TLabeledEdit
             Left = 520
@@ -33372,7 +33439,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'o'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 8
+            TabOrder = 7
           end
           object edcmsx: TLabeledEdit
             Left = 280
@@ -33384,7 +33451,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'x'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 9
+            TabOrder = 8
           end
           object edcmsy: TLabeledEdit
             Left = 360
@@ -33396,7 +33463,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'y'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 10
+            TabOrder = 9
           end
           object edcmsz: TLabeledEdit
             Left = 440
@@ -33408,7 +33475,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'z'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 11
+            TabOrder = 10
           end
           object lvcmsCreatureMovementScript: TJvListView
             Left = 8
@@ -33466,7 +33533,7 @@ object MainForm: TMainForm
             HideSelection = False
             ReadOnly = True
             RowSelect = True
-            TabOrder = 12
+            TabOrder = 11
             ViewStyle = vsReport
             OnChange = lvcmsCreatureMovementScriptChange
             OnSelectItem = lvcmsCreatureMovementScriptSelectItem
@@ -33521,7 +33588,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'comments'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 13
+            TabOrder = 12
           end
           object edcmsid: TJvComboEdit
             Left = 8
@@ -33573,7 +33640,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = edcmsidButtonClick
           end
@@ -33587,7 +33654,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object edcmsdataint: TLabeledEdit
             Left = 280
@@ -33599,7 +33666,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object edcmsdataint2: TLabeledEdit
             Left = 380
@@ -33611,7 +33678,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object edcmsdataint3: TLabeledEdit
             Left = 480
@@ -33623,7 +33690,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object edcmsdataint4: TLabeledEdit
             Left = 580
@@ -33635,7 +33702,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btcmsScript: TButton
             Left = 740
@@ -33643,8 +33710,49 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object edcmsdata_flags: TJvComboEdit
+            Left = 679
+            Top = 456
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsCreatureOnDeathScript: TTabSheet
@@ -33846,6 +33954,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'id'
           end
+          object lbcdsdata_flags: TLabel
+            Left = 679
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
+          end
           object edcdscommand: TJvComboEdit
             Left = 192
             Top = 456
@@ -33933,18 +34048,6 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 4
           end
-          object edcdsdata_flags: TLabeledEdit
-            Left = 679
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 5
-          end
           object edcdsdatalong: TLabeledEdit
             Left = 280
             Top = 456
@@ -33955,7 +34058,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 6
+            TabOrder = 5
           end
           object edcdsdatalong2: TLabeledEdit
             Left = 360
@@ -33967,7 +34070,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 7
+            TabOrder = 6
           end
           object edcdso: TLabeledEdit
             Left = 520
@@ -33979,7 +34082,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'o'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 8
+            TabOrder = 7
           end
           object edcdssearch_radius: TLabeledEdit
             Left = 600
@@ -33991,7 +34094,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'search_radius'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 9
+            TabOrder = 8
           end
           object edcdsx: TLabeledEdit
             Left = 280
@@ -34003,7 +34106,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'x'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 10
+            TabOrder = 9
           end
           object edcdsy: TLabeledEdit
             Left = 360
@@ -34015,7 +34118,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'y'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 11
+            TabOrder = 10
           end
           object edcdsz: TLabeledEdit
             Left = 440
@@ -34027,7 +34130,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'z'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 12
+            TabOrder = 11
           end
           object lvcdsCreatureOnDeathScript: TJvListView
             Left = 8
@@ -34085,7 +34188,7 @@ object MainForm: TMainForm
             HideSelection = False
             ReadOnly = True
             RowSelect = True
-            TabOrder = 13
+            TabOrder = 12
             ViewStyle = vsReport
             OnChange = lvcdsCreatureOnDeathScriptChange
             OnSelectItem = lvcdsCreatureOnDeathScriptSelectItem
@@ -34180,7 +34283,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = edcdsidButtonClick
           end
@@ -34194,7 +34297,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object edcdsdataint4: TLabeledEdit
             Left = 580
@@ -34206,7 +34309,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object edcdsdataint3: TLabeledEdit
             Left = 480
@@ -34218,7 +34321,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object edcdsdataint2: TLabeledEdit
             Left = 380
@@ -34230,7 +34333,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object edcdsdataint: TLabeledEdit
             Left = 280
@@ -34242,7 +34345,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btcdsScript: TButton
             Left = 752
@@ -34250,8 +34353,49 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object edcdsdata_flags: TJvComboEdit
+            Left = 679
+            Top = 456
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsButtonScript: TTabSheet
@@ -34453,6 +34597,13 @@ object MainForm: TMainForm
             Width = 8
             Height = 13
             Caption = 'id'
+          end
+          object lbgbdata_flags: TLabel
+            Left = 678
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
           end
           object lvgbGOScript: TJvListView
             Left = 8
@@ -34714,18 +34865,6 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 11
           end
-          object edgbdata_flags: TLabeledEdit
-            Left = 678
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 12
-          end
           object edgbcomments: TLabeledEdit
             Left = 599
             Top = 493
@@ -34736,7 +34875,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'comments'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 13
+            TabOrder = 12
           end
           object edgbid: TJvComboEdit
             Left = 8
@@ -34788,7 +34927,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = edgbidButtonClick
           end
@@ -34802,7 +34941,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object edgbdataint4: TLabeledEdit
             Left = 580
@@ -34814,7 +34953,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object edgbdataint3: TLabeledEdit
             Left = 480
@@ -34826,7 +34965,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object edgbdataint2: TLabeledEdit
             Left = 380
@@ -34838,7 +34977,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object edgbdataint: TLabeledEdit
             Left = 280
@@ -34850,7 +34989,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btgbScript: TButton
             Left = 755
@@ -34858,13 +34997,55 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object edgbdata_flags: TJvComboEdit
+            Left = 678
+            Top = 456
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsGOTemplateScript: TTabSheet
           Caption = 'go_template_use'
           ImageIndex = 7
+          ExplicitLeft = 0
           DesignSize = (
             992
             600)
@@ -35061,6 +35242,13 @@ object MainForm: TMainForm
             Height = 13
             Caption = 'id'
           end
+          object lbgtbdata_flags: TLabel
+            Left = 678
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
+          end
           object lvgtbGOTemplateScript: TJvListView
             Left = 8
             Top = 32
@@ -35183,18 +35371,6 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 2
           end
-          object edgtbdata_flags: TLabeledEdit
-            Left = 678
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 3
-          end
           object edgtbsearch_radius: TLabeledEdit
             Left = 599
             Top = 456
@@ -35205,7 +35381,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'search_radius'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 4
+            TabOrder = 3
           end
           object edgtbo: TLabeledEdit
             Left = 520
@@ -35217,7 +35393,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'o'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 5
+            TabOrder = 4
           end
           object edgtbz: TLabeledEdit
             Left = 440
@@ -35229,7 +35405,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'z'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 6
+            TabOrder = 5
           end
           object edgtbbuddy_entry: TLabeledEdit
             Left = 520
@@ -35241,7 +35417,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'buddy_entry'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 7
+            TabOrder = 6
           end
           object edgtbdatalong2: TLabeledEdit
             Left = 360
@@ -35253,7 +35429,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 8
+            TabOrder = 7
           end
           object edgtby: TLabeledEdit
             Left = 360
@@ -35265,7 +35441,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'y'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 9
+            TabOrder = 8
           end
           object edgtbx: TLabeledEdit
             Left = 280
@@ -35277,7 +35453,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'x'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 10
+            TabOrder = 9
           end
           object edgtbdatalong: TLabeledEdit
             Left = 280
@@ -35289,7 +35465,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 11
+            TabOrder = 10
           end
           object edgtbcommand: TJvComboEdit
             Left = 192
@@ -35327,7 +35503,7 @@ object MainForm: TMainForm
               FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 12
+            TabOrder = 11
             Text = ''
             OnButtonClick = GetCommand
             OnChange = edgtbcommandChange
@@ -35343,7 +35519,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'delay'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 13
+            TabOrder = 12
           end
           object edgtbid: TJvComboEdit
             Left = 8
@@ -35395,7 +35571,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = edgtbidButtonClick
           end
@@ -35409,7 +35585,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object edgtbdataint4: TLabeledEdit
             Left = 580
@@ -35421,7 +35597,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object edgtbdataint3: TLabeledEdit
             Left = 480
@@ -35433,7 +35609,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object edgtbdataint2: TLabeledEdit
             Left = 380
@@ -35445,7 +35621,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object edgtbdataint: TLabeledEdit
             Left = 280
@@ -35457,7 +35633,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btgtbScript: TButton
             Left = 755
@@ -35465,8 +35641,49 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object edgtbdata_flags: TJvComboEdit
+            Left = 678
+            Top = 456
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsEvent: TTabSheet
@@ -35667,6 +35884,13 @@ object MainForm: TMainForm
             Width = 8
             Height = 13
             Caption = 'id'
+          end
+          object lbdoedata_flags: TLabel
+            Left = 678
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
           end
           object lvdoeEventScript: TJvListView
             Left = 8
@@ -35919,18 +36143,6 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 10
           end
-          object eddoedata_flags: TLabeledEdit
-            Left = 678
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 11
-          end
           object eddoecomments: TLabeledEdit
             Left = 599
             Top = 493
@@ -35941,7 +36153,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'comments'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 12
+            TabOrder = 11
           end
           object btFullEventScript: TButton
             Left = 695
@@ -35949,7 +36161,7 @@ object MainForm: TMainForm
             Width = 193
             Height = 25
             Caption = 'Show Full Script'
-            TabOrder = 13
+            TabOrder = 12
             OnClick = btdoeShowFullScriptOnClick
           end
           object eddoeid: TJvComboEdit
@@ -36002,7 +36214,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = eddoeidButtonClick
           end
@@ -36016,7 +36228,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object eddoedataint: TLabeledEdit
             Left = 280
@@ -36028,7 +36240,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object eddoedataint2: TLabeledEdit
             Left = 380
@@ -36040,7 +36252,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object eddoedataint3: TLabeledEdit
             Left = 480
@@ -36052,7 +36264,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object eddoedataint4: TLabeledEdit
             Left = 580
@@ -36064,7 +36276,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btdoeScript: TButton
             Left = 755
@@ -36072,8 +36284,49 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object eddoedata_flags: TJvComboEdit
+            Left = 678
+            Top = 459
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsGossip: TTabSheet
@@ -36274,6 +36527,13 @@ object MainForm: TMainForm
             Width = 8
             Height = 13
             Caption = 'id'
+          end
+          object lbdogdata_flags: TLabel
+            Left = 678
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
           end
           object lvdogGossipScript: TJvListView
             Left = 8
@@ -36526,18 +36786,6 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 10
           end
-          object eddogdata_flags: TLabeledEdit
-            Left = 678
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 11
-          end
           object eddogcomments: TLabeledEdit
             Left = 599
             Top = 493
@@ -36548,7 +36796,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'comments'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 12
+            TabOrder = 11
           end
           object btFullGossipScript: TButton
             Left = 695
@@ -36556,7 +36804,7 @@ object MainForm: TMainForm
             Width = 193
             Height = 25
             Caption = 'Show Full Script'
-            TabOrder = 13
+            TabOrder = 12
             OnClick = btdogShowFullScriptOnClick
           end
           object eddogid: TJvComboEdit
@@ -36609,7 +36857,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = eddogidButtonClick
           end
@@ -36623,7 +36871,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object eddogdataint: TLabeledEdit
             Left = 280
@@ -36635,7 +36883,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object eddogdataint2: TLabeledEdit
             Left = 380
@@ -36647,7 +36895,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object eddogdataint3: TLabeledEdit
             Left = 480
@@ -36659,7 +36907,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object eddogdataint4: TLabeledEdit
             Left = 580
@@ -36671,7 +36919,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btdogScript: TButton
             Left = 755
@@ -36679,13 +36927,55 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object eddogdata_flags: TJvComboEdit
+            Left = 678
+            Top = 456
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsSpell: TTabSheet
           Caption = 'spell'
           ImageIndex = 10
+          ExplicitLeft = 0
           DesignSize = (
             992
             600)
@@ -36881,6 +37171,13 @@ object MainForm: TMainForm
             Width = 8
             Height = 13
             Caption = 'id'
+          end
+          object lbdosdata_flags: TLabel
+            Left = 678
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
           end
           object lvdosSpellScript: TJvListView
             Left = 8
@@ -37133,18 +37430,6 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 10
           end
-          object eddosdata_flags: TLabeledEdit
-            Left = 678
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 11
-          end
           object eddoscomments: TLabeledEdit
             Left = 599
             Top = 493
@@ -37155,7 +37440,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'comments'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 12
+            TabOrder = 11
           end
           object btFullSpellScript: TButton
             Left = 695
@@ -37163,7 +37448,7 @@ object MainForm: TMainForm
             Width = 193
             Height = 25
             Caption = 'Show Full Script'
-            TabOrder = 13
+            TabOrder = 12
             OnClick = btdosShowFullScriptOnClick
           end
           object eddosid: TJvComboEdit
@@ -37216,7 +37501,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = eddosidButtonClick
           end
@@ -37230,7 +37515,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object eddosdataint: TLabeledEdit
             Left = 280
@@ -37242,7 +37527,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object eddosdataint2: TLabeledEdit
             Left = 380
@@ -37254,7 +37539,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object eddosdataint3: TLabeledEdit
             Left = 480
@@ -37266,7 +37551,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object eddosdataint4: TLabeledEdit
             Left = 580
@@ -37278,7 +37563,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btdosScript: TButton
             Left = 755
@@ -37286,8 +37571,49 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object eddosdata_flags: TJvComboEdit
+            Left = 678
+            Top = 456
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsRelay: TTabSheet
@@ -37488,6 +37814,13 @@ object MainForm: TMainForm
             Width = 8
             Height = 13
             Caption = 'id'
+          end
+          object lbdordata_flags: TLabel
+            Left = 673
+            Top = 440
+            Width = 49
+            Height = 13
+            Caption = 'data_flags'
           end
           object lvdorRelayScript: TJvListView
             Left = 3
@@ -37740,18 +38073,6 @@ object MainForm: TMainForm
             ShowHint = True
             TabOrder = 10
           end
-          object eddordata_flags: TLabeledEdit
-            Left = 673
-            Top = 456
-            Width = 73
-            Height = 21
-            EditLabel.Width = 49
-            EditLabel.Height = 13
-            EditLabel.Caption = 'data_flags'
-            ParentShowHint = False
-            ShowHint = True
-            TabOrder = 11
-          end
           object eddorcomments: TLabeledEdit
             Left = 594
             Top = 493
@@ -37762,7 +38083,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'comments'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 12
+            TabOrder = 11
           end
           object btFullRelayScript: TButton
             Left = 690
@@ -37770,7 +38091,7 @@ object MainForm: TMainForm
             Width = 193
             Height = 25
             Caption = 'Show Full Script'
-            TabOrder = 13
+            TabOrder = 12
             OnClick = btdorShowFullScriptOnClick
           end
           object eddorid: TJvComboEdit
@@ -37823,7 +38144,7 @@ object MainForm: TMainForm
               072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
               1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
               0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-            TabOrder = 14
+            TabOrder = 13
             Text = ''
             OnButtonClick = eddoridButtonClick
           end
@@ -37837,7 +38158,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'datalong3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 15
+            TabOrder = 14
           end
           object eddordataint: TLabeledEdit
             Left = 275
@@ -37849,7 +38170,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 16
+            TabOrder = 15
           end
           object eddordataint2: TLabeledEdit
             Left = 375
@@ -37861,7 +38182,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint2'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 17
+            TabOrder = 16
           end
           object eddordataint3: TLabeledEdit
             Left = 475
@@ -37873,7 +38194,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint3'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 18
+            TabOrder = 17
           end
           object eddordataint4: TLabeledEdit
             Left = 575
@@ -37885,7 +38206,7 @@ object MainForm: TMainForm
             EditLabel.Caption = 'dataint4'
             ParentShowHint = False
             ShowHint = True
-            TabOrder = 19
+            TabOrder = 18
           end
           object btdorScript: TButton
             Left = 750
@@ -37893,8 +38214,49 @@ object MainForm: TMainForm
             Width = 133
             Height = 25
             Caption = 'Show Script'
-            TabOrder = 20
+            TabOrder = 19
             OnClick = btDBScriptsOnClick
+          end
+          object eddordata_flags: TJvComboEdit
+            Left = 673
+            Top = 456
+            Width = 73
+            Height = 21
+            ButtonWidth = 22
+            ClickKey = 13
+            Glyph.Data = {
+              36030000424D3603000000000000360000002800000010000000100000000100
+              18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
+              DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
+              FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
+              B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
+              D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
+              52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
+              8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
+              FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
+            ParentShowHint = False
+            ShowHint = True
+            TabOrder = 20
+            Text = ''
+            OnButtonClick = GetDataFlags
+            OnChange = edflagsChange
           end
         end
         object tsRandomTemplates: TTabSheet

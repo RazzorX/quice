@@ -1477,20 +1477,16 @@ type
     edgtmingold: TLabeledEdit;
     edgbbuddy_entry: TLabeledEdit;
     edgbsearch_radius: TLabeledEdit;
-    edgbdata_flags: TLabeledEdit;
     edssbuddy_entry: TLabeledEdit;
     edsssearch_radius: TLabeledEdit;
-    edssdata_flags: TLabeledEdit;
     edesbuddy_entry: TLabeledEdit;
     edessearch_radius: TLabeledEdit;
-    edesdata_flags: TLabeledEdit;
     tsCreatureMovementScript: TTabSheet;
     btcmsAdd: TSpeedButton;
     btcmsDel: TSpeedButton;
     btcmsShowFullScript: TButton;
     btcmsUpd: TSpeedButton;
     edcmscommand: TJvComboEdit;
-    edcmsdata_flags: TLabeledEdit;
     edcmsdatalong: TLabeledEdit;
     edcmsdatalong2: TLabeledEdit;
     edcmsbuddy_entry: TLabeledEdit;
@@ -1676,7 +1672,6 @@ type
     btcdsUpd: TSpeedButton;
     edcdsbuddy_entry: TLabeledEdit;
     edcdscomments: TLabeledEdit;
-    edcdsdata_flags: TLabeledEdit;
     edcdsdatalong: TLabeledEdit;
     edcdsdatalong2: TLabeledEdit;
     edcdso: TLabeledEdit;
@@ -1695,7 +1690,6 @@ type
     edgtbbuddy_entry: TLabeledEdit;
     edgtbsearch_radius: TLabeledEdit;
     edgtbcomments: TLabeledEdit;
-    edgtbdata_flags: TLabeledEdit;
     edgtbcommand: TJvComboEdit;
     lbhintGOTemplateScript: TLabel;
     lbgtbcommand: TLabel;
@@ -1816,7 +1810,6 @@ type
     eddoez: TLabeledEdit;
     eddoeo: TLabeledEdit;
     eddoesearch_radius: TLabeledEdit;
-    eddoedata_flags: TLabeledEdit;
     eddoecomments: TLabeledEdit;
     btFullEventScript: TButton;
     btdoeAdd: TSpeedButton;
@@ -1835,7 +1828,6 @@ type
     eddogz: TLabeledEdit;
     eddogo: TLabeledEdit;
     eddogsearch_radius: TLabeledEdit;
-    eddogdata_flags: TLabeledEdit;
     eddogcomments: TLabeledEdit;
     btFullGossipScript: TButton;
     btdogAdd: TSpeedButton;
@@ -1854,7 +1846,6 @@ type
     eddosz: TLabeledEdit;
     eddoso: TLabeledEdit;
     eddossearch_radius: TLabeledEdit;
-    eddosdata_flags: TLabeledEdit;
     eddoscomments: TLabeledEdit;
     btFullSpellScript: TButton;
     btdosAdd: TSpeedButton;
@@ -1988,7 +1979,6 @@ type
     eddorz: TLabeledEdit;
     eddoro: TLabeledEdit;
     eddorsearch_radius: TLabeledEdit;
-    eddordata_flags: TLabeledEdit;
     eddorcomments: TLabeledEdit;
     btFullRelayScript: TButton;
     eddorid: TJvComboEdit;
@@ -2099,6 +2089,26 @@ type
     btGreetingScript: TButton;
     editFlags2: TJvComboEdit;
     lbitFlags2: TLabel;
+    edssdata_flags: TJvComboEdit;
+    lbssdata_flags: TLabel;
+    edesdata_flags: TJvComboEdit;
+    lbesdata_flags: TLabel;
+    edcmsdata_flags: TJvComboEdit;
+    lbcmsdata_flags: TLabel;
+    edcdsdata_flags: TJvComboEdit;
+    lbcdsdata_flags: TLabel;
+    edgbdata_flags: TJvComboEdit;
+    lbgbdata_flags: TLabel;
+    edgtbdata_flags: TJvComboEdit;
+    lbgtbdata_flags: TLabel;
+    eddoedata_flags: TJvComboEdit;
+    lbdoedata_flags: TLabel;
+    eddogdata_flags: TJvComboEdit;
+    lbdogdata_flags: TLabel;
+    eddosdata_flags: TJvComboEdit;
+    lbdosdata_flags: TLabel;
+    eddordata_flags: TJvComboEdit;
+    lbdordata_flags: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2342,6 +2352,7 @@ type
     procedure btesUpdClick(Sender: TObject);
     procedure btesDelClick(Sender: TObject);
     procedure GetCommand(Sender: TObject);
+    procedure GetDataFlags(Sender: TObject);
     procedure edcontypeChange(Sender: TObject);
     procedure edsscommandChange(Sender: TObject);
     procedure edescommandChange(Sender: TObject);
@@ -13401,6 +13412,11 @@ end;
 procedure TMainForm.btesDelClick(Sender: TObject);
 begin
   ScriptDel(lvesEndScript);
+end;
+
+procedure TMainForm.GetDataFlags(Sender: TObject);
+begin
+  GetSomeFlags(Sender, 'DataFlags');
 end;
 
 procedure TMainForm.GetCommand(Sender: TObject);
