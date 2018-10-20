@@ -3419,6 +3419,8 @@ var
   i: Integer;
 begin
   Result := '';
+  if (StrToIntDef(id, 0) < 1) then
+    Exit;
   if lvList.Items.Count > 0 then
   begin
     for i := 0 to lvList.Items.Count - 2 do
@@ -3448,7 +3450,7 @@ begin
       [tn, id, Result]);
   end
   else
-    Result := Format('DELETE FROM `%s` WHERE `id`=%s;', [tn, id]);
+    Result := Format('DELETE FROM `%s` WHERE `id`=%s;'#13#10, [tn, id]);
 end;
 
 function TMainForm.FullMvmntScript(lvList: TJvListView; tn: string; id: string): string;
@@ -3591,8 +3593,8 @@ begin
           [s2, id, quest])
     end;
 
-  s5 := ScriptSQLScript(lvssStartScript, SCRIPT_TABLE_QUEST_START, edqtStartScript.Text);
-  s6 := ScriptSQLScript(lvesEndScript, SCRIPT_TABLE_QUEST_END, edqtCompleteScript.Text);
+  s5 := DBScriptsOnSQLScript(lvssStartScript, SCRIPT_TABLE_QUEST_START, edqtStartScript.Text);
+  s6 := DBScriptsOnSQLScript(lvesEndScript, SCRIPT_TABLE_QUEST_END, edqtCompleteScript.Text);
 
   SetFieldsAndValues(Fields, Values, 'quest_template', PFX_QUEST_TEMPLATE, meqtLog);
 
@@ -11793,70 +11795,70 @@ procedure TMainForm.btssShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvssStartScript, SCRIPT_TABLE_QUEST_START, edssid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvssStartScript, SCRIPT_TABLE_QUEST_START, edssid.Text);
 end;
 
 procedure TMainForm.btesShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvesEndScript, SCRIPT_TABLE_QUEST_END, edesid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvesEndScript, SCRIPT_TABLE_QUEST_END, edesid.Text);
 end;
 
 procedure TMainForm.btcmsShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvcmsCreatureMovementScript, SCRIPT_TABLE_CREATURE_MOVEMENT, edcmsid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvcmsCreatureMovementScript, SCRIPT_TABLE_CREATURE_MOVEMENT, edcmsid.Text);
 end;
 
 procedure TMainForm.btcdsShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvcdsCreatureOnDeathScript, SCRIPT_TABLE_CREATURE_DEATH, edcdsid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvcdsCreatureOnDeathScript, SCRIPT_TABLE_CREATURE_DEATH, edcdsid.Text);
 end;
 
 procedure TMainForm.btgbShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvgbGOScript, SCRIPT_TABLE_GO, edgbid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvgbGOScript, SCRIPT_TABLE_GO, edgbid.Text);
 end;
 
 procedure TMainForm.btgtbShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvgtbGOTemplateScript, SCRIPT_TABLE_GO_TEMPLATE, edgtbid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvgtbGOTemplateScript, SCRIPT_TABLE_GO_TEMPLATE, edgtbid.Text);
 end;
 
 procedure TMainForm.btdoeShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvdoeEventScript, SCRIPT_TABLE_EVENT, eddoeid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvdoeEventScript, SCRIPT_TABLE_EVENT, eddoeid.Text);
 end;
 
 procedure TMainForm.btdogShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvdogGossipScript, SCRIPT_TABLE_GOSSIP, eddogid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvdogGossipScript, SCRIPT_TABLE_GOSSIP, eddogid.Text);
 end;
 
 procedure TMainForm.btdosShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvdosSpellScript, SCRIPT_TABLE_SPELL, eddosid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvdosSpellScript, SCRIPT_TABLE_SPELL, eddosid.Text);
 end;
 
 procedure TMainForm.btdorShowFullScriptOnClick(Sender: TObject);
 begin
   medbScript.Clear;
   DBScriptString.ActivePageIndex := SCRIPT_TAB_NO_DBSCRIPTS_ON;
-  medbScript.Text := ScriptSQLScript(lvdorRelayScript, SCRIPT_TABLE_RELAY, eddorid.Text);
+  medbScript.Text := DBScriptsOnSQLScript(lvdorRelayScript, SCRIPT_TABLE_RELAY, eddorid.Text);
 end;
 
 procedure TMainForm.btrtFullScriptOnClick(Sender: TObject);
