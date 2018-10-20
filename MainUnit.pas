@@ -2819,7 +2819,7 @@ type
     procedure LoadItemInvolvedIn(entry: string);
     function GetValueFromDBC(Name: string; id: Cardinal; idx_str: Integer = 1): string;
     function GetZoneOrSortAcronym(ZoneOrSort: Integer): string;
-    function ScriptSQLScript(lvList: TJvListView; tn, id: string): string;
+    function DBScriptsOnSQLScript(lvList: TJvListView; tn, id: string): string;
 	function FullMvmntScript(lvList: TJvListView; tn: string; id: string): string;
 	function FullMvmntTmplScript(lvList: TJvListView; tn: string; id: string): string;
     function RandomTemplatesSQLScript(lvList: TJvListView; tn, id: string): string;
@@ -3414,7 +3414,7 @@ begin
   end;
 end;
 
-function TMainForm.ScriptSQLScript(lvList: TJvListView; tn: string; id: string): string;
+function TMainForm.DBScriptsOnSQLScript(lvList: TJvListView; tn: string; id: string): string;
 var
   i: Integer;
 begin
