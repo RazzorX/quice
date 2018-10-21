@@ -6293,33 +6293,32 @@ end;
 
 function TMainForm.GetActionParamHint(ActionType: Integer; ParamNo: Integer): string;
 begin
-  if (ActionType >= 1) and (ActionType <= 38) then
+  if (ActionType >= 1) and (ActionType <= 57) then
   begin
     case ActionType of
       1:
         begin
-          Result := 'This action is pretty straightforward. When activated, the ' +
-            'creature will say the specified text.';
+          Result := 'EventAI will randomize between the parameters, if they will exist.';
 
           case ParamNo of
             1:
-              Result := 'The text ID to the localized text entry that the creature should say';
+              Result := 'The entry of the text that the NPC should use from eventai_texts table.';
             2:
-              Result := 'Not Used';
+              Result := 'The entry of the text that the NPC should use from eventai_texts table.';
             3:
-              Result := 'Not Used';
+              Result := 'The entry of the text that the NPC should use from eventai_texts table.';
           end;
         end;
 
       2:
         begin
-          Result := 'The same as above except that the creature will yell the specified text when the action is activated.';
+          Result := 'Changes faction for creature.';
 
           case ParamNo of
             1:
-              Result := 'The text ID to the localized text entry that the creature should say';
+              Result := 'FactionId from Faction.dbc OR 0.';
             2:
-              Result := 'Not Used';
+              Result := 'When Parameter 1 is not 0, flags can be used to restore default faction at certain events.';
             3:
               Result := 'Not Used';
           end;
@@ -6327,12 +6326,12 @@ begin
 
       3:
         begin
-          Result := 'When activated, the creature will do a text emote using the specified text. A text emote is what you would regularly see by using the /me slash command. ';
+          Result := 'Action change the model of creature.';
           case ParamNo of
             1:
-              Result := 'The text ID to the localized text entry that the creature should say';
+              Result := 'Creature entry from creature_template.';
             2:
-              Result := 'Not Used';
+              Result := 'If parameter 1 is 0, then this modelId will be used';
             3:
               Result := 'Not Used';
           end;
@@ -6364,35 +6363,9 @@ begin
           end;
         end;
 
-      6:
+      6, 7, 8:
         begin
-          Result := 'Similar to the ACTION_T_SAY action, when this action is activated, it will choose at random a text entry to say. This action needs all three parameters to be filled and it will pick a random entry from the three.';
-          case ParamNo of
-            1:
-              Result := 'The text ID to the localized text entry that the creature should say as choice one.';
-            2:
-              Result := 'The text ID to the localized text entry that the creature should say as choice two.';
-            3:
-              Result := 'The text ID to the localized text entry that the creature should say as choice three.';
-          end;
-        end;
-
-      7:
-        begin
-          Result := 'Similar to the ACTION_T_YELL action, when this action is activated, it will choose at random a text entry to yell. This action needs all three parameters to be filled and it will pick a random entry from the three. ';
-          case ParamNo of
-            1:
-              Result := 'The text ID to the localized text entry that the creature should say as choice one.';
-            2:
-              Result := 'The text ID to the localized text entry that the creature should say as choice two.';
-            3:
-              Result := 'The text ID to the localized text entry that the creature should say as choice three.';
-          end;
-        end;
-
-      8:
-        begin
-          Result := 'Similar to the ACTION_T_TEXTEMOTE action, when this action is activated, it will choose at random a text entry to emote. This action needs all three parameters to be filled and it will pick a random entry from the three.';
+          Result := 'Can be reused to create new action type';
           case ParamNo of
             1:
               Result := 'The text ID to the localized text entry that the creature should say as choice one.';
@@ -6408,11 +6381,11 @@ begin
           Result := 'Similar to the ACTION_T_SOUND action, when this action is activated, it will choose at random a sound to play. This action needs all three parameters to be filled and it will pick a random entry from the three.';
           case ParamNo of
             1:
-              Result := 'The text ID to the localized text entry that the creature should yell as choice one.';
+              Result := 'The Sound ID to be played as Random Choice.';
             2:
-              Result := 'The text ID to the localized text entry that the creature should yell as choice two.';
+              Result := 'The Sound ID to be played as Random Choice.';
             3:
-              Result := 'The text ID to the localized text entry that the creature should yell as choice three.';
+              Result := 'The Sound ID to be played as Random Choice.';
           end;
         end;
 
@@ -6421,11 +6394,11 @@ begin
           Result := 'Similar to the ACTION_T_EMOTE action, when this action is activated, it will choose at random an emote ID to emote visually. This action needs all three parameters to be filled and it will pick a random entry from the three.';
           case ParamNo of
             1:
-              Result := 'The text ID to the localized text entry that the creature should use for an emote as choice one.';
+              Result := 'The Emote ID to be played as Random Choicee.';
             2:
-              Result := 'The text ID to the localized text entry that the creature should use for an emote as choice two. ';
+              Result := 'The Emote ID to be played as Random Choice. ';
             3:
-              Result := 'The text ID to the localized text entry that the creature should use for an emote as choice three. ';
+              Result := 'The Emote ID to be played as Random Choice. ';
           end;
         end;
 
@@ -6436,9 +6409,9 @@ begin
             1:
               Result := 'The spell ID to use for the cast. The value used in this field needs to be a valid spell ID.';
             2:
-              Result := 'The target type defining who the creature should cast on. The value in this field needs to be a valid target type as specified in the reference tables below.';
+              Result := 'The target type defining who the creature should cast on.';
             3:
-              Result := 'This field can only be 0 or 1. If it is 1, then the spell cast will interrupt any spells that are already in the progress of being casted; otherwise if the creature is already casting a spell and this field is 0, then this action will be skipped.';
+              Result := 'CastFlags.';
           end;
         end;
 
@@ -6449,7 +6422,7 @@ begin
             1:
               Result := 'The creature template ID to be summoned. The value here needs to be a valid creature template ID. ';
             2:
-              Result := 'The target type defining who the summoned creature will attack. The value in this field needs to be a valid target type as specified in the reference tables below. NOTE: Using target type 0 will cause the summoned creature to not attack anyone. ';
+              Result := 'The target type defining who the summoned creature will attack. NOTE: Using target type 0 will cause the summoned creature to not attack anyone. ';
             3:
               Result := 'The duration until the summoned creature should be unsummoned. The value in this field is in milliseconds or 0. If zero, then the creature will not be unsummoned until it leaves combat. ';
           end;
@@ -6461,7 +6434,7 @@ begin
             1:
               Result := 'Threat percent that should be modified. The value in this field can range from -100 to +100. If it is negative, threat will be taken away and if positive, threat will be added. ';
             2:
-              Result := 'The target type defining on whom the threat change should occur. The value in this field needs to be a valid target type as specified in the reference tables below. ';
+              Result := 'The target type defining on whom the threat change should occur.';
             3:
               Result := 'Not Used';
           end;
@@ -6491,9 +6464,9 @@ begin
             1:
               Result := 'The quest template ID. The value here must be a valid quest template ID. Furthermore, the quest should have SpecialFlags | 2 as it would need to be completed by an external event which is the activation of this action. ';
             2:
-              Result := 'The target type defining whom the quest should be completed for. The value in this field needs to be a valid target type as specified in the reference tables below. ';
+              Result := 'The target type defining whom the quest should be completed for.';
             3:
-              Result := 'Not Used';
+              Result := 'RewardGroup - Used to decide if entire group should be rewarded (1 = entire group, 0 = single target)';
           end;
         end;
 
@@ -6502,11 +6475,11 @@ begin
           Result := 'When activated, this action will call CastedCreatureOrGO() function for the player. It can be used to give quest credit for casting a spell on the creature. ';
           case ParamNo of
             1:
-              Result := 'The quest template ID. The value here must be a valid quest template ID. ';
+              Result := 'The Creature Template ID to be Summoned. The value here needs to be a valid Creature Template ID. ';
             2:
               Result := 'The spell ID to use to simulate the cast. The value used in this field needs to be a valid spell ID. ';
             3:
-              Result := 'The target type defining whom the quest credit should be given to. The value in this field needs to be a valid target type as specified in the reference tables below. ';
+              Result := 'The target type defining whom the quest credit should be given to.';
           end;
         end;
 
@@ -6515,11 +6488,11 @@ begin
           Result := 'When activated, this action can change the target`s unit field values. More information on the field value indeces can be found at character data. ';
           case ParamNo of
             1:
-              Result := 'The index of the field number to be changed. Use character data for a list of indeces and what they control. Note that a creature shares the same indeces with a player except for the PLAYER_* ones. ';
+              Result := 'The index of the field number to be changed. Use character data for a list of indexes and what they control. Note that a creature shares the same indexes with a player except for the PLAYER_* ones. ';
             2:
               Result := 'The new value to be put in the field. ';
             3:
-              Result := 'The target type defining for whom the unit field should be changed. The value in this field needs to be a valid target type as specified in the reference tables below. ';
+              Result := 'The target type defining for whom the unit field should be changed.';
           end;
         end;
 
@@ -6530,7 +6503,7 @@ begin
             1:
               Result := 'The flag(s) to be set. Multiple flags can be set by using bitwise-OR on them (adding them together). ';
             2:
-              Result := 'The target type defining for whom the flags should be changed. The value in this field needs to be a valid target type as specified in the reference tables below. ';
+              Result := 'The target type defining for whom the flags should be changed.';
             3:
               Result := 'Not Used';
           end;
@@ -6543,7 +6516,7 @@ begin
             1:
               Result := 'The flag(s) to be set. Multiple flags can be set by using bitwise-OR on them (adding them together). ';
             2:
-              Result := 'The target type defining for whom the flags should be changed. The value in this field needs to be a valid target type as specified in the reference tables below. ';
+              Result := 'The target type defining for whom the flags should be changed.';
             3:
               Result := 'Not Used';
           end;
@@ -6572,7 +6545,8 @@ begin
                 'If non-zero, then the creature will either continue its melee ' +
                 'attacks (the action would then have no effect) or it will start its melee attacks on the target with the top threat if its melee attacks were previously stopped. ';
             2:
-              Result := 'Not Used';
+              Result := 'If non-zero, then stop melee combat state (if param1=0) or ' +
+                'start melee combat state (if param1!=0) and creature in combat with selected target.';
             3:
               Result := 'Not Used';
           end;
@@ -6637,7 +6611,7 @@ begin
             1:
               Result := 'The quest ID to finish for everyone. ';
             2:
-              Result := 'Not Used';
+              Result := 'If set to 1, it will complete the QuestId for all the players in the threat list. If set to 0, it will use the action invoker.';
             3:
               Result := 'Not Used';
           end;
@@ -6710,12 +6684,12 @@ begin
 
       32:
         begin
-          Result := 'Summons a creature using the data specified in the separate summons table. ';
+          Result := 'Summons creature (param1) to attack target (param2) at location specified by creature_ai_summons (param3). ';
           case ParamNo of
             1:
               Result := 'The creature template ID to be summoned. The value here needs to be a valid creature template ID. ';
             2:
-              Result := 'The target type defining who the summoned creature will attack. The value in this field needs to be a valid target type as specified in the reference tables below. NOTE: Using target type 0 will cause the summoned creature to not attack anyone. ';
+              Result := 'The target type defining who the summoned creature will attack. NOTE: Using target type 0 will cause the summoned creature to not attack anyone. ';
             3:
               Result := 'The summon ID from the eventai_summons table controlling the position (and spawntime) where the summoned mob should be spawned at. ';
           end;
@@ -6729,7 +6703,7 @@ begin
             1:
               Result := 'The creature template ID. The value here must be a valid creature template ID. ';
             2:
-              Result := 'The target type defining whom the quest kill count should be given to. The value in this field needs to be a valid target type as specified in the reference tables below. ';
+              Result := 'The target type defining whom the quest kill count should be given to.';
             3:
               Result := 'Not Used';
           end;
@@ -6795,6 +6769,256 @@ begin
               Result := 'Not Used';
             2:
               Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      39:
+        begin
+          Result := 'Call any friendly creatures (if its not in combat/etc) in radius attack creature target.';
+          case ParamNo of
+            1:
+              Result := 'All friendly (not only same faction) creatures will go to help';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      40:
+        begin
+          Result := 'Set Sheath State For NPC. Note: SHEATH_STATE_RANGED case work in combat state only if combat not start as melee commands.';
+          case ParamNo of
+            1:
+              Result := 'Set Sheath State (0-Unarmed,1-Melee,2-Ranged)';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      41:
+        begin
+          Result := 'Despawns The NPC with optional delay time (Works In or Out of Combat)';
+          case ParamNo of
+            1:
+              Result := 'Sets delay time until Despawn occurs after triggering the action. Time is in (ms)';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      42:
+        begin
+          Result := 'NOTE: To Cancel Invincible You Need To Set Script For Either 0% HP or 0 HP So Then NPC Can Be Killed Again';
+          case ParamNo of
+            1:
+              Result := 'Minimum Health Level That NPC Can Reach (NPC Will Not Go Below This Value)';
+            2:
+              Result := 'Sets Format of Parameter 1 Value (0-Exact Value, 1-HP Percent)';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      43:
+        begin
+          Result := 'If (Param1) AND (Param2) are both 0, unmount';
+          case ParamNo of
+            1:
+              Result := 'Set mount model from creature_template.entry';
+            2:
+              Result := 'Set mount model by explicit modelId';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      44:
+        begin
+          Result := 'Set chance of the text';
+          case ParamNo of
+            1:
+              Result := 'Chance with which a text will be displayed (must be between 1 and 99)';
+            2:
+              Result := 'The entry of the text that the NPC should use from eventai_texts table. Optionally a entry from other tables can be used (such as custom_texts).';
+            3:
+              Result := 'Optional TextId can be defined in addition. The same apply to this as explained above, however eventAI will randomize between the two.';
+          end;
+        end;
+
+      45:
+        begin
+          Result := 'Sender is EAI creature owner, Receiver is creatures found in radius, and Invoker is the one who triggered the event. Invoker can be specified regardless of Sender/Receiver and this enables relaying target.';
+          case ParamNo of
+            1:
+              Result := 'What AIEvent to throw';
+            2:
+              Result := 'Throw the AIEvent to nearby friendly creatures within this range';
+            3:
+              Result := 'The thrown AIEvent uses selected target as Invoker';
+          end;
+        end;
+
+      46:
+        begin
+          Result := 'This action sets which AIEvents a npc will throw automatically.';
+          case ParamNo of
+            1:
+              Result := 'Which AIEvents to throw';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      47:
+        begin
+          Result := 'This action set stand state for the creature.';
+          case ParamNo of
+            1:
+              Result := 'Stand state id to be used by the creature';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      48:
+        begin
+          Result := 'This action change movement type for the creature.';
+          case ParamNo of
+            1:
+              Result := 'Movement type id to be used by the creature. Can be 0 = Idle, 1 = Random, 2 = Waypoint.';
+            2:
+              Result := 'Wander distance to be used in case the movement type is 1.';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      49:
+        begin
+          Result := 'This action manage dynamic movement of the creature.';
+          case ParamNo of
+            1:
+              Result := 'Enable dynamic movement behavior. 1 = on / 0 = off.';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      50:
+        begin
+          Result := 'This action set the react state of the creature. Default behavior is Aggresive.';
+          case ParamNo of
+            1:
+              Result := 'Define the react state of the creature. 0 = Passive, 1 = Defensive, 2 = Aggresive.';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      51:
+        begin
+          Result := 'This action manage waypoints of the creature.';
+          case ParamNo of
+            1:
+              Result := 'Pause or unpause waypoints for creature. 0 - Unpause, 1 - Pause.';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      52:
+        begin
+          Result := 'Main purpose of this command is to research and find channeled spells (SpellType=3), which do not interrupt as a result of not having found an interrupt flag.';
+          case ParamNo of
+            1:
+              Result := 'Interrupt spell in SpellType slot.';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      53:
+        begin
+          Result := 'Launches a dbscripts_on_relay (either static or random one) with selected target as source and creature as target';
+          case ParamNo of
+            1:
+              Result := 'dbscripts_on_relay ID if > 0, if < 0 dbscript_random_template relay template';
+            2:
+              Result := 'Target which will determine the source of the script';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      54:
+        begin
+          Result := 'Says a text at given target, deprecates TEXT and CHANCED_TEXT actions, due to superior capabilities. Is a mirror of dbscripts capabilities. ' +
+		  'The text IDs are checked against creature_ai_texts for both Parameter 1 and random template in Parameter 3 ' +
+		  'NOTE: if Parameter 3 is set, it always takes precedence over Parameter 1, random template has a higher priority. (as such, only one of them needs to be set)';
+          case ParamNo of
+            1:
+              Result := 'Text ID that the creature should say';
+            2:
+              Result := 'Target at which the creature will speak';
+            3:
+              Result := 'dbscript_random_template text template';
+          end;
+        end;
+
+      55:
+        begin
+          Result := 'Attacks targeted creature. This has particular use when we want to attack specific target received through ACTION_T_THROW_AI_EVENT for example. Can also be used to attack summoner at spawn for example.';
+          case ParamNo of
+            1:
+              Result := 'Target at which the creature will attack';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      56:
+        begin
+          Result := 'If a given entry (param1) is valid and found, despawns guardian with given entry. If parameter 1 is 0, despawns all guardians (which is the more common script action).';
+          case ParamNo of
+            1:
+              Result := 'Entry ID of guardian to be despawned (can also be 0)';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      57:
+        begin
+          Result := 'Meant to enter a state which simulates Casters, be it normal mana casters or ranged bow/thrown attackers. ' + 
+		  'Take note of: EFLAG_RANGED_MODE_ONLY, EFLAG_MELEE_MODE_ONLY, EFLAG_COMBAT_ACTION, CAST_MAIN_SPELL and CAST_DISTANCE_YOURSELF';
+          case ParamNo of
+            1:
+              Result := 'Type of Ranged Mode';
+            2:
+              Result := 'Distance at which creature will chase during ranged mode';
             3:
               Result := 'Not Used';
           end;
