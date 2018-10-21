@@ -1338,7 +1338,6 @@ type
     lbctdifficulty_entry_1: TLabel;
     lbcnevent_param4: TLabel;
     edcnevent_param4: TJvComboEdit;
-    edcnevent_flags: TLabeledEdit;
     edqtRewHonorAddition: TLabeledEdit;
     edqtMethod: TLabeledEdit;
     pmruwowhead: TMenuItem;
@@ -2109,6 +2108,8 @@ type
     lbdosdata_flags: TLabel;
     eddordata_flags: TJvComboEdit;
     lbdordata_flags: TLabel;
+    edcnevent_flags: TJvComboEdit;
+    lbcnevent_flags: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2538,6 +2539,7 @@ type
     procedure GetInhabitType(Sender: TObject);
     procedure lvcnEventAISelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure Button1Click(Sender: TObject);
+    procedure GetEventFlags(Sender: TObject);
     procedure GetEventType(Sender: TObject);
     procedure GetActionType(Sender: TObject);
     procedure linkEventAIInfoClick(Sender: TObject);
@@ -6851,7 +6853,7 @@ begin
         S[1] := 'ManaMax%';
         S[2] := 'ManaMin%';
       end;
-    4, 7, 21:
+    4, 7, 19, 20, 21:
       begin
         S[1] := 'n/a';
         S[2] := 'n/a';
@@ -6972,6 +6974,11 @@ end;
 procedure TMainForm.GetEventType(Sender: TObject);
 begin
   GetValueFromSimpleList(Sender, 0, 'EventType', false);
+end;
+
+procedure TMainForm.GetEventFlags(Sender: TObject);
+begin
+  GetSomeFlags(Sender, 'EventFlags');
 end;
 
 procedure TMainForm.GetArea(Sender: TObject);
