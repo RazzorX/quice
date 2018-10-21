@@ -2542,6 +2542,7 @@ type
     procedure GetEventFlags(Sender: TObject);
     procedure GetEventType(Sender: TObject);
     procedure GetActionType(Sender: TObject);
+    procedure GetTargetType(Sender: TObject);
     procedure linkEventAIInfoClick(Sender: TObject);
     procedure GetMechanicImmuneMask(Sender: TObject);
     procedure GetSchoolImmuneMask(Sender: TObject);
@@ -2549,6 +2550,7 @@ type
       State: TCustomDrawState; var DefaultDraw: Boolean);
     procedure Timer1Timer(Sender: TObject);
     procedure edcnevent_typeChange(Sender: TObject);
+    procedure edcnaction_typeChange(Sender: TObject; num: string);
     procedure edcnaction1_typeChange(Sender: TObject);
     procedure edcnaction2_typeChange(Sender: TObject);
     procedure edcnaction3_typeChange(Sender: TObject);
@@ -7030,28 +7032,38 @@ begin
     Result := '';
 end;
 
+procedure TMainForm.edcnaction_typeChange(Sender: TObject; num: string);
+begin
+  TJvComboEdit(FindComponent('edcnaction'+ num + '_param1')).ShowButton := false;
+  TJvComboEdit(FindComponent('edcnaction'+ num + '_param2')).ShowButton := false;
+  TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).ShowButton := false;
+  case StrToIntDef(TJvComboEdit(FindComponent('edcnaction'+ num + '_type')).Text, 1) of
+	28, 55:
+      TJvComboEdit(FindComponent('edcnaction'+ num + '_param1')).ShowButton := true;
+    11, 12, 13, 15, 18, 19, 32, 33, 35, 54:
+      TJvComboEdit(FindComponent('edcnaction'+ num + '_param2')).ShowButton := true;
+	16, 17, 45, 53:
+      TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).ShowButton := true;
+  end;
+  TJvComboEdit(FindComponent('edcnaction'+ num + '_type')).Hint := GetActionParamHint(StrToIntDef(TCustomEdit(FindComponent('edcnaction'+ num + '_type')).Text, 1), -1);
+  TJvComboEdit(FindComponent('edcnaction'+ num + '_param1')).Hint := GetActionParamHint(StrToIntDef(TCustomEdit(FindComponent('edcnaction'+ num + '_type')).Text, -1), 1);
+  TJvComboEdit(FindComponent('edcnaction'+ num + '_param2')).Hint := GetActionParamHint(StrToIntDef(TCustomEdit(FindComponent('edcnaction'+ num + '_type')).Text, -1), 2);
+  TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).Hint := GetActionParamHint(StrToIntDef(TCustomEdit(FindComponent('edcnaction'+ num + '_type')).Text, -1), 3);
+end;
+
 procedure TMainForm.edcnaction1_typeChange(Sender: TObject);
 begin
-  edcnaction1_type.Hint := GetActionParamHint(StrToIntDef(edcnaction1_type.Text, 1), -1);
-  edcnaction1_param1.Hint := GetActionParamHint(StrToIntDef(edcnaction1_type.Text, -1), 1);
-  edcnaction1_param2.Hint := GetActionParamHint(StrToIntDef(edcnaction1_type.Text, -1), 2);
-  edcnaction1_param3.Hint := GetActionParamHint(StrToIntDef(edcnaction1_type.Text, -1), 3);
+  edcnaction_typeChange(Sender, '1');
 end;
 
 procedure TMainForm.edcnaction2_typeChange(Sender: TObject);
 begin
-  edcnaction2_type.Hint := GetActionParamHint(StrToIntDef(edcnaction1_type.Text, 2), -1);
-  edcnaction2_param1.Hint := GetActionParamHint(StrToIntDef(edcnaction2_type.Text, -1), 1);
-  edcnaction2_param2.Hint := GetActionParamHint(StrToIntDef(edcnaction2_type.Text, -1), 2);
-  edcnaction2_param3.Hint := GetActionParamHint(StrToIntDef(edcnaction2_type.Text, -1), 3);
+  edcnaction_typeChange(Sender, '2');
 end;
 
 procedure TMainForm.edcnaction3_typeChange(Sender: TObject);
 begin
-  edcnaction3_type.Hint := GetActionParamHint(StrToIntDef(edcnaction1_type.Text, 3), -1);
-  edcnaction3_param1.Hint := GetActionParamHint(StrToIntDef(edcnaction3_type.Text, -1), 1);
-  edcnaction3_param2.Hint := GetActionParamHint(StrToIntDef(edcnaction3_type.Text, -1), 2);
-  edcnaction3_param3.Hint := GetActionParamHint(StrToIntDef(edcnaction3_type.Text, -1), 3);
+  edcnaction_typeChange(Sender, '3');
 end;
 
 procedure TMainForm.edcnevent_typeChange(Sender: TObject);
@@ -7188,6 +7200,11 @@ begin
   edcnevent_param2.Hint := S[2];
   edcnevent_param3.Hint := S[3];
   edcnevent_param4.Hint := S[4];
+end;
+
+procedure TMainForm.GetTargetType(Sender: TObject);
+begin
+  GetValueFromSimpleList(Sender, 0, 'TargetTypes', false);
 end;
 
 procedure TMainForm.GetActionType(Sender: TObject);

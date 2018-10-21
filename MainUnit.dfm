@@ -15052,6 +15052,7 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 14
             Text = ''
+            OnButtonClick = GetTargetType
           end
           object edcnaction1_param2: TJvComboEdit
             Left = 284
@@ -15089,6 +15090,7 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 13
             Text = ''
+            OnButtonClick = GetTargetType
           end
           object edcnaction1_param1: TJvComboEdit
             Left = 156
@@ -15126,6 +15128,7 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 12
             Text = ''
+            OnButtonClick = GetTargetType
           end
           object edcnaction1_type: TJvComboEdit
             Left = 4
@@ -15202,6 +15205,7 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 18
             Text = ''
+            OnButtonClick = GetTargetType
           end
           object edcnaction2_param2: TJvComboEdit
             Left = 284
@@ -15239,6 +15243,7 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 17
             Text = ''
+            OnButtonClick = GetTargetType
           end
           object edcnaction2_param1: TJvComboEdit
             Left = 156
@@ -15276,6 +15281,7 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 16
             Text = ''
+            OnButtonClick = GetTargetType
           end
           object edcnaction2_type: TJvComboEdit
             Left = 4
@@ -15352,6 +15358,7 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 22
             Text = ''
+            OnButtonClick = GetTargetType
           end
           object edcnaction3_param2: TJvComboEdit
             Left = 284
@@ -15389,6 +15396,7 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 21
             Text = ''
+            OnButtonClick = GetTargetType
           end
           object edcnaction3_param1: TJvComboEdit
             Left = 156
@@ -15426,6 +15434,7 @@ object MainForm: TMainForm
             ShowButton = False
             TabOrder = 20
             Text = ''
+            OnButtonClick = GetTargetType
           end
           object edcnaction3_type: TJvComboEdit
             Left = 4
