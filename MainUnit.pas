@@ -2540,6 +2540,7 @@ type
     procedure lvcnEventAISelectItem(Sender: TObject; Item: TListItem; Selected: Boolean);
     procedure Button1Click(Sender: TObject);
     procedure GetEventFlags(Sender: TObject);
+    procedure GetCastFlags(Sender: TObject);
     procedure GetEventType(Sender: TObject);
     procedure GetActionType(Sender: TObject);
     procedure GetTargetType(Sender: TObject);
@@ -7037,10 +7038,17 @@ begin
   TJvComboEdit(FindComponent('edcnaction'+ num + '_param1')).ShowButton := false;
   TJvComboEdit(FindComponent('edcnaction'+ num + '_param2')).ShowButton := false;
   TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).ShowButton := false;
+  TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).OnButtonClick := GetTargetType;
   case StrToIntDef(TJvComboEdit(FindComponent('edcnaction'+ num + '_type')).Text, 1) of
 	28, 55:
       TJvComboEdit(FindComponent('edcnaction'+ num + '_param1')).ShowButton := true;
-    11, 12, 13, 15, 18, 19, 32, 33, 35, 54:
+	11:
+	begin
+      TJvComboEdit(FindComponent('edcnaction'+ num + '_param2')).ShowButton := true;
+      TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).ShowButton := true;
+      TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).OnButtonClick := GetCastFlags;
+	end;  
+	12, 13, 15, 18, 19, 32, 33, 35, 54:
       TJvComboEdit(FindComponent('edcnaction'+ num + '_param2')).ShowButton := true;
 	16, 17, 45, 53:
       TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).ShowButton := true;
@@ -7220,6 +7228,11 @@ end;
 procedure TMainForm.GetEventFlags(Sender: TObject);
 begin
   GetSomeFlags(Sender, 'EventFlags');
+end;
+
+procedure TMainForm.GetCastFlags(Sender: TObject);
+begin
+  GetSomeFlags(Sender, 'CastFlags');
 end;
 
 procedure TMainForm.GetArea(Sender: TObject);
