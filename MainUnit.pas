@@ -898,8 +898,6 @@ type
     btssDel: TSpeedButton;
     edssdelay: TLabeledEdit;
     lbsscommand: TLabel;
-    edssdatalong: TLabeledEdit;
-    edssdatalong2: TLabeledEdit;
     edssx: TLabeledEdit;
     edssy: TLabeledEdit;
     edssz: TLabeledEdit;
@@ -911,8 +909,6 @@ type
     btesDel: TSpeedButton;
     edesdelay: TLabeledEdit;
     lbescommand: TLabel;
-    edesdatalong: TLabeledEdit;
-    edesdatalong2: TLabeledEdit;
     edesx: TLabeledEdit;
     edesy: TLabeledEdit;
     edesz: TLabeledEdit;
@@ -1156,8 +1152,6 @@ type
     edgbz: TLabeledEdit;
     edgby: TLabeledEdit;
     edgbx: TLabeledEdit;
-    edgbdatalong2: TLabeledEdit;
-    edgbdatalong: TLabeledEdit;
     edgbdelay: TLabeledEdit;
     edgbcommand: TJvComboEdit;
     lbhintGOButtonScript: TLabel;
@@ -1486,8 +1480,6 @@ type
     btcmsShowFullScript: TButton;
     btcmsUpd: TSpeedButton;
     edcmscommand: TJvComboEdit;
-    edcmsdatalong: TLabeledEdit;
-    edcmsdatalong2: TLabeledEdit;
     edcmsbuddy_entry: TLabeledEdit;
     edcmssearch_radius: TLabeledEdit;
     edcmsdelay: TLabeledEdit;
@@ -1671,8 +1663,6 @@ type
     btcdsUpd: TSpeedButton;
     edcdsbuddy_entry: TLabeledEdit;
     edcdscomments: TLabeledEdit;
-    edcdsdatalong: TLabeledEdit;
-    edcdsdatalong2: TLabeledEdit;
     edcdso: TLabeledEdit;
     edcdssearch_radius: TLabeledEdit;
     edcdsx: TLabeledEdit;
@@ -1683,8 +1673,6 @@ type
     edgtbz: TLabeledEdit;
     edgtby: TLabeledEdit;
     edgtbx: TLabeledEdit;
-    edgtbdatalong2: TLabeledEdit;
-    edgtbdatalong: TLabeledEdit;
     edgtbdelay: TLabeledEdit;
     edgtbbuddy_entry: TLabeledEdit;
     edgtbsearch_radius: TLabeledEdit;
@@ -1801,10 +1789,8 @@ type
     eddoedelay: TLabeledEdit;
     lbdoecommand: TLabel;
     eddoecommand: TJvComboEdit;
-    eddoedatalong: TLabeledEdit;
     eddoex: TLabeledEdit;
     eddoey: TLabeledEdit;
-    eddoedatalong2: TLabeledEdit;
     eddoebuddy_entry: TLabeledEdit;
     eddoez: TLabeledEdit;
     eddoeo: TLabeledEdit;
@@ -1819,10 +1805,8 @@ type
     eddogdelay: TLabeledEdit;
     lbdogcommand: TLabel;
     eddogcommand: TJvComboEdit;
-    eddogdatalong: TLabeledEdit;
     eddogx: TLabeledEdit;
     eddogy: TLabeledEdit;
-    eddogdatalong2: TLabeledEdit;
     eddogbuddy_entry: TLabeledEdit;
     eddogz: TLabeledEdit;
     eddogo: TLabeledEdit;
@@ -1837,10 +1821,8 @@ type
     eddosdelay: TLabeledEdit;
     lbdoscommand: TLabel;
     eddoscommand: TJvComboEdit;
-    eddosdatalong: TLabeledEdit;
     eddosx: TLabeledEdit;
     eddosy: TLabeledEdit;
-    eddosdatalong2: TLabeledEdit;
     eddosbuddy_entry: TLabeledEdit;
     eddosz: TLabeledEdit;
     eddoso: TLabeledEdit;
@@ -1970,10 +1952,8 @@ type
     lvdorRelayScript: TJvListView;
     eddordelay: TLabeledEdit;
     eddorcommand: TJvComboEdit;
-    eddordatalong: TLabeledEdit;
     eddorx: TLabeledEdit;
     eddory: TLabeledEdit;
-    eddordatalong2: TLabeledEdit;
     eddorbuddy_entry: TLabeledEdit;
     eddorz: TLabeledEdit;
     eddoro: TLabeledEdit;
@@ -2110,6 +2090,46 @@ type
     lbdordata_flags: TLabel;
     edcnevent_flags: TJvComboEdit;
     lbcnevent_flags: TLabel;
+    edssdatalong: TJvComboEdit;
+    lbssdatalong: TLabel;
+    edssdatalong2: TJvComboEdit;
+    lbssdatalong2: TLabel;
+    edesdatalong: TJvComboEdit;
+    lbesdatalong: TLabel;
+    lbesdatalong2: TLabel;
+    edesdatalong2: TJvComboEdit;
+    edcmsdatalong: TJvComboEdit;
+    edcmsdatalong2: TJvComboEdit;
+    lbcmsdatalong2: TLabel;
+    lbcmsdatalong: TLabel;
+    edcdsdatalong2: TJvComboEdit;
+    edcdsdatalong: TJvComboEdit;
+    lbcdsdatalong: TLabel;
+    lbcdsdatalong2: TLabel;
+    lbgbdatalong2: TLabel;
+    lbgbdatalong: TLabel;
+    edgbdatalong: TJvComboEdit;
+    edgbdatalong2: TJvComboEdit;
+    edgtbdatalong2: TJvComboEdit;
+    edgtbdatalong: TJvComboEdit;
+    lbgtbdatalong: TLabel;
+    lbgtbdatalong2: TLabel;
+    eddoedatalong2: TJvComboEdit;
+    eddoedatalong: TJvComboEdit;
+    lbdoedatalong: TLabel;
+    lbdoedatalong2: TLabel;
+    eddogdatalong2: TJvComboEdit;
+    eddogdatalong: TJvComboEdit;
+    lbdogdatalong: TLabel;
+    lbdogdatalong2: TLabel;
+    eddosdatalong2: TJvComboEdit;
+    eddosdatalong: TJvComboEdit;
+    lbdosdatalong: TLabel;
+    lbdosdatalong2: TLabel;
+    eddordatalong2: TJvComboEdit;
+    eddordatalong: TJvComboEdit;
+    lbdordatalong: TLabel;
+    lbdordatalong2: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -2624,6 +2644,8 @@ type
     procedure btShowGossipMenuOptionsScriptClick(Sender: TObject);
     procedure GetOptionIcon(Sender: TObject);
     procedure edcgmoaction_menu_idButtonClick(Sender: TObject);
+    procedure GetStandState(Sender: TObject);
+    procedure GetFactionFlags(Sender: TObject);
 
   private
     { Private declarations }
@@ -13785,42 +13807,46 @@ end;
 
 procedure TMainForm.ChangeScriptCommand(command: Integer; pfx: string);
 begin
+  TJvComboEdit(FindComponent('ed' + pfx + 'buddy_entry')).Hint := 'field contains target ID (creature_template.entry / gameobject_template.entry)';
+  TJvComboEdit(FindComponent('ed' + pfx + 'search_radius')).Hint := 'the radius in which the target (specified in the buddy_entry) will be searched';
+  TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).ShowButton := false;
+  TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).ShowButton := false;
+  TJvComboEdit(FindComponent('ed' + pfx + 'datalong3')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'dataint2')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'dataint3')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'dataint4')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := '';
+  TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := '';
   case command of
     0:
       begin
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'always 0';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'dbscript_random_templates.id';
         TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'text to say';
-        TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := 'always 0';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint2')).Hint := 'optional for random selected texts';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint3')).Hint := 'optional for random selected texts';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint4')).Hint := 'optional for random selected texts';
       end;
     1:
       begin
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'emote id from dbc';
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'always empty';
-        TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := 'always 0';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'optional for random selected emotes';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint2')).Hint := 'optional for random selected emotes';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint3')).Hint := 'optional for random selected emotes';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint4')).Hint := 'optional for random selected emotes';
       end;
     2:
       begin
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'field index';
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'value to set';
-        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'always empty';
-        TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := 'always 0';
       end;
     3:
       begin
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'transitTime';
-        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'always empty';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'travel_speed*100 (use 0 for creature default movement)';
         TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := 'destination coord x';
         TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := 'destination coord y';
         TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := 'destination coord z';
@@ -13829,49 +13855,201 @@ begin
     4:
       begin
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'field index';
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'flag to set';
-        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'always empty';
-        TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := 'always 0';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'BitMask';
       end;
     5:
       begin
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'field index';
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'flag to remove';
-        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'always empty';
-        TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := 'always 0';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'BitMask';
       end;
     6:
       begin
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'map id';
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'always 0';
-        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'always empty';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'map id from dbc';
         TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := 'destination coord x';
         TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := 'destination coord y';
         TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := 'destination coord z';
         TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := 'orientation';
       end;
+    7:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'quest_template.entry';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'Distance between NPC/object and player';
+      end;
+    8:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'quest_template.ReqCreatureOrGOId (or 0 for target-entry)';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'bool (0=personal credit, 1=group credit)';
+      end;
+    9, 11, 12:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'gameobject.guid (if 0 then set GO id in buddy_entry)';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'Time in seconds';
+      end;
     10:
       begin
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'creature id to summon';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'creature_template.entry to summon';
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'lifetime of creature (in ms)';
         TJvComboEdit(FindComponent('ed' + pfx + 'datalong3')).Hint := 'creature_movement_template.pathId';
-        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'always empty';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := '(bool) setRun; 0 = off (default), 1 = on';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint2')).Hint := 'factionId - if 0 is set, faction is from DB entry';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint3')).Hint := 'modelId - if 0 is set, model is from DB entry';
         TJvComboEdit(FindComponent('ed' + pfx + 'x')).Hint := 'coord x';
         TJvComboEdit(FindComponent('ed' + pfx + 'y')).Hint := 'coord y';
         TJvComboEdit(FindComponent('ed' + pfx + 'z')).Hint := 'coord z';
         TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := 'orientation';
       end;
+    14:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'spellid from dbc';
+      end;
+    15:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'spellid from dbc';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'castFlags';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'optional for random selected spell';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint2')).Hint := 'optional for random selected spell';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint3')).Hint := 'optional for random selected spell';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint4')).Hint := 'optional for random selected spell';
+      end;
+    16:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'sound_id from dbc';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'bitmask: 0/1=target-player, 0/2=with distance dependent, 0/4=map wide, 0/8=zone wide';
+      end;
+    17:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'item_template.entry';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'Amount';
+      end;
+    18:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'Despawn delay in ms';
+      end;
+    19:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'movie id from dbc';
+      end;
+    20:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'MovementType (0:idle, 1:random or 2:waypoint)';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'wander-distance/pathId';
+      end;
+    21, 25:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'bool 0=off, 1=on';
+      end;
+    22:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'factionId';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'faction_flags';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).ShowButton := true;
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).OnButtonClick := GetFactionFlags;
+      end;
+    23, 24:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'creature entry/modelid';
+      end;
+    27:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := '1=lock, 2=unlock, 4=set not-interactable, 8=set interactable';
+      end;
+    28:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'stand state';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).ShowButton := true;
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).OnButtonClick := GetStandState;
+      end;
+    29:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'NPCFlags';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := '0x00=toggle, 0x01=add, 0x02=remove';
+      end;
+    30:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'taxi path id (source or target must be player)';
+      end;
 	31:
 	  begin
-        TJvComboEdit(FindComponent('ed' + pfx + 'datalong3')).Hint := 'pool_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'search for npc entry if provided';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'search distance';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'diff to change a waittime of current Waypoint Movement';
+	  end;
+    32:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := '0: unpause waypoint 1: pause waypoint';
+      end;
+    33:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'bool (0=off, 1=on)';
+      end;
+    34:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'condition_id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'if != 0 then quest_id of quest that will be failed for player`s group if the script is terminated';
+      end;
+    35:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'AIEventType';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'radius. If radius isn`t provided and the target is a creature, then send AIEvent to target';
+      end;
+    36:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := '!= 0 Reset TargetGuid, Reset orientation';
+      end;
+    37:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'if = 0: Move resSource towards resTarget' + 'if != 0: Move resSource to a random point between datalong2..datalong around resTarget.';
+        TJvComboEdit(FindComponent('ed' + pfx + 'o')).Hint := 'if != 0: Obtain a random point around resTarget in direction of orientation';
+      end;
+	38:
+	  begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'Send mailTemplateId from resSource (if provided) to player resTarget';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'AlternativeSenderEntry. Use as sender-Entry';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'Delay (>= 0) in Seconds';
+	  end;
+    39:
+      begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'bool 0=off, 1=on';
+      end;
+	42:
+	  begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'resetDefault: bool 0=false, 1=true';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'main hand slot';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint2')).Hint := 'ranged slot';
+	  end;
+	44:
+	  begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'new creature entry. Must be different than the current one';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'faction for which the entry is updated. 0 = Alliance, 1 = Horde';
+	  end;
+	45:
+	  begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'dbscripts_on_relay id';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'dbscript_random_templates id';
+	  end;
+	46:
+	  begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'spell id from dbc';
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong2')).Hint := 'CastFlags';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint')).Hint := 'define the &bp for the spell';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint2')).Hint := 'define the &bp for the spell.';
+        TJvComboEdit(FindComponent('ed' + pfx + 'dataint3')).Hint := 'define the &bp for the spell.';
+	  end;
+	47:
+	  begin
+        TJvComboEdit(FindComponent('ed' + pfx + 'datalong')).Hint := 'SpellType';
 	  end;
   end;
+end;
+
+procedure TMainForm.GetStandState(Sender: TObject);
+begin
+  GetValueFromSimpleList(Sender, 0, 'StandState', false);
+end;
+
+procedure TMainForm.GetFactionFlags(Sender: TObject);
+begin
+  GetSomeFlags(Sender, 'FactionFlags');
 end;
 
 procedure TMainForm.ChangeConditionType(condition_type: Integer; pfx: string);
