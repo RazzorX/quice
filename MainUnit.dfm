@@ -14339,119 +14339,119 @@ object MainForm: TMainForm
             992
             564)
           object lbcnevent_type: TLabel
-            Left = 3
-            Top = 347
+            Left = 4
+            Top = 351
             Width = 53
             Height = 13
             Caption = 'event_type'
           end
           object lbcnevent_inverse_phase_mask: TLabel
-            Left = 144
-            Top = 350
+            Left = 275
+            Top = 311
             Width = 133
             Height = 13
             Caption = 'event_inverse_phase_mask'
           end
           object lbcnevent_param1: TLabel
-            Left = 5
-            Top = 393
+            Left = 156
+            Top = 351
             Width = 68
             Height = 13
             Caption = 'event_param1'
           end
           object lbcnevent_param2: TLabel
-            Left = 154
-            Top = 393
+            Left = 284
+            Top = 351
             Width = 68
             Height = 13
             Caption = 'event_param2'
           end
           object lbcnevent_param3: TLabel
-            Left = 283
-            Top = 393
+            Left = 412
+            Top = 351
             Width = 68
             Height = 13
             Caption = 'event_param3'
           end
           object lbcnaction1_param2: TLabel
-            Left = 283
-            Top = 430
+            Left = 284
+            Top = 391
             Width = 76
             Height = 13
             Caption = 'action1_param2'
           end
           object lbcnaction1_param1: TLabel
-            Left = 155
-            Top = 430
+            Left = 156
+            Top = 391
             Width = 76
             Height = 13
             Caption = 'action1_param1'
           end
           object lbcnaction1_type: TLabel
-            Left = 3
-            Top = 430
+            Left = 4
+            Top = 391
             Width = 61
             Height = 13
             Caption = 'action1_type'
           end
           object lbcnaction2_param3: TLabel
-            Left = 411
-            Top = 473
+            Left = 412
+            Top = 431
             Width = 76
             Height = 13
             Caption = 'action2_param3'
           end
           object lbcnaction2_param2: TLabel
-            Left = 283
-            Top = 473
+            Left = 284
+            Top = 431
             Width = 76
             Height = 13
             Caption = 'action2_param2'
           end
           object lbcnaction2_param1: TLabel
-            Left = 155
-            Top = 473
+            Left = 156
+            Top = 431
             Width = 76
             Height = 13
             Caption = 'action2_param1'
           end
           object lbcnaction2_type: TLabel
-            Left = 3
-            Top = 473
+            Left = 4
+            Top = 431
             Width = 61
             Height = 13
             Caption = 'action2_type'
           end
           object lbcnaction3_param3: TLabel
-            Left = 411
-            Top = 519
+            Left = 412
+            Top = 471
             Width = 76
             Height = 13
             Caption = 'action3_param3'
           end
           object lbcnaction3_param2: TLabel
-            Left = 286
-            Top = 519
+            Left = 284
+            Top = 471
             Width = 76
             Height = 13
             Caption = 'action3_param2'
           end
           object lbcnaction3_param1: TLabel
-            Left = 155
-            Top = 520
+            Left = 156
+            Top = 471
             Width = 76
             Height = 13
             Caption = 'action3_param1'
           end
           object lbcnaction3_type: TLabel
-            Left = 3
-            Top = 519
+            Left = 4
+            Top = 471
             Width = 61
             Height = 13
             Caption = 'action3_type'
           end
           object linkEventAIInfo: TLabel
-            Left = 3
+            Left = 4
             Top = 11
             Width = 219
             Height = 13
@@ -14466,22 +14466,22 @@ object MainForm: TMainForm
             OnClick = linkEventAIInfoClick
           end
           object lbcnevent_param4: TLabel
-            Left = 413
-            Top = 394
+            Left = 540
+            Top = 351
             Width = 68
             Height = 13
             Caption = 'event_param4'
           end
           object lbcnaction1_param3: TLabel
-            Left = 411
-            Top = 430
+            Left = 412
+            Top = 391
             Width = 76
             Height = 13
             Caption = 'action1_param3'
           end
           object btEventAIAdd: TSpeedButton
-            Left = 171
-            Top = 322
+            Left = 688
+            Top = 367
             Width = 23
             Height = 22
             Glyph.Data = {
@@ -14530,8 +14530,8 @@ object MainForm: TMainForm
             OnClick = btEventAIAddClick
           end
           object btEventAIUpd: TSpeedButton
-            Left = 211
-            Top = 322
+            Left = 717
+            Top = 367
             Width = 23
             Height = 22
             Enabled = False
@@ -14590,8 +14590,8 @@ object MainForm: TMainForm
             OnClick = btEventAIUpdClick
           end
           object btEventAIDel: TSpeedButton
-            Left = 250
-            Top = 322
+            Left = 746
+            Top = 367
             Width = 23
             Height = 22
             Enabled = False
@@ -14650,8 +14650,8 @@ object MainForm: TMainForm
             OnClick = btEventAIDelClick
           end
           object lbcnevent_flags: TLabel
-            Left = 411
-            Top = 347
+            Left = 540
+            Top = 311
             Width = 55
             Height = 13
             Caption = 'event_flags'
@@ -14668,7 +14668,7 @@ object MainForm: TMainForm
           end
           object Button2: TButton
             Left = 688
-            Top = 355
+            Top = 325
             Width = 169
             Height = 25
             Caption = 'Show Event AI Script'
@@ -14676,7 +14676,7 @@ object MainForm: TMainForm
             OnClick = btScriptCreatureClick
           end
           object lvcnEventAI: TJvListView
-            Left = -4
+            Left = 4
             Top = 30
             Width = 975
             Height = 278
@@ -14810,9 +14810,9 @@ object MainForm: TMainForm
               end>
           end
           object edcnid: TLabeledEdit
-            Left = 3
-            Top = 323
-            Width = 70
+            Left = 4
+            Top = 327
+            Width = 146
             Height = 21
             EditLabel.Width = 8
             EditLabel.Height = 13
@@ -14820,9 +14820,9 @@ object MainForm: TMainForm
             TabOrder = 1
           end
           object edcncreature_id: TLabeledEdit
-            Left = 79
-            Top = 323
-            Width = 70
+            Left = 156
+            Top = 327
+            Width = 122
             Height = 21
             EditLabel.Width = 53
             EditLabel.Height = 13
@@ -14830,9 +14830,9 @@ object MainForm: TMainForm
             TabOrder = 2
           end
           object edcnevent_type: TJvComboEdit
-            Left = 3
-            Top = 366
-            Width = 145
+            Left = 4
+            Top = 367
+            Width = 146
             Height = 21
             ButtonWidth = 22
             ClickKey = 13
@@ -14869,9 +14869,9 @@ object MainForm: TMainForm
             OnChange = edcnevent_typeChange
           end
           object edcnevent_inverse_phase_mask: TJvComboEdit
-            Left = 154
-            Top = 365
-            Width = 123
+            Left = 284
+            Top = 327
+            Width = 122
             Height = 21
             ClickKey = 13
             Glyph.Data = {
@@ -14906,9 +14906,9 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnevent_param1: TJvComboEdit
-            Left = 3
-            Top = 408
-            Width = 146
+            Left = 156
+            Top = 367
+            Width = 122
             Height = 21
             ClickKey = 13
             Glyph.Data = {
@@ -14943,8 +14943,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnevent_param2: TJvComboEdit
-            Left = 155
-            Top = 408
+            Left = 284
+            Top = 367
             Width = 122
             Height = 21
             ClickKey = 13
@@ -14980,8 +14980,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnevent_param3: TJvComboEdit
-            Left = 283
-            Top = 408
+            Left = 412
+            Top = 367
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15017,8 +15017,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction1_param3: TJvComboEdit
-            Left = 411
-            Top = 447
+            Left = 412
+            Top = 407
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15054,8 +15054,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction1_param2: TJvComboEdit
-            Left = 283
-            Top = 447
+            Left = 284
+            Top = 407
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15091,8 +15091,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction1_param1: TJvComboEdit
-            Left = 155
-            Top = 447
+            Left = 156
+            Top = 407
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15128,8 +15128,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction1_type: TJvComboEdit
-            Left = 3
-            Top = 447
+            Left = 4
+            Top = 407
             Width = 146
             Height = 21
             ButtonWidth = 22
@@ -15167,8 +15167,8 @@ object MainForm: TMainForm
             OnChange = edcnaction1_typeChange
           end
           object edcnaction2_param3: TJvComboEdit
-            Left = 411
-            Top = 491
+            Left = 412
+            Top = 447
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15204,8 +15204,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction2_param2: TJvComboEdit
-            Left = 283
-            Top = 491
+            Left = 284
+            Top = 447
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15241,8 +15241,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction2_param1: TJvComboEdit
-            Left = 155
-            Top = 492
+            Left = 156
+            Top = 447
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15278,8 +15278,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction2_type: TJvComboEdit
-            Left = 3
-            Top = 491
+            Left = 4
+            Top = 447
             Width = 146
             Height = 21
             ButtonWidth = 22
@@ -15317,8 +15317,8 @@ object MainForm: TMainForm
             OnChange = edcnaction2_typeChange
           end
           object edcnaction3_param3: TJvComboEdit
-            Left = 411
-            Top = 537
+            Left = 412
+            Top = 487
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15354,8 +15354,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction3_param2: TJvComboEdit
-            Left = 283
-            Top = 537
+            Left = 284
+            Top = 487
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15391,8 +15391,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction3_param1: TJvComboEdit
-            Left = 155
-            Top = 539
+            Left = 156
+            Top = 487
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15428,8 +15428,8 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnaction3_type: TJvComboEdit
-            Left = 3
-            Top = 539
+            Left = 4
+            Top = 487
             Width = 146
             Height = 21
             ButtonWidth = 22
@@ -15467,8 +15467,8 @@ object MainForm: TMainForm
             OnChange = edcnaction3_typeChange
           end
           object edcncomment: TLabeledEdit
-            Left = 3
-            Top = 578
+            Left = 4
+            Top = 527
             Width = 530
             Height = 21
             EditLabel.Width = 43
@@ -15477,8 +15477,8 @@ object MainForm: TMainForm
             TabOrder = 20
           end
           object edcnevent_chance: TLabeledEdit
-            Left = 283
-            Top = 365
+            Left = 412
+            Top = 327
             Width = 122
             Height = 21
             EditLabel.Width = 69
@@ -15487,8 +15487,8 @@ object MainForm: TMainForm
             TabOrder = 23
           end
           object edcnevent_param4: TJvComboEdit
-            Left = 411
-            Top = 408
+            Left = 540
+            Top = 367
             Width = 122
             Height = 21
             ClickKey = 13
@@ -15524,9 +15524,9 @@ object MainForm: TMainForm
             Text = ''
           end
           object edcnevent_flags: TJvComboEdit
-            Left = 411
-            Top = 367
-            Width = 145
+            Left = 540
+            Top = 327
+            Width = 122
             Height = 21
             ButtonWidth = 22
             ClickKey = 13
