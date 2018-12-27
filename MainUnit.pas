@@ -2130,6 +2130,10 @@ type
     eddordatalong: TJvComboEdit;
     lbdordatalong: TLabel;
     lbdordatalong2: TLabel;
+    edcnevent_param5: TJvComboEdit;
+    edcnevent_param6: TJvComboEdit;
+    lbcnevent_param5: TLabel;
+    lbcnevent_param6: TLabel;
     procedure FormActivate(Sender: TObject);
     procedure btSearchClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
@@ -5235,7 +5239,7 @@ begin
     if isEventAI then
       LoadQueryToListView(Format('SELECT   `id`,  `creature_id` as `cid`,  `event_type` as `et`,  ' +
         '`event_inverse_phase_mask` as `epm`, `event_chance` as `ec`,  `event_flags` as `ef`,  ' +
-        '`event_param1` as `ep1`,  `event_param2` as `ep2`,  `event_param3` as `ep3`, `event_param4` as `ep4`,  ' +
+        '`event_param1` as `ep1`,  `event_param2` as `ep2`,  `event_param3` as `ep3`, `event_param4` as `ep4`,  `event_param5` as `ep5`,  `event_param6` as `ep6`,  ' +
         '`action1_type` as `a1t`,  `action1_param1` as `a11`,  `action1_param2` as `a12`,  `action1_param3` as `a13`, '
         + '`action2_type` as `a2t`,  `action2_param1` as `a21`,  `action2_param2` as `a22`,  `action2_param3` as `a23`, '
         + '`action3_type` as `a3t`,  `action3_param1` as `a31`,  `action3_param2` as `a32`,  `action3_param3` as `a33`, '
@@ -7049,6 +7053,32 @@ begin
           end;
         end;
 
+      58:
+        begin
+          Result := 'Enables Walk (0 off, 1 on) or enables chase walk (2 off, 3 on).';
+          case ParamNo of
+            1:
+              Result := 'Type of walking';
+            2:
+              Result := 'Not Used';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
+      59:
+        begin
+          Result := 'Sets facing, i.e. orientation to target, or resets it to last waypoint hit, or to respawn position.';
+          case ParamNo of
+            1:
+              Result := 'Target type';
+            2:
+              Result := 'Reset boolean, 0 sets and 1 resets';
+            3:
+              Result := 'Not Used';
+          end;
+        end;
+
     end;
   end
   else
@@ -7062,7 +7092,7 @@ begin
   TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).ShowButton := false;
   TJvComboEdit(FindComponent('edcnaction'+ num + '_param3')).OnButtonClick := GetTargetType;
   case StrToIntDef(TJvComboEdit(FindComponent('edcnaction'+ num + '_type')).Text, 1) of
-	28, 55:
+	28, 55, 59:
       TJvComboEdit(FindComponent('edcnaction'+ num + '_param1')).ShowButton := true;
 	11:
 	begin
@@ -7098,7 +7128,7 @@ end;
 
 procedure TMainForm.edcnevent_typeChange(Sender: TObject);
 var
-  S: array [1 .. 4] of string;
+  S: array [1 .. 6] of string;
 begin
   S[3] := 'RepeatMin';
   S[4] := 'RepeatMax';
@@ -7126,11 +7156,11 @@ begin
         S[3] := 'n/a';
         S[4] := 'n/a';
       end;
-    5, 13:
+    5:
       begin
         S[1] := 'RepeatMin';
         S[2] := 'RepeatMax';
-        S[3] := 'n/a';
+        S[3] := 'PlayerOnly';
         S[4] := 'n/a';
       end;
 	6:
@@ -7140,7 +7170,7 @@ begin
         S[3] := 'n/a';
         S[4] := 'n/a';
 	  end;
-    8:
+    8, 34:
       begin
         S[1] := 'SpellID';
         S[2] := 'Schoolmask';
@@ -7152,8 +7182,10 @@ begin
       end;
     10:
       begin
-        S[1] := 'Hostile-or-Not';
-        S[2] := 'MaxAllowedRange';
+        S[1] := 'NoHostile';
+        S[2] := 'MaxRange';
+        S[5] := 'PlayerOnly';
+        S[6] := 'ConditionId';
       end;
 	11:
 	  begin
@@ -7162,6 +7194,13 @@ begin
         S[3] := 'n/a';
         S[4] := 'n/a';
 	  end;
+    13:
+      begin
+        S[1] := 'RepeatMin';
+        S[2] := 'RepeatMax';
+        S[3] := 'n/a';
+        S[4] := 'n/a';
+      end;
     14:
       begin
         S[1] := 'HPDeficit';
@@ -7187,9 +7226,9 @@ begin
     22:
       begin
         S[1] := 'EmoteId';
-        S[2] := 'Condition';
-        S[3] := 'CondValue1';
-        S[4] := 'CondValue2';
+        S[2] := 'ConditionId';
+        S[3] := 'n/a';
+        S[4] := 'n/a';
       end;
     23, 24, 27, 28:
       begin
@@ -7224,12 +7263,16 @@ begin
       S[2] := '';
       S[3] := '';
       S[4] := '';
+      S[5] := '';
+      S[6] := '';
     end;
   end;
   edcnevent_param1.Hint := S[1];
   edcnevent_param2.Hint := S[2];
   edcnevent_param3.Hint := S[3];
   edcnevent_param4.Hint := S[4];
+  edcnevent_param5.Hint := S[5];
+  edcnevent_param6.Hint := S[6];
 end;
 
 procedure TMainForm.GetTargetType(Sender: TObject);
@@ -9877,6 +9920,8 @@ begin
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'event_param2')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'event_param3')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'event_param4')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'event_param5')).Text);
+    SubItems.Add(TCustomEdit(FindComponent(pfx + 'event_param6')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'action1_type')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'action1_param1')).Text);
     SubItems.Add(TCustomEdit(FindComponent(pfx + 'action1_param2')).Text);
@@ -9909,19 +9954,21 @@ begin
       SubItems[6] := TCustomEdit(FindComponent(pfx + 'event_param2')).Text;
       SubItems[7] := TCustomEdit(FindComponent(pfx + 'event_param3')).Text;
       SubItems[8] := TCustomEdit(FindComponent(pfx + 'event_param4')).Text;
-      SubItems[9] := TCustomEdit(FindComponent(pfx + 'action1_type')).Text;
-      SubItems[10] := TCustomEdit(FindComponent(pfx + 'action1_param1')).Text;
-      SubItems[11] := TCustomEdit(FindComponent(pfx + 'action1_param2')).Text;
-      SubItems[12] := TCustomEdit(FindComponent(pfx + 'action1_param3')).Text;
-      SubItems[13] := TCustomEdit(FindComponent(pfx + 'action2_type')).Text;
-      SubItems[14] := TCustomEdit(FindComponent(pfx + 'action2_param1')).Text;
-      SubItems[15] := TCustomEdit(FindComponent(pfx + 'action2_param2')).Text;
-      SubItems[16] := TCustomEdit(FindComponent(pfx + 'action2_param3')).Text;
-      SubItems[17] := TCustomEdit(FindComponent(pfx + 'action3_type')).Text;
-      SubItems[18] := TCustomEdit(FindComponent(pfx + 'action3_param1')).Text;
-      SubItems[19] := TCustomEdit(FindComponent(pfx + 'action3_param2')).Text;
-      SubItems[20] := TCustomEdit(FindComponent(pfx + 'action3_param3')).Text;
-      SubItems[21] := TCustomEdit(FindComponent(pfx + 'comment')).Text;
+      SubItems[9] := TCustomEdit(FindComponent(pfx + 'event_param5')).Text;
+      SubItems[10] := TCustomEdit(FindComponent(pfx + 'event_param6')).Text;
+      SubItems[11] := TCustomEdit(FindComponent(pfx + 'action1_type')).Text;
+      SubItems[12] := TCustomEdit(FindComponent(pfx + 'action1_param1')).Text;
+      SubItems[13] := TCustomEdit(FindComponent(pfx + 'action1_param2')).Text;
+      SubItems[14] := TCustomEdit(FindComponent(pfx + 'action1_param3')).Text;
+      SubItems[15] := TCustomEdit(FindComponent(pfx + 'action2_type')).Text;
+      SubItems[16] := TCustomEdit(FindComponent(pfx + 'action2_param1')).Text;
+      SubItems[17] := TCustomEdit(FindComponent(pfx + 'action2_param2')).Text;
+      SubItems[18] := TCustomEdit(FindComponent(pfx + 'action2_param3')).Text;
+      SubItems[19] := TCustomEdit(FindComponent(pfx + 'action3_type')).Text;
+      SubItems[20] := TCustomEdit(FindComponent(pfx + 'action3_param1')).Text;
+      SubItems[21] := TCustomEdit(FindComponent(pfx + 'action3_param2')).Text;
+      SubItems[22] := TCustomEdit(FindComponent(pfx + 'action3_param3')).Text;
+      SubItems[23] := TCustomEdit(FindComponent(pfx + 'comment')).Text;
     end;
   end;
 end;
@@ -10127,19 +10174,21 @@ begin
       TCustomEdit(FindComponent(pfx + 'event_param2')).Text := SubItems[6];
       TCustomEdit(FindComponent(pfx + 'event_param3')).Text := SubItems[7];
       TCustomEdit(FindComponent(pfx + 'event_param4')).Text := SubItems[8];
-      TCustomEdit(FindComponent(pfx + 'action1_type')).Text := SubItems[9];
-      TCustomEdit(FindComponent(pfx + 'action1_param1')).Text := SubItems[10];
-      TCustomEdit(FindComponent(pfx + 'action1_param2')).Text := SubItems[11];
-      TCustomEdit(FindComponent(pfx + 'action1_param3')).Text := SubItems[12];
-      TCustomEdit(FindComponent(pfx + 'action2_type')).Text := SubItems[13];
-      TCustomEdit(FindComponent(pfx + 'action2_param1')).Text := SubItems[14];
-      TCustomEdit(FindComponent(pfx + 'action2_param2')).Text := SubItems[15];
-      TCustomEdit(FindComponent(pfx + 'action2_param3')).Text := SubItems[16];
-      TCustomEdit(FindComponent(pfx + 'action3_type')).Text := SubItems[17];
-      TCustomEdit(FindComponent(pfx + 'action3_param1')).Text := SubItems[18];
-      TCustomEdit(FindComponent(pfx + 'action3_param2')).Text := SubItems[19];
-      TCustomEdit(FindComponent(pfx + 'action3_param3')).Text := SubItems[20];
-      TCustomEdit(FindComponent(pfx + 'comment')).Text := SubItems[21];
+      TCustomEdit(FindComponent(pfx + 'event_param5')).Text := SubItems[9];
+      TCustomEdit(FindComponent(pfx + 'event_param6')).Text := SubItems[10];
+      TCustomEdit(FindComponent(pfx + 'action1_type')).Text := SubItems[11];
+      TCustomEdit(FindComponent(pfx + 'action1_param1')).Text := SubItems[12];
+      TCustomEdit(FindComponent(pfx + 'action1_param2')).Text := SubItems[13];
+      TCustomEdit(FindComponent(pfx + 'action1_param3')).Text := SubItems[14];
+      TCustomEdit(FindComponent(pfx + 'action2_type')).Text := SubItems[15];
+      TCustomEdit(FindComponent(pfx + 'action2_param1')).Text := SubItems[16];
+      TCustomEdit(FindComponent(pfx + 'action2_param2')).Text := SubItems[17];
+      TCustomEdit(FindComponent(pfx + 'action2_param3')).Text := SubItems[18];
+      TCustomEdit(FindComponent(pfx + 'action3_type')).Text := SubItems[19];
+      TCustomEdit(FindComponent(pfx + 'action3_param1')).Text := SubItems[20];
+      TCustomEdit(FindComponent(pfx + 'action3_param2')).Text := SubItems[21];
+      TCustomEdit(FindComponent(pfx + 'action3_param3')).Text := SubItems[22];
+      TCustomEdit(FindComponent(pfx + 'comment')).Text := SubItems[23];
     end;
   end;
 end;
