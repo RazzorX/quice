@@ -413,7 +413,7 @@ type
     edctMinLootGold: TLabeledEdit;
     edctMaxLootGold: TLabeledEdit;
     gbCreature2: TGroupBox;
-    lbctfaction_A: TLabel;
+    lbctfaction: TLabel;
     lbctnpcflag: TLabel;
     lbctrank: TLabel;
     lbctfamily: TLabel;
@@ -422,7 +422,7 @@ type
     edctMeleeBaseAttackTime: TLabeledEdit;
     edctRangedBaseAttackTime: TLabeledEdit;
     edctRangedAttackPower: TLabeledEdit;
-    edctFactionAlliance: TJvComboEdit;
+    edctFaction: TJvComboEdit;
     edctNpcFlags: TJvComboEdit;
     edctRank: TJvComboEdit;
     edctFamily: TJvComboEdit;
@@ -1099,8 +1099,6 @@ type
     lbqtCompleteEmote: TLabel;
     lbqtOfferRewardEmote1: TLabel;
     lbcaemote: TLabel;
-    edctFactionHorde: TJvComboEdit;
-    lbctfaction_H: TLabel;
     edctRegenerateStats: TLabeledEdit;
     tsCreatureModelInfo: TTabSheet;
     tsCreatureEquipTemplate: TTabSheet;
@@ -6771,7 +6769,7 @@ begin
             1:
               Result := 'The creature template ID. The value here must be a valid creature template ID.';
             2:
-              Result := 'Use model_id from team : Alliance(0) or Horde (1).';
+              Result := 'Not Used';
             3:
               Result := 'Not Used';
           end;

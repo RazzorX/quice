@@ -7596,16 +7596,16 @@ object MainForm: TMainForm
             Height = 209
             Caption = 'Creature II'
             TabOrder = 1
-            object lbctfaction_A: TLabel
+            object lbctfaction: TLabel
               Left = 200
               Top = 127
-              Width = 72
+              Width = 35
               Height = 13
-              Caption = 'FactionAlliance'
+              Caption = 'Faction'
             end
             object lbctnpcflag: TLabel
-              Left = 391
-              Top = 127
+              Left = 8
+              Top = 167
               Width = 45
               Height = 13
               Caption = 'NpcFlags'
@@ -7625,35 +7625,28 @@ object MainForm: TMainForm
               Caption = 'Family'
             end
             object lbcttype: TLabel
-              Left = 8
-              Top = 167
-              Width = 64
-              Height = 13
-              Caption = 'CreatureType'
-            end
-            object lbctfaction_H: TLabel
               Left = 295
               Top = 127
               Width = 64
               Height = 13
-              Caption = 'FactionHorde'
+              Caption = 'CreatureType'
             end
             object lbctunit_flags: TLabel
-              Left = 200
+              Left = 104
               Top = 167
               Width = 44
               Height = 13
               Caption = 'UnitFlags'
             end
             object lbcttype_flags: TLabel
-              Left = 104
-              Top = 167
+              Left = 391
+              Top = 127
               Width = 89
               Height = 13
               Caption = 'CreatureTypeFlags'
             end
             object lbctdynamicflags: TLabel
-              Left = 391
+              Left = 200
               Top = 167
               Width = 66
               Height = 13
@@ -7731,7 +7724,7 @@ object MainForm: TMainForm
               EditLabel.Caption = 'RangeAttackPower'
               TabOrder = 9
             end
-            object edctFactionAlliance: TJvComboEdit
+            object edctFaction: TJvComboEdit
               Left = 200
               Top = 143
               Width = 89
@@ -7771,8 +7764,8 @@ object MainForm: TMainForm
               OnButtonClick = GetFactionTemplate
             end
             object edctNpcFlags: TJvComboEdit
-              Left = 391
-              Top = 143
+              Left = 8
+              Top = 181
               Width = 89
               Height = 21
               Hint = 
@@ -7808,7 +7801,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 15
+              TabOrder = 14
               Text = ''
               OnButtonClick = edctNpcFlagsButtonClick
             end
@@ -7891,8 +7884,8 @@ object MainForm: TMainForm
               OnButtonClick = edctFamilyButtonClick
             end
             object edctCreatureType: TJvComboEdit
-              Left = 8
-              Top = 183
+              Left = 295
+              Top = 143
               Width = 89
               Height = 21
               ButtonWidth = 22
@@ -7924,7 +7917,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 14
+              TabOrder = 13
               Text = ''
               OnButtonClick = edctCreatureTypeButtonClick
             end
@@ -7982,12 +7975,21 @@ object MainForm: TMainForm
               EditLabel.Caption = 'DamageSchool'
               TabOrder = 7
             end
-            object edctFactionHorde: TJvComboEdit
-              Left = 295
-              Top = 143
+            object edctRegenerateStats: TLabeledEdit
+              Left = 199
+              Top = 32
               Width = 89
               Height = 21
-              Hint = 'Creature'#39's faction.'
+              EditLabel.Width = 56
+              EditLabel.Height = 13
+              EditLabel.Caption = 'RegenStats'
+              TabOrder = 8
+            end
+            object edctUnitFlags: TJvComboEdit
+              Left = 104
+              Top = 181
+              Width = 89
+              Height = 21
               ButtonWidth = 22
               ClickKey = 13
               Glyph.Data = {
@@ -8017,23 +8019,13 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 13
+              TabOrder = 15
               Text = ''
-              OnButtonClick = GetFactionTemplate
+              OnButtonClick = GetUnitFlags
             end
-            object edctRegenerateStats: TLabeledEdit
-              Left = 199
-              Top = 32
-              Width = 89
-              Height = 21
-              EditLabel.Width = 56
-              EditLabel.Height = 13
-              EditLabel.Caption = 'RegenStats'
-              TabOrder = 8
-            end
-            object edctUnitFlags: TJvComboEdit
-              Left = 200
-              Top = 183
+            object edctCreatureTypeFlags: TJvComboEdit
+              Left = 391
+              Top = 143
               Width = 89
               Height = 21
               ButtonWidth = 22
@@ -8067,11 +8059,11 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 16
               Text = ''
-              OnButtonClick = GetUnitFlags
+              OnButtonClick = GetCreatureTypeFlags
             end
-            object edctCreatureTypeFlags: TJvComboEdit
-              Left = 104
-              Top = 183
+            object edctDynamicFlags: TJvComboEdit
+              Left = 200
+              Top = 181
               Width = 89
               Height = 21
               ButtonWidth = 22
@@ -8105,44 +8097,6 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
               TabOrder = 17
               Text = ''
-              OnButtonClick = GetCreatureTypeFlags
-            end
-            object edctDynamicFlags: TJvComboEdit
-              Left = 391
-              Top = 183
-              Width = 89
-              Height = 21
-              ButtonWidth = 22
-              ClickKey = 13
-              Glyph.Data = {
-                36030000424D3603000000000000360000002800000010000000100000000100
-                18000000000000030000120B0000120B00000000000000000000FFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFD79C64
-                DB9E63FFFFFFFFFFFFFFFFFFFFFFFFDA9E63D89D65FFFFFFFFFFFFFFFFFFFFFF
-                FFD79C64DB9E63FFFFFFC2773FEBB36FEDB570D19059FFFFFFFFFFFFC57D44ED
-                B571EBB26ECC9164FFFFFFFFFFFFC27840EBB36FECB470D1915AC48355D5955B
-                D89960CA8C5FFFFFFFFFFFFFC68457D8995FD6965BCE9974FFFFFFFFFFFFC380
-                52D6975DD99A61CB8D5FFFFFFFC68A65C17F54FFFFFFFFFFFFFFFFFFFFFFFFC2
-                8157C58963FFFFFFFFFFFFFFFFFFFFFFFFC68B65C17F54FFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
-                FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 18
-              Text = ''
               OnButtonClick = GetCreatureDynamicFlags
             end
             object edctUnitClass: TLabeledEdit
@@ -8153,7 +8107,7 @@ object MainForm: TMainForm
               EditLabel.Width = 44
               EditLabel.Height = 13
               EditLabel.Caption = 'UnitClass'
-              TabOrder = 19
+              TabOrder = 18
             end
             object edctVendorTemplateId: TJvComboEdit
               Left = 8
@@ -8205,7 +8159,7 @@ object MainForm: TMainForm
                 072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-              TabOrder = 20
+              TabOrder = 19
               Text = ''
               OnButtonClick = edctVendorTemplateIdButtonClick
             end
@@ -8259,7 +8213,7 @@ object MainForm: TMainForm
                 072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-              TabOrder = 21
+              TabOrder = 20
               Text = ''
               OnButtonClick = edctTrainerTemplateIdButtonClick
             end
@@ -8271,11 +8225,11 @@ object MainForm: TMainForm
               EditLabel.Width = 88
               EditLabel.Height = 13
               EditLabel.Caption = 'VehicleTemplateId'
-              TabOrder = 22
+              TabOrder = 21
             end
             object edctExtraFlags: TJvComboEdit
               Left = 295
-              Top = 183
+              Top = 181
               Width = 89
               Height = 21
               ButtonWidth = 22
@@ -8307,7 +8261,7 @@ object MainForm: TMainForm
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF
                 FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF}
-              TabOrder = 23
+              TabOrder = 22
               Text = ''
               OnButtonClick = GetFlagsExtra
             end
@@ -8361,7 +8315,7 @@ object MainForm: TMainForm
                 072D342A3C4A4A4A4A4A4A4A4A4A420D322005374A4A4A4A4A4A4A4A4A1B4018
                 1C26174A4A4A4A4A4A4A4A4A4A4A2E082F2C4A4A4A4A4A4A4A4A4A4A4A4A4A10
                 0E4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A4A}
-              TabOrder = 24
+              TabOrder = 23
               Text = ''
               OnButtonClick = edctEquipTemplateIdButtonClick
             end
