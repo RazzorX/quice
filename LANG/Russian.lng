@@ -214,25 +214,25 @@ TEXT92=Ошибка при загрузке `Gameobject_loot_template`:
 TEXT93=GameObject Type
 TEXT94=Всегда = 0 или не описано
 TEXT95=Состояние
-TEXT96=LockID ( ID из Lock.dbc )
-TEXT97=Флаги
-TEXT98=ID игрового объекта ( Type GO, которое вызывается Type=6 )
-TEXT99=Флаг поля сражений
-TEXT100=QuestLootID (идентификатор задания, с которого возьмётся награда за выполнение)
-TEXT101=LootID
-TEXT102=Время
-TEXT103=MinLoot
-TEXT104=MaxLoot
-TEXT105=QuestID при этом задании добыча разрешена
+TEXT96=ID из Lock.dbc
+TEXT97=Boolean flag
+TEXT98=gameobject_template.entry ( Type GO, которое вызывается Type=6 )
+TEXT99=Unknown Text ID
+TEXT100=unknown ID
+TEXT101=gameobject_loot_template.entry
+TEXT102=Время в секундах
+TEXT103=Минимальное количество попыток добычи
+TEXT104=Максимальное количество попыток добычи
+TEXT105=quest_template.entry завершенного задания
 TEXT106=Дистанция действия
-TEXT107=Spell ID
+TEXT107=Spell.dbc
 TEXT108=Time/Distance
 TEXT109=Chain Effect
 TEXT110=Time/Distance для Chain Effect
-TEXT111=areatrigger_template.id
+TEXT111=Unknown Event ID
 TEXT112=Distance/ State
 TEXT113=ID SpellFocusObject.dbc
-TEXT114=Page ID
+TEXT114=page_text.entry
 TEXT115=ID из PageTextMaterial.dbc
 TEXT116=Предметов найдено: %d
 TEXT117=Ошибка: Предмет (entry = %d) не найден
@@ -262,6 +262,52 @@ TEXT140=Вы действительно хотите удалить Quice?
 TEXT141=Тип тренера
 TEXT142=Раса
 TEXT143=Класс
+TEXT144=The error has occurred while loading NPC gossip:
+TEXT145=The error has occurred while loading NPC Text:
+TEXT146=~OBSOLETE
+TEXT147=Emote
+TEXT148=ItemPetFood
+TEXT149=The error has occurred while loading Creature Template Addon:
+TEXT150=GemProperties
+TEXT151=SpellItemEnchantment
+TEXT152=ItemExtendedCost
+TEXT153=Error: Character (guid = %d) not found
+TEXT154=The error has occurred while loading the Character:
+TEXT155=AreaTrigger
+TEXT156=Conditions
+TEXT157=The error has occurred while loading Creature EventAI:
+TEXT158=Option Icon
+TEXT159=The error has occurred while loading Creature Template Spells:
+TEXT160=The error has occurred while loading DBScripts On Creature Death:
+TEXT161=Error: Conditions (condition_entry = %d) not found
+TEXT162=The error has occurred while loading Conditions:
+TEXT163=Method of text output
+TEXT164=Error: Db_script_string (entry = %d) not found
+TEXT165=The error has occurred while loading Db_script_string:
+TEXT166=Error: %s (entry = %d) not found
+TEXT167=The error has occurred while loading %s:
+TEXT168=Error: creature_model_info (id = %d) not found
+TEXT169=The error has occurred while loading creature_model_info:
+TEXT170=Error: gossip_menu_option (id = %d) not found
+TEXT171=The error has occurred while loading gossip_menu_option:
+TEXT172=PageTextMaterial.dbc
+TEXT173=gossip_menu.entry
+TEXT174=unknown value from 1 to 4
+TEXT175=minimal level required to open this gameobject
+TEXT176=Always 0
+TEXT177=Required active quest_template.entry to work
+TEXT178=npc equivalent level for casted spell
+TEXT179=number of players that can sit down on it
+TEXT180=ID from Languages.dbc
+TEXT181=The id of the dbscripts_on_event.id that the gameobject will activate
+TEXT182=Boolean flag controling if gameobject will despawn or not
+TEXT183=CinematicCamera.dbc
+TEXT184=TaxiPath.dbc
+TEXT185=(Boolean flag, need to be in group to use it
+TEXT186=AreaTable.dbc
+TEXT187=Unknown ID, not a spell id in dbc file, maybe server only side spell
+TEXT188=Map.dbc
+TEXT189=0, 1, 2 or 3
 [MAIN]
 Caption=Quice
 tsQuest=Задания

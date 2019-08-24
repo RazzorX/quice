@@ -112,6 +112,7 @@ var
 begin
   Result:='';
   if spell<1 then Exit;
+  if lvList.Items.Count=0 then SetList(lvList, 'Spell');
   for i:=0 to lvList.Items.Count - 1 do
   begin
     if spell = StrToIntDef(lvList.Items[i].Caption,0) then

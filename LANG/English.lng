@@ -25,7 +25,6 @@ pmthottbot=thottbot
 pmallakhazam=allakhazam
 pmwowdb=wowdb
 [GETGUID]
-Caption=Get GUID for gameobject
 tsSearch=Search
 edID=ID
 edName=Name
@@ -230,25 +229,25 @@ TEXT92=The error has accured while loading gameobject_loot_template:
 TEXT93=GameObject Type
 TEXT94=Always = 0 or Unknown
 TEXT95=State
-TEXT96=LockID ( ID from Lock.dbc )
-TEXT97=flags
-TEXT98=ID gameobject ( Spawned GO type 6 )
-TEXT99=State Battleground
-TEXT100=QuestLoot ID
-TEXT101=LootID
-TEXT102=Time
-TEXT103=MinLoot
-TEXT104=MaxLoot
-TEXT105=QuestID ( Quest complete )
+TEXT96=ID from Lock.dbc
+TEXT97=Boolean flag
+TEXT98=gameobject_template.entry ( Spawned GO type 6 )
+TEXT99=Unknown Text ID
+TEXT100=unknown ID
+TEXT101=gameobject_loot_template.entry
+TEXT102=Time in seconds
+TEXT103=Min successful loot attempts for Mining, Herbalism etc
+TEXT104=Max successful loot attempts for Mining, Herbalism etc
+TEXT105=quest_template.entry of completed quest
 TEXT106=Distance
-TEXT107=Spell ID
+TEXT107=Spell.dbc
 TEXT108=Time/Distance
 TEXT109=Chain Effect
 TEXT110=Time/Distance for Chain Effect
-TEXT111=areatrigger_template.id
+TEXT111=Unknown Event ID
 TEXT112=Distance/ State
 TEXT113=ID SpellFocusObject.dbc
-TEXT114=Page ID
+TEXT114=page_text.entry
 TEXT115=ID from PageTextMaterial.dbc
 TEXT116=Items found: %d
 TEXT117=Error: Item (entry = %d) not found
@@ -293,6 +292,37 @@ TEXT155=AreaTrigger
 TEXT156=LootCondition
 TEXT157=The error has accured while loading Creature EventAI:
 TEXT158=Option Icon
+TEXT159=The error has occurred while loading Creature Template Spells:
+TEXT160=The error has occurred while loading DBScripts On Creature Death:
+TEXT161=Error: Conditions (condition_entry = %d) not found
+TEXT162=The error has occurred while loading Conditions:
+TEXT163=Method of text output
+TEXT164=Error: Db_script_string (entry = %d) not found
+TEXT165=The error has occurred while loading Db_script_string:
+TEXT166=Error: %s (entry = %d) not found
+TEXT167=The error has occurred while loading %s:
+TEXT168=Error: creature_model_info (id = %d) not found
+TEXT169=The error has occurred while loading creature_model_info:
+TEXT170=Error: gossip_menu_option (id = %d) not found
+TEXT171=The error has occurred while loading gossip_menu_option:
+TEXT172=PageTextMaterial.dbc
+TEXT173=gossip_menu.entry
+TEXT174=unknown value from 1 to 4
+TEXT175=minimal level required to open this gameobject
+TEXT176=Always 0
+TEXT177=Required active quest_template.entry to work
+TEXT178=npc equivalent level for casted spell
+TEXT179=number of players that can sit down on it
+TEXT180=ID from Languages.dbc
+TEXT181=The id of the dbscripts_on_event.id that the gameobject will activate
+TEXT182=Boolean flag controling if gameobject will despawn or not
+TEXT183=CinematicCamera.dbc
+TEXT184=TaxiPath.dbc
+TEXT185=(Boolean flag, need to be in group to use it
+TEXT186=AreaTable.dbc
+TEXT187=Unknown ID, not a spell id in dbc file, maybe server only side spell
+TEXT188=Map.dbc
+TEXT189=0, 1, 2 or 3
 [MAIN]
 Caption=Quice
 tsQuest=Quest
